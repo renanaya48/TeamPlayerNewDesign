@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "298115382263",
+    "firebase_url": "https://teanplayer-8b9ee.firebaseio.com",
+    "project_id": "teanplayer-8b9ee",
+    "storage_bucket": "teanplayer-8b9ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298115382263:android:81d0723c32ca1dd1ae4cf2",
+        "android_client_info": {
+          "package_name": "com.example.teamplayer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "298115382263-n32ls0a1kcmll6i1q8q9g5p7teu2harf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.teamplayer",
+            "certificate_hash": "6372cd2188cdd2aa94385328784fe93368819e79"
+          }
+        },
+        {
+          "client_id": "298115382263-n5bak2rj95043vbg1evmgnh4p6b2g920.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCR6_jsO4Mssxk4OLNRzZftheyLMWsOqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "298115382263-n5bak2rj95043vbg1evmgnh4p6b2g920.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
