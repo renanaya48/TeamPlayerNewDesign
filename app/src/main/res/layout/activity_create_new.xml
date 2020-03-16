@@ -14,8 +14,8 @@
 
         <EditText
             android:id="@+id/editText3"
-            android:layout_width="160"
-            android:layout_height="32"
+            android:layout_width="160dp"
+            android:layout_height="32dp"
             android:layout_marginTop="320dp"
             android:layout_marginEnd="60dp"
             android:layout_marginRight="60dp"
@@ -40,15 +40,15 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="312"
-            android:layout_height="50"
+            android:layout_width="312dp"
+            android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="28dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:background="@drawable/title_border"
-            android:paddingLeft="55"
+            android:paddingLeft="55dp"
             android:text="New Activity"
             android:textColor="#131212"
             android:textSize="36sp"
@@ -137,8 +137,8 @@
 
         <EditText
             android:id="@+id/editText7"
-            android:layout_width="350"
-            android:layout_height="45"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
             android:layout_marginTop="416dp"
             android:layout_marginEnd="52dp"
             android:layout_marginRight="52dp"
@@ -149,9 +149,9 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editText9"
-            android:layout_width="160"
-            android:layout_height="32"
+            android:id="@+id/password"
+            android:layout_width="160dp"
+            android:layout_height="32dp"
             android:layout_marginTop="108dp"
             android:layout_marginEnd="60dp"
             android:layout_marginRight="60dp"
@@ -179,8 +179,8 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ScrollView
-            android:layout_width="160"
-            android:layout_height="32"
+            android:layout_width="160dp"
+            android:layout_height="32dp"
             android:layout_marginTop="160dp"
             android:layout_marginEnd="60dp"
             android:layout_marginRight="60dp"
@@ -210,8 +210,8 @@
             app:srcCompat="@drawable/project_logo" />
 
         <ScrollView
-            android:layout_width="160"
-            android:layout_height="32"
+            android:layout_width="160dp"
+            android:layout_height="32dp"
             android:background="@drawable/textview_border"
             tools:layout_editor_absoluteX="191dp"
             tools:layout_editor_absoluteY="212dp">
@@ -223,8 +223,8 @@
         </ScrollView>
 
         <ScrollView
-            android:layout_width="160"
-            android:layout_height="32"
+            android:layout_width="160dp"
+            android:layout_height="32dp"
             android:background="@drawable/textview_border"
             tools:layout_editor_absoluteX="191dp"
             tools:layout_editor_absoluteY="267dp">
@@ -237,8 +237,8 @@
 
         <CheckBox
             android:id="@+id/checkBox"
-            android:layout_width="35"
-            android:layout_height="35"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:background="@drawable/textview_border"
             tools:layout_editor_absoluteX="188dp"
             tools:layout_editor_absoluteY="488dp" />

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\renan\\AndroidStudioProjects\\TeamPlayerNewVersion\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-be\\values-be.xml",
+            "outputFile": "C:\\Users\\avib\\AndroidStudioProjects\\TeamPlayerNewVersion\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-be\\values-be.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\renan\\.gradle\\caches\\transforms-2\\files-2.1\\37a25ce3f9d0d9161883153d23aa4ec0\\res\\values-be\\values-be.xml",
+                    "source": "C:\\Users\\avib\\.gradle\\caches\\transforms-2\\files-2.1\\edf12686c9ba8fb28d322462d00285ff\\res\\values-be\\values-be.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\renan\\.gradle\\caches\\transforms-2\\files-2.1\\2bb04227cca93e9bffabedf3343ae7fe\\res\\values-be\\values.xml",
+                    "source": "C:\\Users\\avib\\.gradle\\caches\\transforms-2\\files-2.1\\6a846549fb1256522718aa039690d7bc\\res\\values-be\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\renan\\.gradle\\caches\\transforms-2\\files-2.1\\39cc4c2441a847c5567433e772717343\\res\\values-be\\values-be.xml",
+                    "source": "C:\\Users\\avib\\.gradle\\caches\\transforms-2\\files-2.1\\e21f6bc2006514a64af51e26ecd83a0b\\res\\values-be\\values-be.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -55,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\renan\\.gradle\\caches\\transforms-2\\files-2.1\\2c050fecf48c84905be8be4ab4e0daa1\\res\\values-be\\values.xml",
+                    "source": "C:\\Users\\avib\\.gradle\\caches\\transforms-2\\files-2.1\\d7b285a7f1b1b7cb54a871d9678849da\\res\\values-be\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

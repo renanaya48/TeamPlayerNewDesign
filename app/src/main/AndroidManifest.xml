@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".registration" />
         <activity android:name=".activity_Search"></activity>
         <activity android:name=".activity_Login" />
         <activity android:name=".activity_create_new" />
@@ -20,7 +21,6 @@
         <activity android:name=".requests" />
         <activity android:name=".no_result" />
         <activity android:name=".chat" />
-        <activity android:name=".registration" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

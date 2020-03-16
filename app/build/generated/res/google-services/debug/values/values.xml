@@ -7,4 +7,5 @@
     <string name="google_app_id" translatable="false">1:298115382263:android:81d0723c32ca1dd1ae4cf2</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDCR6_jsO4Mssxk4OLNRzZftheyLMWsOqU</string>
     <string name="google_storage_bucket" translatable="false">teanplayer-8b9ee.appspot.com</string>
+    <string name="project_id" translatable="false">teanplayer-8b9ee</string>
 </resources>

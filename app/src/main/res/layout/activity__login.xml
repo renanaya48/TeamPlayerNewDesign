@@ -18,15 +18,14 @@
             android:layout_width="312dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="472dp"
+            android:layout_marginTop="508dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
             android:background="@drawable/title_border"
+            android:onClick="logIn"
             android:text="Login"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintHorizontal_bias="0.518"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,9 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="244dp"
-            android:text="Username"
+            android:text="Email"
             android:textColor="#273272"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,8 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="320dp"
+            android:layout_marginTop="328dp"
             android:text="Password"
             android:textColor="#273272"
             android:textSize="24sp"
@@ -57,9 +54,9 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editText4"
-            android:layout_width="200"
-            android:layout_height="50"
+            android:id="@+id/Email"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
             android:layout_marginTop="236dp"
             android:layout_marginEnd="60dp"
             android:layout_marginRight="60dp"
@@ -70,16 +67,16 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editText9"
-            android:layout_width="200"
-            android:layout_height="50"
+            android:id="@+id/password"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
             android:layout_marginTop="260dp"
             android:layout_marginEnd="60dp"
             android:layout_marginRight="60dp"
             android:layout_marginBottom="100dp"
             android:background="@drawable/textview_border"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -87,13 +84,11 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="312"
-            android:layout_height="25"
+            android:layout_width="307dp"
+            android:layout_height="30dp"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="556dp"
+            android:layout_marginTop="576dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
             android:background="@drawable/title_border"
             android:text="First time here? Click to join!"
             android:textSize="14sp"
@@ -121,19 +116,34 @@
             android:id="@+id/editText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="440dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Forgot your Password?"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="383dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="440dp"
+            android:layout_marginEnd="60dp"
+            android:onClick="resetPassword"
             android:text="Click here"
-            tools:layout_editor_absoluteX="250dp"
-            tools:layout_editor_absoluteY="383dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="173dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="384dp"
+            android:layout_marginEnd="92dp"
+            android:text="Show Password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

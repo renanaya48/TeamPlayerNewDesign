@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "298115382263-3ch9ortb6ok6o57nli68trrd90ttl6cr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.teamplayer",
+            "certificate_hash": "1aadf548a6872c75a109a2a252eadf00e482c201"
+          }
+        },
+        {
           "client_id": "298115382263-n32ls0a1kcmll6i1q8q9g5p7teu2harf.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

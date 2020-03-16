@@ -719,6 +719,7 @@ drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
 id CTRL
+id Email
 id FUNCTION
 id META
 id SHIFT
@@ -809,6 +810,7 @@ id button_join_request
 id button_more_members
 id center_vertical
 id chains
+id checkBox
 id checkbox
 id checked
 id chronometer
@@ -826,10 +828,9 @@ id dimensions
 id direct
 id disableHome
 id editText
-id editText11
-id editText4
+id editText2
+id editText3
 id editText7
-id editText9
 id edit_query
 id end
 id expand_activities_button
@@ -871,6 +872,7 @@ id on
 id packed
 id parent
 id parentPanel
+id password
 id percent
 id progress_circular
 id progress_horizontal
@@ -882,6 +884,7 @@ id screen
 id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
+id scrollView2
 id search_badge
 id search_bar
 id search_button
@@ -935,6 +938,7 @@ id textView4
 id textView5
 id textView6
 id textView7
+id textView8
 id textView9
 id time
 id title
@@ -991,7 +995,10 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity__login
+layout activity__search
 layout activity_chat
+layout activity_create_new
 layout activity_group
 layout activity_main
 layout activity_manager
@@ -1067,6 +1074,7 @@ string google_api_key
 string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
+string project_id
 string search_menu_title
 string status_bar_notification_info_overflow
 style AlertDialog_AppCompat
