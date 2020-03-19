@@ -27,7 +27,6 @@
         android:theme="@style/AppTheme" >
         <activity android:name="com.example.teamplayer.registration" />
         <activity android:name="com.example.teamplayer.activity_Search" />
-        <activity android:name="com.example.teamplayer.activity_Login" />
         <activity android:name="com.example.teamplayer.activity_create_new" />
         <activity android:name="com.example.teamplayer.user_activities" />
         <activity android:name="com.example.teamplayer.manager" />
@@ -37,7 +36,7 @@
         <activity android:name="com.example.teamplayer.requests" />
         <activity android:name="com.example.teamplayer.no_result" />
         <activity android:name="com.example.teamplayer.chat" />
-        <activity android:name="com.example.teamplayer.MainActivity" >
+        <activity android:name="com.example.teamplayer.activity_Login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

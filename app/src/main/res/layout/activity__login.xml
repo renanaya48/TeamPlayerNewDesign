@@ -14,7 +14,7 @@
         tools:context=".registration">
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/logInButton"
             android:layout_width="312dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -57,9 +57,8 @@
             android:id="@+id/Email"
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:layout_marginTop="236dp"
+            android:layout_marginTop="224dp"
             android:layout_marginEnd="60dp"
-            android:layout_marginRight="60dp"
             android:background="@drawable/textview_border"
             android:ems="10"
             android:inputType="textPersonName"
@@ -90,6 +89,7 @@
             android:layout_marginTop="576dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/title_border"
+            android:onClick="newUser"
             android:text="First time here? Click to join!"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -139,9 +139,19 @@
             android:id="@+id/checkbox"
             android:layout_width="173dp"
             android:layout_height="36dp"
-            android:layout_marginTop="384dp"
-            android:layout_marginEnd="92dp"
+            android:layout_marginTop="392dp"
+            android:layout_marginEnd="96dp"
             android:text="Show Password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/logInFailed"
+            android:layout_width="169dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="368dp"
+            android:layout_marginEnd="96dp"
+            android:textColor="#F44336"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

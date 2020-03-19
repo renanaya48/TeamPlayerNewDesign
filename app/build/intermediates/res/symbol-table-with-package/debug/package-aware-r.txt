@@ -797,7 +797,6 @@ id button14
 id button2
 id button3
 id button4
-id button5
 id button6
 id button7
 id button8
@@ -858,6 +857,8 @@ id line1
 id line3
 id listMode
 id list_item
+id logInButton
+id logInFailed
 id message
 id middle
 id multiply

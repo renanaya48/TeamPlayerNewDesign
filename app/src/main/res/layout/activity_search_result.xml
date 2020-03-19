@@ -90,7 +90,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.446"
-        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintStart_toEndOf="@+id/logInButton"
         app:layout_constraintTop_toBottomOf="@+id/button13" />
 
     <Button
@@ -107,7 +107,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.446"
-        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintStart_toEndOf="@+id/logInButton"
         app:layout_constraintTop_toBottomOf="@+id/button10" />
 
     <Button
@@ -128,7 +128,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/logInButton"
         android:layout_width="212dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
@@ -176,5 +176,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.131"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintTop_toBottomOf="@+id/logInButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
