@@ -139,11 +139,10 @@
             android:layout_width="312dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
             android:layout_marginTop="452dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
             android:background="@drawable/title_border"
+            android:onClick="searchResult"
             android:text="Find Activities"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -152,11 +151,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ScrollView
+            android:id="@+id/scrollView3"
             android:layout_width="160dp"
             android:layout_height="32dp"
             android:layout_marginTop="100dp"
             android:layout_marginEnd="52dp"
-            android:layout_marginRight="52dp"
             android:background="@drawable/textview_border"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -183,11 +182,14 @@
             app:srcCompat="@drawable/project_logo" />
 
         <ScrollView
+            android:id="@+id/scrollView4"
             android:layout_width="160dp"
             android:layout_height="32dp"
+            android:layout_marginTop="152dp"
+            android:layout_marginEnd="52dp"
             android:background="@drawable/textview_border"
-            tools:layout_editor_absoluteX="199dp"
-            tools:layout_editor_absoluteY="152dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -196,11 +198,14 @@
         </ScrollView>
 
         <ScrollView
+            android:id="@+id/scrollView5"
             android:layout_width="160dp"
             android:layout_height="32dp"
+            android:layout_marginTop="212dp"
+            android:layout_marginEnd="52dp"
             android:background="@drawable/textview_border"
-            tools:layout_editor_absoluteX="199dp"
-            tools:layout_editor_absoluteY="204dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -212,9 +217,24 @@
             android:id="@+id/checkBox"
             android:layout_width="35dp"
             android:layout_height="35dp"
+            android:layout_marginTop="360dp"
+            android:layout_marginEnd="176dp"
             android:background="@drawable/textview_border"
-            tools:layout_editor_absoluteX="199dp"
-            tools:layout_editor_absoluteY="363dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="28dp"
+            android:background="#C1EBE9E9"
+            android:onClick="backButton"
+            android:tint="#004B4949"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_revert" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
