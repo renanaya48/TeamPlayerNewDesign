@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\avib\\AndroidStudioProjects\\TeamPlayerNewVersion\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
+            "outputFile": "C:\\Users\\renan\\AndroidStudioProjects\\TeamPlayerNewVersion\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\avib\\.gradle\\caches\\transforms-2\\files-2.1\\edf12686c9ba8fb28d322462d00285ff\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "source": "C:\\Users\\renan\\.gradle\\caches\\transforms-2\\files-2.1\\d4404546cd74769cf4dfdeeda5820f8a\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -8,8 +8,10 @@
         android:minSdkVersion="19"
         android:targetSdkVersion="29" />
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+    <!-- <uses-sdk android:minSdkVersion="14"/> -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
@@ -26,7 +28,6 @@
         android:theme="@style/AppTheme" >
         <activity android:name="com.example.teamplayer.registration" />
         <activity android:name="com.example.teamplayer.activity_Search" />
-        <activity android:name="com.example.teamplayer.activity_Login" />
         <activity android:name="com.example.teamplayer.activity_create_new" />
         <activity android:name="com.example.teamplayer.user_activities" />
         <activity android:name="com.example.teamplayer.manager" />
@@ -36,7 +37,7 @@
         <activity android:name="com.example.teamplayer.requests" />
         <activity android:name="com.example.teamplayer.no_result" />
         <activity android:name="com.example.teamplayer.chat" />
-        <activity android:name="com.example.teamplayer.MainActivity" >
+        <activity android:name="com.example.teamplayer.activity_Login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -57,6 +58,9 @@
             android:exported="false" >
             <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
