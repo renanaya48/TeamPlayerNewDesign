@@ -845,6 +845,10 @@ id icon_group
 id icon_only
 id ifRoom
 id image
+id imageButton
+id imageButton2
+id imageButton3
+id imageButton4
 id imageView
 id imageView2
 id imageView5
@@ -886,6 +890,11 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollView2
+id scrollView3
+id scrollView4
+id scrollView5
+id scrollView6
+id scrollView7
 id search_badge
 id search_bar
 id search_button
