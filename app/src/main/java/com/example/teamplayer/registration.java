@@ -3,11 +3,13 @@ package com.example.teamplayer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -15,10 +17,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.webianks.library.scroll_choice.ScrollChoice;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class registration extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private static final String TAG = "EmailPassword";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +64,13 @@ public class registration extends AppCompatActivity {
                 // ...
             }
         });
+        login(view);
+    }
+
+
+    public void login(View view) {
+        Intent intent=new Intent(this,activity_Login.class);
+        startActivity(intent);
     }
 
     private void updateUI(FirebaseUser user) {
