@@ -18,23 +18,23 @@
             tools:context=".registration">
 
             <com.webianks.library.scroll_choice.ScrollChoice
-                android:id="@+id/scroll_choice"
-                android:layout_width="143dp"
-                android:layout_height="38dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="96dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.754"
-                app:layout_constraintStart_toEndOf="@+id/textView7"
-                app:scroll_atmospheric="true"
-                app:scroll_background_color="#F5f5f5"
-                app:scroll_indicator="true"
-                app:scroll_indicator_color="#FFF"
-                app:scroll_item_align="center"
-                app:scroll_item_text_color="?attr/colorAccent"
-                app:scroll_selected_item_background="#FFF"
-                app:scroll_selected_item_text_color="#FFC107" />
+            android:id="@+id/scroll_choice"
+            android:layout_width="143dp"
+            android:layout_height="38dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="96dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.754"
+            app:layout_constraintStart_toEndOf="@+id/textView7"
+            app:scroll_atmospheric="true"
+            app:scroll_background_color="#F5f5f5"
+            app:scroll_indicator="true"
+            app:scroll_indicator_color="#FFF"
+            app:scroll_item_align="center"
+            app:scroll_item_text_color="?attr/colorAccent"
+            app:scroll_selected_item_background="#FFF"
+            app:scroll_selected_item_text_color="#FFC107" />
 
             <TextView
                 android:id="@+id/textView"
@@ -147,7 +147,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/activity_name"
                 android:layout_width="150dp"
                 android:layout_height="27dp"
                 android:layout_marginTop="240dp"
@@ -303,7 +303,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/activity_name"
             android:layout_width="150dp"
             android:layout_height="27dp"
             android:layout_marginStart="8dp"

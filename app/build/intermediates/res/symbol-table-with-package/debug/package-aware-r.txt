@@ -1187,6 +1187,7 @@ id activity_name
 id add
 id adjust_height
 id adjust_width
+id age_range
 id alertTitle
 id all
 id always
@@ -1205,6 +1206,7 @@ id button14
 id button2
 id button3
 id button4
+id button5
 id button6
 id button7
 id button8
@@ -1219,7 +1221,6 @@ id center
 id center_horizontal
 id center_vertical
 id chains
-id checkBox
 id checkBox1
 id checkBox2
 id checkBox3
@@ -1245,14 +1246,13 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id details
 id dialog_button
 id dimensions
 id direct
 id disableHome
 id editText
 id editText2
-id editText3
-id editText7
 id edit_query
 id end
 id enterAlways
@@ -1299,6 +1299,7 @@ id list_item
 id logInButton
 id logInFailed
 id masked
+id maxPlayers
 id message
 id middle
 id mini
@@ -1320,7 +1321,7 @@ id parallax
 id parent
 id parentPanel
 id parent_matrix
-id password
+id payment
 id percent
 id pin
 id progress_circular
@@ -1338,11 +1339,11 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollView2
+id scrollView3
 id scrollView4
 id scrollView5
-id scrollView6
-id scrollView7
 id scroll_choice
+id scroll_choise
 id scrollable
 id search_badge
 id search_bar

@@ -9,7 +9,6 @@ import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,10 +16,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.webianks.library.scroll_choice.ScrollChoice;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class registration extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -32,13 +27,13 @@ public class registration extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        EditText password= (EditText) findViewById(R.id.password);
+        EditText password= (EditText) findViewById(R.id.activity_name);
         password.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
     }
 
     public void saveData(View view) {
-        EditText passwordData = (EditText) findViewById(R.id.password);
+        EditText passwordData = (EditText) findViewById(R.id.activity_name);
         EditText emailData = (EditText) findViewById(R.id.Email);
         String password = passwordData.getText().toString();
         String email = emailData.getText().toString();

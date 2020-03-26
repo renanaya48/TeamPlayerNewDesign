@@ -7,6 +7,7 @@
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/scroll_choise"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:background="#C1EBE9E9"
@@ -26,7 +27,7 @@
             app:srcCompat="@android:drawable/ic_menu_revert" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/maxPlayers"
             android:layout_width="160dp"
             android:layout_height="32dp"
             android:layout_marginTop="320dp"
@@ -146,7 +147,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editText7"
+            android:id="@+id/details"
             android:layout_width="350dp"
             android:layout_height="45dp"
             android:layout_marginTop="416dp"
@@ -159,7 +160,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/activity_name"
             android:layout_width="160dp"
             android:layout_height="32dp"
             android:layout_marginTop="108dp"
@@ -176,33 +177,16 @@
             android:layout_width="312dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
             android:layout_marginTop="544dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
             android:background="@drawable/title_border"
+            android:onClick="SaveData"
             android:text="Create"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.373"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <ScrollView
-            android:id="@+id/scrollView6"
-            android:layout_width="160dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="160dp"
-            android:layout_marginEnd="60dp"
-            android:background="@drawable/textview_border"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </ScrollView>
 
         <ImageView
             android:id="@+id/imageView5"
@@ -220,25 +204,10 @@
             app:srcCompat="@drawable/project_logo" />
 
         <ScrollView
-            android:id="@+id/scrollView7"
+            android:id="@+id/scrollView3"
             android:layout_width="160dp"
             android:layout_height="32dp"
-            android:layout_marginTop="212dp"
-            android:layout_marginEnd="60dp"
-            android:background="@drawable/textview_border"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </ScrollView>
-
-        <ScrollView
-            android:layout_width="160dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="264dp"
+            android:layout_marginTop="272dp"
             android:layout_marginEnd="60dp"
             android:background="@drawable/textview_border"
             app:layout_constraintEnd_toEndOf="parent"
@@ -251,7 +220,7 @@
         </ScrollView>
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/payment"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginTop="484dp"
@@ -259,6 +228,54 @@
             android:background="@drawable/textview_border"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="154dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/textview_border"
+            android:text="Button"
+            app:layout_constraintBottom_toTopOf="@+id/age_range"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/activity_name" />
+
+        <Button
+            android:id="@+id/age_range"
+            android:layout_width="152dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/textview_border"
+            android:onClick="initView"
+            android:text="choose"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.562"
+            app:layout_constraintStart_toEndOf="@+id/textView3" />
+
+
+        <com.webianks.library.scroll_choice.ScrollChoice
+            android:id="@+id/scroll_choice"
+            android:layout_width="411dp"
+            android:layout_height="145dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:scroll_atmospheric="true"
+            app:scroll_background_color="#F5f5f5"
+            app:scroll_indicator="true"
+            app:scroll_indicator_color="#FFF"
+            app:scroll_item_align="center"
+            app:scroll_item_text_color="?attr/colorAccent"
+            app:scroll_selected_item_background="#FFF"
+            app:scroll_selected_item_text_color="#FFC107" >
+
+        </com.webianks.library.scroll_choice.ScrollChoice>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

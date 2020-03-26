@@ -2,7 +2,6 @@ package com.example.teamplayer;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatCheckBox;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -48,7 +47,7 @@ public class activity_Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__login);
         basicReadWrite();
-        password= (EditText) findViewById(R.id.password);
+        password= (EditText) findViewById(R.id.activity_name);
         failureMessage = (TextView) findViewById(R.id.logInFailed);
         intent=new Intent(this,select_action.class);
 
@@ -101,7 +100,7 @@ public class activity_Login extends AppCompatActivity {
 
 
     public void logIn(View view) {
-        EditText passwordData = (EditText) findViewById(R.id.password);
+        EditText passwordData = (EditText) findViewById(R.id.activity_name);
         EditText emailData = (EditText) findViewById(R.id.Email);
         String password = passwordData.getText().toString();
         String email = emailData.getText().toString();
