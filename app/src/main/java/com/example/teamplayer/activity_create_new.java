@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ public class activity_create_new extends AppCompatActivity {
     private DocumentReference docRef = FirebaseFirestore.getInstance().document("Activities/test");
     private static final String TAG = "saveToDataBase";
     List<String> ages = new ArrayList<>();
+    List<String> sportType = new ArrayList<>();
     TextView textView;
     ScrollChoice scrollChoice;
     Map<String, Object> dataToSave = new HashMap<String, Object>();
@@ -43,7 +45,6 @@ public class activity_create_new extends AppCompatActivity {
     public void SaveData(View view){
         EditText activityName = (EditText) findViewById(R.id.activity_name);
         //EditText sportType = (EditText) findViewById(R.id.sportType);
-        //EditText ageRange = (EditText) findViewById(R.id.activity_name);
         //EditText area = (EditText) findViewById(R.id.activity_name);
         EditText maxPlayers = (EditText) findViewById(R.id.maxPlayers);
         EditText details = (EditText) findViewById(R.id.details);
@@ -76,7 +77,7 @@ public class activity_create_new extends AppCompatActivity {
 
     }
 
-    public void initView(View view) {
+    public void initViewAge(View view) {
        // textView = (TextView)findViewById(R.id.txt_result);
         scrollChoice = (ScrollChoice)findViewById(R.id.scroll_choice);
         loadData();
@@ -102,7 +103,9 @@ public class activity_create_new extends AppCompatActivity {
             @Override
             public void onItemSelected(ScrollChoice scrollChoice, int position, String name) {
                 dataToSave.put("ageRange", name);
-                Log.d(TAG, "name" + name);
+                Log.d(TAG, "age " + name);
+                Button button = (Button)findViewById(R.id.age_range);
+                button.setText(name);
                 //textView.setText("choise  " + name);
             }
         });

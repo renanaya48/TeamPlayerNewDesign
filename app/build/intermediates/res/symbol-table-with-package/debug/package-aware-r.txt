@@ -1206,7 +1206,6 @@ id button14
 id button2
 id button3
 id button4
-id button5
 id button6
 id button7
 id button8
@@ -1343,6 +1342,7 @@ id scrollView3
 id scrollView4
 id scrollView5
 id scroll_choice
+id scroll_choice2
 id scroll_choise
 id scrollable
 id search_badge
@@ -1368,6 +1368,7 @@ id snap
 id snapMargins
 id spacer
 id split_action_bar
+id sport_type
 id spread
 id spread_inside
 id src_atop
