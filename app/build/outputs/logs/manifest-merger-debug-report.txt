@@ -4,6 +4,7 @@ ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion\app\src\mai
 INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-32:12
 INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-32:12
 INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-32:12
+MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\856142230b8f2b45da99240c391afcc3\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\40c78d5bda9d91798da35322a51ee823\AndroidManifest.xml:17:1-24:12
 MERGED from [com.webianks.library:scroll-choice:1.0.1] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\5ba2d87d5c25000407c3aa896485fcc2\AndroidManifest.xml:2:1-17:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\d4404546cd74769cf4dfdeeda5820f8a\AndroidManifest.xml:17:1-24:12
@@ -206,6 +207,8 @@ uses-sdk
 INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml
+MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\856142230b8f2b45da99240c391afcc3\AndroidManifest.xml:20:5-43
+MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\856142230b8f2b45da99240c391afcc3\AndroidManifest.xml:20:5-43
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\40c78d5bda9d91798da35322a51ee823\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\40c78d5bda9d91798da35322a51ee823\AndroidManifest.xml:20:5-44
 MERGED from [com.webianks.library:scroll-choice:1.0.1] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\5ba2d87d5c25000407c3aa896485fcc2\AndroidManifest.xml:7:5-9:41
