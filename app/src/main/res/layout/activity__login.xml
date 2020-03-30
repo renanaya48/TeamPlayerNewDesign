@@ -76,13 +76,13 @@
             android:background="@drawable/textview_border"
             android:ems="10"
             android:inputType="textPassword"
-            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintBottom_toTopOf="@+id/find_activities"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.363" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/find_activities"
             android:layout_width="307dp"
             android:layout_height="30dp"
             android:layout_marginStart="8dp"

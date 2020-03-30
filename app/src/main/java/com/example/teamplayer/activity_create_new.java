@@ -23,43 +23,114 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class activity_create_new extends AppCompatActivity {
-    private DocumentReference docRef = FirebaseFirestore.getInstance().document("Activities/test");
+import static java.lang.Thread.sleep;
+
+public class activity_create_new extends AppCompatActivity{
+    private volatile boolean isExist=false;
+    private DocumentReference docRef;
+    //private DocumentReference docRef = FirebaseFirestore.getInstance().document("Activities/test2");
     private static final String TAG = "saveToDataBase";
+    private static final String ACTIVITIES_COLLECTION = "Activities/";
     List<String> ages = new ArrayList<>();
     List<String> sportType = new ArrayList<>();
     TextView textView;
     ScrollChoice scrollChoice;
     Map<String, Object> dataToSave = new HashMap<String, Object>();
+    Button buttonAge;
+    String className = "activity_create_new";
+    boolean clicked = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_new);
+        buttonAge = (Button) findViewById(R.id.age_range);
+        String ageThatChosen = "CHOOSE";
+        buttonAge.setText(ageThatChosen);
+
+
+        buttonAge.setOnClickListener(new View.OnClickListener() {
+            //@override
+            public void onClick(View v) {
+                EditText activityName = (EditText) findViewById(R.id.activity_name);
+                String activityNameText = activityName.getText().toString();
+                Intent intent = new Intent(activity_create_new.this, age_range.class);
+                intent.putExtra("ACTIVITY", className);
+                intent.putExtra("ACTIVITY_NAME", activityNameText);
+                startActivity(intent);
+                clicked = true;
+
+            }
+        });
+        if (!clicked) {
+            ageThatChosen = getIntent().getStringExtra("AGE");
+            buttonAge.setText(ageThatChosen);
+        }
+        EditText activityName = (EditText) findViewById(R.id.activity_name);
+        String name = getIntent().getStringExtra("ACTIVITY_NAME");
+        activityName.setText(name);
     }
+
+
     public void backButton(View view) {
         Intent intent=new Intent(this,select_action.class);
         startActivity(intent);
     }
 
-    public void SaveData(View view){
+    public void SaveData(View view) throws InterruptedException {
         EditText activityName = (EditText) findViewById(R.id.activity_name);
+        String activityNameText = activityName.getText().toString();
+
+        FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
+        //DocumentReference docIdRef = rootRef.collection(ACTIVITIES_COLLECTION).document(activityNameText);
+        rootRef.collection(ACTIVITIES_COLLECTION).document(activityNameText).update("Exist","").addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Log.d(TAG, "document updated");
+                //TODO: message to change name
+                isExist = true;
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w(TAG, "no such doc");
+                createNewDoc();
+                isExist = false;
+            }
+        });
+
+
+
+
+    }
+
+    public void createNewDoc(){
+        EditText activityName = (EditText) findViewById(R.id.activity_name);
+        String activityNameText = activityName.getText().toString();
         //EditText sportType = (EditText) findViewById(R.id.sportType);
         //EditText area = (EditText) findViewById(R.id.activity_name);
-        EditText maxPlayers = (EditText) findViewById(R.id.maxPlayers);
+        EditText maxPlayers = (EditText) findViewById(R.id.max_Players);
         EditText details = (EditText) findViewById(R.id.details);
         CheckBox payment = (CheckBox) findViewById(R.id.payment);
 
-        String activityNameText = activityName.getText().toString();
+
         String maxPlayersText = maxPlayers.getText().toString();
         String detailsText = details.getText().toString();
         String paymentText = payment.getText().toString();
+        String ageRange = getIntent().getStringExtra("AGE");
+        Log.d(TAG, "age range: " +ageRange);
 
+        String collectionName = ACTIVITIES_COLLECTION+activityNameText;
 
+        //checkIfDocExsist(activityNameText);
+
+        docRef = FirebaseFirestore.getInstance().document(collectionName);
         dataToSave.put("activityName", activityNameText);
         dataToSave.put("maxPlayers", maxPlayersText);
         dataToSave.put("details", detailsText);
         dataToSave.put("payment", paymentText);
+        dataToSave.put("ageRange", ageRange);
 
         docRef.set(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -72,42 +143,30 @@ public class activity_create_new extends AppCompatActivity {
                 Log.w(TAG, "document faild");
             }
         });
-
-
-
-    }
-
-    public void initViewAge(View view) {
-       // textView = (TextView)findViewById(R.id.txt_result);
-        scrollChoice = (ScrollChoice)findViewById(R.id.scroll_choice);
-        loadData();
-        continueLoad();
-    }
-
-    public void loadData() {
-        ages.add("12-16");
-        ages.add("16-18");
-        ages.add("18-21");
-        ages.add("21-30");
-        ages.add("30-40");
-        ages.add("40-50");
-        ages.add("50+");
-        ages.add("Other");
     }
 
 
 
-    public void continueLoad() {
-        scrollChoice.addItems(ages, 4);
-        scrollChoice.setOnItemSelectedListener(new ScrollChoice.OnItemSelectedListener() {
+    public synchronized boolean isExistsDoc (String activityNameText){
+        FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
+        //DocumentReference docIdRef = rootRef.collection(ACTIVITIES_COLLECTION).document(activityNameText);
+        rootRef.collection(ACTIVITIES_COLLECTION).document(activityNameText).update("Exist","").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
-            public void onItemSelected(ScrollChoice scrollChoice, int position, String name) {
-                dataToSave.put("ageRange", name);
-                Log.d(TAG, "age " + name);
-                Button button = (Button)findViewById(R.id.age_range);
-                button.setText(name);
-                //textView.setText("choise  " + name);
+            public void onSuccess(Void aVoid) {
+                Log.d(TAG, "document updated");
+                isExist = true;
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w(TAG, "no such doc");
+                isExist = false;
             }
         });
+        return isExist;
     }
+
+
+
+
 }

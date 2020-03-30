@@ -159,7 +159,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/find_activities"
                 android:layout_width="312dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="8dp"
@@ -318,7 +318,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/find_activities"
             android:layout_width="312dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"

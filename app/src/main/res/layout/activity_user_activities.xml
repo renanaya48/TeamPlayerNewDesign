@@ -36,7 +36,7 @@
         app:srcCompat="@drawable/project_logo" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/find_activities"
         android:layout_width="212dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
