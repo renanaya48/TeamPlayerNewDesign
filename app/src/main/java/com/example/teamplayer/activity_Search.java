@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,6 +27,9 @@ public class activity_Search extends AppCompatActivity {
     //private final FirebaseFirestore;
     private static final String TAG = "ReadData";
     private static final String ACTIVITIES_COLLECTION = "Activities";
+    Button buttonAge;
+    String className = "activity_Search";
+    boolean clicked = false;
 
     List<String> ages = new ArrayList<>();
     List<String> objectToSearch = new ArrayList<>();
@@ -39,17 +43,30 @@ public class activity_Search extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__search);
 
-        initView();
+        buttonAge = (Button) findViewById(R.id.age_range2);
+        String ageThatChosen = "CHOOSE";
+        buttonAge.setText(ageThatChosen);
 
-        loadData();
-        //getMultipleDocs();
-        scrollChoice.addItems(ages, 4);
-        scrollChoice.setOnItemSelectedListener(new ScrollChoice.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(ScrollChoice scrollChoice, int position, String name) {
-                textView.setText("choise  " + name);
+        buttonAge.setOnClickListener(new View.OnClickListener() {
+            //@override
+            public void onClick(View v) {
+                //EditText activityName = (EditText) findViewById(R.id.activity_name);
+                //String activityNameText = activityName.getText().toString();
+                Intent intent = new Intent(activity_Search.this, age_range.class);
+                intent.putExtra("ACTIVITY", className);
+                //intent.putExtra("ACTIVITY_NAME", activityNameText);
+                startActivity(intent);
+                clicked = true;
+
             }
         });
+        if (!clicked) {
+            ageThatChosen = getIntent().getStringExtra("AGE");
+            buttonAge.setText(ageThatChosen);
+        }
+        //EditText activityName = (EditText) findViewById(R.id.activity_name);
+        //String name = getIntent().getStringExtra("ACTIVITY_NAME");
+        //activityName.setText(name);
 
     }
 
@@ -117,10 +134,6 @@ public class activity_Search extends AppCompatActivity {
         ages.add("Other");
     }
 
-    private void initView() {
-        textView = (TextView)findViewById(R.id.txt_result);
-        scrollChoice = (ScrollChoice)findViewById(R.id.scroll_choice);
-    }
 
     public void backButton(View view) {
         Intent intent=new Intent(this,select_action.class);

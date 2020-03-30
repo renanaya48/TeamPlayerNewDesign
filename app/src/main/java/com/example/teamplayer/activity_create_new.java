@@ -108,7 +108,7 @@ public class activity_create_new extends AppCompatActivity{
     public void createNewDoc(){
         EditText activityName = (EditText) findViewById(R.id.activity_name);
         String activityNameText = activityName.getText().toString();
-        //EditText sportType = (EditText) findViewById(R.id.sportType);
+        EditText sportType = (EditText) findViewById(R.id.sport_type);
         //EditText area = (EditText) findViewById(R.id.activity_name);
         EditText maxPlayers = (EditText) findViewById(R.id.max_Players);
         EditText details = (EditText) findViewById(R.id.details);
@@ -118,6 +118,7 @@ public class activity_create_new extends AppCompatActivity{
         String maxPlayersText = maxPlayers.getText().toString();
         String detailsText = details.getText().toString();
         String paymentText = payment.getText().toString();
+        String sportTypeText = sportType.getText().toString();
         String ageRange = getIntent().getStringExtra("AGE");
         Log.d(TAG, "age range: " +ageRange);
 
@@ -131,6 +132,7 @@ public class activity_create_new extends AppCompatActivity{
         dataToSave.put("details", detailsText);
         dataToSave.put("payment", paymentText);
         dataToSave.put("ageRange", ageRange);
+        dataToSave.put("sportType", sportTypeText);
 
         docRef.set(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override

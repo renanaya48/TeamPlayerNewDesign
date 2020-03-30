@@ -42,6 +42,12 @@ public class age_range extends AppCompatActivity {
                     intent.putExtra("AGE", dataToSave);
                     intent.putExtra("ACTIVITY_NAME", activityName);
                     startActivity(intent);
+                }else {
+                    if (classBack.equals("activity_Search")){
+                        Intent intent = new Intent(age_range.this, activity_Search.class);
+                        intent.putExtra("AGE", dataToSave);
+                        startActivity(intent);
+                    }
                 }
             }
         });

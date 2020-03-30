@@ -7,11 +7,26 @@
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/scroll_choise"
+        android:id="@+id/sport_type"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:background="#C1EBE9E9"
         tools:context=".registration">
+
+        <EditText
+            android:id="@+id/sport_type"
+            android:layout_width="160dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/textview_border"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/activity_name" />
 
         <ImageButton
             android:id="@+id/imageButton2"
@@ -207,7 +222,7 @@
             android:id="@+id/scrollView3"
             android:layout_width="160dp"
             android:layout_height="32dp"
-            android:layout_marginTop="272dp"
+            android:layout_marginTop="264dp"
             android:layout_marginEnd="60dp"
             android:background="@drawable/textview_border"
             app:layout_constraintEnd_toEndOf="parent"
@@ -230,34 +245,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/activity_name"
-            android:layout_width="154dp"
-            android:layout_height="42dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/textview_border"
-            android:text="Button"
-            app:layout_constraintBottom_toTopOf="@+id/age_range"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.462"
-            app:layout_constraintStart_toEndOf="@+id/textView8"
-            app:layout_constraintTop_toBottomOf="@+id/activity_name"
-            app:layout_constraintVertical_bias="0.846" />
-
-        <Button
             android:id="@+id/age_range"
-            android:layout_width="152dp"
-            android:layout_height="40dp"
+            android:layout_width="157dp"
+            android:layout_height="37dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="28dp"
             android:background="@drawable/textview_border"
             android:text="choose"
             app:layout_constraintBottom_toTopOf="@+id/scrollView3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.562"
+            app:layout_constraintHorizontal_bias="0.551"
             app:layout_constraintStart_toEndOf="@+id/textView3" />
 
 

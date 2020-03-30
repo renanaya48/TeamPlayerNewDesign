@@ -1188,6 +1188,7 @@ id add
 id adjust_height
 id adjust_width
 id age_range
+id age_range2
 id alertTitle
 id all
 id always
@@ -1338,7 +1339,6 @@ id scrollView2
 id scrollView3
 id scrollView5
 id scroll_choice
-id scroll_choise
 id scrollable
 id search_badge
 id search_bar
@@ -1363,6 +1363,7 @@ id snap
 id snapMargins
 id spacer
 id split_action_bar
+id sport_type
 id spread
 id spread_inside
 id src_atop
@@ -1419,7 +1420,6 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
-id txt_result
 id unchecked
 id uniform
 id unlabeled
