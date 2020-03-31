@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -28,8 +29,13 @@ public class activity_Search extends AppCompatActivity {
     private static final String TAG = "ReadData";
     private static final String ACTIVITIES_COLLECTION = "Activities";
     Button buttonAge;
+    Button buttonCity;
+    Button buttonsportType;
     String className = "activity_Search";
     boolean clicked = false;
+    String ageThatChosen = "CHOOSE";
+    String sportThatChosen = "CHOOSE";
+    String cityThatChosen= "CHOOSE";
 
     List<String> ages = new ArrayList<>();
     List<String> objectToSearch = new ArrayList<>();
@@ -44,8 +50,12 @@ public class activity_Search extends AppCompatActivity {
         setContentView(R.layout.activity__search);
 
         buttonAge = (Button) findViewById(R.id.age_range2);
-        String ageThatChosen = "CHOOSE";
+        buttonCity = (Button) findViewById(R.id.city_button);
+        buttonsportType = (Button) findViewById(R.id.sports_button);
         buttonAge.setText(ageThatChosen);
+        buttonCity.setText(cityThatChosen);
+        buttonsportType.setText(cityThatChosen);
+
 
         buttonAge.setOnClickListener(new View.OnClickListener() {
             //@override
@@ -54,7 +64,36 @@ public class activity_Search extends AppCompatActivity {
                 //String activityNameText = activityName.getText().toString();
                 Intent intent = new Intent(activity_Search.this, age_range.class);
                 intent.putExtra("ACTIVITY", className);
-                //intent.putExtra("ACTIVITY_NAME", activityNameText);
+                intent.putExtra("SPORTS", sportThatChosen);
+                intent.putExtra("CITY", cityThatChosen);
+                startActivity(intent);
+                clicked = true;
+
+            }
+        });
+        buttonsportType.setOnClickListener(new View.OnClickListener() {
+            //@override
+            public void onClick(View v) {
+                //EditText activityName = (EditText) findViewById(R.id.activity_name);
+                //String activityNameText = activityName.getText().toString();
+                Intent intent = new Intent(activity_Search.this, sport_type.class);
+                intent.putExtra("ACTIVITY", className);
+                intent.putExtra("AGE", ageThatChosen);
+                intent.putExtra("CITY", cityThatChosen);
+                startActivity(intent);
+                clicked = true;
+
+            }
+        });
+        buttonCity.setOnClickListener(new View.OnClickListener() {
+            //@override
+            public void onClick(View v) {
+                //EditText activityName = (EditText) findViewById(R.id.activity_name);
+                //String activityNameText = activityName.getText().toString();
+                Intent intent = new Intent(activity_Search.this, city.class);
+                intent.putExtra("ACTIVITY", className);
+                intent.putExtra("AGE", ageThatChosen);
+                intent.putExtra("SPORTS", sportThatChosen);
                 startActivity(intent);
                 clicked = true;
 
@@ -63,23 +102,48 @@ public class activity_Search extends AppCompatActivity {
         if (!clicked) {
             ageThatChosen = getIntent().getStringExtra("AGE");
             buttonAge.setText(ageThatChosen);
+            cityThatChosen = getIntent().getStringExtra("CITY");
+            buttonCity.setText(cityThatChosen);
+            sportThatChosen = getIntent().getStringExtra("SPORTS");
+            buttonsportType.setText(sportThatChosen);
+
         }
-        //EditText activityName = (EditText) findViewById(R.id.activity_name);
-        //String name = getIntent().getStringExtra("ACTIVITY_NAME");
-        //activityName.setText(name);
 
     }
 
-    public void getMultipleDocs() {
-        // [START get_multiple]
-        for(int i=0; i<objectToSearch.size(); ++i){
+    public void getMultipleDocs(View view) {
+        CheckBox payment = (CheckBox) findViewById(R.id.payment2);
+        //String paymentText = payment.getText().toString();
+
+        if(!payment.isChecked()){
+            // [START get_multiple]
             FirebaseFirestore.getInstance().collection(ACTIVITIES_COLLECTION)
-                    .whereEqualTo(fieldToSearch.get(i), objectToSearch.get(i))
+                    .whereEqualTo("sportType", sportThatChosen).whereEqualTo("ageRange", ageThatChosen)
+                    .whereEqualTo("city", cityThatChosen).whereEqualTo("payment", "false")
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful()) {
+                            if(task.isSuccessful()){
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    Log.d(TAG, document.getId() + " => " + document.getData());
+                                }
+                            } else {
+                                Log.d(TAG, "Error getting documents: ", task.getException());
+                            }
+                        }
+                    });
+                    // [END get_multiple]
+
+        }else{
+            FirebaseFirestore.getInstance().collection(ACTIVITIES_COLLECTION)
+                    .whereEqualTo("sportType", sportThatChosen).whereEqualTo("ageRange", ageThatChosen)
+                    .whereEqualTo("city", cityThatChosen).whereEqualTo("payment", "true")
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if(task.isSuccessful()){
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     Log.d(TAG, document.getId() + " => " + document.getData());
                                 }
@@ -89,38 +153,46 @@ public class activity_Search extends AppCompatActivity {
                         }
                     });
             // [END get_multiple]
+
+
         }
-
-
 
     }
 
     public void getValuesFromUsers(View view){
-        EditText sportType = (EditText) findViewById(R.id.activity_name);
-        EditText maxPlayers = (EditText) findViewById(R.id.max_Players);
-        CheckBox payment = (CheckBox) findViewById(R.id.payment);
+        EditText sportType = (EditText) findViewById(R.id.activity_name_t);
         //area
         //agerang
 
         String activityNameText = sportType.getText().toString();
-        String maxPlayersText = maxPlayers.getText().toString();
-        String paymentText = payment.getText().toString();
         if(!activityNameText.equals("")) {
             //objectToSearch.put("activityName", activityNameText);
             objectToSearch.add(activityNameText);
             fieldToSearch.add("activityName");
         }
-        if(!maxPlayersText.equals("")) {
-            objectToSearch.add(maxPlayersText);
-            fieldToSearch.add("maxPlayers");
-        }
-        objectToSearch.add(paymentText);
+
         fieldToSearch.add("payment");
         //objectToSearch.put("payment", paymentText);
         //area
         //agerange
         Log.d(TAG, objectToSearch.get(0));
-        getMultipleDocs();
+    }
+
+    public void checkThatHaveAll(View view){
+        Log.d(TAG, "check!");
+
+        if((ageThatChosen == null)
+            ||(sportThatChosen==null)
+            ||(cityThatChosen==null)){
+            Log.d(TAG, "check1!");
+            Snackbar.make(view, "Please search by sport type, age range and area",
+                    Snackbar.LENGTH_LONG)
+                    .show();
+
+        }else{
+            getMultipleDocs(view);
+        }
+
     }
 
     private void loadData() {

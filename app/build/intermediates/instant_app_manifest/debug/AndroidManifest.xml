@@ -28,6 +28,8 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.teamplayer.sport_type" />
+        <activity android:name="com.example.teamplayer.city" />
         <activity android:name="com.example.teamplayer.age_range" />
         <activity android:name="com.example.teamplayer.registration" />
         <activity android:name="com.example.teamplayer.activity_Search" />

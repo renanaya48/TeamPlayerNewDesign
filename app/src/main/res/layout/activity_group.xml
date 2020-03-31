@@ -9,7 +9,7 @@
 
 
     <Button
-        android:id="@+id/activity_name"
+        android:id="@+id/activity_name_t"
         android:layout_width="212dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"

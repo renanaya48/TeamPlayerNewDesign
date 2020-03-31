@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.webianks.library.scroll_choice.ScrollChoice;
@@ -37,8 +38,14 @@ public class activity_create_new extends AppCompatActivity{
     ScrollChoice scrollChoice;
     Map<String, Object> dataToSave = new HashMap<String, Object>();
     Button buttonAge;
+    Button buttonCity;
+    Button buttonSportType;
     String className = "activity_create_new";
     boolean clicked = false;
+    boolean clicked_city = false;
+    String ageThatChosen = "CHOOSE";
+    String cityThatChosen = "CHOOSE";
+    String sportThatChosen = "CHOOSE";
 
 
     @Override
@@ -46,28 +53,79 @@ public class activity_create_new extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_new);
         buttonAge = (Button) findViewById(R.id.age_range);
-        String ageThatChosen = "CHOOSE";
+        buttonCity = (Button)findViewById(R.id.button_city);
+        buttonSportType = (Button)findViewById(R.id.sport_type_button);
+
         buttonAge.setText(ageThatChosen);
+        buttonCity.setText(cityThatChosen);
+        buttonSportType.setText(sportThatChosen);
 
 
         buttonAge.setOnClickListener(new View.OnClickListener() {
             //@override
             public void onClick(View v) {
-                EditText activityName = (EditText) findViewById(R.id.activity_name);
+                EditText activityName = (EditText) findViewById(R.id.activity_name_t);
                 String activityNameText = activityName.getText().toString();
                 Intent intent = new Intent(activity_create_new.this, age_range.class);
                 intent.putExtra("ACTIVITY", className);
                 intent.putExtra("ACTIVITY_NAME", activityNameText);
+                intent.putExtra("CITY", cityThatChosen);
+                intent.putExtra("SPORTS", sportThatChosen);
                 startActivity(intent);
                 clicked = true;
 
             }
         });
+
+        buttonCity.setOnClickListener(new View.OnClickListener() {
+            //@override
+            public void onClick(View v) {
+                EditText activityName = (EditText) findViewById(R.id.activity_name_t);
+                String activityNameText = activityName.getText().toString();
+                Intent intent = new Intent(activity_create_new.this, city.class);
+                intent.putExtra("ACTIVITY", className);
+                intent.putExtra("ACTIVITY_NAME", activityNameText);
+                intent.putExtra("AGE", ageThatChosen);
+                intent.putExtra("SPORTS", sportThatChosen);
+                startActivity(intent);
+                clicked = true;
+
+            }
+        });
+
+        buttonSportType.setOnClickListener(new View.OnClickListener() {
+            //@override
+            public void onClick(View v) {
+                EditText activityName = (EditText) findViewById(R.id.activity_name_t);
+                String activityNameText = activityName.getText().toString();
+                Intent intent = new Intent(activity_create_new.this, sport_type.class);
+                intent.putExtra("ACTIVITY", className);
+                intent.putExtra("ACTIVITY_NAME", activityNameText);
+                intent.putExtra("AGE", ageThatChosen);
+                intent.putExtra("CITY", cityThatChosen);
+                startActivity(intent);
+                clicked = true;
+
+            }
+        });
+
         if (!clicked) {
             ageThatChosen = getIntent().getStringExtra("AGE");
             buttonAge.setText(ageThatChosen);
+            cityThatChosen = getIntent().getStringExtra("CITY");
+            buttonCity.setText(cityThatChosen);
+            sportThatChosen = getIntent().getStringExtra("SPORTS");
+            buttonSportType.setText(sportThatChosen);
         }
-        EditText activityName = (EditText) findViewById(R.id.activity_name);
+        if(!clicked_city){
+            cityThatChosen = getIntent().getStringExtra("CITY");
+            buttonCity.setText(cityThatChosen);
+            ageThatChosen = getIntent().getStringExtra("AGE");
+            buttonAge.setText(ageThatChosen);
+            sportThatChosen = getIntent().getStringExtra("SPORTS");
+            buttonSportType.setText(sportThatChosen);
+        }
+        EditText activityName = (EditText) findViewById(R.id.activity_name_t);
         String name = getIntent().getStringExtra("ACTIVITY_NAME");
         activityName.setText(name);
     }
@@ -79,16 +137,17 @@ public class activity_create_new extends AppCompatActivity{
     }
 
     public void SaveData(View view) throws InterruptedException {
-        EditText activityName = (EditText) findViewById(R.id.activity_name);
+        EditText activityName = (EditText) findViewById(R.id.activity_name_t);
         String activityNameText = activityName.getText().toString();
 
         FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
-        //DocumentReference docIdRef = rootRef.collection(ACTIVITIES_COLLECTION).document(activityNameText);
         rootRef.collection(ACTIVITIES_COLLECTION).document(activityNameText).update("Exist","").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 Log.d(TAG, "document updated");
-                //TODO: message to change name
+                //Snackbar.make(view, "Please change the name of the activity, this name exist already",
+                  //      Snackbar.LENGTH_LONG)
+                    //    .show();
                 isExist = true;
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -106,25 +165,29 @@ public class activity_create_new extends AppCompatActivity{
     }
 
     public void createNewDoc(){
-        EditText activityName = (EditText) findViewById(R.id.activity_name);
+        EditText activityName = (EditText) findViewById(R.id.activity_name_t);
         String activityNameText = activityName.getText().toString();
-        EditText sportType = (EditText) findViewById(R.id.sport_type);
-        //EditText area = (EditText) findViewById(R.id.activity_name);
         EditText maxPlayers = (EditText) findViewById(R.id.max_Players);
         EditText details = (EditText) findViewById(R.id.details);
         CheckBox payment = (CheckBox) findViewById(R.id.payment);
 
-
         String maxPlayersText = maxPlayers.getText().toString();
         String detailsText = details.getText().toString();
-        String paymentText = payment.getText().toString();
-        String sportTypeText = sportType.getText().toString();
+        String paymentText;
+        if (payment.isChecked()){
+            paymentText = "true";
+        }else{
+            paymentText = "false";
+        }
+
         String ageRange = getIntent().getStringExtra("AGE");
-        Log.d(TAG, "age range: " +ageRange);
+        String city = getIntent().getStringExtra("CITY");
+        String sportType = getIntent().getStringExtra("SPORTS");
+        Log.d(TAG, "city " +city);
+        Log.d(TAG, "sport " +sportType);
+
 
         String collectionName = ACTIVITIES_COLLECTION+activityNameText;
-
-        //checkIfDocExsist(activityNameText);
 
         docRef = FirebaseFirestore.getInstance().document(collectionName);
         dataToSave.put("activityName", activityNameText);
@@ -132,7 +195,8 @@ public class activity_create_new extends AppCompatActivity{
         dataToSave.put("details", detailsText);
         dataToSave.put("payment", paymentText);
         dataToSave.put("ageRange", ageRange);
-        dataToSave.put("sportType", sportTypeText);
+        dataToSave.put("city", city);
+        dataToSave.put("sportType", sportType);
 
         docRef.set(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override

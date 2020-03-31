@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".age_range"></activity>
+        <activity android:name=".sport_type"></activity>
+        <activity android:name=".city" />
+        <activity android:name=".age_range" />
         <activity android:name=".registration" />
         <activity android:name=".activity_Search" />
         <activity android:name=".activity_create_new" />

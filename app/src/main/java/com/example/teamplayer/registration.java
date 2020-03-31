@@ -27,13 +27,13 @@ public class registration extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        EditText password= (EditText) findViewById(R.id.activity_name);
+        EditText password= (EditText) findViewById(R.id.activity_name_t);
         password.setTransformationMethod(PasswordTransformationMethod.getInstance());
 
     }
 
     public void saveData(View view) {
-        EditText passwordData = (EditText) findViewById(R.id.activity_name);
+        EditText passwordData = (EditText) findViewById(R.id.activity_name_t);
         EditText emailData = (EditText) findViewById(R.id.Email);
         String password = passwordData.getText().toString();
         String email = emailData.getText().toString();

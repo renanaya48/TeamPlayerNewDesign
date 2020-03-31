@@ -19,6 +19,9 @@ public class age_range extends AppCompatActivity {
     Button buttonDone;
     String classBack;
     String activityName;
+    String city;
+    String sport_type;
+
 
 
     @Override
@@ -29,6 +32,8 @@ public class age_range extends AppCompatActivity {
         buttonDone = (Button) findViewById(R.id.done);
         classBack = getIntent().getStringExtra("ACTIVITY");
         activityName = getIntent().getStringExtra("ACTIVITY_NAME");
+        city = getIntent().getStringExtra("CITY");
+        sport_type = getIntent().getStringExtra("SPORTS");
 
 
         loadData();
@@ -41,11 +46,15 @@ public class age_range extends AppCompatActivity {
                     Intent intent = new Intent(age_range.this, activity_create_new.class);
                     intent.putExtra("AGE", dataToSave);
                     intent.putExtra("ACTIVITY_NAME", activityName);
+                    intent.putExtra("CITY", city);
+                    intent.putExtra("SPORTS", sport_type);
                     startActivity(intent);
                 }else {
                     if (classBack.equals("activity_Search")){
                         Intent intent = new Intent(age_range.this, activity_Search.class);
                         intent.putExtra("AGE", dataToSave);
+                        intent.putExtra("CITY", city);
+                        intent.putExtra("SPORTS", sport_type);
                         startActivity(intent);
                     }
                 }
@@ -55,6 +64,7 @@ public class age_range extends AppCompatActivity {
     }
 
     public void loadData() {
+        ages.add("under 12");
         ages.add("12-16");
         ages.add("16-18");
         ages.add("18-21");
@@ -62,7 +72,6 @@ public class age_range extends AppCompatActivity {
         ages.add("30-40");
         ages.add("40-50");
         ages.add("50+");
-        ages.add("Other");
     }
 
     public void continueLoad() {
@@ -71,10 +80,6 @@ public class age_range extends AppCompatActivity {
             @Override
             public void onItemSelected(ScrollChoice scrollChoice, int position, String name) {
                 dataToSave = name;
-                //dataToSave.put("ageRange", name);
-               // Button button = (Button)findViewById(R.id.age_range);
-               // button.setText(name);
-
             }
         });
     }

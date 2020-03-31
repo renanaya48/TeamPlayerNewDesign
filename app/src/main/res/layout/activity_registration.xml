@@ -147,7 +147,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/activity_name"
+                android:id="@+id/activity_name_t"
                 android:layout_width="150dp"
                 android:layout_height="27dp"
                 android:layout_marginTop="240dp"
@@ -303,7 +303,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/activity_name"
+            android:id="@+id/activity_name_t"
             android:layout_width="150dp"
             android:layout_height="27dp"
             android:layout_marginStart="8dp"

@@ -1183,7 +1183,8 @@ id action_mode_close_button
 id action_text
 id actions
 id activity_chooser_view_content
-id activity_name
+id activity_name_layout
+id activity_name_t
 id add
 id adjust_height
 id adjust_width
@@ -1212,6 +1213,7 @@ id button8
 id button9
 id buttonPanel
 id button_Chat
+id button_city
 id button_contact
 id button_contact1
 id button_join_request
@@ -1223,6 +1225,8 @@ id chains
 id checkbox
 id checked
 id chronometer
+id city_button
+id city_scroll
 id clip_horizontal
 id clip_vertical
 id collapseActionView
@@ -1247,6 +1251,8 @@ id dimensions
 id direct
 id disableHome
 id done
+id done_city
+id done_sport_type
 id editText
 id editText2
 id edit_query
@@ -1319,6 +1325,7 @@ id parent
 id parentPanel
 id parent_matrix
 id payment
+id payment2
 id percent
 id pin
 id progress_circular
@@ -1336,8 +1343,6 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollView2
-id scrollView3
-id scrollView5
 id scroll_choice
 id scrollable
 id search_badge
@@ -1363,7 +1368,10 @@ id snap
 id snapMargins
 id spacer
 id split_action_bar
-id sport_type
+id sport_type3
+id sport_type_button
+id sport_type_scroll
+id sports_button
 id spread
 id spread_inside
 id src_atop
@@ -1490,6 +1498,7 @@ layout activity__login
 layout activity__search
 layout activity_age_range
 layout activity_chat
+layout activity_city
 layout activity_create_new
 layout activity_group
 layout activity_main
@@ -1499,6 +1508,7 @@ layout activity_registration
 layout activity_requests
 layout activity_search_result
 layout activity_select_action
+layout activity_sport_type
 layout activity_user_activities
 layout custom_dialog
 layout design_bottom_navigation_item
