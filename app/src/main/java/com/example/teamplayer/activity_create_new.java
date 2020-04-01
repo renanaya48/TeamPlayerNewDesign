@@ -3,6 +3,7 @@ package com.example.teamplayer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -46,6 +48,7 @@ public class activity_create_new extends AppCompatActivity{
     String ageThatChosen = "CHOOSE";
     String cityThatChosen = "CHOOSE";
     String sportThatChosen = "CHOOSE";
+    View viewToPass;
 
 
     @Override
@@ -137,6 +140,7 @@ public class activity_create_new extends AppCompatActivity{
     }
 
     public void SaveData(View view) throws InterruptedException {
+        viewToPass = view;
         EditText activityName = (EditText) findViewById(R.id.activity_name_t);
         String activityNameText = activityName.getText().toString();
 
@@ -145,9 +149,10 @@ public class activity_create_new extends AppCompatActivity{
             @Override
             public void onSuccess(Void aVoid) {
                 Log.d(TAG, "document updated");
-                //Snackbar.make(view, "Please change the name of the activity, this name exist already",
-                  //      Snackbar.LENGTH_LONG)
-                    //    .show();
+                Snackbar.make(viewToPass, "Please choose a different name, this name already exist",
+                        Snackbar.LENGTH_LONG)
+                        .show();
+
                 isExist = true;
             }
         }).addOnFailureListener(new OnFailureListener() {

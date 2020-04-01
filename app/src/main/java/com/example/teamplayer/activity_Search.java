@@ -113,7 +113,6 @@ public class activity_Search extends AppCompatActivity {
 
     public void getMultipleDocs(View view) {
         CheckBox payment = (CheckBox) findViewById(R.id.payment2);
-        //String paymentText = payment.getText().toString();
 
         if(!payment.isChecked()){
             // [START get_multiple]
