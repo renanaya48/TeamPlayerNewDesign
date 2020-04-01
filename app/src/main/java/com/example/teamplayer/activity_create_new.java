@@ -202,11 +202,14 @@ public class activity_create_new extends AppCompatActivity{
         dataToSave.put("ageRange", ageRange);
         dataToSave.put("city", city);
         dataToSave.put("sportType", sportType);
+        dataToSave.put("detailsToShow", "");
 
         docRef.set(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 Log.d(TAG, "document saved!");
+                getToTheNextScreen();
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -216,6 +219,16 @@ public class activity_create_new extends AppCompatActivity{
         });
     }
 
+    private void getToTheNextScreen() {
+        EditText activityName = (EditText) findViewById(R.id.activity_name_t);
+        String activityNameText = activityName.getText().toString();
+        Intent intent = new Intent(activity_create_new.this, group.class);
+        intent.putExtra("ACTIVITY", className);
+        intent.putExtra("ACTIVITY_NAME", activityNameText);
+        intent.putExtra("AGE", ageThatChosen);
+        intent.putExtra("CITY", cityThatChosen);
+        startActivity(intent);
+    }
 
 
     public synchronized boolean isExistsDoc (String activityNameText){

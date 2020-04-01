@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.webianks.library.scroll_choice.ScrollChoice;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class city extends AppCompatActivity {
@@ -1336,6 +1337,6 @@ public class city extends AppCompatActivity {
         cities.add("TEQOA");
         cities.add("TARABIN AS-SANI");
         cities.add("TARUM");
-
+        Collections.sort(cities);
     }
 }

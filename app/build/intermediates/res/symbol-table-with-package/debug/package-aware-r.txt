@@ -1183,6 +1183,8 @@ id action_mode_close_button
 id action_text
 id actions
 id activity_chooser_view_content
+id activity_details_group
+id activity_name_group
 id activity_name_layout
 id activity_name_t
 id add
@@ -1213,9 +1215,12 @@ id button8
 id button9
 id buttonPanel
 id button_Chat
+id button_add_details
+id button_chat
 id button_city
 id button_contact
 id button_contact1
+id button_done_details
 id button_join_request
 id button_more_members
 id center
@@ -1231,6 +1236,7 @@ id clip_horizontal
 id clip_vertical
 id collapseActionView
 id connect
+id contacts
 id container
 id content
 id contentPanel
@@ -1246,6 +1252,7 @@ id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
 id details
+id details_to_fill
 id dialog_button
 id dimensions
 id direct
@@ -1309,6 +1316,7 @@ id mini
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
+id name_of_activity
 id navigation_header_container
 id never
 id none
@@ -1510,6 +1518,7 @@ layout activity_search_result
 layout activity_select_action
 layout activity_sport_type
 layout activity_user_activities
+layout activity_view_group
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

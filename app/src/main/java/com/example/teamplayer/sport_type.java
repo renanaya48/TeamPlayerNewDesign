@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.webianks.library.scroll_choice.ScrollChoice;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class sport_type extends AppCompatActivity {
@@ -110,5 +111,6 @@ public class sport_type extends AppCompatActivity {
         sports.add("Golf");
         sports.add("Football");
         sports.add("Soccer");
+        Collections.sort(sports);
     }
 }
