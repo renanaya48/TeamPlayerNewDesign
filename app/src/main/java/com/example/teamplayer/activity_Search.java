@@ -159,7 +159,7 @@ public class activity_Search extends AppCompatActivity {
     }
 
     public void getValuesFromUsers(View view){
-        EditText sportType = (EditText) findViewById(R.id.activity_name_t);
+        EditText sportType = (EditText) findViewById(R.id.activity_name);
         //area
         //agerang
 

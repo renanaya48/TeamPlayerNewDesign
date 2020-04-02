@@ -1184,9 +1184,9 @@ id action_text
 id actions
 id activity_chooser_view_content
 id activity_details_group
+id activity_name
 id activity_name_group
 id activity_name_layout
-id activity_name_t
 id add
 id adjust_height
 id adjust_width
@@ -1201,6 +1201,8 @@ id barrier
 id beginning
 id blocking
 id bottom
+id btn_send
+id button
 id button10
 id button11
 id button12
@@ -1260,9 +1262,9 @@ id disableHome
 id done
 id done_city
 id done_sport_type
-id editText
 id editText2
 id edit_query
+id emailFailed
 id end
 id enterAlways
 id enterAlwaysCollapsed
@@ -1291,6 +1293,7 @@ id imageButton
 id imageButton2
 id imageButton3
 id imageButton4
+id imageButton5
 id imageView
 id imageView2
 id imageView5
@@ -1313,9 +1316,11 @@ id max_Players
 id message
 id middle
 id mini
+id msg_input
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
+id name
 id name_of_activity
 id navigation_header_container
 id never
@@ -1332,6 +1337,9 @@ id parallax
 id parent
 id parentPanel
 id parent_matrix
+id password
+id passwordConfrim
+id passwordFailed
 id payment
 id payment2
 id percent
@@ -1405,9 +1413,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
-id textView10
-id textView11
-id textView12
 id textView13
 id textView14
 id textView15

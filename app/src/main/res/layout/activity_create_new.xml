@@ -159,7 +159,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/activity_name_t"
+            android:id="@+id/activity_name"
             android:layout_width="160dp"
             android:layout_height="32dp"
             android:layout_marginStart="8dp"
@@ -263,7 +263,7 @@
             app:layout_constraintBottom_toTopOf="@+id/age_range"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView8"
-            app:layout_constraintTop_toBottomOf="@+id/activity_name_t" />
+            app:layout_constraintTop_toBottomOf="@+id/activity_name" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

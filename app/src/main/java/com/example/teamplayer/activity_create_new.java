@@ -3,7 +3,6 @@ package com.example.teamplayer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,12 +11,18 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.webianks.library.scroll_choice.ScrollChoice;
 
@@ -49,6 +54,15 @@ public class activity_create_new extends AppCompatActivity{
     String cityThatChosen = "CHOOSE";
     String sportThatChosen = "CHOOSE";
     View viewToPass;
+    private FirebaseAuth mAuth;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    public String user_name;
+    private DatabaseReference root = FirebaseDatabase.getInstance().getReference().child("Chats");
+    private String activityNameText;
+
+
+
+
 
 
     @Override
@@ -67,7 +81,7 @@ public class activity_create_new extends AppCompatActivity{
         buttonAge.setOnClickListener(new View.OnClickListener() {
             //@override
             public void onClick(View v) {
-                EditText activityName = (EditText) findViewById(R.id.activity_name_t);
+                EditText activityName = (EditText) findViewById(R.id.activity_name);
                 String activityNameText = activityName.getText().toString();
                 Intent intent = new Intent(activity_create_new.this, age_range.class);
                 intent.putExtra("ACTIVITY", className);
@@ -83,7 +97,7 @@ public class activity_create_new extends AppCompatActivity{
         buttonCity.setOnClickListener(new View.OnClickListener() {
             //@override
             public void onClick(View v) {
-                EditText activityName = (EditText) findViewById(R.id.activity_name_t);
+                EditText activityName = (EditText) findViewById(R.id.activity_name);
                 String activityNameText = activityName.getText().toString();
                 Intent intent = new Intent(activity_create_new.this, city.class);
                 intent.putExtra("ACTIVITY", className);
@@ -99,7 +113,7 @@ public class activity_create_new extends AppCompatActivity{
         buttonSportType.setOnClickListener(new View.OnClickListener() {
             //@override
             public void onClick(View v) {
-                EditText activityName = (EditText) findViewById(R.id.activity_name_t);
+                EditText activityName = (EditText) findViewById(R.id.activity_name);
                 String activityNameText = activityName.getText().toString();
                 Intent intent = new Intent(activity_create_new.this, sport_type.class);
                 intent.putExtra("ACTIVITY", className);
@@ -128,7 +142,7 @@ public class activity_create_new extends AppCompatActivity{
             sportThatChosen = getIntent().getStringExtra("SPORTS");
             buttonSportType.setText(sportThatChosen);
         }
-        EditText activityName = (EditText) findViewById(R.id.activity_name_t);
+        EditText activityName = (EditText) findViewById(R.id.activity_name);
         String name = getIntent().getStringExtra("ACTIVITY_NAME");
         activityName.setText(name);
     }
@@ -141,9 +155,9 @@ public class activity_create_new extends AppCompatActivity{
 
     public void SaveData(View view) throws InterruptedException {
         viewToPass = view;
-        EditText activityName = (EditText) findViewById(R.id.activity_name_t);
-        String activityNameText = activityName.getText().toString();
-
+        EditText activityName = (EditText) findViewById(R.id.activity_name);
+         activityNameText = activityName.getText().toString();
+        createChatRoom();
         FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
         rootRef.collection(ACTIVITIES_COLLECTION).document(activityNameText).update("Exist","").addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -169,8 +183,42 @@ public class activity_create_new extends AppCompatActivity{
 
     }
 
+    public void createChatRoom(){
+        System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String email = user.getEmail();
+        DocumentReference userNAme = db.collection("Users").document(email);
+        userNAme.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        user_name= document.getString("name");
+                        createChat();
+                        Log.d(TAG, "DocumentSnapshot data: " + document.getString("name"));
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
+    }
+    public void createChat(){
+        Map<String, Object> map = new HashMap<String, Object>();
+       // Map<String, Object> mapUser = new HashMap<String, Object>();
+       // DatabaseReference UsersList = root.child(activityNameText).child("participants");
+       // mapUser.put(user_name,"");
+        map.put(activityNameText, "");
+        root.updateChildren(map);
+       // UsersList.updateChildren(mapUser);
+    }
+
     public void createNewDoc(){
-        EditText activityName = (EditText) findViewById(R.id.activity_name_t);
+        EditText activityName = (EditText) findViewById(R.id.activity_name);
         String activityNameText = activityName.getText().toString();
         EditText maxPlayers = (EditText) findViewById(R.id.max_Players);
         EditText details = (EditText) findViewById(R.id.details);
@@ -220,7 +268,7 @@ public class activity_create_new extends AppCompatActivity{
     }
 
     private void getToTheNextScreen() {
-        EditText activityName = (EditText) findViewById(R.id.activity_name_t);
+        EditText activityName = (EditText) findViewById(R.id.activity_name);
         String activityNameText = activityName.getText().toString();
         Intent intent = new Intent(activity_create_new.this, group.class);
         intent.putExtra("ACTIVITY", className);
