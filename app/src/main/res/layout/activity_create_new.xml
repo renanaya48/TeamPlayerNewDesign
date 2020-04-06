@@ -30,9 +30,8 @@
             android:id="@+id/max_Players"
             android:layout_width="160dp"
             android:layout_height="32dp"
-            android:layout_marginTop="320dp"
+            android:layout_marginTop="296dp"
             android:layout_marginEnd="60dp"
-            android:layout_marginRight="60dp"
             android:background="@drawable/textview_border"
             android:ems="10"
             android:inputType="textPersonName"
@@ -44,8 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="160dp"
+            android:layout_marginTop="132dp"
             android:text="Sport's type"
             android:textColor="#273272"
             android:textSize="24sp"
@@ -74,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="108dp"
+            android:layout_marginTop="76dp"
             android:text="Name"
             android:textColor="#273272"
             android:textSize="24sp"
@@ -86,8 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="212dp"
+            android:layout_marginTop="188dp"
             android:text="Age range"
             android:textColor="#273272"
             android:textSize="24sp"
@@ -99,7 +96,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="264dp"
+            android:layout_marginTop="236dp"
             android:text="City"
             android:textColor="#273272"
             android:textSize="24sp"
@@ -111,8 +108,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="320dp"
+            android:layout_marginTop="296dp"
             android:text="Max players"
             android:textColor="#273272"
             android:textSize="24sp"
@@ -124,8 +120,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="372dp"
+            android:layout_marginTop="388dp"
             android:text="Additional detials:"
             android:textColor="#273272"
             android:textSize="24sp"
@@ -137,8 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="488dp"
+            android:layout_marginTop="504dp"
             android:text="Payment"
             android:textColor="#273272"
             android:textSize="24sp"
@@ -149,9 +143,8 @@
             android:id="@+id/details"
             android:layout_width="350dp"
             android:layout_height="45dp"
-            android:layout_marginTop="416dp"
+            android:layout_marginTop="432dp"
             android:layout_marginEnd="52dp"
-            android:layout_marginRight="52dp"
             android:background="@drawable/textview_border"
             android:ems="10"
             android:inputType="textPersonName"
@@ -160,21 +153,18 @@
 
         <EditText
             android:id="@+id/activity_name"
-            android:layout_width="160dp"
-            android:layout_height="32dp"
+            android:layout_width="165dp"
+            android:layout_height="35dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="108dp"
+            android:layout_marginTop="72dp"
             android:layout_marginEnd="60dp"
-            android:layout_marginBottom="8dp"
             android:background="@drawable/textview_border"
             android:ems="10"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/find_activities"
@@ -212,7 +202,7 @@
             android:layout_width="157dp"
             android:layout_height="37dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="212dp"
+            android:layout_marginTop="188dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/textview_border"
             android:text="choose"
@@ -234,7 +224,7 @@
             app:layout_constraintHorizontal_bias="0.537"
             app:layout_constraintStart_toEndOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/details"
-            app:layout_constraintVertical_bias="0.542" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/button_city"
@@ -247,10 +237,10 @@
             android:text="choose"
             app:layout_constraintBottom_toTopOf="@+id/max_Players"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.758"
+            app:layout_constraintHorizontal_bias="0.774"
             app:layout_constraintStart_toEndOf="@+id/textView4"
             app:layout_constraintTop_toBottomOf="@+id/age_range"
-            app:layout_constraintVertical_bias="0.724" />
+            app:layout_constraintVertical_bias="0.611" />
 
         <Button
             android:id="@+id/sport_type_button"
@@ -262,8 +252,34 @@
             android:text="CHOOSE"
             app:layout_constraintBottom_toTopOf="@+id/age_range"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.474"
             app:layout_constraintStart_toEndOf="@+id/textView8"
-            app:layout_constraintTop_toBottomOf="@+id/activity_name" />
+            app:layout_constraintTop_toBottomOf="@+id/activity_name"
+            app:layout_constraintVertical_bias="0.6" />
+
+        <TextView
+            android:id="@+id/Description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="24dp"
+            android:text="Descripiton"
+            app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/descriptionToFill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Day, Hour, Place etc..."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/Description"
+            app:layout_constraintTop_toBottomOf="@+id/max_Players" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

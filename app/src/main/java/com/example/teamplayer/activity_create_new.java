@@ -36,13 +36,8 @@ import static java.lang.Thread.sleep;
 public class activity_create_new extends AppCompatActivity{
     private volatile boolean isExist=false;
     private DocumentReference docRef;
-    //private DocumentReference docRef = FirebaseFirestore.getInstance().document("Activities/test2");
     private static final String TAG = "saveToDataBase";
     private static final String ACTIVITIES_COLLECTION = "Activities/";
-    List<String> ages = new ArrayList<>();
-    List<String> sportType = new ArrayList<>();
-    TextView textView;
-    ScrollChoice scrollChoice;
     Map<String, Object> dataToSave = new HashMap<String, Object>();
     Button buttonAge;
     Button buttonCity;
@@ -59,10 +54,6 @@ public class activity_create_new extends AppCompatActivity{
     public String user_name;
     private DatabaseReference root = FirebaseDatabase.getInstance().getReference().child("Chats");
     private String activityNameText;
-
-
-
-
 
 
     @Override
@@ -173,8 +164,17 @@ public class activity_create_new extends AppCompatActivity{
             @Override
             public void onFailure(@NonNull Exception e) {
                 Log.w(TAG, "no such doc");
-                createNewDoc();
-                isExist = false;
+                EditText description = (EditText) findViewById(R.id.descriptionToFill);
+                String descriptionText = description.getText().toString();
+                if(descriptionText.equals("")){
+                    Snackbar.make(viewToPass, "Description is required",
+                            Snackbar.LENGTH_LONG)
+                            .show();
+                }else{
+                    createNewDoc();
+                    isExist = false;
+                }
+
             }
         });
 
@@ -223,6 +223,9 @@ public class activity_create_new extends AppCompatActivity{
         EditText maxPlayers = (EditText) findViewById(R.id.max_Players);
         EditText details = (EditText) findViewById(R.id.details);
         CheckBox payment = (CheckBox) findViewById(R.id.payment);
+        EditText description = (EditText) findViewById(R.id.descriptionToFill);
+        String descriptionText = description.getText().toString();
+
 
         String maxPlayersText = maxPlayers.getText().toString();
         String detailsText = details.getText().toString();
@@ -251,6 +254,7 @@ public class activity_create_new extends AppCompatActivity{
         dataToSave.put("city", city);
         dataToSave.put("sportType", sportType);
         dataToSave.put("detailsToShow", "");
+        dataToSave.put("description", descriptionText);
 
         docRef.set(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -270,11 +274,15 @@ public class activity_create_new extends AppCompatActivity{
     private void getToTheNextScreen() {
         EditText activityName = (EditText) findViewById(R.id.activity_name);
         String activityNameText = activityName.getText().toString();
+        EditText description = (EditText) findViewById(R.id.descriptionToFill);
+        String descriptionText = description.getText().toString();
         Intent intent = new Intent(activity_create_new.this, group.class);
         intent.putExtra("ACTIVITY", className);
         intent.putExtra("ACTIVITY_NAME", activityNameText);
-        intent.putExtra("AGE", ageThatChosen);
-        intent.putExtra("CITY", cityThatChosen);
+//        intent.putExtra("AGE", ageThatChosen);
+  //      intent.putExtra("CITY", cityThatChosen);
+        intent.putExtra("DESCRIPTION", descriptionText);
+
         startActivity(intent);
     }
 

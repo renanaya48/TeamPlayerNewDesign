@@ -1098,6 +1098,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_info
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_chip_checked_black
@@ -1126,6 +1127,7 @@ drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
 id CTRL
+id Description
 id Email
 id FUNCTION
 id META
@@ -1203,18 +1205,11 @@ id blocking
 id bottom
 id btn_send
 id button
-id button10
-id button11
-id button12
-id button13
 id button14
 id button2
 id button3
-id button4
-id button6
 id button7
 id button8
-id button9
 id buttonPanel
 id button_Chat
 id button_add_details
@@ -1248,6 +1243,7 @@ id customPanel
 id dark
 id decor_content_parent
 id default_activity_button
+id descriptionToFill
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -1297,6 +1293,7 @@ id imageButton5
 id imageView
 id imageView2
 id imageView5
+id image_info
 id info
 id invisible
 id italic
@@ -1347,6 +1344,7 @@ id pin
 id progress_circular
 id progress_horizontal
 id radio
+id recyclerView
 id right
 id right_icon
 id right_side
@@ -1507,6 +1505,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activities_items
 layout activity__login
 layout activity__search
 layout activity_age_range

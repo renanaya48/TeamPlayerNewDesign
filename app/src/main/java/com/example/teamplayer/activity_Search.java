@@ -20,8 +20,11 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.webianks.library.scroll_choice.ScrollChoice;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class activity_Search extends AppCompatActivity {
 
@@ -37,12 +40,13 @@ public class activity_Search extends AppCompatActivity {
     String sportThatChosen = "CHOOSE";
     String cityThatChosen= "CHOOSE";
 
-    List<String> ages = new ArrayList<>();
+    Map<String, Object> documentData;
+    ArrayList<String> activitiesNamesFound = new ArrayList<>();
+    ArrayList<String> descriptionsFound = new ArrayList<>();
+    View view;
+
     List<String> objectToSearch = new ArrayList<>();
     List<String> fieldToSearch = new ArrayList<>();
-    //Map<String, Object> objectToSearch = new HashMap<String, Object>();
-    TextView textView;
-    ScrollChoice scrollChoice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,7 +115,8 @@ public class activity_Search extends AppCompatActivity {
 
     }
 
-    public void getMultipleDocs(View view) {
+    public void getMultipleDocs(View viewL) {
+        view = viewL;
         CheckBox payment = (CheckBox) findViewById(R.id.payment2);
 
         if(!payment.isChecked()){
@@ -126,7 +131,12 @@ public class activity_Search extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     Log.d(TAG, document.getId() + " => " + document.getData());
+                                    activitiesNamesFound.add(document.get("activityName").toString());
+                                    descriptionsFound.add(document.get("description").toString());
                                 }
+
+                                searchResult(view);
+
                             } else {
                                 Log.d(TAG, "Error getting documents: ", task.getException());
                             }
@@ -145,7 +155,11 @@ public class activity_Search extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     Log.d(TAG, document.getId() + " => " + document.getData());
+                                    activitiesNamesFound.add(document.get("activityName").toString());
+                                    descriptionsFound.add(document.get("description").toString());
                                 }
+                                searchResult(view);
+
                             } else {
                                 Log.d(TAG, "Error getting documents: ", task.getException());
                             }
@@ -194,16 +208,6 @@ public class activity_Search extends AppCompatActivity {
 
     }
 
-    private void loadData() {
-        ages.add("12-16");
-        ages.add("16-18");
-        ages.add("18-21");
-        ages.add("21-30");
-        ages.add("30-40");
-        ages.add("40-50");
-        ages.add("50+");
-        ages.add("Other");
-    }
 
 
     public void backButton(View view) {
@@ -213,6 +217,11 @@ public class activity_Search extends AppCompatActivity {
 
     public void searchResult(View view) {
         Intent intent=new Intent(this,search_result.class);
+        intent.putExtra("ACTIVITY", className);
+        intent.putStringArrayListExtra("ACTIVITY_NAME", activitiesNamesFound);
+        Log.d(TAG, "size in search " + String.valueOf(activitiesNamesFound.size()));
+        intent.putStringArrayListExtra("DESCRIPTION", descriptionsFound);
         startActivity(intent);
+
     }
 }
