@@ -67,8 +67,9 @@ public class user_activities extends AppCompatActivity {
                             if(activitiesNamesFound.isEmpty()){
                                 Intent intent=new Intent(user_activities.this, no_result.class);
                                 startActivity(intent);
+                            }else {
+                                showOnscroll();
                             }
-                            showOnscroll();
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
                         }
