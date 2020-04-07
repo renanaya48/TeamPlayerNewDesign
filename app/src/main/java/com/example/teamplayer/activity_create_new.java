@@ -218,6 +218,9 @@ public class activity_create_new extends AppCompatActivity{
     }
 
     public void createNewDoc(){
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String email = user.getEmail();
         EditText activityName = (EditText) findViewById(R.id.activity_name);
         String activityNameText = activityName.getText().toString();
         EditText maxPlayers = (EditText) findViewById(R.id.max_Players);
@@ -255,6 +258,7 @@ public class activity_create_new extends AppCompatActivity{
         dataToSave.put("sportType", sportType);
         dataToSave.put("detailsToShow", "");
         dataToSave.put("description", descriptionText);
+        dataToSave.put("manager_email", email);
 
         docRef.set(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override

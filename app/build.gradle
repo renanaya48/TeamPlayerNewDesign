@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        maven { url 'https://plugins.gradle.org/m2/'}
+        maven { url 'https://plugins.gradle.org/m2/' }
     }
     dependencies {
         classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:[0.12.4, 0.99.99]'
@@ -13,7 +13,7 @@ repositories {
 }
 buildscript {
     repositories {
-        maven { url 'https://plugins.gradle.org/m2/'}
+        maven { url 'https://plugins.gradle.org/m2/' }
     }
     dependencies {
         classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:[0.12.4, 0.99.99]'
@@ -46,7 +46,7 @@ android {
     }
     defaultConfig {
         manifestPlaceholders = [
-                onesignal_app_id: 'f133e9ac-0ffa-46ff-977a-acab61b82fff',
+                onesignal_app_id               : 'f133e9ac-0ffa-46ff-977a-acab61b82fff',
                 // Project number pulled from dashboard, local value is ignored.
                 onesignal_google_project_number: 'REMOTE'
         ]
@@ -72,8 +72,6 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.onesignal:OneSignal:[3.13.0, 3.99.99]'
     implementation 'com.squareup.okhttp3:okhttp:3.6.0'
-
-
 
 
 }

@@ -899,6 +899,7 @@ dimen design_tab_text_size_2line
 dimen design_textinput_caption_translate_y
 dimen disabled_alpha_material_dark
 dimen disabled_alpha_material_light
+dimen fab_margin
 dimen fastscroll_default_thickness
 dimen fastscroll_margin
 dimen fastscroll_minimum_range
@@ -1228,6 +1229,7 @@ id button
 id button14
 id button2
 id button3
+id button4
 id button7
 id button8
 id buttonPanel
@@ -1373,6 +1375,7 @@ id progress_circular
 id progress_horizontal
 id radio
 id recyclerView
+id request
 id right
 id right_icon
 id right_side
@@ -1541,6 +1544,7 @@ layout activity_age_range
 layout activity_chat
 layout activity_city
 layout activity_create_new
+layout activity_details
 layout activity_group
 layout activity_main
 layout activity_manager
@@ -1665,6 +1669,7 @@ string picker_today
 string project_id
 string search_menu_title
 string status_bar_notification_info_overflow
+string title_activity_details
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
@@ -1672,6 +1677,9 @@ style Animation_AppCompat_DropDownUp
 style Animation_AppCompat_Tooltip
 style Animation_Design_BottomSheetDialog
 style AppTheme
+style AppTheme_AppBarOverlay
+style AppTheme_NoActionBar
+style AppTheme_PopupOverlay
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog
