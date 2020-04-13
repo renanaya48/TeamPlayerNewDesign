@@ -1148,6 +1148,7 @@ id FUNCTION
 id META
 id SHIFT
 id SYM
+id accept
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
 id accessibility_custom_action_1
@@ -1229,7 +1230,6 @@ id button
 id button14
 id button2
 id button3
-id button4
 id button7
 id button8
 id buttonPanel
@@ -1264,6 +1264,7 @@ id coordinator
 id custom
 id customPanel
 id dark
+id decline
 id decor_content_parent
 id default_activity_button
 id descriptionToFill
@@ -1329,6 +1330,7 @@ id light
 id line1
 id line3
 id listMode
+id listView
 id list_item
 id logInButton
 id logInFailed
@@ -1444,9 +1446,7 @@ id textSpacerNoTitle
 id textStart
 id textView
 id textView13
-id textView14
 id textView15
-id textView16
 id textView2
 id textView3
 id textView4
@@ -1550,6 +1550,7 @@ layout activity_main
 layout activity_manager
 layout activity_no_result
 layout activity_registration
+layout activity_request_item
 layout activity_requests
 layout activity_search_result
 layout activity_select_action
@@ -1670,6 +1671,7 @@ string project_id
 string search_menu_title
 string status_bar_notification_info_overflow
 string title_activity_details
+string title_activity_request_item
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

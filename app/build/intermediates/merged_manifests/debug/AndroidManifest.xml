@@ -60,6 +60,10 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
+            android:name="com.example.teamplayer.requestItem"
+            android:label="@string/title_activity_request_item"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name="com.example.teamplayer.activity_details"
             android:label="@string/title_activity_details"
             android:theme="@style/AppTheme.NoActionBar" />
