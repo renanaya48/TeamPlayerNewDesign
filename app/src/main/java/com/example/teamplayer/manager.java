@@ -20,6 +20,7 @@ public class manager extends AppCompatActivity {
         activityCollection = getIntent().getStringExtra("ACTIVITY");
         activityName = getIntent().getStringExtra("ACTIVITY_NAME");
         description = getIntent().getStringExtra("DESCRIPTION");
+        System.out.println("activity name: " + activityName);
 
         setContentView(R.layout.activity_manager);
         TextView activity_name = (TextView) findViewById(R.id.activity_name);

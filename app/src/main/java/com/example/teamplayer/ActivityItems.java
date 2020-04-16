@@ -1,6 +1,10 @@
 package com.example.teamplayer;
 
+import android.util.Log;
+import android.view.View;
+
 public class ActivityItems {
+    private static final String TAG = "details";
     private int mImageResource;
     private String mActivityName;
     private String mDescription;
@@ -21,5 +25,9 @@ public class ActivityItems {
 
     public String getDescription() {
         return mDescription;
+    }
+
+    public void show(View view){
+        Log.d(TAG, " hi its work!!");
     }
 }

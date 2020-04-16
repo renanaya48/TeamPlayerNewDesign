@@ -47,6 +47,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="15dp"
             android:layout_toEndOf="@+id/textView"
+            android:onClick="show"
             android:src="@drawable/ic_info" />
 
     </RelativeLayout>
