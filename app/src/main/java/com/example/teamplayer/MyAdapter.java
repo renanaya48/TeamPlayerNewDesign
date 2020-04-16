@@ -34,7 +34,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
             super(itemView);
             mImageView = itemView.findViewById(R.id.imageView);
             mTextView1 = itemView.findViewById(R.id.textView);
-            mTextView2 = itemView.findViewById(R.id.textView2);
+            mTextView2 = itemView.findViewById(R.id.activity_description);
             mInfoImage = itemView.findViewById(R.id.image_info);
 
             mInfoImage.setOnClickListener(new View.OnClickListener() {

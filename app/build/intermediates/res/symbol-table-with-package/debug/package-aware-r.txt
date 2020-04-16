@@ -1202,6 +1202,7 @@ id action_mode_close_button
 id action_text
 id actions
 id activity_chooser_view_content
+id activity_description
 id activity_details_group
 id activity_name
 id activity_name_group
@@ -1230,16 +1231,16 @@ id button
 id button14
 id button2
 id button3
+id button4
+id button5
 id button7
 id button8
 id buttonPanel
 id button_Chat
-id button_add_details
 id button_chat
 id button_city
 id button_contact
 id button_contact1
-id button_done_details
 id button_join_request
 id button_more_members
 id cancel_action
@@ -1447,7 +1448,6 @@ id textStart
 id textView
 id textView13
 id textView15
-id textView2
 id textView3
 id textView4
 id textView5

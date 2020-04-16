@@ -280,7 +280,7 @@ public class activity_create_new extends AppCompatActivity{
         String activityNameText = activityName.getText().toString();
         EditText description = (EditText) findViewById(R.id.descriptionToFill);
         String descriptionText = description.getText().toString();
-        Intent intent = new Intent(activity_create_new.this, group.class);
+        Intent intent = new Intent(activity_create_new.this, manager.class);
         intent.putExtra("ACTIVITY", className);
         intent.putExtra("ACTIVITY_NAME", activityNameText);
 //        intent.putExtra("AGE", ageThatChosen);

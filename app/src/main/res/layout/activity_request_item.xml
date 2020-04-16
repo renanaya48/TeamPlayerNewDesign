@@ -33,19 +33,19 @@
             android:layout_height="24dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="-3dp"
             android:text="yes" />
 
         <Button
             android:id="@+id/decline"
-            android:layout_width="83dp"
-            android:layout_height="23dp"
+            android:layout_width="wrap_content"
+            android:layout_height="21dp"
             android:layout_alignBaseline="@+id/request"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="31dp"
-            android:layout_marginBottom="4dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="29dp"
             android:text="no" />
 
 

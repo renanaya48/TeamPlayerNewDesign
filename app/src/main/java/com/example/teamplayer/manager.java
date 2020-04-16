@@ -12,12 +12,20 @@ import android.widget.TextView;
 
 public class manager extends AppCompatActivity {
     private String activityName;
+    String activityCollection;
+    String description;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        activityCollection = getIntent().getStringExtra("ACTIVITY");
+        activityName = getIntent().getStringExtra("ACTIVITY_NAME");
+        description = getIntent().getStringExtra("DESCRIPTION");
+
         setContentView(R.layout.activity_manager);
         TextView activity_name = (TextView) findViewById(R.id.activity_name);
-        activityName = activity_name.getText().toString();
+        activity_name.setText(activityName);
+        TextView descriptionText = (TextView) findViewById(R.id.activity_description);
+        descriptionText.setText(description);
     }
     public void chatButton(View view){
 

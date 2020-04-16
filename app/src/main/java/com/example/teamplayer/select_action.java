@@ -13,6 +13,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.onesignal.OneSignal;
 
+
+
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -45,6 +47,16 @@ public class select_action extends AppCompatActivity {
 
     public void myActivity(View view) {
         Intent intent=new Intent(this,user_activities.class);
+        startActivity(intent);
+    }
+
+    public void managerButton(View view) {
+        Intent intent = new Intent(this, manager.class);
+        startActivity(intent);
+    }
+
+    public void detailsButton(View view) {
+        Intent intent = new Intent(this, activity_details.class);
         startActivity(intent);
     }
 

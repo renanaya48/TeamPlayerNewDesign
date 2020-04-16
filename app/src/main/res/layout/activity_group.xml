@@ -151,30 +151,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_add_details"
-        android:layout_width="269dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="#F1E581"
-        android:text="please add activity details in the box below"
-        app:layout_constraintBottom_toTopOf="@+id/details_to_fill"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.587"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_of_activity"
-        app:layout_constraintVertical_bias="0.369" />
-
     <EditText
         android:id="@+id/details_to_fill"
         android:layout_width="270dp"
         android:layout_height="107dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="96dp"
         android:background="#F1E581"
         android:ems="10"
         android:inputType="textPersonName"
@@ -183,26 +166,14 @@
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.592"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" /><![CDATA[
 
-    <Button
-        android:id="@+id/button_done_details"
-        android:layout_width="101dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/title_border"
-        android:text="done"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/details_to_fill" /><![CDATA[
+
 
 
 
     />
+
 
 
 ]]>

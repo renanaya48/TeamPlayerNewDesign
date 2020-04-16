@@ -60,14 +60,12 @@
         app:layout_constraintVertical_bias="0.97" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/activity_description"
         android:layout_width="277dp"
         android:layout_height="57dp"
         android:layout_marginTop="132dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:background="#F1E581"
-        android:text="Monday, 20:00 , Maginim School Court, Haifa"
         android:textColor="#0F1015"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"

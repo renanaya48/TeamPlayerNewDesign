@@ -43,32 +43,6 @@ public class group extends AppCompatActivity {
     }
 
     public void detailstoDB(){
-        EditText activityDetails = (EditText) findViewById(R.id.details_to_fill);
-        String activityDetailsText = activityDetails.getText().toString();
-        Button doneDetails = (Button) findViewById(R.id.button_done_details) ;
-        doneDetails.setOnClickListener(new View.OnClickListener() {
-            //@override
-            public void onClick(View v) {
-                EditText activityDetails = (EditText) findViewById(R.id.details_to_fill);
-                String activityDetailsText = activityDetails.getText().toString();
-
-                FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
-                rootRef.collection(ACTIVITIES_COLLECTION).document(documentActivityName)
-                        .update("detailsToShow",activityDetailsText).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "document updated");
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "no such doc");
-
-                    }
-                });
-
-            }
-        });
     }
 
     public void backButton(View view) {
