@@ -27,28 +27,27 @@
             android:layout_marginTop="21dp"
             android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/accept"
-            android:layout_width="82dp"
-            android:layout_height="24dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="34dp"
-            android:layout_marginEnd="-3dp"
-            android:text="yes" />
-
-        <Button
-            android:id="@+id/decline"
-            android:layout_width="wrap_content"
-            android:layout_height="21dp"
-            android:layout_alignBaseline="@+id/request"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="3dp"
-            android:layout_marginBottom="29dp"
-            android:text="no" />
-
 
     </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/accept"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="78dp"
+        android:src="@drawable/ic_stat_namev" />
+
+    <ImageButton
+        android:id="@+id/decline"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="33dp"
+        android:src="@drawable/ic_stat_namex" />
 
 </RelativeLayout>

@@ -1119,6 +1119,9 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_os_notification_fallback_white_24dp
+drawable ic_stat_namev
+drawable ic_stat_namex
+drawable ic_stat_notification
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon

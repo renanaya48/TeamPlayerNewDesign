@@ -9,8 +9,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -72,35 +76,52 @@ public class activity_details extends AppCompatActivity {
 
     }
     public void request(View view){
-        System.out.println("startttttttttttttttttt");
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         user_email = user.getEmail();
-        DocumentReference userNAme = db.collection("Users").document(user_email);
-        userNAme.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        temp_key = root.push().getKey();
-                        user_name= document.getString("Name");
-                        Log.d(TAG, "DocumentSnapshot data: " + document.getString("Name"));
-                        sendNotification();
-                        userRoot= root.child(temp_key);
-                        Map<String, Object> map = new HashMap<String, Object>();
-                        map.put("name", user_name);
-                        map.put("user_email", user_email);
-                        userRoot.updateChildren(map);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        Query userQuery = ref.child("Groups").child(activity_name).orderByChild("user_email").equalTo(user_email);
 
-                    } else {
-                        Log.d(TAG, "No such document");
-                    }
-                } else {
-                    Log.d(TAG, "get failed with ", task.getException());
+        userQuery.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (!dataSnapshot.exists()){
+                    DocumentReference userNAme = db.collection("Users").document(user_email);
+                    userNAme.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if (task.isSuccessful()) {
+                                DocumentSnapshot document = task.getResult();
+
+                                if (document.exists()) {
+                                    temp_key = root.push().getKey();
+                                    user_name= document.getString("Name");
+                                    Log.d(TAG, "DocumentSnapshot data: " + document.getString("Name"));
+                                    sendNotification();
+                                    userRoot= root.child(temp_key);
+                                    Map<String, Object> map = new HashMap<String, Object>();
+                                    map.put("name", user_name);
+                                    map.put("user_email", user_email);
+                                    userRoot.updateChildren(map);
+
+                                } else {
+                                    Log.d(TAG, "No such document");
+                                }
+                            } else {
+                                Log.d(TAG, "get failed with ", task.getException());
+                            }
+                        }
+                    });
+
                 }
             }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, "onCancelled", databaseError.toException());
+            }
         });
+
 
     }
     private void sendNotification()
@@ -120,7 +141,6 @@ public class activity_details extends AppCompatActivity {
                     String send_email = manager_email;
 
                     try {
-                        System.out.println("tryyyyyyyyyyyyyyyyyyyyyyyy");
                         String jsonResponse;
 
                         URL url = new URL("https://onesignal.com/api/v1/notifications");

@@ -30,9 +30,8 @@ public class requests extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
          activity_name = getIntent().getStringExtra("activity_name");
 
-        root = FirebaseDatabase.getInstance().getReference().child("Groups").child(activity_name);
-        System.out.println("dddddddddddddddd");
-        System.out.println(root);
+        root = FirebaseDatabase.getInstance().getReference().child("Groups").child("Run123");
+
 
         root.addChildEventListener(new ChildEventListener() {
             @Override
@@ -90,5 +89,6 @@ public class requests extends AppCompatActivity {
 
 
     }
+
 
 }

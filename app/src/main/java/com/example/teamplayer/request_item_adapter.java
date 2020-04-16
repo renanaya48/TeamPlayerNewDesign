@@ -1,6 +1,8 @@
 package com.example.teamplayer;
 
 import android.content.Context;
+import android.os.AsyncTask;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,8 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,8 +30,12 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.io.OutputStream;
 import java.lang.reflect.Field;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
+import java.util.Scanner;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
@@ -69,8 +77,8 @@ public class request_item_adapter  extends ArrayAdapter<requestItem> {
 
         //getting the view elements of the list from the view
         TextView textViewName = view.findViewById(R.id.request);
-        Button buttonAccept = view.findViewById(R.id.accept);
-        Button buttonDecline = view.findViewById(R.id.decline);
+        ImageButton buttonAccept = view.findViewById(R.id.accept);
+        ImageButton buttonDecline = view.findViewById(R.id.decline);
 
         //getting the hero of the specified position
         requestItem requestItem = requestList.get(position);
@@ -87,72 +95,50 @@ public class request_item_adapter  extends ArrayAdapter<requestItem> {
             @Override
             public void onClick(View view) {
                 addUserToActivity(email);
-                acceptOrDecline =false;
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Groups").child(activity_name);
-                Query query = ref.orderByKey();
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                Query userQuery = ref.child("Groups").child(activity_name).orderByChild("user_email").equalTo(email);
 
-                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                userQuery.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        System.out.println(dataSnapshot);
-                        System.out.println(dataSnapshot.getChildren());
-                        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Groups").child(activity_name);
-                        for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
-                            for (DataSnapshot val: snapshot.getChildren()) {
-                                if (val.getKey().equals("user_email")){
-                                    if (val.getValue().toString().equals(email)){
-                                        snapshot.getRef().removeValue();
-                                        //removing the item
-                                        requestList.remove(position);
+                        for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
+                            appleSnapshot.getRef().removeValue();
+                            requestList.remove(position);
 
-                                        //reloading the list
-                                        notifyDataSetChanged();
-                                    }
-                                }
-
-                            }
+                            //reloading the list
+                            notifyDataSetChanged();
+                            sendAccepted(email);
                         }
                     }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
+                        Log.e(TAG, "onCancelled", databaseError.toException());
                     }
                 });
-
             }
         });
         buttonDecline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                acceptOrDecline =false;
-                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Groups").child(activity_name);
-                    Query query = ref.orderByKey();
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                Query userQuery = ref.child("Groups").child(activity_name).orderByChild("user_email").equalTo(email);
 
-                query.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            System.out.println(dataSnapshot);
-                            System.out.println(dataSnapshot.getChildren());
-                            DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Groups").child(activity_name);
-                            for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
-                                for (DataSnapshot val: snapshot.getChildren()) {
-                                    if (val.getKey().equals("user_email")){
-                                        if (val.getValue().toString().equals(email)){
-                                            snapshot.getRef().removeValue();
-                                            //removing the item
-                                            requestList.remove(position);
+                userQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
+                            appleSnapshot.getRef().removeValue();
+                            requestList.remove(position);
 
-                                            //reloading the list
-                                            notifyDataSetChanged();
-                                        }
-                                    }
-
-                                }
-                            }
+                            //reloading the list
+                            notifyDataSetChanged();
                         }
+                    }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
+                        Log.e(TAG, "onCancelled", databaseError.toException());
                     }
                 });
 
@@ -184,9 +170,70 @@ public class request_item_adapter  extends ArrayAdapter<requestItem> {
 
     }
 
-    //this method will remove the item from the list
-    private void removeRequest() {
+    private void sendAccepted(final String email )
+    {
+
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                int SDK_INT = android.os.Build.VERSION.SDK_INT;
+                if (SDK_INT > 8) {
+                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                            .permitAll().build();
+                    StrictMode.setThreadPolicy(policy);
+                    String send_email = email;
+
+                    try {
+                        String jsonResponse;
+
+                        URL url = new URL("https://onesignal.com/api/v1/notifications");
+                        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                        con.setUseCaches(false);
+                        con.setDoOutput(true);
+                        con.setDoInput(true);
+
+                        con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+                        con.setRequestProperty("Authorization", "Basic N2Q5ZWFkYTMtZWQ3NS00YjY3LWExYTEtMzgzZGE2ZWNjNTc5");
+                        con.setRequestMethod("POST");
+                        String message =  " Your request to join "+activity_name +" group has been approved" ;
+                        String strJsonBody = "{"
+                                + "\"app_id\": \"f133e9ac-0ffa-46ff-977a-acab61b82fff\","
+
+                                + "\"filters\": [{\"field\": \"tag\", \"key\": \"User_ID\", \"relation\": \"=\", \"value\": \"" + send_email + "\"}],"
+
+                                + "\"data\": {\"foo\": \"bar\"},"
+                                + "\"contents\": {\"en\":\"" + message + "\"}"
+                                + "}";
 
 
+                        System.out.println("strJsonBody:\n" + strJsonBody);
+
+                        byte[] sendBytes = strJsonBody.getBytes("UTF-8");
+                        con.setFixedLengthStreamingMode(sendBytes.length);
+
+                        OutputStream outputStream = con.getOutputStream();
+                        outputStream.write(sendBytes);
+
+                        int httpResponse = con.getResponseCode();
+                        System.out.println("httpResponse: " + httpResponse);
+
+                        if (httpResponse >= HttpURLConnection.HTTP_OK
+                                && httpResponse < HttpURLConnection.HTTP_BAD_REQUEST) {
+                            Scanner scanner = new Scanner(con.getInputStream(), "UTF-8");
+                            jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
+                            scanner.close();
+                        } else {
+                            Scanner scanner = new Scanner(con.getErrorStream(), "UTF-8");
+                            jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
+                            scanner.close();
+                        }
+                        System.out.println("jsonResponse:\n" + jsonResponse);
+
+                    } catch (Throwable t) {
+                        t.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 }
