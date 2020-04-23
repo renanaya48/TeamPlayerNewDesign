@@ -8,12 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class search_result extends AppCompatActivity {
     private static final String TAG = "SearchResult";
@@ -30,8 +26,8 @@ public class search_result extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
-        ArrayList<String> activitiesNamesLIST= getIntent().getStringArrayListExtra("ACTIVITY_NAME");
-        ArrayList<String> descriptionsLIST= getIntent().getStringArrayListExtra("DESCRIPTION");
+       // ArrayList<String> activitiesNamesLIST= getIntent().getStringArrayListExtra("ACTIVITY_NAME");
+       // ArrayList<String> descriptionsLIST= getIntent().getStringArrayListExtra("DESCRIPTION");
         createActivityList();
         buildRecyclerView();
         //setButtons();
@@ -47,6 +43,7 @@ public class search_result extends AppCompatActivity {
         for(int i=0; i<activitiesNamesLIST.size(); ++i){
             mActivitiesList.add(new ActivityItems(R.drawable.project_logo, activitiesNamesLIST.get(i), descriptionsLIST.get(i)));
         }
+        //TODO: don't forget to delete!!!
         mActivitiesList.add(new ActivityItems(R.drawable.project_logo, "Line 1", "Line 2"));
         mActivitiesList.add(new ActivityItems(R.drawable.project_logo, "Line 3", "Line 4"));
     }

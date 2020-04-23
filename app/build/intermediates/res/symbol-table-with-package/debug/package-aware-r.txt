@@ -1305,6 +1305,7 @@ id fixed
 id forever
 id ghost_view
 id gone
+id group_button
 id group_divider
 id groups
 id home
@@ -1322,6 +1323,7 @@ id imageButton5
 id imageView
 id imageView2
 id imageView5
+id imageView_par
 id image_info
 id info
 id invisible
@@ -1366,6 +1368,7 @@ id os_bgimage_notif_body
 id os_bgimage_notif_title
 id outline
 id packed
+id par_recyclerView
 id parallax
 id parent
 id parentPanel
@@ -1458,6 +1461,7 @@ id textView6
 id textView7
 id textView8
 id textView9
+id textView_par
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1552,6 +1556,7 @@ layout activity_group
 layout activity_main
 layout activity_manager
 layout activity_no_result
+layout activity_participants__items
 layout activity_registration
 layout activity_request_item
 layout activity_requests

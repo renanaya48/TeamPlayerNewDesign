@@ -54,6 +54,10 @@ public class select_action extends AppCompatActivity {
         Intent intent = new Intent(this, manager.class);
         startActivity(intent);
     }
+    public void groupButton(View view) {
+        Intent intent = new Intent(this, group.class);
+        startActivity(intent);
+    }
 
     public void detailsButton(View view) {
         Intent intent = new Intent(this, activity_details.class);
