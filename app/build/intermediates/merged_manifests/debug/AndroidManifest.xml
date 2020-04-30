@@ -59,6 +59,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.teamplayer.activityDetailsAfterSearch" />
         <activity android:name="com.example.teamplayer.participants_Items" />
         <activity
             android:name="com.example.teamplayer.requestItem"
@@ -72,16 +73,30 @@
         <activity android:name="com.example.teamplayer.sport_type" />
         <activity android:name="com.example.teamplayer.city" />
         <activity android:name="com.example.teamplayer.age_range" />
-        <activity android:name="com.example.teamplayer.registration" />
-        <activity android:name="com.example.teamplayer.activity_Search" />
-        <activity android:name="com.example.teamplayer.activity_create_new" />
-        <activity android:name="com.example.teamplayer.user_activities" />
+        <activity
+            android:name="com.example.teamplayer.registration"
+            android:parentActivityName="com.example.teamplayer.activity_Login" />
+        <activity
+            android:name="com.example.teamplayer.activity_Search"
+            android:parentActivityName="com.example.teamplayer.select_action" />
+        <activity
+            android:name="com.example.teamplayer.activity_create_new"
+            android:parentActivityName="com.example.teamplayer.select_action" />
+        <activity
+            android:name="com.example.teamplayer.user_activities"
+            android:parentActivityName="com.example.teamplayer.select_action" />
         <activity android:name="com.example.teamplayer.manager" />
         <activity android:name="com.example.teamplayer.group" />
-        <activity android:name="com.example.teamplayer.select_action" />
-        <activity android:name="com.example.teamplayer.search_result" />
+        <activity
+            android:name="com.example.teamplayer.select_action"
+            android:parentActivityName="com.example.teamplayer.activity_Login" />
+        <activity
+            android:name="com.example.teamplayer.search_result"
+            android:parentActivityName="com.example.teamplayer.activity_Search" />
         <activity android:name="com.example.teamplayer.requests" />
-        <activity android:name="com.example.teamplayer.no_result" />
+        <activity
+            android:name="com.example.teamplayer.no_result"
+            android:parentActivityName="com.example.teamplayer.activity_Search" />
         <activity android:name="com.example.teamplayer.chat" />
         <activity android:name="com.example.teamplayer.activity_Login" >
             <intent-filter>

@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".participants_Items"></activity>
+        <activity android:name=".activityDetailsAfterSearch" />
+        <activity android:name=".participants_Items" />
         <activity
             android:name=".requestItem"
             android:label="@string/title_activity_request_item"
@@ -23,16 +24,23 @@
         <activity android:name=".sport_type" />
         <activity android:name=".city" />
         <activity android:name=".age_range" />
-        <activity android:name=".registration" />
-        <activity android:name=".activity_Search" />
-        <activity android:name=".activity_create_new" />
-        <activity android:name=".user_activities" />
+        <activity android:name=".registration"
+            android:parentActivityName=".activity_Login"/>
+        <activity android:name=".activity_Search"
+            android:parentActivityName=".select_action"/>
+        <activity android:name=".activity_create_new"
+            android:parentActivityName=".select_action"/>
+        <activity android:name=".user_activities"
+            android:parentActivityName=".select_action"/>
         <activity android:name=".manager" />
         <activity android:name=".group" />
-        <activity android:name=".select_action" />
-        <activity android:name=".search_result" />
+        <activity android:name=".select_action"
+            android:parentActivityName=".activity_Login"/>
+        <activity android:name=".search_result"
+            android:parentActivityName=".activity_Search"/>
         <activity android:name=".requests" />
-        <activity android:name=".no_result" />
+        <activity android:name=".no_result"
+            android:parentActivityName=".activity_Search"/>
         <activity android:name=".chat" />
         <activity android:name=".activity_Login">
             <intent-filter>

@@ -7,19 +7,6 @@
     tools:context=".activity_details">
 
 
-    <EditText
-        android:id="@+id/activity_name"
-        android:layout_width="128dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="88dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Run123"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.459"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/request"
         android:layout_width="116dp"
@@ -29,6 +16,50 @@
         android:text="request"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/backToResultsButton"
+        android:layout_width="247dp"
+        android:layout_height="67dp"
+        android:onClick="backToResults"
+        android:text="back to Results"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/number_of_participations" />
+
+    <TextView
+        android:id="@+id/description_details_1"
+        android:layout_width="200dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="88dp"
+        android:background="#FFC107"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_details_name" />
+
+    <TextView
+        android:id="@+id/number_of_participations"
+        android:layout_width="186dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="40dp"
+        android:background="#00BCD4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description_details_1" />
+
+    <TextView
+        android:id="@+id/activity_details_name"
+        android:layout_width="190dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="76dp"
+        android:background="#CDDC39"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

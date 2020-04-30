@@ -31,14 +31,14 @@ public class participantAdapter extends RecyclerView.Adapter<participantAdapter.
     public static class participantViewHolder extends RecyclerView.ViewHolder {
         public ImageView mImageView;
         public TextView mTextView1;
-        //public TextView mTextView2;
+        public TextView mTextView2;
         //public ImageView mInfoImage;
 
         public participantViewHolder(View itemView, final OnItemClickListener listener) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.imageView_par);
             mTextView1 = itemView.findViewById(R.id.textView_par);
-            //mTextView2 = itemView.findViewById(R.id.activity_description);
+            mTextView2 = itemView.findViewById(R.id.age);
             //mInfoImage = itemView.findViewById(R.id.image_info);
             /*
             mInfoImage.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +73,7 @@ public class participantAdapter extends RecyclerView.Adapter<participantAdapter.
 
         holder.mImageView.setImageResource(currentItem.getImageResource());
         holder.mTextView1.setText(currentItem.getParticipantName());
-        //holder.mTextView2.setText(currentItem.getDescription());
+        holder.mTextView2.setText(currentItem.getAge());
     }
 
     @Override

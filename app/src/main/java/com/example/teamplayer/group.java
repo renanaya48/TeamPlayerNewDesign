@@ -20,6 +20,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class group extends AppCompatActivity {
     private static final String TAG = "groupActivity";
@@ -45,9 +46,6 @@ public class group extends AppCompatActivity {
         detailstoDB();
 
         createParticipantsList();
-
-        //buildRecyclerView(mParticipantsList);
-
     }
 
     public void detailstoDB(){
@@ -101,8 +99,26 @@ public class group extends AppCompatActivity {
                                                 if(task.isSuccessful()){
                                                     for (QueryDocumentSnapshot document : task.getResult()) {
                                                         String name = document.getString("Name");
+                                                        String d = document.getString("DateOfBirth");
+
+                                                        Calendar dob = Calendar.getInstance();
+                                                        Calendar today = Calendar.getInstance();
+
+                                                        String[] parts = d.split("/");
+                                                        int year = Integer.parseInt(parts[2]);
+                                                        int month = Integer.parseInt(parts[1]);
+                                                        int day = Integer.parseInt(parts[0]);
+                                                        System.out.println("dgbfdbh " + day + "/" + month + "/" + year);
+
+                                                        dob.set(year, month, day);
+                                                        int age = today.get(Calendar.YEAR)-dob.get(Calendar.YEAR);
+                                                        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)){
+                                                            age--;
+                                                        }
+                                                        Log.d(TAG, String.valueOf(age));
+
                                                         Log.d(TAG, name);
-                                                        mParticipantsList.add(new participants_Items(R.drawable.project_logo, name));
+                                                        mParticipantsList.add(new participants_Items(R.drawable.project_logo, name, "Age: " + String.valueOf(age)));
                                                     }
                                                     buildRecyclerView();
                                                 } else {

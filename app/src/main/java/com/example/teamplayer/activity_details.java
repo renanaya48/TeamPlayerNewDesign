@@ -1,5 +1,6 @@
 package com.example.teamplayer;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -27,11 +28,13 @@ import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -47,14 +50,21 @@ public class activity_details extends AppCompatActivity {
     private DatabaseReference root ;
     private DatabaseReference userRoot ;
     private String temp_key;
+    ArrayList<String> detailsList;
+    ArrayList<String> activitiesNameList;
+    ArrayList<String> descriptionsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        detailsList = getIntent().getStringArrayListExtra("Details");
+        activitiesNameList = getIntent().getStringArrayListExtra("ACTIVITY_NAME");
+        descriptionsList = getIntent().getStringArrayListExtra("DESCRIPTION");
+        showDetails();
+
         mAuth = FirebaseAuth.getInstance();
-        EditText activityName= (EditText) findViewById(R.id.activity_name);
-        activity_name = activityName.getText().toString();
+        activity_name = detailsList.get(0);
         DocumentReference userNAme = db.collection("Activities").document(activity_name);
         userNAme.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -74,7 +84,26 @@ public class activity_details extends AppCompatActivity {
         });
         root = FirebaseDatabase.getInstance().getReference().child("Groups").child(activity_name);
 
+
     }
+
+    public void showDetails(){
+        TextView activityNameToShow = (TextView) findViewById(R.id.activity_details_name);
+        activityNameToShow.setText(detailsList.get(0));
+        TextView descriptionToShow = (TextView) findViewById(R.id.description_details_1);
+        descriptionToShow.setText(detailsList.get(1));
+        TextView participantsNumToShow = (TextView) findViewById(R.id.number_of_participations);
+        participantsNumToShow.setText(detailsList.get(2));
+    }
+
+    public void backToResults(View view) {
+        Intent intent=new Intent(this, search_result.class);
+        intent.putStringArrayListExtra("ACTIVITY_NAME", activitiesNameList);
+        intent.putStringArrayListExtra("DESCRIPTION", descriptionsList);
+        startActivity(intent);
+    }
+
+
     public void request(View view){
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();

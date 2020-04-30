@@ -11,11 +11,13 @@ public class participants_Items {
     private static final String TAG = "participants";
     private int mImageResource;
     private String mParticipantName;
+    private String mAge;
     //private String mDescription;
 
-    public participants_Items(int imageResource, String participantName) {
+    public participants_Items(int imageResource, String participantName, String age) {
         mImageResource = imageResource;
         mParticipantName = participantName;
+        mAge = age;
         //mDescription = desc;
     }
 
@@ -26,6 +28,8 @@ public class participants_Items {
     public String getParticipantName() {
         return mParticipantName;
     }
+
+    public String getAge(){return mAge;}
 
     /*
     public String getDescription() {

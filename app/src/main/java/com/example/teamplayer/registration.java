@@ -4,18 +4,24 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 import com.onesignal.OneSignal;
 
 
@@ -32,6 +38,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,6 +54,9 @@ public class registration extends AppCompatActivity {
     private DocumentReference docRef;
     Map<String, Object> dataToSave = new HashMap<String, Object>();
 
+    private TextView mDisplayDate;
+    private DatePickerDialog.OnDateSetListener mDateSetListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mAuth = FirebaseAuth.getInstance();
@@ -57,39 +69,91 @@ public class registration extends AppCompatActivity {
         password.setTransformationMethod(PasswordTransformationMethod.getInstance());
         EditText passwordAgain= (EditText) findViewById(R.id.passwordConfrim);
         passwordAgain.setTransformationMethod(PasswordTransformationMethod.getInstance());
+        chooseDate();
+    }
 
+    public void chooseDate(){
+
+        mDisplayDate = (TextView) findViewById(R.id.select_date);
+
+        mDisplayDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(
+                        registration.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        mDateSetListener,
+                        year,month,day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                Log.d(TAG, "onDateSet: dd/mm/yyy: " + day + "/" + month + "/" + year);
+
+                String date =  day + "/" + month + "/" + year;
+
+                if(Calendar.getInstance().get(Calendar.YEAR)> year){
+                    /*
+                    Snackbar.make(view, "Please add your date of birth",
+                            Snackbar.LENGTH_LONG)
+                            .show();
+
+                     */
+                    Log.d(TAG, "wrong date");
+                }else{
+                    mDisplayDate.setText(date);
+                }
+            }
+        };
 
     }
 
     public void saveData(View view) {
-        EditText passwordData = (EditText) findViewById(R.id.password);
-        EditText confirmPassword = (EditText) findViewById(R.id.passwordConfrim);
-        final String userName = ((EditText) findViewById(R.id.name)).getText().toString();
-        EditText emailData = (EditText) findViewById(R.id.Email);
-        final String password = passwordData.getText().toString();
-        String passwordConfirm = confirmPassword.getText().toString();
-        final String email = emailData.getText().toString();
-        if (checkPassword(password,passwordConfirm)) {
-            mAuth.fetchSignInMethodsForEmail(email).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>()
-            {
-                public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
-                    System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
-                    Log.d(TAG,""+task.getResult().getSignInMethods().size());
-                    if (task.getResult().getSignInMethods().size() == 0){
-                        registerUser(email,password);
-                    }else {
-                        String message = "Email already in use";
-                        EmailFailure.setText(message);
+        TextView date = (TextView)findViewById(R.id.select_date);
+        String dateText = date.getText().toString();
+        if(dateText.equals("select a date")){
+            Snackbar.make(view, "Please add your date of birth",
+                    Snackbar.LENGTH_LONG)
+                    .show();
+        }else {
+            EditText passwordData = (EditText) findViewById(R.id.password);
+            EditText confirmPassword = (EditText) findViewById(R.id.passwordConfrim);
+            final String userName = ((EditText) findViewById(R.id.name)).getText().toString();
+            EditText emailData = (EditText) findViewById(R.id.Email);
+            final String password = passwordData.getText().toString();
+            String passwordConfirm = confirmPassword.getText().toString();
+            final String email = emailData.getText().toString();
+            if (checkPassword(password, passwordConfirm)) {
+                mAuth.fetchSignInMethodsForEmail(email).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
+                    public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
+                        System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
+                        Log.d(TAG, "" + task.getResult().getSignInMethods().size());
+                        if (task.getResult().getSignInMethods().size() == 0) {
+                            registerUser(email, password);
+                        } else {
+                            String message = "Email already in use";
+                            EmailFailure.setText(message);
+                        }
+
                     }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        e.printStackTrace();
+                    }
+                });
 
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    e.printStackTrace();
-                }
-            });
-
+            }
         }
     }
 
@@ -192,13 +256,15 @@ public class registration extends AppCompatActivity {
         String nameText = name.getText().toString();
         EditText email = (EditText) findViewById(R.id.Email);
         String emailText = email.getText().toString();
-
+        TextView date = (TextView)findViewById(R.id.select_date);
+        String dateText = date.getText().toString();
 
         String collectionName = USERS_COLLECTION + emailText;
 
         docRef = FirebaseFirestore.getInstance().document(collectionName);
         dataToSave.put("Name", nameText);
         dataToSave.put("Email", emailText);
+        dataToSave.put("DateOfBirth", dateText);
 
         docRef.set(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
