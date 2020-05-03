@@ -28,6 +28,6 @@ public class ActivityItems {
     }
 
     public void show(View view){
-        Log.d(TAG, " hi its work!!");
+        Log.d(TAG, " hi it works!!");
     }
 }

@@ -12,6 +12,8 @@ import android.view.View;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -32,6 +34,8 @@ public class search_result extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private MyAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private FirebaseAuth mAuth;
+    private String currentUserEmail;
 
 
 
@@ -39,6 +43,12 @@ public class search_result extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
+        Log.d(TAG, "in onCreate");
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        currentUserEmail = user.getEmail();
+        Log.d(TAG, "after onCreate");
+        Log.d(TAG, "user " + currentUserEmail);
        // ArrayList<String> activitiesNamesLIST= getIntent().getStringArrayListExtra("ACTIVITY_NAME");
        // ArrayList<String> descriptionsLIST= getIntent().getStringArrayListExtra("DESCRIPTION");
         createActivityList();
@@ -67,6 +77,7 @@ public class search_result extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
+
         mAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
 
             @Override
@@ -86,6 +97,7 @@ public class search_result extends AppCompatActivity {
                             DocumentSnapshot document = task.getResult();
                             if (document != null) {
                                 Object participantes = document.get("participantes");
+                                Object manger = document.get("manager_email");
 
                                 if (participantes == null) {
                                     Log.i(TAG, "null");
@@ -96,7 +108,15 @@ public class search_result extends AppCompatActivity {
                                     Log.i(TAG, numOfParticipants.toString());
                                     String [] strSplit = numOfParticipants.split(", ");
                                     detailsToPass.add(String.valueOf(strSplit.length));
-                                    showDetails();
+                                }
+                                if (manger.toString().equals(currentUserEmail)){
+                                    Log.i(TAG, "manager " + manger.toString());
+                                    Log.i(TAG, "User " + currentUserEmail);
+                                    showDetails(true);
+                                } else{
+                                    Log.i(TAG, "not manager " + manger.toString());
+                                    Log.i(TAG, "User " + currentUserEmail);
+                                    showDetails(false);
                                 }
 
                             } else {
@@ -114,9 +134,15 @@ public class search_result extends AppCompatActivity {
         });
     }
 
-    public void showDetails(){
+    public void showDetails(boolean manager){
+        Intent intent;
+        if (manager){
+            intent = new Intent(this, manager.class);
+        } else {
+            intent = new Intent(this, activity_details.class);
+        }
         Log.d(TAG, "show Details");
-        Intent intent = new Intent(this, activity_details.class);
+        //Intent intent = new Intent(this, activity_details.class);
         intent.putStringArrayListExtra("Details", detailsToPass);
         intent.putStringArrayListExtra("ACTIVITY_NAME", activitiesNamesList);
         intent.putStringArrayListExtra("DESCRIPTION", descriptionsList);
@@ -127,6 +153,5 @@ public class search_result extends AppCompatActivity {
         Intent intent=new Intent(this,activity_Search.class);
         startActivity(intent);
     }
-
 
 }
