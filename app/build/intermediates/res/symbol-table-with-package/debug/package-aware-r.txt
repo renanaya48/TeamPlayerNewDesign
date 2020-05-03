@@ -1236,8 +1236,6 @@ id button
 id button14
 id button2
 id button3
-id button4
-id button5
 id button7
 id button8
 id buttonPanel
@@ -1301,7 +1299,6 @@ id fixed
 id forever
 id ghost_view
 id gone
-id group_button
 id group_divider
 id groups
 id home
