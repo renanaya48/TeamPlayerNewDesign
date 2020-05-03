@@ -15,8 +15,7 @@ public class ApplicationClass extends Application {
         super.onCreate();
         // OneSignal Initialization
         OneSignal.startInit(this)
-                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
-                .unsubscribeWhenNotificationsAreDisabled(true)
+                .inFocusDisplaying(None).setNotificationReceivedHandler(new NotificationsReceiveHandler())
                 .init();
         ApplicationClass.context = getApplicationContext();
     }

@@ -29,7 +29,6 @@ public class select_action extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         String email = user.getEmail();
-        OneSignal.startInit(this).init();
         OneSignal.setSubscription(true);
         OneSignal.sendTag("User_ID",email );
 

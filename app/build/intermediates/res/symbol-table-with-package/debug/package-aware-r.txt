@@ -1117,6 +1117,8 @@ drawable ic_os_notification_fallback_white_24dp
 drawable ic_stat_namev
 drawable ic_stat_namex
 drawable ic_stat_notification
+drawable ic_stat_onesignal_default
+drawable message
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1236,6 +1238,7 @@ id button2
 id button3
 id button4
 id button5
+id button6
 id button7
 id button8
 id buttonPanel
@@ -1249,6 +1252,7 @@ id center
 id center_horizontal
 id center_vertical
 id chains
+id chatView
 id checkbox
 id checked
 id chronometer
@@ -1284,7 +1288,6 @@ id disableHome
 id done
 id done_city
 id done_sport_type
-id editText2
 id edit_query
 id emailFailed
 id end
@@ -1451,6 +1454,7 @@ id textStart
 id textView
 id textView13
 id textView15
+id textView2
 id textView3
 id textView4
 id textView5
@@ -1460,6 +1464,9 @@ id textView8
 id textView9
 id textView_par
 id text_input_password_toggle
+id text_message_body
+id text_message_name
+id text_message_time
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -1580,6 +1587,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout message
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action
@@ -1592,6 +1600,7 @@ layout onesignal_bgimage_notif_layout
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout send_message
 layout support_simple_spinner_dropdown_item
 mipmap ic_launcher
 mipmap ic_launcher_round

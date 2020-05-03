@@ -136,7 +136,6 @@ public class registration extends AppCompatActivity {
             if (checkPassword(password, passwordConfirm)) {
                 mAuth.fetchSignInMethodsForEmail(email).addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
                     public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
-                        System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
                         Log.d(TAG, "" + task.getResult().getSignInMethods().size());
                         if (task.getResult().getSignInMethods().size() == 0) {
                             registerUser(email, password);
@@ -179,8 +178,6 @@ public class registration extends AppCompatActivity {
                                         builder.setTitle("Verify Email").setMessage("Email send to your account please confirm");
                                         builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int id) {
-                                                System.out.println("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
-                                                System.out.println(user.isEmailVerified());
                                                 user.reload();
                                                 if(user.isEmailVerified()){
                                                     updateUI(user);

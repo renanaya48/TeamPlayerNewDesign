@@ -3,6 +3,7 @@ package com.example.teamplayer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -44,6 +45,7 @@ public class activity_Login extends AppCompatActivity {
     private CheckBox checkbox;
     private EditText password;
     boolean isSucees = false;
+    View viewToPass;
     Intent intent;
     TextView failureMessage;
     private static final String TAG = "EmailPassword";
@@ -117,7 +119,6 @@ public class activity_Login extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            System.out.println("99999999999999999999999");
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
@@ -141,6 +142,7 @@ public class activity_Login extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
     }
     public void resetPassword(View view){
+        viewToPass = view;
         FirebaseAuth auth = FirebaseAuth.getInstance();
         EditText emailData = (EditText) findViewById(R.id.Email);
         String emailAddress = emailData.getText().toString();
@@ -151,6 +153,9 @@ public class activity_Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "Email sent.");
+                            Snackbar.make(viewToPass, "Password reset email sentt",
+                                    Snackbar.LENGTH_LONG)
+                                    .show();
                         }
                     }
                 });

@@ -74,17 +74,10 @@ public class requests extends AppCompatActivity {
            String email = (String) ((DataSnapshot)i.next()).getValue();
             String newMessage= message +" asked to join the group";
             requestList.add(new requestItem(newMessage,email,activity_name));
-           System.out.println("listtttttttttttttttttt");
-           System.out.println(requestList);
-        }
-        for (requestItem l :requestList){
-            System.out.println("listtttttttttttttttttt");
-            System.out.println(l.getEmail());
         }
         request_item_adapter adapter = new request_item_adapter(this, R.layout.activity_request_item, requestList);
         //attaching adapter to the listview
         listView.setAdapter(adapter);
-        //requestList = new ArrayList<>();
 
 
 

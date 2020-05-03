@@ -24,11 +24,14 @@ public class manager extends AppCompatActivity {
 
         setContentView(R.layout.activity_manager);
         TextView activity_name = (TextView) findViewById(R.id.activity_name);
-        activity_name.setText(activityName);
+        activity_name.setText("Run123");
         TextView descriptionText = (TextView) findViewById(R.id.activity_description);
         descriptionText.setText(description);
     }
     public void chatButton(View view){
+        Intent intent = new Intent(getApplicationContext(), chat.class);
+        intent.putExtra("room_name", "Run123");
+        startActivity(intent);
 
     }
     public void joinRequest(View view){

@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,9 +29,11 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 
@@ -48,6 +52,9 @@ public class chat extends AppCompatActivity {
     private String temp_key;
     private FirebaseAuth mAuth;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    List<message_item> messageList;
+    ListView listView;
+
 
 
     @Override
@@ -58,6 +65,8 @@ public class chat extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         String email = user.getEmail();
+        listView = (ListView) findViewById(R.id.chatView);
+        messageList = new ArrayList<>();
         DocumentReference userNAme = db.collection("Users").document(email);
         userNAme.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -65,7 +74,7 @@ public class chat extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        user_name= document.getString("name");
+                        user_name= document.getString("Name");
                         Log.d(TAG, "DocumentSnapshot data: " + document.getString("name"));
                     } else {
                         Log.d(TAG, "No such document");
@@ -91,6 +100,8 @@ public class chat extends AppCompatActivity {
                 DatabaseReference message_root = root.child(temp_key);
                 Map<String, Object> map2 = new HashMap<String, Object>();
                 map2.put("name", user_name);
+                System.out.println("nameeeeeeeeeeeeeee");
+                System.out.println(user_name);
                 map2.put("msg", input_msg.getText().toString());
                 map2.put("time", timeStamp);
                 System.out.println(map2);
@@ -134,11 +145,19 @@ public class chat extends AppCompatActivity {
     private void append_chat_conversation(DataSnapshot dataSnapshot) {
         Iterator i = dataSnapshot.getChildren().iterator();
         while (i.hasNext()){
+            System.out.println("mesageeeeeeeeeeeeeeeeeeeeeeeeeeee");
             chat_msg = (String) ((DataSnapshot)i.next()).getValue();
+            System.out.println(chat_msg);
             chat_user_name = (String) ((DataSnapshot)i.next()).getValue();
             String time_now =""+((DataSnapshot)i.next()).getValue();
-            chat_conversation.append(time_now+" "+chat_user_name +" : "+chat_msg +" \n");
+            messageList.add(new message_item(chat_msg,chat_user_name,time_now));
+
+           // chat_conversation.append(time_now+" "+chat_user_name +" : "+chat_msg +" \n");
         }
+
+        MessageListAdapter adapter = new MessageListAdapter(this, R.layout.send_message, messageList);
+        //attaching adapter to the listview
+        listView.setAdapter(adapter);
 
 
     }
