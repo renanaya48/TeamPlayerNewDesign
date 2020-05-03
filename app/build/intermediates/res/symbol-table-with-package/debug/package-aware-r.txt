@@ -1243,10 +1243,7 @@ id button8
 id buttonPanel
 id button_Chat
 id button_chat
-id button_contact
-id button_contact1
 id button_join_request
-id button_more_members
 id center
 id center_horizontal
 id center_vertical
@@ -1339,6 +1336,7 @@ id listView
 id list_item
 id logInButton
 id logInFailed
+id manager_recyclerView
 id masked
 id max_Players
 id message

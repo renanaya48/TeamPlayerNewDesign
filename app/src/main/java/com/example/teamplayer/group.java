@@ -27,6 +27,7 @@ public class group extends AppCompatActivity {
     private static final String ACTIVITIES_COLLECTION = "Activities";
     private static final String USERS_COLLECTION = "Users";
     String documentActivityName;
+    String description;
     View getView;
     private ArrayList<participants_Items> mParticipantsList;
 
@@ -41,15 +42,14 @@ public class group extends AppCompatActivity {
         TextView nameActivity = (TextView) findViewById(R.id.name_of_activity);
         documentActivityName = getIntent().getStringExtra("ACTIVITY_NAME");
         nameActivity.setText(documentActivityName);
-        documentActivityName = "Run123";
-        //TODO: add the name of the user from DB.
-        detailstoDB();
+        TextView descr = (TextView) findViewById((R.id.details_to_fill)) ;
+        description = getIntent().getStringExtra("DESCRIPTION");
+        descr.setText(description);
+
 
         createParticipantsList();
     }
 
-    public void detailstoDB(){
-    }
 
     public void backButton(View view) {
         Intent intent=new Intent(this,select_action.class);
@@ -83,6 +83,11 @@ public class group extends AppCompatActivity {
                             int len = listOfEmails.length()-1;
                             listOfEmails = listOfEmails.substring(1, len);
                             Log.i(TAG, usersEmails.toString());
+                            if(listOfEmails==null){
+                                Log.d(TAG, "list of email NULL");
+                            }else{
+                                Log.d(TAG, "list of email not NULL");
+                            }
                             String [] strSplit = listOfEmails.split(", ");
                             for ( int i=0; i<strSplit.length; ++i){
                                 Log.i(TAG, strSplit[i]);
@@ -101,24 +106,30 @@ public class group extends AppCompatActivity {
 
                                                         Calendar dob = Calendar.getInstance();
                                                         Calendar today = Calendar.getInstance();
+                                                        if (d == null) {
+                                                            Log.d(TAG, "list of d NULL");
+                                                        } else {
+                                                            Log.d(TAG, "list of d not NULL");
 
-                                                        String[] parts = d.split("/");
-                                                        int year = Integer.parseInt(parts[2]);
-                                                        int month = Integer.parseInt(parts[1]);
-                                                        int day = Integer.parseInt(parts[0]);
-                                                        System.out.println("dgbfdbh " + day + "/" + month + "/" + year);
 
-                                                        dob.set(year, month, day);
-                                                        int age = today.get(Calendar.YEAR)-dob.get(Calendar.YEAR);
-                                                        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)){
-                                                            age--;
+                                                            String[] parts = d.split("/");
+                                                            int year = Integer.parseInt(parts[2]);
+                                                            int month = Integer.parseInt(parts[1]);
+                                                            int day = Integer.parseInt(parts[0]);
+                                                            System.out.println("dgbfdbh " + day + "/" + month + "/" + year);
+
+                                                            dob.set(year, month, day);
+                                                            int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+                                                            if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)) {
+                                                                age--;
+                                                            }
+                                                            Log.d(TAG, String.valueOf(age));
+
+                                                            Log.d(TAG, name);
+                                                            mParticipantsList.add(new participants_Items(R.drawable.project_logo, name, "Age: " + String.valueOf(age)));
                                                         }
-                                                        Log.d(TAG, String.valueOf(age));
-
-                                                        Log.d(TAG, name);
-                                                        mParticipantsList.add(new participants_Items(R.drawable.project_logo, name, "Age: " + String.valueOf(age)));
+                                                        buildRecyclerView();
                                                     }
-                                                    buildRecyclerView();
                                                 } else {
                                                     Log.d(TAG, "Error getting documents: ", task.getException());
                                                 }
@@ -164,10 +175,6 @@ public class group extends AppCompatActivity {
 
     public void searchResult() {
         Intent intent=new Intent(this,search_result.class);
-        //intent.putExtra("ACTIVITY", className);
-        //intent.putStringArrayListExtra("ACTIVITY_NAME", activitiesNamesFound);
-        //Log.d(TAG, "size in search " + String.valueOf(activitiesNamesFound.size()));
-        //intent.putStringArrayListExtra("DESCRIPTION", descriptionsFound);
         startActivity(intent);
 
     }

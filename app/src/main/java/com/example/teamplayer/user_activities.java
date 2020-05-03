@@ -31,6 +31,7 @@ public class user_activities extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     ArrayList<String> activitiesNamesFound = new ArrayList<>();
     ArrayList<String> descriptionsFound = new ArrayList<>();
+    ArrayList<String> managerFound = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +60,7 @@ public class user_activities extends AppCompatActivity {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 activitiesNamesFound.add(document.get("activityName").toString());
                                 descriptionsFound.add(document.get("description").toString());
+                                managerFound.add(document.get("manager_email").toString());
                             }
                             if(activitiesNamesFound.isEmpty()){
                                 Intent intent=new Intent(user_activities.this, no_result.class);
@@ -102,10 +104,40 @@ public class user_activities extends AppCompatActivity {
             @Override
             public void onInfoClick(int position) {
                 Log.d(TAG, "goToDetails");
+                String avtivityName = activitiesNamesFound.get(position);
+                String des = descriptionsFound.get(position);
+                if(managerFound.get(position).equals(currentEmail)){
+                    goTotheNextScreen(true, avtivityName, des);
+                }
+                else{
+                    goTotheNextScreen(false, avtivityName, des);
+                }
+
+
                 //goToDetails(position);
 
             }
         });
+    }
+
+    public void goTotheNextScreen(boolean manager, String activityName, String description){
+        Intent intent;
+
+        if(manager){
+            Log.d(TAG, "manger");
+            intent = new Intent(this, manager.class);
+        } else {
+            intent = new Intent(this, group.class);
+            Log.d(TAG, " not manger");
+        }
+        Log.d(TAG, "show Details");
+        //Intent intent = new Intent(this, activity_details.class);
+        //intent.putStringArrayListExtra("Details", detailsToPass);
+
+        intent.putExtra("ACTIVITY_NAME", activityName);
+        intent.putExtra("DESCRIPTION", description);
+        startActivity(intent);
+
     }
 
 
