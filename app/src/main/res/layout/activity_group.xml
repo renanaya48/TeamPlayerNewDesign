@@ -66,4 +66,16 @@
         app:layout_constraintHorizontal_bias="0.592"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/leaveButton"
+        android:layout_width="177dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="551dp"
+        android:layout_marginEnd="83dp"
+        android:background="@drawable/title_border"
+        android:text="Leave Activity" />
+
 </RelativeLayout>

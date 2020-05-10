@@ -9,12 +9,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -35,6 +42,14 @@ public class group extends AppCompatActivity {
     private participantAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
+    public class YesListener implements View.OnClickListener{
+        @Override
+        public void onClick(View v){
+            leaveActivityUser(v);
+        }
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +60,19 @@ public class group extends AppCompatActivity {
         TextView descr = (TextView) findViewById((R.id.details_to_fill)) ;
         description = getIntent().getStringExtra("DESCRIPTION");
         descr.setText(description);
+
+        Button leaveActivity = (Button) findViewById(R.id.leaveButton);
+
+        leaveActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar mySnackbar = Snackbar.make(view, "Are You Sure You Want To Delete Activity?",
+                        Snackbar.LENGTH_LONG);
+                mySnackbar.setAction("YES", new YesListener());
+                //mySnackbar.setAction("NO", new NoListener());
+                mySnackbar.show();
+            }
+        });
 
 
         createParticipantsList();
@@ -177,5 +205,37 @@ public class group extends AppCompatActivity {
         Intent intent=new Intent(this,search_result.class);
         startActivity(intent);
 
+    }
+
+    public void leaveActivityUser(View view){
+        Log.w(TAG, "leave activity");
+        FirebaseAuth mAuth;
+        String currentEmail;
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        currentEmail = user.getEmail();
+        Log.w(TAG, "current " + currentEmail);
+        DocumentReference docRef = FirebaseFirestore.getInstance()
+                .collection(ACTIVITIES_COLLECTION).document(documentActivityName);
+        docRef.update("participantes", FieldValue.arrayRemove(currentEmail))
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "array updated");
+                        goToSelectActionScreen();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w(TAG, "not updated");
+
+            }
+        });
+
+    }
+
+    public void goToSelectActionScreen(){
+        Intent intent = new Intent(this, select_action.class);
+        startActivity(intent);
     }
 }

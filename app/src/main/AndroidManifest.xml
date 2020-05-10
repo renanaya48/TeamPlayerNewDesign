@@ -38,7 +38,8 @@
             android:parentActivityName=".activity_Login"/>
         <activity android:name=".search_result"
             android:parentActivityName=".activity_Search"/>
-        <activity android:name=".requests" />
+        <activity android:name=".requests"
+            android:parentActivityName=".manager"/>
         <activity android:name=".no_result"
             android:parentActivityName=".activity_Search"/>
         <activity android:name=".chat" />

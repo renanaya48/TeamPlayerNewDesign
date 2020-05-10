@@ -15,7 +15,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -26,6 +29,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class manager extends AppCompatActivity {
+
     private static final String TAG = "groupActivity";
     private static final String ACTIVITIES_COLLECTION = "Activities";
     private static final String USERS_COLLECTION = "Users";
@@ -38,6 +42,25 @@ public class manager extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private participantAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+
+    public class YesListener implements View.OnClickListener{
+        @Override
+        public void onClick(View v){
+            deleteActivity(v);
+        }
+
+    }
+
+    public class NoListener implements View.OnClickListener{
+        @Override
+        public void onClick(View v){
+            Log.d(TAG, "noting happend");
+        }
+
+    }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +75,8 @@ public class manager extends AppCompatActivity {
         TextView descriptionText = (TextView) findViewById(R.id.activity_description);
         descriptionText.setText(description);
         createParticipantsList();
+
+        Button deleteButton = (Button) findViewById(R.id.deleteButton);
 
         Button chatButton = (Button) findViewById(R.id.button_Chat);
         Button requestButton = (Button) findViewById(R.id.button_join_request);
@@ -69,6 +94,17 @@ public class manager extends AppCompatActivity {
                 Intent intent = new Intent(getBaseContext(), requests.class);
                 intent.putExtra("activity_name", activityName);
                 startActivity(intent);
+            }
+        });
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar mySnackbar = Snackbar.make(view, "Are You Sure You Want To Delete Activity?",
+                        Snackbar.LENGTH_LONG);
+                mySnackbar.setAction("YES", new YesListener());
+                //mySnackbar.setAction("NO", new NoListener());
+                mySnackbar.show();
             }
         });
     }
@@ -192,4 +228,32 @@ public class manager extends AppCompatActivity {
             }
         });
     }
+
+
+
+    public void deleteActivity(View view){
+        FirebaseFirestore.getInstance().collection(ACTIVITIES_COLLECTION).document(activityName)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                        goToSelectActionScreen();
+                   }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error deleting document", e);
+                    }
+                });
+
+    }
+
+    public void goToSelectActionScreen(){
+        Intent intent = new Intent(this, select_action.class);
+        startActivity(intent);
+    }
+
+
 }

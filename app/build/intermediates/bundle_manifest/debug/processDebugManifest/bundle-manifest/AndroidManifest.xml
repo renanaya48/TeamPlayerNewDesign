@@ -93,7 +93,9 @@
         <activity
             android:name="com.example.teamplayer.search_result"
             android:parentActivityName="com.example.teamplayer.activity_Search" />
-        <activity android:name="com.example.teamplayer.requests" />
+        <activity
+            android:name="com.example.teamplayer.requests"
+            android:parentActivityName="com.example.teamplayer.manager" />
         <activity
             android:name="com.example.teamplayer.no_result"
             android:parentActivityName="com.example.teamplayer.activity_Search" />

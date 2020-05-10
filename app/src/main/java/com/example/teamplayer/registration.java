@@ -102,7 +102,7 @@ public class registration extends AppCompatActivity {
 
                 String date =  day + "/" + month + "/" + year;
 
-                if(Calendar.getInstance().get(Calendar.YEAR)> year){
+                if(Calendar.getInstance().get(Calendar.YEAR)< year){
                     /*
                     Snackbar.make(view, "Please add your date of birth",
                             Snackbar.LENGTH_LONG)

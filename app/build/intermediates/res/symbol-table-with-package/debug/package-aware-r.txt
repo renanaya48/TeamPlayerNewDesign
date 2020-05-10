@@ -1266,6 +1266,7 @@ id dark
 id decline
 id decor_content_parent
 id default_activity_button
+id deleteButton
 id descriptionToFill
 id description_details_1
 id design_bottom_sheet
@@ -1324,6 +1325,7 @@ id italic
 id item_touch_helper_previous_elevation
 id labeled
 id largeLabel
+id leaveButton
 id left
 id light
 id line1
