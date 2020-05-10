@@ -48,6 +48,7 @@ public class activity_Search extends AppCompatActivity {
     Map<String, Object> documentData;
     ArrayList<String> activitiesNamesFound = new ArrayList<>();
     ArrayList<String> descriptionsFound = new ArrayList<>();
+    ArrayList<String> managerFound = new ArrayList<>();
     View view;
 
     List<String> objectToSearch = new ArrayList<>();
@@ -149,6 +150,7 @@ public class activity_Search extends AppCompatActivity {
                                     Log.d(TAG, document.getId() + " => " + document.getData());
                                     activitiesNamesFound.add(document.get("activityName").toString());
                                     descriptionsFound.add(document.get("description").toString());
+                                    managerFound.add(document.get("manager_email").toString());
                                 }
 
                                 searchResult(view);
@@ -173,6 +175,7 @@ public class activity_Search extends AppCompatActivity {
                                     Log.d(TAG, document.getId() + " => " + document.getData());
                                     activitiesNamesFound.add(document.get("activityName").toString());
                                     descriptionsFound.add(document.get("description").toString());
+                                    managerFound.add(document.get("manager_email").toString());
                                 }
                                 searchResult(view);
 
@@ -236,6 +239,7 @@ public class activity_Search extends AppCompatActivity {
         intent.putStringArrayListExtra("ACTIVITY_NAME", activitiesNamesFound);
         Log.d(TAG, "size in search " + String.valueOf(activitiesNamesFound.size()));
         intent.putStringArrayListExtra("DESCRIPTION", descriptionsFound);
+        intent.putStringArrayListExtra("MANAGER", managerFound);
         startActivity(intent);
 
     }

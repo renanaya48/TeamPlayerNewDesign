@@ -93,7 +93,7 @@ public class activity_details extends AppCompatActivity {
         TextView descriptionToShow = (TextView) findViewById(R.id.description_details_1);
         descriptionToShow.setText(detailsList.get(1));
         TextView participantsNumToShow = (TextView) findViewById(R.id.number_of_participations);
-        participantsNumToShow.setText(detailsList.get(2));
+        participantsNumToShow.setText("Number Of Participants: " + detailsList.get(2));
     }
 
     public void backToResults(View view) {

@@ -78,14 +78,18 @@ public class user_activities extends AppCompatActivity {
     }
 
     public void showOnscroll(){
-
+        String activityNameToShow;
         mActivitiesList = new ArrayList<>();
         Log.w(TAG, "list here");
         if(activitiesNamesFound==null){
             Log.w(TAG, "null");
         }
         for(int i=0; i<activitiesNamesFound.size(); ++i){
-            mActivitiesList.add(new ActivityItems(R.drawable.project_logo, activitiesNamesFound.get(i), descriptionsFound.get(i)));
+            activityNameToShow = activitiesNamesFound.get(i);
+            if(managerFound.get(i).equals(currentEmail)) {
+                activityNameToShow += " (MANAGER)";
+            }
+            mActivitiesList.add(new ActivityItems(R.drawable.project_logo, activityNameToShow, descriptionsFound.get(i)));
         }
         buildRecyclerView();
     }

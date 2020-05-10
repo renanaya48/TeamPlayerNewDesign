@@ -30,6 +30,7 @@ public class search_result extends AppCompatActivity {
     private ArrayList<String> detailsToPass;
     private ArrayList<String> activitiesNamesList;
     private ArrayList<String> descriptionsList;
+    private ArrayList<String> managerList;
 
     private RecyclerView mRecyclerView;
     private MyAdapter mAdapter;
@@ -60,11 +61,17 @@ public class search_result extends AppCompatActivity {
         activitiesNamesList= getIntent().getStringArrayListExtra("ACTIVITY_NAME");
         Log.d(TAG, "numOfList" + String.valueOf(activitiesNamesList.size()));
         descriptionsList= getIntent().getStringArrayListExtra("DESCRIPTION");
-        //Log.d(TAG, descriptionsLIST.get(0));
+        managerList = getIntent().getStringArrayListExtra("MANAGER");
 
+        String activityNameToShow;
         mActivitiesList = new ArrayList<>();
+
         for(int i=0; i<activitiesNamesList.size(); ++i){
-            mActivitiesList.add(new ActivityItems(R.drawable.project_logo, activitiesNamesList.get(i), descriptionsList.get(i)));
+            activityNameToShow = activitiesNamesList.get(i);
+            if(managerList.get(i).equals(currentUserEmail)){
+                activityNameToShow += " (MANAGER)";
+            }
+            mActivitiesList.add(new ActivityItems(R.drawable.project_logo, activityNameToShow, descriptionsList.get(i)));
         }
     }
 
@@ -81,7 +88,7 @@ public class search_result extends AppCompatActivity {
         mAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
 
             @Override
-            public void onInfoClick(int position) {
+            public void onInfoClick(final int position) {
                 detailsToPass = new ArrayList<>();
                 Log.d(TAG, "goToDetails");
                 String documentActivityName = mActivitiesList.get(position).getActivityName();
@@ -96,13 +103,14 @@ public class search_result extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
                             if (document != null) {
+                                String numOfParticipants = "";
                                 Object participantes = document.get("participantes");
                                 Object manger = document.get("manager_email");
 
                                 if (participantes == null) {
                                     Log.i(TAG, "null");
                                 } else {
-                                    String numOfParticipants = participantes.toString();
+                                    numOfParticipants = participantes.toString();
                                     int len = numOfParticipants.length()-1;
                                     numOfParticipants = numOfParticipants.substring(1, len);
                                     Log.i(TAG, numOfParticipants.toString());
@@ -112,11 +120,11 @@ public class search_result extends AppCompatActivity {
                                 if (manger.toString().equals(currentUserEmail)){
                                     Log.i(TAG, "manager " + manger.toString());
                                     Log.i(TAG, "User " + currentUserEmail);
-                                    showDetails(true);
+                                    showDetails(true, numOfParticipants, position);
                                 } else{
                                     Log.i(TAG, "not manager " + manger.toString());
                                     Log.i(TAG, "User " + currentUserEmail);
-                                    showDetails(false);
+                                    showDetails(false, numOfParticipants, position);
                                 }
 
                             } else {
@@ -134,18 +142,31 @@ public class search_result extends AppCompatActivity {
         });
     }
 
-    public void showDetails(boolean manager){
+
+
+    public void showDetails(boolean manager, String participants, int position){
         Intent intent;
+        String activityName = activitiesNamesList.get(position);
+        String description = descriptionsList.get(position);
         if (manager){
             intent = new Intent(this, manager.class);
+            intent.putExtra("ACTIVITY_NAME", activityName);
+            intent.putExtra("DESCRIPTION", description);
         } else {
-            intent = new Intent(this, activity_details.class);
+            if(participants.contains(currentUserEmail)){
+                intent = new Intent(this, group.class);
+                intent.putExtra("ACTIVITY_NAME", activityName);
+                intent.putExtra("DESCRIPTION", description);
+            }else {
+                intent = new Intent(this, activity_details.class);
+                intent.putStringArrayListExtra("Details", detailsToPass);
+                intent.putStringArrayListExtra("ACTIVITY_NAME", activitiesNamesList);
+                intent.putStringArrayListExtra("DESCRIPTION", descriptionsList);
+            }
         }
         Log.d(TAG, "show Details");
         //Intent intent = new Intent(this, activity_details.class);
-        intent.putStringArrayListExtra("Details", detailsToPass);
-        intent.putStringArrayListExtra("ACTIVITY_NAME", activitiesNamesList);
-        intent.putStringArrayListExtra("DESCRIPTION", descriptionsList);
+
         startActivity(intent);
     }
 
