@@ -209,7 +209,7 @@ public final class R {
         public static final int time = 0x7f080147;
         public static final int title = 0x7f080148;
         public static final int top = 0x7f08014b;
-        public static final int wide = 0x7f08015a;
+        public static final int wide = 0x7f08015b;
     }
     public static final class integer {
         private integer() {}

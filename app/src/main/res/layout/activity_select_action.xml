@@ -12,10 +12,8 @@
         android:layout_width="162dp"
         android:layout_height="107dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="456dp"
+        android:layout_marginTop="424dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,11 +72,24 @@
         android:id="@+id/signOut"
         android:layout_width="90dp"
         android:layout_height="39dp"
-        android:layout_marginTop="40dp"
         android:layout_marginEnd="16dp"
-        android:onClick="no"
+        android:background="@null"
+        android:onClick="signOutButton"
         android:text="Sign Out"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="124dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        android:textColor="@color/browser_actions_text_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

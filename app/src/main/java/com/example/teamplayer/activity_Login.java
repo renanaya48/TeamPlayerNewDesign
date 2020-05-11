@@ -55,8 +55,6 @@ public class activity_Login extends AppCompatActivity {
         intent=new Intent(this,select_action.class);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            System.out.println("emailllllllllllll");
-            System.out.println(user.getEmail());
             startActivity(intent);
         }
         mAuth = FirebaseAuth.getInstance();
@@ -120,30 +118,35 @@ public class activity_Login extends AppCompatActivity {
         EditText emailData = (EditText) findViewById(R.id.Email);
         String password = passwordData.getText().toString();
         String email = emailData.getText().toString();
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                            startActivity(intent);
-                        } else {
-                            String  message ="Wrong Email or password";
-                            failureMessage.setText(message);
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(activity_Login.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+        if (email.equals("") || password.equals("")) {
+            Snackbar.make(view, "Please enter an email and password",
+                    Snackbar.LENGTH_LONG)
+                    .show();
+        } else {
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                Log.d(TAG, "signInWithEmail:success");
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                updateUI(user);
+                                startActivity(intent);
+                            } else {
+                                String message = "Wrong Email or password";
+                                failureMessage.setText(message);
+                                // If sign in fails, display a message to the user.
+                                Log.w(TAG, "signInWithEmail:failure", task.getException());
+                                Toast.makeText(activity_Login.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
 
-                            updateUI(null);
+                                updateUI(null);
+                            }
+
                         }
-
-                        // ...
-                    }
-                });
+                    });
+        }
     }
     private void updateUI(FirebaseUser user) {
     }
@@ -152,19 +155,25 @@ public class activity_Login extends AppCompatActivity {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         EditText emailData = (EditText) findViewById(R.id.Email);
         String emailAddress = emailData.getText().toString();
+        if (emailAddress.equals("")){
+            Snackbar.make(viewToPass, "Please enter an email",
+                    Snackbar.LENGTH_LONG)
+                    .show();
+        }else {
 
-        auth.sendPasswordResetEmail(emailAddress)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, "Email sent.");
-                            Snackbar.make(viewToPass, "Password reset email sentt",
-                                    Snackbar.LENGTH_LONG)
-                                    .show();
+            auth.sendPasswordResetEmail(emailAddress)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Log.d(TAG, "Email sent.");
+                                Snackbar.make(viewToPass, "Password reset email sent",
+                                        Snackbar.LENGTH_LONG)
+                                        .show();
+                            }
                         }
-                    }
-                });
+                    });
+        }
 
     }
     public void newUser(View view) {

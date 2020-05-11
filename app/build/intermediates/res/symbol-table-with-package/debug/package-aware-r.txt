@@ -1486,6 +1486,7 @@ id up
 id useLogo
 id view_offset_helper
 id visible
+id welcomeText
 id wide
 id withText
 id wrap
