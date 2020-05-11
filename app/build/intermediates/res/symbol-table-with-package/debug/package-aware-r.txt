@@ -1412,6 +1412,7 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id signOut
 id smallLabel
 id snackbar_action
 id snackbar_text

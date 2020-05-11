@@ -52,6 +52,13 @@ public class activity_Login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        intent=new Intent(this,select_action.class);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            System.out.println("emailllllllllllll");
+            System.out.println(user.getEmail());
+            startActivity(intent);
+        }
         mAuth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__login);
@@ -59,7 +66,6 @@ public class activity_Login extends AppCompatActivity {
         basicReadWrite();
         password= (EditText) findViewById(R.id.activity_name);
         failureMessage = (TextView) findViewById(R.id.logInFailed);
-        intent=new Intent(this,select_action.class);
 
         password.setTransformationMethod(PasswordTransformationMethod.getInstance());
         Button logInButton = findViewById(R.id.logInButton);

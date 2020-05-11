@@ -62,6 +62,11 @@ public class select_action extends AppCompatActivity {
         Intent intent = new Intent(this, activity_details.class);
         startActivity(intent);
     }
+    public void signOutButton(View view) {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(this, activity_Login.class);
+        startActivity(intent);
+    }
 
 
 }

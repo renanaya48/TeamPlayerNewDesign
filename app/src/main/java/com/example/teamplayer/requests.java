@@ -28,22 +28,21 @@ public class requests extends AppCompatActivity {
         setContentView(R.layout.activity_requests);
         requestList = new ArrayList<>();
         listView = (ListView) findViewById(R.id.listView);
-         activity_name = getIntent().getStringExtra("activity_name");
-
-        root = FirebaseDatabase.getInstance().getReference().child("Groups").child("Run123");
+        activity_name = getIntent().getStringExtra("activity_name");
+        root = FirebaseDatabase.getInstance().getReference().child("Groups").child(activity_name);
 
 
         root.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-                append_chat_conversation(dataSnapshot);
+                append_request(dataSnapshot);
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-                append_chat_conversation(dataSnapshot);
+                append_request(dataSnapshot);
 
             }
 
@@ -65,7 +64,7 @@ public class requests extends AppCompatActivity {
     }
 
 
-    private void append_chat_conversation(DataSnapshot dataSnapshot) {
+    private void append_request(DataSnapshot dataSnapshot) {
 
         Iterator i = dataSnapshot.getChildren().iterator();
 
@@ -73,6 +72,8 @@ public class requests extends AppCompatActivity {
             String message = (String) ((DataSnapshot)i.next()).getValue();
            String email = (String) ((DataSnapshot)i.next()).getValue();
             String newMessage= message +" asked to join the group";
+            System.out.println("userrrrrrrrrrrrrrrrr");
+           System.out.println(email);
             requestList.add(new requestItem(newMessage,email,activity_name));
         }
         request_item_adapter adapter = new request_item_adapter(this, R.layout.activity_request_item, requestList);

@@ -27,6 +27,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -83,6 +84,26 @@ public class activity_details extends AppCompatActivity {
             }
         });
         root = FirebaseDatabase.getInstance().getReference().child("Groups").child(activity_name);
+        FirebaseUser user = mAuth.getCurrentUser();
+        user_email = user.getEmail();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        Query userQuery = root.orderByChild("user_email").equalTo(user_email);
+        userQuery.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                   Button requestButton = (Button) findViewById(R.id.request);
+                    requestButton.setClickable(false);
+                    requestButton.setText("Send");
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, "onCancelled", databaseError.toException());
+            }
+        });
+
 
 
     }
