@@ -66,7 +66,7 @@ public class group extends AppCompatActivity {
         leaveActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar mySnackbar = Snackbar.make(view, "Are You Sure You Want To Delete Activity?",
+                Snackbar mySnackbar = Snackbar.make(view, "Are You Sure You Want To Leave Activity?",
                         Snackbar.LENGTH_LONG);
                 mySnackbar.setAction("YES", new YesListener());
                 //mySnackbar.setAction("NO", new NoListener());
