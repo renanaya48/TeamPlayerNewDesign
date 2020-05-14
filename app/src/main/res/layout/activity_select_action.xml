@@ -12,10 +12,10 @@
         android:layout_width="162dp"
         android:layout_height="107dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="424dp"
+        android:layout_marginTop="412dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.656"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/project_logo" />
@@ -83,13 +83,23 @@
         android:id="@+id/welcomeText"
         android:layout_width="124dp"
         android:layout_height="23dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="28dp"
         android:background="@null"
         android:textColor="@color/browser_actions_text_color"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/PhotoButtun"
+        android:layout_width="71dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/welcomeText"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

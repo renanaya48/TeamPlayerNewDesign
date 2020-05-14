@@ -106,7 +106,6 @@ public class search_result extends AppCompatActivity {
                                 String numOfParticipants = "";
                                 Object participantes = document.get("participantes");
                                 Object manger = document.get("manager_email");
-
                                 if (participantes == null) {
                                     Log.i(TAG, "null");
                                 } else {

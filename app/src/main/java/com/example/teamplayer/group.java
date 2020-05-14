@@ -5,13 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -25,6 +30,8 @@ import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -37,6 +44,13 @@ public class group extends AppCompatActivity {
     String description;
     View getView;
     private ArrayList<participants_Items> mParticipantsList;
+    private ImageView groupImage;
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
+
+    private Uri filePath;
+
+    private final int PICK_IMAGE_REQUEST = 71;
 
     private RecyclerView mRecyclerView;
     private participantAdapter mAdapter;
@@ -56,6 +70,7 @@ public class group extends AppCompatActivity {
         setContentView(R.layout.activity_group);
         TextView nameActivity = (TextView) findViewById(R.id.name_of_activity);
         documentActivityName = getIntent().getStringExtra("ACTIVITY_NAME");
+        downloadImage();
         nameActivity.setText(documentActivityName);
         TextView descr = (TextView) findViewById((R.id.details_to_fill)) ;
         description = getIntent().getStringExtra("DESCRIPTION");
@@ -183,7 +198,7 @@ public class group extends AppCompatActivity {
     public void buildRecyclerView() {
         Log.w(TAG, "build Recycle " + mParticipantsList.get(0).getParticipantName());
         Log.w(TAG, String.valueOf(mParticipantsList.size()));
-        mRecyclerView = findViewById(R.id.par_recyclerView);
+        mRecyclerView = findViewById(R.id.GroupImage);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mAdapter = new participantAdapter(mParticipantsList);
@@ -237,5 +252,29 @@ public class group extends AppCompatActivity {
     public void goToSelectActionScreen(){
         Intent intent = new Intent(this, select_action.class);
         startActivity(intent);
+    }
+
+    public void downloadImage(){
+        final Context context= this;
+        groupImage = (ImageView) findViewById(R.id.imageView3);
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+        System.out.println("nameeeeeeeeeee");
+        System.out.println(documentActivityName);
+        final StorageReference storageReference = storage.getReference("uploads/" + documentActivityName);
+        storage.getReference("uploads/" + documentActivityName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(context /* context */)
+                        .load(storageReference)
+                        .into(groupImage);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // File not found
+            }
+        });
+
     }
 }

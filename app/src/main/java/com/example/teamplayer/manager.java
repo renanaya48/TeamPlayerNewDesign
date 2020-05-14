@@ -5,26 +5,40 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -38,10 +52,16 @@ public class manager extends AppCompatActivity {
     String description;
     String documentActivityName;
     private ArrayList<participants_Items> mParticipantsList;
+    private ImageButton groupImage;
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
 
     private RecyclerView mRecyclerView;
     private participantAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private Uri filePath;
+
+    private final int PICK_IMAGE_REQUEST = 71;
 
     public class YesListener implements View.OnClickListener{
         @Override
@@ -70,6 +90,7 @@ public class manager extends AppCompatActivity {
         System.out.println("activity name: " + activityName);
 
         setContentView(R.layout.activity_manager);
+        downloadImage();
         TextView activity_name = (TextView) findViewById(R.id.activity_name);
         activity_name.setText(activityName);
         TextView descriptionText = (TextView) findViewById(R.id.activity_description);
@@ -122,7 +143,9 @@ public class manager extends AppCompatActivity {
 
     public void createParticipantsList() {
         mParticipantsList = new ArrayList<>();
-        Log.i(TAG, activityName);
+        System.out.println("dataaaaaaaaaaaaaaaa");
+        System.out.println(ACTIVITIES_COLLECTION);
+        System.out.println(activityName);
         DocumentReference docRef = FirebaseFirestore.getInstance()
                 .collection(ACTIVITIES_COLLECTION).document(activityName);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -253,6 +276,81 @@ public class manager extends AppCompatActivity {
     public void goToSelectActionScreen(){
         Intent intent = new Intent(this, select_action.class);
         startActivity(intent);
+    }
+    public void downloadImage(){
+        final Context context= this;
+        groupImage = (ImageButton) findViewById(R.id.GroupImage);
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+        final StorageReference storageReference = storage.getReference("uploads/" + activityName);
+        storage.getReference("uploads/" + activityName).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(context /* context */)
+                        .load(storageReference)
+                        .into(groupImage);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // File not found
+            }
+        });
+        groupImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chooseImage();
+            }
+        });
+    }
+    private void chooseImage() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+                && data != null && data.getData() != null )
+        {
+            filePath = data.getData();
+            try {
+                final ProgressDialog progressDialog = new ProgressDialog(this);
+                progressDialog.setTitle("Uploading...");
+                progressDialog.show();
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                groupImage.setImageBitmap(bitmap);
+                StorageReference mountainsRef = storageReference.child("uploads/" + activityName);
+                mountainsRef.putFile(filePath)
+                        .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                progressDialog.dismiss();
+                                Toast.makeText(manager.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                progressDialog.dismiss();
+                                Toast.makeText(manager.this, "Failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                                double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot
+                                        .getTotalByteCount());
+                                progressDialog.setMessage("Uploaded " + (int) progress + "%");
+                            }
+                        });
+            }catch (IOException e){
+
+            }
+        }
     }
 
 

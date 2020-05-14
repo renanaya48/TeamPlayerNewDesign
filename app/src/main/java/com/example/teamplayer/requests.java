@@ -1,5 +1,6 @@
 package com.example.teamplayer;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -30,7 +31,10 @@ public class requests extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
         activity_name = getIntent().getStringExtra("activity_name");
         root = FirebaseDatabase.getInstance().getReference().child("Groups").child(activity_name);
-
+        if (getSupportActionBar() != null) {
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setDisplayHomeAsUpEnabled(false);
+        }
 
         root.addChildEventListener(new ChildEventListener() {
             @Override

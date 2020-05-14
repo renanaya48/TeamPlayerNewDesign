@@ -8,9 +8,10 @@
     tools:context=".select_action">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/par_recyclerView"
+        android:id="@+id/GroupImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
         android:layout_marginBottom="100dp"
         android:background="@android:color/darker_gray"
         android:padding="4dp"
@@ -35,7 +36,7 @@
         android:layout_width="273dp"
         android:layout_height="70dp"
         android:layout_above="@+id/details_to_fill"
-        android:layout_alignTop="@+id/par_recyclerView"
+        android:layout_alignTop="@+id/GroupImage"
         android:layout_marginStart="8dp"
         android:layout_marginTop="275dp"
         android:layout_marginBottom="56dp"
@@ -53,7 +54,7 @@
         android:id="@+id/details_to_fill"
         android:layout_width="270dp"
         android:layout_height="107dp"
-        android:layout_above="@+id/par_recyclerView"
+        android:layout_above="@+id/GroupImage"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="-508dp"
@@ -77,5 +78,26 @@
         android:layout_marginEnd="83dp"
         android:background="@drawable/title_border"
         android:text="Leave Activity" />
+
+    <Button
+        android:id="@+id/chatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="42dp"
+        android:layout_marginBottom="141dp"
+        android:onClick="chatButton"
+        android:text="Chat" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="59dp"
+        android:layout_height="52dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="302dp"
+        android:layout_marginEnd="49dp"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
 
 </RelativeLayout>

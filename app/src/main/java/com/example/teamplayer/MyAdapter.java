@@ -90,10 +90,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
 
     @Override
     public void onBindViewHolder(final activityViewHolder holder, int position) {
-        ActivityItems currentItem = mActivitiesList.get(position);
+        final ActivityItems currentItem = mActivitiesList.get(position);
 
         holder.mImageView.setImageResource(currentItem.getImageResource());
-        holder.mTextView1.setText(currentItem.getActivityName()+" - pending request");
+        holder.mTextView1.setText(currentItem.getActivityName());
         holder.mTextView2.setText(currentItem.getDescription());
 
         root = FirebaseDatabase.getInstance().getReference().child("Groups").child(currentItem.getActivityName());
@@ -105,6 +105,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
+                    holder.mTextView1.setText(currentItem.getActivityName()+" - pending request");
                     holder.setBackGround();
                 }
             }
