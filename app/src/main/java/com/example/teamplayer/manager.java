@@ -70,15 +70,6 @@ public class manager extends AppCompatActivity {
 
     }
 
-    public class NoListener implements View.OnClickListener{
-        @Override
-        public void onClick(View v){
-            Log.d(TAG, "noting happend");
-        }
-
-    }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,7 +112,6 @@ public class manager extends AppCompatActivity {
                 Snackbar mySnackbar = Snackbar.make(view, "Are You Sure You Want To Delete Activity?",
                         Snackbar.LENGTH_LONG);
                 mySnackbar.setAction("YES", new YesListener());
-                //mySnackbar.setAction("NO", new NoListener());
                 mySnackbar.show();
             }
         });

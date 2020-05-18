@@ -248,7 +248,6 @@ public class activity_create_new extends AppCompatActivity {
 
 
         String maxPlayersText = maxPlayers.getText().toString();
-        //String detailsText = details.getText().toString();
         String paymentText;
         if (payment.isChecked()) {
             paymentText = "true";
@@ -256,28 +255,16 @@ public class activity_create_new extends AppCompatActivity {
             paymentText = "false";
         }
 
-        //String ageRange = getIntent().getStringExtra("AGE");
-        //String city = getIntent().getStringExtra("CITY");
-        //String city = cityThatChosen;
-        //String sportType = getIntent().getStringExtra("SPORTS");
-        //Log.d(TAG, "city " + city);
-        //Log.d(TAG, "sport " + sportType);
-
-
         String collectionName = ACTIVITIES_COLLECTION + activityNameText;
 
         docRef = FirebaseFirestore.getInstance().document(collectionName);
 
         dataToSave.put("activityName", activityNameText);
         dataToSave.put("maxPlayers", maxPlayersText);
-        //dataToSave.put("details", detailsText);
         dataToSave.put("payment", paymentText);
         dataToSave.put("ageRange", ageThatChosen);
         dataToSave.put("city", cityThatChosen);
         dataToSave.put("sportType", sportThatChosen);
-        //TODO: delete this row, it's nothing! but check it's dosen't makes
-        //any problems
-        //dataToSave.put("detailsToShow", "");
         dataToSave.put("description", descriptionText);
         dataToSave.put("manager_email", email);
 
@@ -325,26 +312,9 @@ public class activity_create_new extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-    public synchronized boolean isExistsDoc(String activityNameText) {
-        FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
-        //DocumentReference docIdRef = rootRef.collection(ACTIVITIES_COLLECTION).document(activityNameText);
-        rootRef.collection(ACTIVITIES_COLLECTION).document(activityNameText).update("Exist", "").addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Log.d(TAG, "document updated");
-                isExist = true;
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.w(TAG, "no such doc");
-                isExist = false;
-            }
-        });
-        return isExist;
-    }
-
+    /**
+     * Load the cities names into a list
+     */
     private void loadCities() {
 
         cities = new ArrayList<>();
