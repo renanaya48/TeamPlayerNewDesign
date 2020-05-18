@@ -75,12 +75,10 @@
 
     <TextView
         android:id="@+id/activity_description"
-        android:layout_width="277dp"
-        android:layout_height="57dp"
+        android:layout_width="116dp"
+        android:layout_height="63dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="293dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="296dp"
         android:background="#F1E581"
         android:textColor="#0F1015"
         android:textSize="24sp"
@@ -111,5 +109,17 @@
         android:layout_marginStart="345dp"
         android:layout_marginTop="213dp"
         app:srcCompat="@android:drawable/ic_menu_camera" />
+
+    <Button
+        android:id="@+id/edit_button"
+        android:layout_width="153dp"
+        android:layout_height="97dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="273dp"
+        android:layout_marginEnd="82dp"
+        android:layout_toEndOf="@+id/activity_description"
+        android:text="Edit Activity" />
 
 </RelativeLayout>

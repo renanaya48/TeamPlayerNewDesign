@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:textAlignment="center"
     tools:context=".activity_details">
 
 
@@ -34,7 +35,7 @@
         android:id="@+id/description_details_1"
         android:layout_width="200dp"
         android:layout_height="105dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="48dp"
         android:background="#FFC107"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
@@ -62,4 +63,14 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/age_Range_textView"
+        android:layout_width="102dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="32dp"
+        android:background="#9C27B0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/number_of_participations" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -48,7 +48,6 @@ public class manager extends AppCompatActivity {
     private static final String ACTIVITIES_COLLECTION = "Activities";
     private static final String USERS_COLLECTION = "Users";
     private String activityName;
-    String activityCollection;
     String description;
     String documentActivityName;
     private ArrayList<participants_Items> mParticipantsList;
@@ -80,11 +79,9 @@ public class manager extends AppCompatActivity {
     }
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityCollection = getIntent().getStringExtra("ACTIVITY");
         activityName = getIntent().getStringExtra("ACTIVITY_NAME");
         description = getIntent().getStringExtra("DESCRIPTION");
         System.out.println("activity name: " + activityName);
@@ -96,7 +93,7 @@ public class manager extends AppCompatActivity {
         TextView descriptionText = (TextView) findViewById(R.id.activity_description);
         descriptionText.setText(description);
         createParticipantsList();
-
+        Button editButton = (Button) findViewById(R.id.edit_button);
         Button deleteButton = (Button) findViewById(R.id.deleteButton);
 
         Button chatButton = (Button) findViewById(R.id.button_Chat);
@@ -128,7 +125,27 @@ public class manager extends AppCompatActivity {
                 mySnackbar.show();
             }
         });
+
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editActivity();
+
+            }
+        });
+
+
     }
+
+     public void editActivity() {
+        Intent intent = new Intent(this, edit_activity.class);
+        intent.putExtra("ACTIVITY_NAME", activityName);
+        intent.putExtra("DESCRIPTION", description);
+        startActivity(intent);
+    }
+
+
+
     public void chatButton(View view){
         Intent intent = new Intent(getApplicationContext(), chat.class);
         intent.putExtra("room_name", activityName);

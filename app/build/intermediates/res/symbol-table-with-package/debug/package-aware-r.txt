@@ -1219,8 +1219,11 @@ id add
 id adjust_height
 id adjust_width
 id age
+id age_Range_textView
 id age_range
 id age_range2
+id age_range_fill
+id age_range_text_view
 id age_text_view
 id alertTitle
 id all
@@ -1260,7 +1263,9 @@ id chatView
 id checkbox
 id checked
 id chronometer
+id city_editText
 id city_scroll
+id city_textView
 id clip_horizontal
 id clip_vertical
 id collapseActionView
@@ -1279,6 +1284,7 @@ id default_activity_button
 id deleteButton
 id descriptionToFill
 id description_details_1
+id description_textView
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
@@ -1293,6 +1299,10 @@ id disableHome
 id done
 id done_city
 id done_sport_type
+id editMaxPlayers
+id edit_activity
+id edit_button
+id edit_description
 id edit_query
 id emailFailed
 id end
@@ -1350,6 +1360,7 @@ id logInButton
 id logInFailed
 id manager_recyclerView
 id masked
+id maxPlayers_textView
 id max_Players
 id media_actions
 id message
@@ -1397,6 +1408,7 @@ id request
 id right
 id right_icon
 id right_side
+id save_changes
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1569,6 +1581,7 @@ layout activity_city
 layout activity_create_new
 layout activity_details
 layout activity_details_after_search
+layout activity_edit_activity
 layout activity_group
 layout activity_main
 layout activity_manager

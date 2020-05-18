@@ -59,6 +59,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.teamplayer.edit_activity" />
         <activity android:name="com.example.teamplayer.activityDetailsAfterSearch" />
         <activity android:name="com.example.teamplayer.participants_Items" />
         <activity
@@ -86,7 +87,9 @@
             android:name="com.example.teamplayer.user_activities"
             android:parentActivityName="com.example.teamplayer.select_action" />
         <activity android:name="com.example.teamplayer.manager" />
-        <activity android:name="com.example.teamplayer.group" />
+        <activity
+            android:name="com.example.teamplayer.group"
+            android:parentActivityName="com.example.teamplayer.select_action" />
         <activity
             android:name="com.example.teamplayer.select_action"
             android:parentActivityName="com.example.teamplayer.activity_Login" />

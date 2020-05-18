@@ -19,6 +19,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,11 +38,13 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class activity_details extends AppCompatActivity {
+    private static final String ACTIVITIES_COLLECTION = "Activities";
     private String activity_name;
     private String manager_email;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -54,6 +58,8 @@ public class activity_details extends AppCompatActivity {
     ArrayList<String> detailsList;
     ArrayList<String> activitiesNameList;
     ArrayList<String> descriptionsList;
+    String ageRange;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +68,7 @@ public class activity_details extends AppCompatActivity {
         detailsList = getIntent().getStringArrayListExtra("Details");
         activitiesNameList = getIntent().getStringArrayListExtra("ACTIVITY_NAME");
         descriptionsList = getIntent().getStringArrayListExtra("DESCRIPTION");
-        showDetails();
+        getAgeRange();
 
         mAuth = FirebaseAuth.getInstance();
         activity_name = detailsList.get(0);
@@ -114,7 +120,37 @@ public class activity_details extends AppCompatActivity {
         TextView descriptionToShow = (TextView) findViewById(R.id.description_details_1);
         descriptionToShow.setText(detailsList.get(1));
         TextView participantsNumToShow = (TextView) findViewById(R.id.number_of_participations);
-        participantsNumToShow.setText("Number Of Participants: " + detailsList.get(2));
+        String particNum = "Number Of Participants: " + detailsList.get(2);
+        participantsNumToShow.setText(particNum);
+        TextView ageRangeToShow = (TextView)findViewById(R.id.age_Range_textView);
+        String ageRangeDetails = "Age Range: " + ageRange;
+        ageRangeToShow.setText(ageRangeDetails);
+
+
+    }
+
+    private void getAgeRange() {
+        DocumentReference docRef = FirebaseFirestore.getInstance()
+                .collection(ACTIVITIES_COLLECTION).document(detailsList.get(0));
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document != null) {
+                        ageRange = document.getString("ageRange");
+                        showDetails();
+                    } else {
+                        Log.d(TAG, "No such document");
+                        showDetails();
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                    showDetails();
+                }
+            }
+        });
+
     }
 
     public void backToResults(View view) {
