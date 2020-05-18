@@ -40,51 +40,40 @@
             android:id="@+id/age_range_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="44dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="308dp"
             android:text="Age Range:"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_activity" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/age_range_fill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="260dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="AGE RANGE"
             app:layout_constraintStart_toEndOf="@+id/age_range_text_view"
-            app:layout_constraintTop_toBottomOf="@+id/edit_activity" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/city_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginStart="76dp"
+            android:layout_marginTop="28dp"
             android:text="CITY"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/age_range_text_view" />
-
-        <EditText
-            android:id="@+id/city_editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="CITYFILL"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.75"
-            app:layout_constraintStart_toEndOf="@+id/city_textView"
-            app:layout_constraintTop_toBottomOf="@+id/age_range_fill" />
 
         <TextView
             android:id="@+id/maxPlayers_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="28dp"
             android:text="max players"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/city_textView" />
@@ -94,11 +83,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="56dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="32dp"
             android:ems="10"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.272"
             app:layout_constraintStart_toEndOf="@+id/maxPlayers_textView"
             app:layout_constraintTop_toBottomOf="@+id/city_editText" />
 
@@ -106,7 +95,8 @@
             android:id="@+id/description_textView"
             android:layout_width="145dp"
             android:layout_height="56dp"
-            android:layout_marginTop="52dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="40dp"
             android:text="description and additional details: (place, hour, day, etc)"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/maxPlayers_textView" />
@@ -115,13 +105,23 @@
             android:id="@+id/edit_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="36dp"
             android:ems="10"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintHorizontal_bias="0.476"
             app:layout_constraintStart_toEndOf="@+id/description_textView"
             app:layout_constraintTop_toBottomOf="@+id/editMaxPlayers" />
+
+        <AutoCompleteTextView
+            android:id="@+id/city_editText"
+            android:layout_width="180dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.648"
+            app:layout_constraintStart_toEndOf="@+id/city_textView"
+            app:layout_constraintTop_toBottomOf="@+id/age_range_fill" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
