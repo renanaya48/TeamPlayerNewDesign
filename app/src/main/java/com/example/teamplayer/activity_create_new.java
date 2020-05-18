@@ -241,14 +241,14 @@ public class activity_create_new extends AppCompatActivity {
         EditText activityName = (EditText) findViewById(R.id.activity_name);
         String activityNameText = activityName.getText().toString();
         EditText maxPlayers = (EditText) findViewById(R.id.max_Players);
-        EditText details = (EditText) findViewById(R.id.details);
+        //EditText details = (EditText) findViewById(R.id.details);
         CheckBox payment = (CheckBox) findViewById(R.id.payment);
         EditText description = (EditText) findViewById(R.id.descriptionToFill);
         String descriptionText = description.getText().toString();
 
 
         String maxPlayersText = maxPlayers.getText().toString();
-        String detailsText = details.getText().toString();
+        //String detailsText = details.getText().toString();
         String paymentText;
         if (payment.isChecked()) {
             paymentText = "true";
@@ -270,14 +270,14 @@ public class activity_create_new extends AppCompatActivity {
 
         dataToSave.put("activityName", activityNameText);
         dataToSave.put("maxPlayers", maxPlayersText);
-        dataToSave.put("details", detailsText);
+        //dataToSave.put("details", detailsText);
         dataToSave.put("payment", paymentText);
         dataToSave.put("ageRange", ageThatChosen);
         dataToSave.put("city", cityThatChosen);
         dataToSave.put("sportType", sportThatChosen);
         //TODO: delete this row, it's nothing! but check it's dosen't makes
         //any problems
-        dataToSave.put("detailsToShow", "");
+        //dataToSave.put("detailsToShow", "");
         dataToSave.put("description", descriptionText);
         dataToSave.put("manager_email", email);
 
@@ -320,8 +320,6 @@ public class activity_create_new extends AppCompatActivity {
         Intent intent = new Intent(activity_create_new.this, manager.class);
         intent.putExtra("ACTIVITY", className);
         intent.putExtra("ACTIVITY_NAME", activityNameText);
-//        intent.putExtra("AGE", ageThatChosen);
-        //      intent.putExtra("CITY", cityThatChosen);
         intent.putExtra("DESCRIPTION", descriptionText);
 
         startActivity(intent);

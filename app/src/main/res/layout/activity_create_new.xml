@@ -132,10 +132,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="388dp"
-            android:text="Additional detials:"
+            android:layout_marginTop="368dp"
+            android:text="Description and additional details: (place, hour, day, etc)"
             android:textColor="#273272"
-            android:textSize="24sp"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -149,18 +149,6 @@
             android:textColor="#273272"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/details"
-            android:layout_width="350dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="432dp"
-            android:layout_marginEnd="52dp"
-            android:background="@drawable/textview_border"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
@@ -228,15 +216,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/find_activities"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.537"
-            app:layout_constraintStart_toEndOf="@+id/textView7"
-            app:layout_constraintTop_toBottomOf="@+id/details"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintStart_toEndOf="@+id/textView7" />
 
         <Button
             android:id="@+id/sport_type_button"
@@ -253,29 +238,16 @@
             app:layout_constraintTop_toBottomOf="@+id/activity_name"
             app:layout_constraintVertical_bias="0.6" />
 
-        <TextView
-            android:id="@+id/Description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginBottom="24dp"
-            android:text="Descripiton"
-            app:layout_constraintBottom_toTopOf="@+id/textView6"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <EditText
             android:id="@+id/descriptionToFill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="88dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Day, Hour, Place etc..."
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/Description"
-            app:layout_constraintTop_toBottomOf="@+id/max_Players" />
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
