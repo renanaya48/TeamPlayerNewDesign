@@ -1340,6 +1340,7 @@ id imageView3
 id imageView5
 id imageView_par
 id image_info
+id image_info1
 id info
 id invisible
 id italic

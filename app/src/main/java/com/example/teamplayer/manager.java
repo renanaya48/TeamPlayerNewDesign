@@ -28,8 +28,10 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -51,6 +53,7 @@ public class manager extends AppCompatActivity {
     String description;
     String documentActivityName;
     private ArrayList<participants_Items> mParticipantsList;
+    private ArrayList<String> emailsList = new ArrayList<>();
     private ImageButton groupImage;
     private FirebaseStorage storage;
     private StorageReference storageReference;
@@ -59,13 +62,24 @@ public class manager extends AppCompatActivity {
     private participantAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private Uri filePath;
+    int positionParticipant;
+    View view1;
 
     private final int PICK_IMAGE_REQUEST = 71;
 
     public class YesListener implements View.OnClickListener{
         @Override
         public void onClick(View v){
+            view1 = v;
             deleteActivity(v);
+        }
+
+    }
+
+    public class YesMovePersonListener implements View.OnClickListener{
+        @Override
+        public void onClick(View v){
+            moveParticipant(v);
         }
 
     }
@@ -109,6 +123,7 @@ public class manager extends AppCompatActivity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view1 = view;
                 Snackbar mySnackbar = Snackbar.make(view, "Are You Sure You Want To Delete Activity?",
                         Snackbar.LENGTH_LONG);
                 mySnackbar.setAction("YES", new YesListener());
@@ -119,6 +134,7 @@ public class manager extends AppCompatActivity {
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                view1 = view;
                 editActivity();
 
             }
@@ -177,6 +193,7 @@ public class manager extends AppCompatActivity {
                             }
                             String [] strSplit = listOfEmails.split(", ");
                             for ( int i=0; i<strSplit.length; ++i){
+                                emailsList.add(strSplit[i]);
                                 Log.i(TAG, strSplit[i]);
                                 FirebaseFirestore.getInstance().collection(USERS_COLLECTION)
                                         .whereEqualTo("Email", strSplit[i])
@@ -252,7 +269,13 @@ public class manager extends AppCompatActivity {
 
             @Override
             public void onInfoClick(int position) {
+                positionParticipant = position;
+
                 Log.d(TAG, "goToDetails");
+                Snackbar mySnackbar = Snackbar.make(view1, "Are You Sure You Want To Move this Participant From activity?",
+                        Snackbar.LENGTH_LONG);
+                mySnackbar.setAction("YES", new YesMovePersonListener());
+                mySnackbar.show();
                 //goToDetails(position);
 
             }
@@ -277,6 +300,37 @@ public class manager extends AppCompatActivity {
                         Log.w(TAG, "Error deleting document", e);
                     }
                 });
+
+    }
+
+    /**
+     * Move the participant from DB
+     * @param v View
+     */
+    public void moveParticipant(View v){
+        Log.w(TAG, "leave activity");
+        //FirebaseAuth mAuth;
+        String currentEmail;
+        //mAuth = FirebaseAuth.getInstance();
+        //FirebaseUser user = mAuth.getCurrentUser();
+        currentEmail = emailsList.get(positionParticipant);
+        Log.w(TAG, "current " + currentEmail);
+        DocumentReference docRef = FirebaseFirestore.getInstance()
+                .collection(ACTIVITIES_COLLECTION).document(activityName);
+        docRef.update("participantes", FieldValue.arrayRemove(currentEmail))
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "array updated");
+                        //goToSelectActionScreen();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w(TAG, "not updated");
+
+            }
+        });
 
     }
 
@@ -362,3 +416,5 @@ public class manager extends AppCompatActivity {
 
 
 }
+//TODO: למחוק את המשתמש מהרשימה שמופיעה על המסך
+//למצוא דרך לקבל את ה view ולהוסיף את זה במקום המתאים

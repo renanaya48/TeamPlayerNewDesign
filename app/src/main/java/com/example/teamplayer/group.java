@@ -53,7 +53,7 @@ public class group extends AppCompatActivity {
     private final int PICK_IMAGE_REQUEST = 71;
 
     private RecyclerView mRecyclerView;
-    private participantAdapter mAdapter;
+    private participantGroupAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
     public class YesListener implements View.OnClickListener{
@@ -201,11 +201,16 @@ public class group extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.GroupImage);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new participantAdapter(mParticipantsList);
+        mAdapter = new participantGroupAdapter(mParticipantsList);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
-        mAdapter.setOnItemClickListener(new participantAdapter.OnItemClickListener() {
+        //mAdapter.setOnItemClickListener(new OnI);
+
+
+
+/*
+        mAdapter.setOnItemClickListener(new participantGroupAdapter.OnItemClickListener() {
 
             @Override
             public void onInfoClick(int position) {
@@ -214,6 +219,8 @@ public class group extends AppCompatActivity {
 
             }
         });
+
+ */
     }
 
     public void searchResult() {

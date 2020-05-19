@@ -11,12 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import static androidx.constraintlayout.widget.Constraints.TAG;
-
-public class participantAdapter extends RecyclerView.Adapter<participantAdapter.participantViewHolder>{
+public class participantGroupAdapter extends RecyclerView.Adapter<participantGroupAdapter.participantViewHolder>{
     private static final String TAG = "Par Adapter";
     private ArrayList<participants_Items> mParticipantsList;
-    private OnItemClickListener mListener;
+    private participantAdapter.OnItemClickListener mListener;
 
     public interface OnItemClickListener {
         //void onItemClick(int position);
@@ -24,7 +22,7 @@ public class participantAdapter extends RecyclerView.Adapter<participantAdapter.
         void onInfoClick(int position);
     }
 
-    public void setOnItemClickListener(OnItemClickListener listener) {
+    public void setOnItemClickListener(participantAdapter.OnItemClickListener listener) {
         mListener = listener;
     }
 
@@ -34,7 +32,7 @@ public class participantAdapter extends RecyclerView.Adapter<participantAdapter.
         public TextView mTextView2;
         public ImageView mInfoImage;
 
-        public participantViewHolder(View itemView, final OnItemClickListener listener) {
+        public participantViewHolder(View itemView, final participantAdapter.OnItemClickListener listener) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.imageView_par);
             mTextView1 = itemView.findViewById(R.id.textView_par);
@@ -56,19 +54,19 @@ public class participantAdapter extends RecyclerView.Adapter<participantAdapter.
         }
     }
 
-    public participantAdapter(ArrayList<participants_Items> participantsList) {
+    public participantGroupAdapter(ArrayList<participants_Items> participantsList) {
         mParticipantsList = participantsList;
     }
 
     @Override
-    public participantViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public participantGroupAdapter.participantViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_participants__items, parent, false);
-        participantViewHolder evh = new participantViewHolder(v, mListener);
+        participantGroupAdapter.participantViewHolder evh = new participantGroupAdapter.participantViewHolder(v, mListener);
         return evh;
     }
 
     @Override
-    public void onBindViewHolder(participantViewHolder holder, int position) {
+    public void onBindViewHolder(participantGroupAdapter.participantViewHolder holder, int position) {
         participants_Items currentItem = mParticipantsList.get(position);
 
         holder.mImageView.setImageResource(currentItem.getImageResource());
