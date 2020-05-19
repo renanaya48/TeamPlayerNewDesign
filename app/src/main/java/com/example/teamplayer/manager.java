@@ -43,6 +43,7 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Iterator;
 
 public class manager extends AppCompatActivity {
 
@@ -309,12 +310,54 @@ public class manager extends AppCompatActivity {
      */
     public void moveParticipant(View v){
         Log.w(TAG, "leave activity");
-        //FirebaseAuth mAuth;
-        String currentEmail;
-        //mAuth = FirebaseAuth.getInstance();
-        //FirebaseUser user = mAuth.getCurrentUser();
+        final String currentEmail;
+        String nameToDelete = mParticipantsList.get(positionParticipant).getParticipantName();
+
+/*
+
+        FirebaseFirestore.getInstance().collection(USERS_COLLECTION)
+                .whereEqualTo("Name", nameToDelete)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()){
+                            for (QueryDocumentSnapshot document: task.getResult()) {
+                                String currentEmail = document.getString("Email");
+                            }
+
+
+
+
+
+
+        FirebaseFirestore.getInstance().collection(USERS_COLLECTION)
+                .whereEqualTo("Name", nameToDelete)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()){
+                            QuerySnapshot document = task.getResult();
+                            if(document!=null){
+                                currentEmail = document.get("Email");
+                            }
+                        }
+
+                        }
+
+                        }
+                    }
+                })
+
+                });
+
+
+
+ */
         currentEmail = emailsList.get(positionParticipant);
         Log.w(TAG, "current " + currentEmail);
+
         DocumentReference docRef = FirebaseFirestore.getInstance()
                 .collection(ACTIVITIES_COLLECTION).document(activityName);
         docRef.update("participantes", FieldValue.arrayRemove(currentEmail))
@@ -322,7 +365,7 @@ public class manager extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG, "array updated");
-                        //goToSelectActionScreen();
+                        refreshScreen();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -331,6 +374,14 @@ public class manager extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    public void refreshScreen(){
+        Intent intent = new Intent(this, manager.class);
+        intent.putExtra("ACTIVITY_NAME", activityName);
+        intent.putExtra("DESCRIPTION", description);
+        startActivity(intent);
 
     }
 
@@ -416,5 +467,5 @@ public class manager extends AppCompatActivity {
 
 
 }
-//TODO: למחוק את המשתמש מהרשימה שמופיעה על המסך
-//למצוא דרך לקבל את ה view ולהוסיף את זה במקום המתאים
+//TODO: למצוא דרך לקבל את ה view ולהוסיף את זה במקום המתאים
+// לראות איך למצוא את האימייל הנכון
