@@ -1112,6 +1112,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_delete
 drawable ic_info
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -1510,6 +1511,7 @@ id unlabeled
 id up
 id useLogo
 id view_offset_helper
+id view_relative
 id visible
 id welcomeText
 id wide
@@ -1585,6 +1587,7 @@ layout activity_group
 layout activity_main
 layout activity_manager
 layout activity_no_result
+layout activity_participant_group
 layout activity_participants__items
 layout activity_registration
 layout activity_request_item

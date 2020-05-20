@@ -47,14 +47,15 @@ import java.util.Iterator;
 
 public class manager extends AppCompatActivity {
 
-    private static final String TAG = "groupActivity";
+    private static final String TAG = "managerActivity";
     private static final String ACTIVITIES_COLLECTION = "Activities";
     private static final String USERS_COLLECTION = "Users";
     private String activityName;
     String description;
     String documentActivityName;
     private ArrayList<participants_Items> mParticipantsList;
-    private ArrayList<String> emailsList = new ArrayList<>();
+    //private ArrayList<String> emailsList = new ArrayList<>();
+    String emailToDelete;
     private ImageButton groupImage;
     private FirebaseStorage storage;
     private StorageReference storageReference;
@@ -194,7 +195,7 @@ public class manager extends AppCompatActivity {
                             }
                             String [] strSplit = listOfEmails.split(", ");
                             for ( int i=0; i<strSplit.length; ++i){
-                                emailsList.add(strSplit[i]);
+                                //emailsList.add(strSplit[i]);
                                 Log.i(TAG, strSplit[i]);
                                 FirebaseFirestore.getInstance().collection(USERS_COLLECTION)
                                         .whereEqualTo("Email", strSplit[i])
@@ -256,6 +257,9 @@ public class manager extends AppCompatActivity {
 
     }
 
+    /**
+     * Build the list of the participants
+     */
     public void buildRecyclerView() {
         Log.w(TAG, "build Recycle " + mParticipantsList.get(0).getParticipantName());
         Log.w(TAG, String.valueOf(mParticipantsList.size()));
@@ -273,7 +277,8 @@ public class manager extends AppCompatActivity {
                 positionParticipant = position;
 
                 Log.d(TAG, "goToDetails");
-                Snackbar mySnackbar = Snackbar.make(view1, "Are You Sure You Want To Move this Participant From activity?",
+                View v = findViewById(R.id.manager_recyclerView);
+                Snackbar mySnackbar = Snackbar.make(v, "Are You Sure You Want To Move this Participant From activity?",
                         Snackbar.LENGTH_LONG);
                 mySnackbar.setAction("YES", new YesMovePersonListener());
                 mySnackbar.show();
@@ -312,24 +317,7 @@ public class manager extends AppCompatActivity {
         Log.w(TAG, "leave activity");
         final String currentEmail;
         String nameToDelete = mParticipantsList.get(positionParticipant).getParticipantName();
-
-/*
-
-        FirebaseFirestore.getInstance().collection(USERS_COLLECTION)
-                .whereEqualTo("Name", nameToDelete)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if(task.isSuccessful()){
-                            for (QueryDocumentSnapshot document: task.getResult()) {
-                                String currentEmail = document.getString("Email");
-                            }
-
-
-
-
-
+        Log.d(TAG, nameToDelete);
 
         FirebaseFirestore.getInstance().collection(USERS_COLLECTION)
                 .whereEqualTo("Name", nameToDelete)
@@ -337,30 +325,28 @@ public class manager extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        //int counter = 0;
+                        //ArrayList<participants_Items> participantList = new ArrayList<>();
                         if(task.isSuccessful()){
-                            QuerySnapshot document = task.getResult();
-                            if(document!=null){
-                                currentEmail = document.get("Email");
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                emailToDelete = document.getString("Email");
+                                Log.d(TAG, emailToDelete + " SHOW ");
                             }
+                            deleteFromDB();
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
                         }
 
-                        }
-
-                        }
                     }
-                })
 
                 });
+    }
 
-
-
- */
-        currentEmail = emailsList.get(positionParticipant);
-        Log.w(TAG, "current " + currentEmail);
+    public void deleteFromDB(){
 
         DocumentReference docRef = FirebaseFirestore.getInstance()
                 .collection(ACTIVITIES_COLLECTION).document(activityName);
-        docRef.update("participantes", FieldValue.arrayRemove(currentEmail))
+        docRef.update("participantes", FieldValue.arrayRemove(emailToDelete))
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -464,8 +450,4 @@ public class manager extends AppCompatActivity {
             }
         }
     }
-
-
 }
-//TODO: למצוא דרך לקבל את ה view ולהוסיף את זה במקום המתאים
-// לראות איך למצוא את האימייל הנכון

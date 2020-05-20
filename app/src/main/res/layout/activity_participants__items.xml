@@ -44,7 +44,7 @@
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_info" />
+            android:src="@drawable/ic_delete" />
 
     </RelativeLayout>
 

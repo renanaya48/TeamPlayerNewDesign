@@ -16,40 +16,17 @@ public class participantGroupAdapter extends RecyclerView.Adapter<participantGro
     private ArrayList<participants_Items> mParticipantsList;
     private participantAdapter.OnItemClickListener mListener;
 
-    public interface OnItemClickListener {
-        //void onItemClick(int position);
-
-        void onInfoClick(int position);
-    }
-
-    public void setOnItemClickListener(participantAdapter.OnItemClickListener listener) {
-        mListener = listener;
-    }
 
     public static class participantViewHolder extends RecyclerView.ViewHolder {
         public ImageView mImageView;
         public TextView mTextView1;
         public TextView mTextView2;
-        public ImageView mInfoImage;
 
         public participantViewHolder(View itemView, final participantAdapter.OnItemClickListener listener) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.imageView_par);
             mTextView1 = itemView.findViewById(R.id.textView_par);
             mTextView2 = itemView.findViewById(R.id.age);
-            mInfoImage = itemView.findViewById(R.id.image_info1);
-
-            mInfoImage.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (listener != null) {
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION) {
-                            listener.onInfoClick(position);
-                        }
-                    }
-                }
-            });
 
         }
     }
@@ -60,7 +37,7 @@ public class participantGroupAdapter extends RecyclerView.Adapter<participantGro
 
     @Override
     public participantGroupAdapter.participantViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_participants__items, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_participant_group, parent, false);
         participantGroupAdapter.participantViewHolder evh = new participantGroupAdapter.participantViewHolder(v, mListener);
         return evh;
     }
