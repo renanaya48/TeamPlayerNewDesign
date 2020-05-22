@@ -46,6 +46,8 @@ public class activity_create_new extends AppCompatActivity {
     private static final String ACTIVITIES_COLLECTION = "Activities/";
     Map<String, Object> dataToSave = new HashMap<String, Object>();
     Button buttonAge;
+    Button buttonMinAge;
+    Button buttonMaxAge;
     Button buttonCity;
     Button buttonSportType;
     String className = "activity_create_new";
@@ -244,7 +246,10 @@ public class activity_create_new extends AppCompatActivity {
         CheckBox payment = (CheckBox) findViewById(R.id.payment);
         EditText description = (EditText) findViewById(R.id.descriptionToFill);
         String descriptionText = description.getText().toString();
-
+        EditText minAge = (EditText) findViewById(R.id.min_age);
+        String minAgeText = minAge.getText().toString();
+        EditText maxAge = (EditText) findViewById(R.id.max_age);
+        String maxAgeText = maxAge.getText().toString();
 
         String maxPlayersText = maxPlayers.getText().toString();
         String paymentText;
@@ -261,7 +266,9 @@ public class activity_create_new extends AppCompatActivity {
         dataToSave.put("activityName", activityNameText);
         dataToSave.put("maxPlayers", maxPlayersText);
         dataToSave.put("payment", paymentText);
-        dataToSave.put("ageRange", ageThatChosen);
+        //dataToSave.put("ageRange", ageThatChosen);
+        dataToSave.put("minAge", minAgeText);
+        dataToSave.put("maxAge", maxAgeText);
         dataToSave.put("city", cityThatChosen);
         dataToSave.put("sportType", sportThatChosen);
         dataToSave.put("description", descriptionText);

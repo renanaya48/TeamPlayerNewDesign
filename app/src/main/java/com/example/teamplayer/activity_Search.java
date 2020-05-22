@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.webianks.library.scroll_choice.ScrollChoice;
@@ -135,11 +136,16 @@ public class activity_Search extends AppCompatActivity {
     public void getMultipleDocs(View viewL) {
         view = viewL;
         CheckBox payment = (CheckBox) findViewById(R.id.payment2);
+        EditText minAge = (EditText) findViewById(R.id.min_Age_text);
+        final String minAgeText = minAge.getText().toString();
+        EditText maxAge = (EditText) findViewById(R.id.max_age_text);
+        final String maxAgeText = maxAge.getText().toString();
 
         if(!payment.isChecked()){
             // [START get_multiple]
             FirebaseFirestore.getInstance().collection(ACTIVITIES_COLLECTION)
-                    .whereEqualTo("sportType", sportThatChosen).whereEqualTo("ageRange", ageThatChosen)
+                    .whereEqualTo("sportType", sportThatChosen)
+                    //whereEqualTo("ageRange", ageThatChosen)
                     .whereEqualTo("city", cityThatChosen).whereEqualTo("payment", "false")
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -148,9 +154,12 @@ public class activity_Search extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     Log.d(TAG, document.getId() + " => " + document.getData());
-                                    activitiesNamesFound.add(document.get("activityName").toString());
-                                    descriptionsFound.add(document.get("description").toString());
-                                    managerFound.add(document.get("manager_email").toString());
+                                    if (Integer.parseInt(document.get("minAge").toString()) <= Integer.parseInt(maxAgeText)
+                                            && Integer.parseInt(document.get("maxAge").toString()) >= Integer.parseInt(minAgeText)){
+                                        activitiesNamesFound.add(document.get("activityName").toString());
+                                        descriptionsFound.add(document.get("description").toString());
+                                        managerFound.add(document.get("manager_email").toString());
+                                    }
                                 }
 
                                 searchResult(view);
@@ -163,8 +172,13 @@ public class activity_Search extends AppCompatActivity {
                     // [END get_multiple]
 
         }else{
+            //Query query = FirebaseFirestore.getInstance().collection(ACTIVITIES_COLLECTION);
+            //query = query.whereEqualTo("sportType", sportThatChosen).
+              //      whereEqualTo("city", cityThatChosen).whereEqualTo("payment", "true");
+            //query.get()
             FirebaseFirestore.getInstance().collection(ACTIVITIES_COLLECTION)
-                    .whereEqualTo("sportType", sportThatChosen).whereEqualTo("ageRange", ageThatChosen)
+                    .whereEqualTo("sportType", sportThatChosen)
+                    //whereEqualTo("ageRange", ageThatChosen)
                     .whereEqualTo("city", cityThatChosen).whereEqualTo("payment", "true")
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -173,9 +187,14 @@ public class activity_Search extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     Log.d(TAG, document.getId() + " => " + document.getData());
-                                    activitiesNamesFound.add(document.get("activityName").toString());
-                                    descriptionsFound.add(document.get("description").toString());
-                                    managerFound.add(document.get("manager_email").toString());
+                                    if (Integer.parseInt(document.get("minAge").toString()) <= Integer.parseInt(maxAgeText)
+                                    && Integer.parseInt(document.get("maxAge").toString()) >= Integer.parseInt(minAgeText))
+                                    {
+                                        activitiesNamesFound.add(document.get("activityName").toString());
+                                        descriptionsFound.add(document.get("description").toString());
+                                        managerFound.add(document.get("manager_email").toString());
+
+                                    }
                                 }
                                 searchResult(view);
 
@@ -185,8 +204,6 @@ public class activity_Search extends AppCompatActivity {
                         }
                     });
             // [END get_multiple]
-
-
         }
 
     }
@@ -213,7 +230,16 @@ public class activity_Search extends AppCompatActivity {
     public void checkThatHaveAll(View view){
         Log.d(TAG, "check!");
 
-        if((ageThatChosen == null)
+        EditText minAge = (EditText) findViewById(R.id.min_Age_text);
+        String minAgeText = minAge.getText().toString();
+        Log.d(TAG, "min " + minAgeText);
+        EditText maxAge = (EditText) findViewById(R.id.max_age_text);
+        String maxAgeText = maxAge.getText().toString();
+        Log.d(TAG, "max "+ maxAgeText);
+
+        //if((ageThatChosen == null)
+        if((minAgeText.isEmpty())
+            ||(maxAgeText.isEmpty())
             ||(sportThatChosen==null)
             ||(cityThatChosen==null)){
             Log.d(TAG, "check1!");

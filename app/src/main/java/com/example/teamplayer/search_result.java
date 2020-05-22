@@ -94,8 +94,14 @@ public class search_result extends AppCompatActivity {
                 detailsToPass = new ArrayList<>();
                 Log.d(TAG, "goToDetails");
                 String documentActivityName = mActivitiesList.get(position).getActivityName();
+                Log.i(TAG, "name1 " + documentActivityName);
+                if (documentActivityName.contains(" (MANAGER)")){
+                    documentActivityName = documentActivityName.replace(" (MANAGER)", "");
+                    Log.i(TAG, "name2 " + documentActivityName);
+                }
                 detailsToPass.add(documentActivityName);
                 detailsToPass.add(mActivitiesList.get(position).getDescription());
+                Log.i(TAG, "name3 " + documentActivityName);
 
                 DocumentReference docRef = FirebaseFirestore.getInstance()
                         .collection(ACTIVITIES_COLLECTION).document(documentActivityName);
@@ -108,6 +114,7 @@ public class search_result extends AppCompatActivity {
                                 String numOfParticipants = "";
                                 Object participantes = document.get("participantes");
                                 Object manger = document.get("manager_email");
+                                Log.i(TAG, "manager " + manger);
                                 if (participantes == null) {
                                     Log.i(TAG, "null");
                                 } else {

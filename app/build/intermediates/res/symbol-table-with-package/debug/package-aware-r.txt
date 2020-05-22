@@ -1362,9 +1362,14 @@ id manager_recyclerView
 id masked
 id maxPlayers_textView
 id max_Players
+id max_age
+id max_age_text
 id media_actions
 id message
 id middle
+id min_Age_text
+id min_age
+id min_age_search
 id mini
 id msg_input
 id mtrl_child_content_container
@@ -1418,6 +1423,8 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollView2
+id scrollView3
+id scrollView4
 id scroll_choice
 id scrollable
 id search_badge
@@ -1475,6 +1482,8 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
+id textView10
+id textView12
 id textView13
 id textView15
 id textView2

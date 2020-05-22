@@ -97,7 +97,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
         holder.mTextView1.setText(currentItem.getActivityName());
         holder.mTextView2.setText(currentItem.getDescription());
         //Get activity name
-        final String activityName=currentItem.getActivityName().replace("(MANAGER)" ,"").trim();
+        final String activityName=currentItem.getActivityName().replace(" (MANAGER)" ,"").trim();
         //Check if the manager has new join request
        checkManagerRequest(activityName,currentItem,holder);
        //Check if the user has requested to join the group
