@@ -107,7 +107,9 @@ public class request_item_adapter  extends ArrayAdapter<requestItem> {
 
                             //reloading the list
                             notifyDataSetChanged();
-                            sendAccepted(email);
+                            String message =  " Your request to join "+activity_name +" group has been approved" ;
+                            NotificationSender sender=new NotificationSender(email,message);
+                            sender.sendNotification();
                         }
                     }
 

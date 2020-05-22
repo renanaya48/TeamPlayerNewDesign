@@ -8,11 +8,13 @@ public class ActivityItems {
     private int mImageResource;
     private String mActivityName;
     private String mDescription;
+    private boolean isManager;
 
-    public ActivityItems(int imageResource, String activityName, String desc) {
+    public ActivityItems(int imageResource, String activityName, String desc, boolean isManager) {
         mImageResource = imageResource;
         mActivityName = activityName;
         mDescription = desc;
+        this.isManager=isManager;
     }
 
     public int getImageResource() {
@@ -25,6 +27,10 @@ public class ActivityItems {
 
     public String getDescription() {
         return mDescription;
+    }
+
+    public boolean isManager(){
+        return this.isManager;
     }
 
     public void show(View view){

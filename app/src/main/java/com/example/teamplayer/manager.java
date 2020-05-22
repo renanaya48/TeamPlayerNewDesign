@@ -163,6 +163,7 @@ public class manager extends AppCompatActivity {
     public void joinRequest(View view){
         Intent intent = new Intent(getBaseContext(), requests.class);
         intent.putExtra("activity_name", activityName);
+        intent.putExtra("DESCRIPTION", description);
         startActivity(intent);
     }
 

@@ -37,14 +37,9 @@ import java.util.Date;
 
 
 public class activity_Login extends AppCompatActivity {
-    private TextView mStatusTextView;
     private FirebaseAuth mAuth;
-    private TextView mDetailTextView;
-    private EditText mEmailField;
-    private EditText mPasswordField;
     private CheckBox checkbox;
     private EditText password;
-    boolean isSucees = false;
     View viewToPass;
     Intent intent;
     TextView failureMessage;
@@ -84,15 +79,11 @@ public class activity_Login extends AppCompatActivity {
     }
 
     public void basicReadWrite() {
-        // [START write_message]
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("message");
 
         myRef.setValue("Hello, World!");
-        // [END write_message]
-
-        // [START read_message]
         // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
             @Override

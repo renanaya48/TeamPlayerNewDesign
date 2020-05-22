@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -95,17 +96,71 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
         holder.mImageView.setImageResource(currentItem.getImageResource());
         holder.mTextView1.setText(currentItem.getActivityName());
         holder.mTextView2.setText(currentItem.getDescription());
+        //Get activity name
+        final String activityName=currentItem.getActivityName().replace("(MANAGER)" ,"").trim();
+        //Check if the manager has new join request
+       checkManagerRequest(activityName,currentItem,holder);
+       //Check if the user has requested to join the group
+       checkUserRequest(activityName,currentItem,holder);
 
-        root = FirebaseDatabase.getInstance().getReference().child("Groups").child(currentItem.getActivityName());
+    }
+
+    @Override
+    public int getItemCount() {
+        return mActivitiesList.size();
+    }
+
+    /**
+     * The function check if a user is the activity manager and if he has ew join request
+     * @param activityName
+     * @param currentItem
+     * @return
+     */
+    public void checkManagerRequest(final String activityName, final ActivityItems currentItem, final activityViewHolder holder){
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference().child("Groups");
+        //Check if there are join request for the specific group
+        rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if (snapshot.hasChild(activityName)) {
+                    //Check if current user is the manager
+                    if (currentItem.isManager()){
+                        //Show manager new requests are pending and change activity color
+                        String textToShow=currentItem.getActivityName()+" -New pending requests";
+                        holder.mTextView1.setText(textToShow);
+                        holder.setBackGround();
+
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
+
+    /**
+     * The function checks if the user has requested to join the group
+     * @param activityName
+     * @param currentItem
+     * @param holder
+     */
+    public void checkUserRequest(final String activityName, final ActivityItems currentItem, final activityViewHolder holder){
+        root = FirebaseDatabase.getInstance().getReference().child("Groups").child(activityName);
         mAuth = FirebaseAuth.getInstance();
+        //Get currrent user email
         FirebaseUser user = mAuth.getCurrentUser();
         user_email = user.getEmail();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        //Check if the user is in the request list in the DB
         Query userQuery = root.orderByChild("user_email").equalTo(user_email);userQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
-                    holder.mTextView1.setText(currentItem.getActivityName()+" - pending request");
+                    //Show the user the request is waiting for approval and change activity color
+                    holder.mTextView1.setText(currentItem.getActivityName() + " - Waiting for approval");
                     holder.setBackGround();
                 }
             }
@@ -116,11 +171,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
             }
         });
 
+
     }
 
-    @Override
-    public int getItemCount() {
-        return mActivitiesList.size();
-    }
 
 }

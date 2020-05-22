@@ -161,16 +161,22 @@ public class activity_details extends AppCompatActivity {
     }
 
 
+    /**
+     * The function send request to manager to join group
+     * @param view
+     */
     public void request(View view){
+        //Get current user email
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         user_email = user.getEmail();
+        //Check if user is already in the group
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         Query userQuery = ref.child("Groups").child(activity_name).orderByChild("user_email").equalTo(user_email);
-
         userQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                //If user is not a member
                 if (!dataSnapshot.exists()){
                     DocumentReference userNAme = db.collection("Users").document(user_email);
                     userNAme.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -180,10 +186,15 @@ public class activity_details extends AppCompatActivity {
                                 DocumentSnapshot document = task.getResult();
 
                                 if (document.exists()) {
+                                    //Get user name and send request notification to maneger
                                     temp_key = root.push().getKey();
                                     user_name= document.getString("Name");
+                                    String message = user_name +" send request to join group "+activity_name;
+                                    NotificationSender sender=new NotificationSender(manager_email,message);
+                                    sender.sendNotification();
                                     Log.d(TAG, "DocumentSnapshot data: " + document.getString("Name"));
-                                    sendNotification();
+                                    //sendNotification();
+                                    //Add request to DB
                                     userRoot= root.child(temp_key);
                                     Map<String, Object> map = new HashMap<String, Object>();
                                     map.put("name", user_name);
@@ -210,76 +221,6 @@ public class activity_details extends AppCompatActivity {
 
 
     }
-    private void sendNotification()
-    {
-
-        Toast.makeText(this, "Current Recipients is : user1@gmail.com ( Just For Demo )", Toast.LENGTH_SHORT).show();
-        System.out.println("emaillllllllllllllllllll");
-        System.out.println(manager_email);
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                int SDK_INT = android.os.Build.VERSION.SDK_INT;
-                if (SDK_INT > 8) {
-                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-                            .permitAll().build();
-                    StrictMode.setThreadPolicy(policy);
-                    String send_email = manager_email;
-
-                    try {
-                        String jsonResponse;
-
-                        URL url = new URL("https://onesignal.com/api/v1/notifications");
-                        HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                        con.setUseCaches(false);
-                        con.setDoOutput(true);
-                        con.setDoInput(true);
-
-                        con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-                        con.setRequestProperty("Authorization", "Basic N2Q5ZWFkYTMtZWQ3NS00YjY3LWExYTEtMzgzZGE2ZWNjNTc5");
-                        con.setRequestMethod("POST");
-                        String message = user_name +" send request to join group "+activity_name;
-                        String strJsonBody = "{"
-                                + "\"app_id\": \"f133e9ac-0ffa-46ff-977a-acab61b82fff\","
-
-                                + "\"filters\": [{\"field\": \"tag\", \"key\": \"User_ID\", \"relation\": \"=\", \"value\": \"" + send_email + "\"}],"
-
-                                + "\"data\": {\"foo\": \"bar\"},"
-                                + "\"contents\": {\"en\":\"" + message + "\"}"
-                                + "}";
-
-
-                        System.out.println("strJsonBody:\n" + strJsonBody);
-
-                        byte[] sendBytes = strJsonBody.getBytes("UTF-8");
-                        con.setFixedLengthStreamingMode(sendBytes.length);
-
-                        OutputStream outputStream = con.getOutputStream();
-                        outputStream.write(sendBytes);
-
-                        int httpResponse = con.getResponseCode();
-                        System.out.println("httpResponse: " + httpResponse);
-
-                        if (httpResponse >= HttpURLConnection.HTTP_OK
-                                && httpResponse < HttpURLConnection.HTTP_BAD_REQUEST) {
-                            Scanner scanner = new Scanner(con.getInputStream(), "UTF-8");
-                            jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
-                            scanner.close();
-                        } else {
-                            Scanner scanner = new Scanner(con.getErrorStream(), "UTF-8");
-                            jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
-                            scanner.close();
-                        }
-                        System.out.println("jsonResponse:\n" + jsonResponse);
-
-                    } catch (Throwable t) {
-                        t.printStackTrace();
-                    }
-                }
-            }
-        });
-    }
-
 
 
 }

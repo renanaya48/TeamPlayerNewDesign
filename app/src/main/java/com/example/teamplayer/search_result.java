@@ -58,10 +58,12 @@ public class search_result extends AppCompatActivity {
     }
 
     public void createActivityList() {
+        boolean isManager=false;
         activitiesNamesList= getIntent().getStringArrayListExtra("ACTIVITY_NAME");
         Log.d(TAG, "numOfList" + String.valueOf(activitiesNamesList.size()));
         descriptionsList= getIntent().getStringArrayListExtra("DESCRIPTION");
         managerList = getIntent().getStringArrayListExtra("MANAGER");
+
 
         String activityNameToShow;
         mActivitiesList = new ArrayList<>();
@@ -71,7 +73,7 @@ public class search_result extends AppCompatActivity {
             if(managerList.get(i).equals(currentUserEmail)){
                 activityNameToShow += " (MANAGER)";
             }
-            mActivitiesList.add(new ActivityItems(R.drawable.project_logo, activityNameToShow, descriptionsList.get(i)));
+            mActivitiesList.add(new ActivityItems(R.drawable.project_logo, activityNameToShow, descriptionsList.get(i),isManager));
         }
     }
 

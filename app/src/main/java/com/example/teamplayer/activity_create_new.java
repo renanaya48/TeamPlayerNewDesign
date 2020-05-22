@@ -200,7 +200,6 @@ public class activity_create_new extends AppCompatActivity {
     }
 
     public void createChatRoom() {
-        System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         String email = user.getEmail();
