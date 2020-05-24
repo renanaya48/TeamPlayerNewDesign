@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\renan\\AndroidStudioProjects\\TeamPlayerNewVersion6\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "outputFile": "C:\\Users\\ornab\\AndroidStudioProjects\\TeamPlayerNewVersion\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\renan\\.gradle\\caches\\transforms-2\\files-2.1\\c6a8a4c982cb22d2e2b2cda4dbbb33f3\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\ornab\\.gradle\\caches\\transforms-2\\files-2.1\\e6d009ff2bb954bc8c9e7af139f1ad9b\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\renan\\.gradle\\caches\\transforms-2\\files-2.1\\6f30ba70a9ab409387731e53746ef97f\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\ornab\\.gradle\\caches\\transforms-2\\files-2.1\\75c348c7701027407b2a38c1ef465141\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",

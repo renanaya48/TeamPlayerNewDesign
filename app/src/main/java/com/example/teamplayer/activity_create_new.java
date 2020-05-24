@@ -270,6 +270,8 @@ public class activity_create_new extends AppCompatActivity {
         EditText maxAge = (EditText) findViewById(R.id.max_age);
         String maxAgeText = maxAge.getText().toString();
 
+        String ageRange = minAgeText + "-" + maxAgeText;
+
         String maxPlayersText = maxPlayers.getText().toString();
         String paymentText;
         if (payment.isChecked()) {
@@ -285,7 +287,7 @@ public class activity_create_new extends AppCompatActivity {
         dataToSave.put("activityName", activityNameText);
         dataToSave.put("maxPlayers", maxPlayersText);
         dataToSave.put("payment", paymentText);
-        //dataToSave.put("ageRange", ageThatChosen);
+        dataToSave.put("ageRange", ageRange);
         dataToSave.put("minAge", minAgeText);
         dataToSave.put("maxAge", maxAgeText);
         dataToSave.put("city", cityThatChosen);
