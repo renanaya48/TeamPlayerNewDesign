@@ -40,6 +40,7 @@ import java.util.Map;
 import static java.lang.Thread.sleep;
 
 public class activity_create_new extends AppCompatActivity {
+    //members
     private volatile boolean isExist = false;
     private DocumentReference docRef;
     private static final String TAG = "saveToDataBase";
@@ -82,10 +83,13 @@ public class activity_create_new extends AppCompatActivity {
                 (this, android.R.layout.select_dialog_item, cities);
         //Getting the instance of AutoCompleteTextView
         actv = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
-        actv.setThreshold(1);//will start working from first character
-        actv.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
+        //will start working from first character
+        actv.setThreshold(1);
+        //setting the adapter data into the AutoCompleteTextView
+        actv.setAdapter(adapter);
         actv.setTextColor(Color.RED);
 
+        //add the city when the user click on button
         actv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
@@ -116,6 +120,7 @@ public class activity_create_new extends AppCompatActivity {
             }
         });
 
+        //set the city name
         buttonSportType.setOnClickListener(new View.OnClickListener() {
             //@override
             public void onClick(View v) {
@@ -164,6 +169,11 @@ public class activity_create_new extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * save the data to DB
+     * @param view the screen to show on
+     * @throws InterruptedException exception
+     */
     public void SaveData(View view) throws InterruptedException {
         viewToPass = view;
         EditText activityName = (EditText) findViewById(R.id.activity_name);
@@ -201,6 +211,9 @@ public class activity_create_new extends AppCompatActivity {
 
     }
 
+    /**
+     * create the activity chat
+     */
     public void createChatRoom() {
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
@@ -225,6 +238,9 @@ public class activity_create_new extends AppCompatActivity {
         });
     }
 
+    /**
+     * create the chat to the activity
+     */
     public void createChat() {
         Map<String, Object> map = new HashMap<String, Object>();
         // Map<String, Object> mapUser = new HashMap<String, Object>();
@@ -235,6 +251,9 @@ public class activity_create_new extends AppCompatActivity {
         // UsersList.updateChildren(mapUser);
     }
 
+    /**
+     * get the new activity details ans save it in a list to the DB
+     */
     public void createNewDoc() {
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
@@ -305,6 +324,9 @@ public class activity_create_new extends AppCompatActivity {
 
     }
 
+    /**
+     * get to the next screen: the manager activity screen
+     */
     private void getToTheNextScreen() {
         EditText activityName = (EditText) findViewById(R.id.activity_name);
         String activityNameText = activityName.getText().toString();

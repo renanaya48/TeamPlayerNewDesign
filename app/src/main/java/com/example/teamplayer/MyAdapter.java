@@ -32,18 +32,27 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
     private static final String TAG = "PostDetailActivity";
 
 
-
+    /**
+     * Interface that has a function: "onInfoClick"
+     */
     public interface OnItemClickListener {
-        //void onItemClick(int position);
-
+        /**
+         * How to act when the info button clicked
+         * @param position the position at the list of the activities that shown
+         */
         void onInfoClick(int position);
     }
 
+    /**
+     * Set the OnClick listener
+     * @param listener the listener to set
+     */
     public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;
     }
 
     public static class activityViewHolder extends RecyclerView.ViewHolder {
+        //members
         public ImageView mImageView;
         public TextView mTextView1;
         public TextView mTextView2;
@@ -51,6 +60,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
 
         View view;
 
+        /**
+         * constructor
+         * @param itemView View
+         * @param listener listener when the button clicked
+         */
         public activityViewHolder(View itemView, final OnItemClickListener listener) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.imageView);
@@ -73,11 +87,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
                 }
             });
         }
+
+        /**
+         * Set the background to yellow
+         */
         public void setBackGround(){
             view.setBackgroundColor(Color.YELLOW);
         }
     }
 
+    /**
+     * constructor
+     * @param activitiesList the list of the activities that be shown
+     */
     public MyAdapter(ArrayList<ActivityItems> activitiesList) {
         mActivitiesList = activitiesList;
     }
@@ -89,6 +111,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
         return evh;
     }
 
+    /**
+     * Show the list of the activities on the screen
+     * @param holder activity holder
+     * @param position the place at the list that should be taken
+     */
     @Override
     public void onBindViewHolder(final activityViewHolder holder, int position) {
         final ActivityItems currentItem = mActivitiesList.get(position);
@@ -105,6 +132,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
 
     }
 
+    /**
+     *
+     * @return the size of the list - the number of activities
+     */
     @Override
     public int getItemCount() {
         return mActivitiesList.size();

@@ -18,10 +18,16 @@ public class participantGroupAdapter extends RecyclerView.Adapter<participantGro
 
 
     public static class participantViewHolder extends RecyclerView.ViewHolder {
+        //members
         public ImageView mImageView;
         public TextView mTextView1;
         public TextView mTextView2;
 
+        /**
+         * Where to show the data on the screen
+         * @param itemView view
+         * @param listener the listener
+         */
         public participantViewHolder(View itemView, final participantAdapter.OnItemClickListener listener) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.imageView_par);
@@ -31,6 +37,10 @@ public class participantGroupAdapter extends RecyclerView.Adapter<participantGro
         }
     }
 
+    /**
+     * contructor
+     * @param participantsList the participants list to show
+     */
     public participantGroupAdapter(ArrayList<participants_Items> participantsList) {
         mParticipantsList = participantsList;
     }
@@ -41,7 +51,11 @@ public class participantGroupAdapter extends RecyclerView.Adapter<participantGro
         participantGroupAdapter.participantViewHolder evh = new participantGroupAdapter.participantViewHolder(v, mListener);
         return evh;
     }
-
+    /**
+     * Show the list of the participants on the screen
+     * @param holder participants holder
+     * @param position the place at the list that should be taken
+     */
     @Override
     public void onBindViewHolder(participantGroupAdapter.participantViewHolder holder, int position) {
         participants_Items currentItem = mParticipantsList.get(position);
@@ -51,6 +65,10 @@ public class participantGroupAdapter extends RecyclerView.Adapter<participantGro
         holder.mTextView2.setText(currentItem.getAge());
     }
 
+    /**
+     *
+     * @return the size of the list - the number of participants
+     */
     @Override
     public int getItemCount() {
         Log.d(TAG, "number of list: " + String.valueOf(mParticipantsList.size()));

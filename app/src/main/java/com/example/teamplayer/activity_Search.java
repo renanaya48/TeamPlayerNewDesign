@@ -33,8 +33,7 @@ import java.util.List;
 import java.util.Map;
 
 public class activity_Search extends AppCompatActivity {
-
-    //private final FirebaseFirestore;
+    //members
     private static final String TAG = "ReadData";
     private static final String ACTIVITIES_COLLECTION = "Activities";
     Button buttonAge;
@@ -133,6 +132,11 @@ public class activity_Search extends AppCompatActivity {
 
     }
 
+    /**
+     * get the documents from DB that matching to the details that the
+     * user insert
+     * @param viewL view
+     */
     public void getMultipleDocs(View viewL) {
         view = viewL;
         CheckBox payment = (CheckBox) findViewById(R.id.payment2);
@@ -190,6 +194,7 @@ public class activity_Search extends AppCompatActivity {
                                     if (Integer.parseInt(document.get("minAge").toString()) <= Integer.parseInt(maxAgeText)
                                     && Integer.parseInt(document.get("maxAge").toString()) >= Integer.parseInt(minAgeText))
                                     {
+                                        //save the data that got from the DB
                                         activitiesNamesFound.add(document.get("activityName").toString());
                                         descriptionsFound.add(document.get("description").toString());
                                         managerFound.add(document.get("manager_email").toString());
@@ -208,6 +213,7 @@ public class activity_Search extends AppCompatActivity {
 
     }
 
+    /*
     public void getValuesFromUsers(View view){
         EditText sportType = (EditText) findViewById(R.id.activity_name);
         //area
@@ -227,6 +233,12 @@ public class activity_Search extends AppCompatActivity {
         Log.d(TAG, objectToSearch.get(0));
     }
 
+     */
+
+    /**
+     * check if the user fill all the fields
+     * @param view
+     */
     public void checkThatHaveAll(View view){
         Log.d(TAG, "check!");
 
@@ -259,6 +271,10 @@ public class activity_Search extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * show the results on a new screen
+     * @param view View
+     */
     public void searchResult(View view) {
         Intent intent=new Intent(this,search_result.class);
         intent.putExtra("ACTIVITY", className);
@@ -270,6 +286,9 @@ public class activity_Search extends AppCompatActivity {
 
     }
 
+    /**
+     * load the list of the cities
+     */
     private void loadCities() {
 
         cities = new ArrayList<>();

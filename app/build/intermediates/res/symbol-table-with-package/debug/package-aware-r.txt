@@ -1210,10 +1210,8 @@ id action_text
 id actions
 id activity_chooser_view_content
 id activity_description
-id activity_details_group
 id activity_details_name
 id activity_name
-id activity_name_group
 id activity_name_layout
 id add
 id adjust_height
@@ -1251,7 +1249,6 @@ id button7
 id button8
 id buttonPanel
 id button_Chat
-id button_chat
 id button_join_request
 id cancel_action
 id center
@@ -1270,7 +1267,6 @@ id clip_horizontal
 id clip_vertical
 id collapseActionView
 id connect
-id contacts
 id container
 id content
 id contentPanel
@@ -1590,7 +1586,6 @@ layout activity_chat
 layout activity_city
 layout activity_create_new
 layout activity_details
-layout activity_details_after_search
 layout activity_edit_activity
 layout activity_group
 layout activity_main
@@ -1605,7 +1600,6 @@ layout activity_search_result
 layout activity_select_action
 layout activity_sport_type
 layout activity_user_activities
-layout activity_view_group
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout custom_dialog
@@ -1711,6 +1705,10 @@ string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
 string hide_bottom_view_on_scroll_behavior
+string location_not_available_message
+string location_not_available_open_settings_message
+string location_not_available_open_settings_option
+string location_not_available_title
 string mtrl_chip_close_icon_content_description
 string password_toggle_content_description
 string path_password_eye

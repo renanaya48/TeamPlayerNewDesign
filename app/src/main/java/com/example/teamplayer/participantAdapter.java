@@ -18,22 +18,36 @@ public class participantAdapter extends RecyclerView.Adapter<participantAdapter.
     private ArrayList<participants_Items> mParticipantsList;
     private OnItemClickListener mListener;
 
+    /**
+     * Interface that has a function: "onInfoClick"
+     */
     public interface OnItemClickListener {
-        //void onItemClick(int position);
-
+        /**
+         * How to act when the delete button clicked
+         * @param position the position at the list of the activities that shown
+         */
         void onInfoClick(int position);
     }
-
+    /**
+     * Set the OnClick listener
+     * @param listener the listener to set
+     */
     public void setOnItemClickListener(OnItemClickListener listener) {
         mListener = listener;
     }
 
     public static class participantViewHolder extends RecyclerView.ViewHolder {
+        //members
         public ImageView mImageView;
         public TextView mTextView1;
         public TextView mTextView2;
         public ImageView mInfoImage;
 
+        /**
+         * Where to show the data on the screen
+         * @param itemView view
+         * @param listener the listener
+         */
         public participantViewHolder(View itemView, final OnItemClickListener listener) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.imageView_par);
@@ -56,6 +70,10 @@ public class participantAdapter extends RecyclerView.Adapter<participantAdapter.
         }
     }
 
+    /**
+     *constructor
+     * @param participantsList the participants list to show
+     */
     public participantAdapter(ArrayList<participants_Items> participantsList) {
         mParticipantsList = participantsList;
     }
@@ -67,6 +85,11 @@ public class participantAdapter extends RecyclerView.Adapter<participantAdapter.
         return evh;
     }
 
+    /**
+     * Show the list of the participants on the screen
+     * @param holder participants holder
+     * @param position the place at the list that should be taken
+     */
     @Override
     public void onBindViewHolder(participantViewHolder holder, int position) {
         participants_Items currentItem = mParticipantsList.get(position);
@@ -76,6 +99,10 @@ public class participantAdapter extends RecyclerView.Adapter<participantAdapter.
         holder.mTextView2.setText(currentItem.getAge());
     }
 
+    /**
+     *
+     * @return the size of the list - the number of participants
+     */
     @Override
     public int getItemCount() {
         Log.d(TAG, "number of list: " + String.valueOf(mParticipantsList.size()));

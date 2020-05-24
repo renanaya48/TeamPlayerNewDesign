@@ -44,6 +44,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class activity_details extends AppCompatActivity {
+    //members
     private static final String ACTIVITIES_COLLECTION = "Activities";
     private String activity_name;
     private String manager_email;
@@ -72,6 +73,7 @@ public class activity_details extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         activity_name = detailsList.get(0);
+        //get the manager email
         DocumentReference userNAme = db.collection("Activities").document(activity_name);
         userNAme.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -114,6 +116,9 @@ public class activity_details extends AppCompatActivity {
 
     }
 
+    /**
+     * show the detail of the activity: name, description, participants number, age range.
+     */
     public void showDetails(){
         TextView activityNameToShow = (TextView) findViewById(R.id.activity_details_name);
         activityNameToShow.setText(detailsList.get(0));
@@ -129,6 +134,9 @@ public class activity_details extends AppCompatActivity {
 
     }
 
+    /**
+     * get the age range of the activity from the DB
+     */
     private void getAgeRange() {
         DocumentReference docRef = FirebaseFirestore.getInstance()
                 .collection(ACTIVITIES_COLLECTION).document(detailsList.get(0));
@@ -153,6 +161,10 @@ public class activity_details extends AppCompatActivity {
 
     }
 
+    /**
+     * back to search results
+     * @param view the View
+     */
     public void backToResults(View view) {
         Intent intent=new Intent(this, search_result.class);
         intent.putStringArrayListExtra("ACTIVITY_NAME", activitiesNameList);
