@@ -1124,6 +1124,10 @@ drawable ic_stat_namev
 drawable ic_stat_namex
 drawable ic_stat_notification
 drawable ic_stat_onesignal_default
+drawable logo_blue
+drawable logo_blue_no_name
+drawable logo_white
+drawable logo_white_no_name
 drawable message
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
@@ -1142,6 +1146,13 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable project
 drawable project_logo
+drawable screen1
+drawable screen1withname
+drawable screen2
+drawable screen2withpeople
+drawable select_action_backround
+drawable text_view_backround
+drawable text_view_to_fill
 drawable textview_border
 drawable title_border
 drawable tooltip_frame_dark
@@ -1259,6 +1270,7 @@ id chatButton
 id chatView
 id checkbox
 id checked
+id choose_action
 id chronometer
 id city_editText
 id city_scroll

@@ -37,6 +37,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class group extends AppCompatActivity {
+    //members
     private static final String TAG = "groupActivity";
     private static final String ACTIVITIES_COLLECTION = "Activities";
     private static final String USERS_COLLECTION = "Users";
@@ -56,7 +57,14 @@ public class group extends AppCompatActivity {
     private participantGroupAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
+    /**
+     * how to act when the user press YES
+     */
     public class YesListener implements View.OnClickListener{
+        /**
+         * when the user press YES - leave activity
+         * @param v View
+         */
         @Override
         public void onClick(View v){
             leaveActivityUser(v);
@@ -81,10 +89,10 @@ public class group extends AppCompatActivity {
         leaveActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //ask the user if he sure he wants to leave the activity
                 Snackbar mySnackbar = Snackbar.make(view, "Are You Sure You Want To Leave Activity?",
                         Snackbar.LENGTH_LONG);
                 mySnackbar.setAction("YES", new YesListener());
-                //mySnackbar.setAction("NO", new NoListener());
                 mySnackbar.show();
             }
         });
@@ -105,10 +113,13 @@ public class group extends AppCompatActivity {
     }
 
 
-
+    /**
+     * create and show the participants list of the activity
+     */
     public void createParticipantsList() {
         mParticipantsList = new ArrayList<>();
         Log.i(TAG, documentActivityName);
+        //go to DB, to ACTIVITY collection, and get the participants emails
         DocumentReference docRef = FirebaseFirestore.getInstance()
                 .collection(ACTIVITIES_COLLECTION).document(documentActivityName);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -122,6 +133,7 @@ public class group extends AppCompatActivity {
                             Log.i(TAG, "null");
                         }
                         else {
+                            //parse the array of the email to a list
                             String listOfEmails = usersEmails.toString();
                             int len = listOfEmails.length()-1;
                             listOfEmails = listOfEmails.substring(1, len);
@@ -132,6 +144,7 @@ public class group extends AppCompatActivity {
                                 Log.d(TAG, "list of email not NULL");
                             }
                             String [] strSplit = listOfEmails.split(", ");
+                            //for each email - find the name in USERS collection in the DB
                             for ( int i=0; i<strSplit.length; ++i){
                                 Log.i(TAG, strSplit[i]);
                                 FirebaseFirestore.getInstance().collection(USERS_COLLECTION)
@@ -154,7 +167,7 @@ public class group extends AppCompatActivity {
                                                         } else {
                                                             Log.d(TAG, "list of d not NULL");
 
-
+                                                            //get the age of the user
                                                             String[] parts = d.split("/");
                                                             int year = Integer.parseInt(parts[2]);
                                                             int month = Integer.parseInt(parts[1]);
@@ -195,6 +208,9 @@ public class group extends AppCompatActivity {
 
     }
 
+    /**
+     * build and shoe the participants
+     */
     public void buildRecyclerView() {
         Log.w(TAG, "build Recycle " + mParticipantsList.get(0).getParticipantName());
         Log.w(TAG, String.valueOf(mParticipantsList.size()));
@@ -205,22 +221,6 @@ public class group extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
-        //mAdapter.setOnItemClickListener(new OnI);
-
-
-
-/*
-        mAdapter.setOnItemClickListener(new participantGroupAdapter.OnItemClickListener() {
-
-            @Override
-            public void onInfoClick(int position) {
-                Log.d(TAG, "goToDetails");
-                //goToDetails(position);
-
-            }
-        });
-
- */
     }
 
     public void searchResult() {
@@ -229,6 +229,10 @@ public class group extends AppCompatActivity {
 
     }
 
+    /**
+     * after the user press YES to leave activity - leave activity
+     * @param view View
+     */
     public void leaveActivityUser(View view){
         Log.w(TAG, "leave activity");
         FirebaseAuth mAuth;
@@ -237,6 +241,7 @@ public class group extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         currentEmail = user.getEmail();
         Log.w(TAG, "current " + currentEmail);
+        //find the email user in the DB and delete it from the participants array
         DocumentReference docRef = FirebaseFirestore.getInstance()
                 .collection(ACTIVITIES_COLLECTION).document(documentActivityName);
         docRef.update("participantes", FieldValue.arrayRemove(currentEmail))
@@ -256,11 +261,17 @@ public class group extends AppCompatActivity {
 
     }
 
+    /**
+     * go to the select action screen
+     */
     public void goToSelectActionScreen(){
         Intent intent = new Intent(this, select_action.class);
         startActivity(intent);
     }
 
+    /**
+     * download the image of the activity
+     */
     public void downloadImage(){
         final Context context= this;
         groupImage = (ImageView) findViewById(R.id.imageView3);
