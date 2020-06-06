@@ -69,6 +69,7 @@ public class select_action extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         String userUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         final StorageReference storageReference = storage.getReference("uploads/" + userUid);
         storage.getReference("uploads/" + userUid).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override

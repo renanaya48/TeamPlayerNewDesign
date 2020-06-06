@@ -3,51 +3,55 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".requestItem">
+    android:layout_height="wrap_content"
+    tools:context=".requestItem"
+    android:layout_marginTop="30dp"
+    >
 
 
-    <RelativeLayout
-        android:layout_width="407dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="4dp">
+    <TextView
+        android:id="@+id/request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/accept"
+        android:layout_toRightOf="@id/profile_image"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:textColor="@android:color/background_dark"
+        android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/request"
-            android:layout_width="250dp"
-            android:layout_height="30dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="21dp"
-            android:textSize="18sp" />
-
-
-    </RelativeLayout>
 
     <ImageButton
         android:id="@+id/accept"
-        android:layout_width="34dp"
-        android:layout_height="34dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="78dp"
-        android:src="@drawable/ic_stat_namev" />
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/decline"
+        android:src="@drawable/ic_stat_namev"
+        android:background="@drawable/small_button"/>
 
     <ImageButton
         android:id="@+id/decline"
-        android:layout_width="34dp"
-        android:layout_height="34dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="33dp"
-        android:src="@drawable/ic_stat_namex" />
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/ic_stat_namex"
+        android:background="@drawable/small_button"/>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_person_no_image"
+        app:civ_border_width="1dp"
+        android:layout_centerVertical="true"
+        app:civ_border_color="#1D54BF"/>
+
 
 </RelativeLayout>

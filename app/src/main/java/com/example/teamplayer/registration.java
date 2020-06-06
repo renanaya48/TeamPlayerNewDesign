@@ -203,7 +203,7 @@ public class registration extends AppCompatActivity {
                 } else {
                     String message = "Wrong email";
                     EmailFailure.setText(message);
-                    // If sign in fails, display a message to the user.
+                    // If sign in fails, display a messagesend to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.getException());
                     Toast.makeText(registration.this, "Authentication failed.",
                             Toast.LENGTH_SHORT).show();

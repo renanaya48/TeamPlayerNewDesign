@@ -1,6 +1,7 @@
 package com.example.teamplayer;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.StrictMode;
 import android.util.Log;
@@ -18,9 +19,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,6 +32,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.io.OutputStream;
 import java.lang.reflect.Field;
@@ -43,6 +48,10 @@ public class request_item_adapter  extends ArrayAdapter<requestItem> {
     //the list values in the List of type hero
     List<requestItem> requestList;
     //private String email;
+
+    private ImageView imageUser;
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
 
     private static final String TAG = "accept_request";
     private static final String ACTIVITIES_COLLECTION = "Activities/";
@@ -85,7 +94,29 @@ public class request_item_adapter  extends ArrayAdapter<requestItem> {
         activity_name=requestItem.getActivityName();
         //adding values to the list item
         textViewName.setText(requestItem.getMessage());
-
+        final Context context= ApplicationClass.getAppContext();
+        imageUser = (ImageView) view.findViewById(R.id.profile_image);
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+        String userUid = requestItem.getUserUid();
+        System.out.println("userYIdddddddddddd");
+        System.out.println(userUid);
+        System.out.println("emailllllll");
+        System.out.println(requestItem.getMessage());
+        final StorageReference storageReference = storage.getReference("uploads/" + userUid);
+        storage.getReference("uploads/" + userUid).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(context /* context */)
+                        .load(storageReference)
+                        .into(imageUser);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                imageUser.setImageDrawable(imageUser.getDrawable());
+            }
+        });
         //manager email
        final String email = requestItem.getEmail();
        //Log.w(TAG, email);

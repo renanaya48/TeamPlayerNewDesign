@@ -79,9 +79,9 @@ public class activity_Login extends AppCompatActivity {
     }
 
     public void basicReadWrite() {
-        // Write a message to the database
+        // Write a messagesend to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
+        DatabaseReference myRef = database.getReference("messagesend");
 
         myRef.setValue("Hello, World!");
         // Read from the database
@@ -127,7 +127,7 @@ public class activity_Login extends AppCompatActivity {
                             } else {
                                 String message = "Wrong Email or password";
                                 failureMessage.setText(message);
-                                // If sign in fails, display a message to the user.
+                                // If sign in fails, display a messagesend to the user.
                                 Log.w(TAG, "signInWithEmail:failure", task.getException());
                                 Toast.makeText(activity_Login.this, "Authentication failed.",
                                         Toast.LENGTH_SHORT).show();

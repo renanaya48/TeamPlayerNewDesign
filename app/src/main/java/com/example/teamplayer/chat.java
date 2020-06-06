@@ -51,6 +51,7 @@ public class chat extends AppCompatActivity {
     private DatabaseReference root ;
     private String temp_key;
     private FirebaseAuth mAuth;
+    private String user_email;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     List<message_item> messageList;
     ListView listView;
@@ -63,8 +64,9 @@ public class chat extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
         btn_send_msg = (Button) findViewById(R.id.btn_send);
         mAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = mAuth.getCurrentUser();
-        String email = user.getEmail();
+        final FirebaseUser user = mAuth.getCurrentUser();
+        final String email = user.getEmail();
+        user_email= email;
         listView = (ListView) findViewById(R.id.chatView);
         messageList = new ArrayList<>();
         DocumentReference userNAme = db.collection("Users").document(email);
@@ -92,21 +94,23 @@ public class chat extends AppCompatActivity {
         btn_send_msg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String message =input_msg.getText().toString();
+                if (!message.equals("")) {
+                    Map<String, Object> map = new HashMap<String, Object>();
+                    temp_key = root.push().getKey();
+                    root.updateChildren(map);
+                    String timeStamp = new SimpleDateFormat("dd/MM/yy HH:mm").format(Calendar.getInstance().getTime());
+                    DatabaseReference message_root = root.child(temp_key);
+                    Map<String, Object> map2 = new HashMap<String, Object>();
+                    map2.put("name", user_name);
+                    map2.put("msg", input_msg.getText().toString());
+                    map2.put("time", timeStamp);
+                    map2.put("email", email);
 
-                Map<String, Object> map = new HashMap<String, Object>();
-                temp_key = root.push().getKey();
-                root.updateChildren(map);
-                String timeStamp = new SimpleDateFormat("dd/MM/yy HH:mm").format(Calendar.getInstance().getTime());
-                DatabaseReference message_root = root.child(temp_key);
-                Map<String, Object> map2 = new HashMap<String, Object>();
-                map2.put("name", user_name);
-                System.out.println("nameeeeeeeeeeeeeee");
-                System.out.println(user_name);
-                map2.put("msg", input_msg.getText().toString());
-                map2.put("time", timeStamp);
-                System.out.println(map2);
-                message_root.updateChildren(map2);
-                input_msg.setText("");
+                    System.out.println(map2);
+                    message_root.updateChildren(map2);
+                    input_msg.setText("");
+                }
             }
         });
 
@@ -145,23 +149,22 @@ public class chat extends AppCompatActivity {
     private void append_chat_conversation(DataSnapshot dataSnapshot) {
         Iterator i = dataSnapshot.getChildren().iterator();
         while (i.hasNext()){
-            System.out.println("mesageeeeeeeeeeeeeeeeeeeeeeeeeeee");
+            String email =(String)((DataSnapshot)i.next()).getValue();
             chat_msg = (String) ((DataSnapshot)i.next()).getValue();
-            System.out.println(chat_msg);
             chat_user_name = (String) ((DataSnapshot)i.next()).getValue();
             String time_now =""+((DataSnapshot)i.next()).getValue();
-            messageList.add(new message_item(chat_msg,chat_user_name,time_now));
-
-           // chat_conversation.append(time_now+" "+chat_user_name +" : "+chat_msg +" \n");
+            if (email.equals(user_email)) {
+                messageList.add(new message_item(chat_msg, chat_user_name, time_now,true));
+            }else {
+                messageList.add(new message_item(chat_msg, chat_user_name, time_now,false));
+            }
         }
-
-        MessageListAdapter adapter = new MessageListAdapter(this, R.layout.send_message, messageList);
+        MessageListAdapter adapter = new MessageListAdapter(this, R.layout.recieve_message, messageList);
         //attaching adapter to the listview
         listView.setAdapter(adapter);
 
 
     }
-
 
 
 

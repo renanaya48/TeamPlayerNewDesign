@@ -4,9 +4,13 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -35,6 +39,8 @@ public class requests extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_requests);
+        TextView myRequest = (TextView)  findViewById(R.id.title);
+        Color c=  new Color();
         requestList = new ArrayList<>();
         listView = (ListView) findViewById(R.id.listView);
         activity_name = getIntent().getStringExtra("activity_name");
@@ -96,9 +102,11 @@ public class requests extends AppCompatActivity {
        while (i.hasNext()){
            //Add a new request iten to the list
             String message = (String) ((DataSnapshot)i.next()).getValue();
+           String userUid = (String) ((DataSnapshot)i.next()).getValue();
            String email = (String) ((DataSnapshot)i.next()).getValue();
+
             String newMessage= message +" asked to join the group";
-            requestList.add(new requestItem(newMessage,email,activity_name));
+            requestList.add(new requestItem(newMessage,email,activity_name,userUid));
         }
         request_item_adapter adapter = new request_item_adapter(this, R.layout.activity_request_item, requestList);
         //attaching adapter to the listview

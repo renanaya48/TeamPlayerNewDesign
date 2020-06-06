@@ -15,14 +15,20 @@ public class requestItem  {
     private String message;
     private String email;
     private String activityName;
+    private String userUid;
 
-    public requestItem(String message,String email , String activityName){
+
+
+    public requestItem(String message, String email , String activityName,String userUid){
         this.message=message;
         this.email = email;
         this.activityName = activityName;
+        this.userUid=userUid;
 
     }
-
+    public String getUserUid() {
+        return userUid;
+    }
     public String getMessage() {
         return message;
     }

@@ -164,6 +164,10 @@ attr chipStrokeColor
 attr chipStrokeWidth
 attr chipStyle
 attr circleCrop
+attr civ_border_color
+attr civ_border_overlay
+attr civ_border_width
+attr civ_circle_background_color
 attr closeIcon
 attr closeIconEnabled
 attr closeIconEndPadding
@@ -1077,6 +1081,8 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable background
+drawable background2
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1112,6 +1118,8 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_check_black_24dp
+drawable ic_close_black_24dp
 drawable ic_delete
 drawable ic_info
 drawable ic_launcher_background
@@ -1120,15 +1128,19 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_os_notification_fallback_white_24dp
+drawable ic_person_no_image
 drawable ic_stat_namev
 drawable ic_stat_namex
 drawable ic_stat_notification
 drawable ic_stat_onesignal_default
+drawable list_item_boarder
+drawable listviewbackround
 drawable logo_blue
 drawable logo_blue_no_name
 drawable logo_white
 drawable logo_white_no_name
-drawable message
+drawable logowhitetranperent
+drawable messagesend
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1151,6 +1163,7 @@ drawable screen1withname
 drawable screen2
 drawable screen2withpeople
 drawable select_action_backround
+drawable small_button
 drawable text_view_backround
 drawable text_view_to_fill
 drawable textview_border
@@ -1344,7 +1357,6 @@ id imageButton3
 id imageButton4
 id imageButton5
 id imageView
-id imageView2
 id imageView3
 id imageView5
 id imageView_par
@@ -1413,6 +1425,7 @@ id payment
 id payment2
 id percent
 id pin
+id profile_image
 id progress_circular
 id progress_horizontal
 id radio
@@ -1448,6 +1461,7 @@ id search_voice_btn
 id select_date
 id select_dialog_listview
 id selected
+id sendBar
 id shortcut
 id showCustom
 id showHome
@@ -1493,7 +1507,6 @@ id textView
 id textView10
 id textView12
 id textView13
-id textView15
 id textView2
 id textView3
 id textView4
@@ -1648,12 +1661,14 @@ layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
 layout onesignal_bgimage_notif_layout
+layout recieve_message
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout send_message
 layout support_simple_spinner_dropdown_item
 mipmap ic_launcher
+mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 raw consumer_onesignal_keep
 string abc_action_bar_home_description
@@ -2266,6 +2281,7 @@ styleable ButtonBarLayout allowStacking
 styleable CardView android_minWidth android_minHeight cardBackgroundColor cardCornerRadius cardElevation cardMaxElevation cardPreventCornerOverlap cardUseCompatPadding contentPadding contentPaddingBottom contentPaddingLeft contentPaddingRight contentPaddingTop
 styleable Chip android_textAppearance android_ellipsize android_maxWidth android_text android_checkable checkedIcon checkedIconEnabled checkedIconVisible chipBackgroundColor chipCornerRadius chipEndPadding chipIcon chipIconEnabled chipIconSize chipIconTint chipIconVisible chipMinHeight chipStartPadding chipStrokeColor chipStrokeWidth closeIcon closeIconEnabled closeIconEndPadding closeIconSize closeIconStartPadding closeIconTint closeIconVisible hideMotionSpec iconEndPadding iconStartPadding rippleColor showMotionSpec textEndPadding textStartPadding
 styleable ChipGroup checkedChip chipSpacing chipSpacingHorizontal chipSpacingVertical singleLine singleSelection
+styleable CircleImageView civ_border_color civ_border_overlay civ_border_width civ_circle_background_color
 styleable CollapsingToolbarLayout collapsedTitleGravity collapsedTitleTextAppearance contentScrim expandedTitleGravity expandedTitleMargin expandedTitleMarginBottom expandedTitleMarginEnd expandedTitleMarginStart expandedTitleMarginTop expandedTitleTextAppearance scrimAnimationDuration scrimVisibleHeightTrigger statusBarScrim title titleEnabled toolbarId
 styleable CollapsingToolbarLayout_Layout layout_collapseMode layout_collapseParallaxMultiplier
 styleable ColorStateListItem android_color android_alpha alpha
