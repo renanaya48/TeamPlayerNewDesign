@@ -46,7 +46,7 @@ public class activity_create_new extends AppCompatActivity {
     private static final String TAG = "saveToDataBase";
     private static final String ACTIVITIES_COLLECTION = "Activities/";
     Map<String, Object> dataToSave = new HashMap<String, Object>();
-    Button buttonAge;
+  //  Button buttonAge;
     Button buttonMinAge;
     Button buttonMaxAge;
     Button buttonCity;
@@ -71,12 +71,8 @@ public class activity_create_new extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_new);
-        buttonAge = (Button) findViewById(R.id.age_range);
-        //buttonCity = (Button)findViewById(R.id.button_city);
         buttonSportType = (Button) findViewById(R.id.sport_type_button);
 
-        buttonAge.setText(ageThatChosen);
-        // buttonCity.setText(cityThatChosen);
         buttonSportType.setText(sportThatChosen);
         loadCities();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
@@ -103,7 +99,7 @@ public class activity_create_new extends AppCompatActivity {
             }
         });
 
-
+/*
         buttonAge.setOnClickListener(new View.OnClickListener() {
             //@override
             public void onClick(View v) {
@@ -119,6 +115,8 @@ public class activity_create_new extends AppCompatActivity {
 
             }
         });
+
+ */
 
         //set the city name
         buttonSportType.setOnClickListener(new View.OnClickListener() {
@@ -139,7 +137,7 @@ public class activity_create_new extends AppCompatActivity {
 
         if (!clicked) {
             ageThatChosen = getIntent().getStringExtra("AGE");
-            buttonAge.setText(ageThatChosen);
+           // buttonAge.setText(ageThatChosen);
             cityThatChosen = getIntent().getStringExtra("CITY");
             //buttonCity.setText(cityThatChosen);
             actv.setText(cityThatChosen);
@@ -152,7 +150,7 @@ public class activity_create_new extends AppCompatActivity {
             //buttonCity.setText(cityThatChosen);
             actv.setText(cityThatChosen);
             ageThatChosen = getIntent().getStringExtra("AGE");
-            buttonAge.setText(ageThatChosen);
+           // buttonAge.setText(ageThatChosen);
             sportThatChosen = getIntent().getStringExtra("SPORTS");
             buttonSportType.setText(sportThatChosen);
         }

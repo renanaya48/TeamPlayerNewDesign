@@ -1110,6 +1110,7 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable create
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1242,7 +1243,6 @@ id adjust_height
 id adjust_width
 id age
 id age_Range_textView
-id age_range
 id age_range2
 id age_range_fill
 id age_range_text_view
@@ -1283,7 +1283,6 @@ id chatButton
 id chatView
 id checkbox
 id checked
-id choose_action
 id chronometer
 id city_editText
 id city_scroll
@@ -1352,7 +1351,6 @@ id icon_only
 id ifRoom
 id image
 id imageButton
-id imageButton2
 id imageButton3
 id imageButton4
 id imageButton5
@@ -1446,6 +1444,7 @@ id scrollView
 id scrollView2
 id scrollView3
 id scrollView4
+id scrollViewForSelectAction
 id scroll_choice
 id scrollable
 id search_badge
@@ -1458,6 +1457,7 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id select_action_layout
 id select_date
 id select_dialog_listview
 id selected
