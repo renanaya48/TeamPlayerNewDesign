@@ -1134,6 +1134,7 @@ drawable ic_stat_namev
 drawable ic_stat_namex
 drawable ic_stat_notification
 drawable ic_stat_onesignal_default
+drawable light_color
 drawable list_item_boarder
 drawable listviewbackround
 drawable logo_blue
@@ -1353,7 +1354,6 @@ id image
 id imageButton
 id imageButton3
 id imageButton4
-id imageButton5
 id imageView
 id imageView3
 id imageView5

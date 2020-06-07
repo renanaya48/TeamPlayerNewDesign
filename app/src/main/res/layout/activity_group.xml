@@ -1,103 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C1EBE9E9"
+    android:background="@drawable/background"
     tools:context=".select_action">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/GroupImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="100dp"
-        android:background="@android:color/darker_gray"
-        android:padding="4dp"
-        android:scrollbars="vertical" />
-
-
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="wrap_content"
+    <android.widget.RelativeLayout
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="28dp"
-        android:background="#C1EBE9E9"
-        android:tint="#004B4949"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
+        android:layout_width="match_parent">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/GroupImage"
+            android:layout_width="match_parent"
+            android:layout_height="431dp"
+            android:layout_below="@+id/details_to_fill"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="59dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/background"
+            android:padding="4dp"
+            android:scrollbars="vertical" />
 
-    <TextView
-        android:id="@+id/name_of_activity"
-        android:layout_width="273dp"
-        android:layout_height="70dp"
-        android:layout_above="@+id/details_to_fill"
-        android:layout_alignTop="@+id/GroupImage"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="275dp"
-        android:layout_marginBottom="56dp"
-        android:background="@drawable/title_border"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.606"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/name_of_activity"
+            android:layout_width="275dp"
+            android:layout_height="70dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="114dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="23dp"
+            android:layout_marginBottom="574dp"
+            android:background="@drawable/title_border"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.606"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/details_to_fill"
-        android:layout_width="270dp"
-        android:layout_height="107dp"
-        android:layout_above="@+id/GroupImage"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="-508dp"
-        android:background="#F1E581"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textAlignment="viewStart"
-        android:textIsSelectable="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.592"
-        app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+            android:id="@+id/details_to_fill"
+            android:layout_width="270dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="135dp"
+            android:layout_marginEnd="133dp"
+            android:background="@drawable/light_color"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textColor="#273272"
+            android:textIsSelectable="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.592"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/leaveButton"
-        android:layout_width="177dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="551dp"
-        android:layout_marginEnd="83dp"
-        android:background="@drawable/title_border"
-        android:text="Leave Activity" />
+        <Button
+            android:id="@+id/leaveButton"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/chatButton"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/light_color"
+            android:text="Leave Activity" />
 
-    <Button
-        android:id="@+id/chatButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="42dp"
-        android:layout_marginBottom="141dp"
-        android:onClick="chatButton"
-        android:text="Chat" />
+        <Button
+            android:id="@+id/chatButton"
+            android:layout_width="101dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="134dp"
+            android:layout_marginEnd="14dp"
+            android:background="@drawable/light_color"
+            android:onClick="chatButton"
+            android:text="Chat" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="59dp"
-        android:layout_height="52dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="302dp"
-        android:layout_marginEnd="49dp"
-        app:srcCompat="@android:drawable/ic_menu_camera" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="73dp"
+            android:layout_height="70dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="40dp"
+            app:srcCompat="@android:drawable/ic_menu_camera" />
 
-</RelativeLayout>
+    </android.widget.RelativeLayout>
+
+</ScrollView>

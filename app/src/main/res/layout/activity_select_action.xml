@@ -12,8 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/select_action_layout"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:background="#C1EBE9E9">
+        android:layout_height="500dp">
 
 
         <Button
