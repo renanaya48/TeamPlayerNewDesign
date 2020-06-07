@@ -203,19 +203,19 @@ public final class R {
         public static final int os_bgimage_notif_bgimage_right_aligned = 0x7f0800eb;
         public static final int os_bgimage_notif_body = 0x7f0800ec;
         public static final int os_bgimage_notif_title = 0x7f0800ed;
-        public static final int right = 0x7f080101;
-        public static final int right_icon = 0x7f080102;
-        public static final int right_side = 0x7f080103;
-        public static final int standard = 0x7f080137;
-        public static final int start = 0x7f080138;
-        public static final int status_bar_latest_event_content = 0x7f080139;
-        public static final int tag_transition_group = 0x7f080143;
-        public static final int text = 0x7f080146;
-        public static final int text2 = 0x7f080147;
-        public static final int time = 0x7f08015f;
-        public static final int title = 0x7f080160;
-        public static final int top = 0x7f080163;
-        public static final int wide = 0x7f080174;
+        public static final int right = 0x7f080102;
+        public static final int right_icon = 0x7f080103;
+        public static final int right_side = 0x7f080104;
+        public static final int standard = 0x7f080138;
+        public static final int start = 0x7f080139;
+        public static final int status_bar_latest_event_content = 0x7f08013a;
+        public static final int tag_transition_group = 0x7f080144;
+        public static final int text = 0x7f080147;
+        public static final int text2 = 0x7f080148;
+        public static final int time = 0x7f080160;
+        public static final int title = 0x7f080161;
+        public static final int top = 0x7f080164;
+        public static final int wide = 0x7f080175;
     }
     public static final class integer {
         private integer() {}

@@ -103,6 +103,21 @@
             android:layout_marginTop="40dp"
             app:srcCompat="@android:drawable/ic_menu_camera" />
 
+        <TextView
+            android:id="@+id/paeticipants"
+            android:layout_width="179dp"
+            android:layout_height="27dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="261dp"
+            android:layout_marginEnd="216dp"
+            android:text="PARTICIPANTS:"
+            android:textAllCaps="true"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
     </android.widget.RelativeLayout>
 
 </ScrollView>
