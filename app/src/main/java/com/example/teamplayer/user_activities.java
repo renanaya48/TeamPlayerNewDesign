@@ -5,18 +5,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -32,6 +39,8 @@ public class user_activities extends AppCompatActivity {
     ArrayList<String> activitiesNamesFound = new ArrayList<>();
     ArrayList<String> descriptionsFound = new ArrayList<>();
     ArrayList<String> managerFound = new ArrayList<>();
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,11 +96,14 @@ public class user_activities extends AppCompatActivity {
         }
         for(int i=0; i<activitiesNamesFound.size(); ++i){
             activityNameToShow = activitiesNamesFound.get(i);
+            String activityNameNoChanges = activityNameToShow;
             if(managerFound.get(i).equals(currentEmail)) {
                 activityNameToShow += " (MANAGER)";
                 isManager=true;
             }
-            mActivitiesList.add(new ActivityItems(R.drawable.project_logo, activityNameToShow, descriptionsFound.get(i),isManager));
+
+            //String userUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            mActivitiesList.add(new ActivityItems(activityNameNoChanges, R.drawable.project_logo, activityNameToShow, descriptionsFound.get(i),isManager));
         }
         buildRecyclerView();
     }

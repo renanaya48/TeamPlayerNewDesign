@@ -6,6 +6,7 @@ import android.view.View;
 public class ActivityItems {
     //members
     private static final String TAG = "details";
+    private String mActivityID;
     private int mImageResource;
     private String mActivityName;
     private String mDescription;
@@ -18,11 +19,20 @@ public class ActivityItems {
      * @param desc the activity description
      * @param isManager true if the user is the manager of the activity
      */
-    public ActivityItems(int imageResource, String activityName, String desc, boolean isManager) {
+    public ActivityItems(String activityID, int imageResource, String activityName, String desc, boolean isManager) {
+        mActivityID = activityID;
         mImageResource = imageResource;
         mActivityName = activityName;
         mDescription = desc;
         this.isManager=isManager;
+    }
+
+    /**
+     *
+     * @return the Activity ID
+     */
+    public String getActivityID() {
+        return mActivityID;
     }
 
     /**

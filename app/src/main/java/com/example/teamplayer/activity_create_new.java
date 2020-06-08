@@ -176,35 +176,42 @@ public class activity_create_new extends AppCompatActivity {
         viewToPass = view;
         EditText activityName = (EditText) findViewById(R.id.activity_name);
         activityNameText = activityName.getText().toString();
-        createChatRoom();
-        FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
-        rootRef.collection(ACTIVITIES_COLLECTION).document(activityNameText).update("Exist", "").addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Log.d(TAG, "document updated");
-                Snackbar.make(viewToPass, "Please choose a different name, this name already exist",
-                        Snackbar.LENGTH_LONG)
-                        .show();
-
-                isExist = true;
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.w(TAG, "no such doc");
-                EditText description = (EditText) findViewById(R.id.descriptionToFill);
-                String descriptionText = description.getText().toString();
-                if (descriptionText.equals("")) {
-                    Snackbar.make(viewToPass, "Description is required",
+        if (activityNameText.isEmpty()){
+            Log.d(TAG, "check1!");
+            Snackbar.make(view, "Please search by sport type, age range and area",
+                    Snackbar.LENGTH_LONG)
+                    .show();
+        }else {
+            createChatRoom();
+            FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
+            rootRef.collection(ACTIVITIES_COLLECTION).document(activityNameText).update("Exist", "").addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Log.d(TAG, "document updated");
+                    Snackbar.make(viewToPass, "Please choose a different name, this name already exist",
                             Snackbar.LENGTH_LONG)
                             .show();
-                } else {
-                    createNewDoc();
-                    isExist = false;
-                }
 
-            }
-        });
+                    isExist = true;
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.w(TAG, "no such doc");
+                    EditText description = (EditText) findViewById(R.id.descriptionToFill);
+                    String descriptionText = description.getText().toString();
+                    if (descriptionText.equals("")) {
+                        Snackbar.make(viewToPass, "Description is required",
+                                Snackbar.LENGTH_LONG)
+                                .show();
+                    } else {
+                        createNewDoc();
+                        isExist = false;
+                    }
+
+                }
+            });
+        }
 
 
     }

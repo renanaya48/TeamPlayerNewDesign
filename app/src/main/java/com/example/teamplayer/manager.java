@@ -231,7 +231,14 @@ public class manager extends AppCompatActivity {
                                                             Log.d(TAG, String.valueOf(age));
 
                                                             Log.d(TAG, name);
-                                                            mParticipantsList.add(new participants_Items(R.drawable.project_logo, name, "Age: " + String.valueOf(age)));
+                                                            /**
+                                                             *
+                                                             * @return the picture of the activity
+                                                             */
+
+                                                            String participantsEmail = document.getId();
+                                                            Log.d(TAG, participantsEmail);
+                                                            mParticipantsList.add(new participants_Items(participantsEmail, R.drawable.project_logo, name, "Age: " + String.valueOf(age)));
                                                         }
 
                                                     }

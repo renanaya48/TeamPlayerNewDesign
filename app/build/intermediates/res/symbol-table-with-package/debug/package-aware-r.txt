@@ -1122,6 +1122,7 @@ drawable googleg_standard_color_18
 drawable ic_check_black_24dp
 drawable ic_close_black_24dp
 drawable ic_delete
+drawable ic_group_no_image
 drawable ic_info
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -1164,6 +1165,7 @@ drawable screen1
 drawable screen1withname
 drawable screen2
 drawable screen2withpeople
+drawable search
 drawable select_action_backround
 drawable small_button
 drawable text_view_backround
@@ -1244,7 +1246,6 @@ id adjust_height
 id adjust_width
 id age
 id age_Range_textView
-id age_range2
 id age_range_fill
 id age_range_text_view
 id age_text_view
@@ -1351,8 +1352,6 @@ id icon_group
 id icon_only
 id ifRoom
 id image
-id imageButton
-id imageButton3
 id imageButton4
 id imageView
 id imageView3
@@ -1475,7 +1474,6 @@ id snap
 id snapMargins
 id spacer
 id split_action_bar
-id sport_type3
 id sport_type_button
 id sport_type_scroll
 id sports_button

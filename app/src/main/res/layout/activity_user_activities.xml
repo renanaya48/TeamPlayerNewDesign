@@ -1,76 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C1EBE9E9"
     tools:context=".Select_actions">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="422dp"
-        android:layout_height="740dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/darker_gray"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="wrap_content"
+    <android.widget.RelativeLayout
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/recyclerView"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="298dp"
-        android:layout_marginBottom="111dp"
-        android:background="#C1EBE9E9"
-        android:onClick="backButton"
-        android:tint="#004B4949"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
+        android:layout_width="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="162dp"
-        android:layout_height="107dp"
-        android:layout_alignEnd="@+id/recyclerView"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="456dp"
-        android:layout_marginEnd="81dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/project_logo" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="422dp"
+            android:layout_height="740dp"
+            android:layout_below="@+id/button_join_request"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/background"
+            android:padding="4dp"
+            android:scrollbars="vertical" />
 
-    <Button
-        android:id="@+id/find_activities"
-        android:layout_width="212dp"
-        android:layout_height="60dp"
-        android:layout_alignTop="@+id/recyclerView"
-        android:layout_alignEnd="@+id/recyclerView"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="368dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginRight="8dp"
-        android:background="@drawable/title_border"
-        android:text="My activities"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </android.widget.RelativeLayout>
 
 
-</RelativeLayout>
+</ScrollView>

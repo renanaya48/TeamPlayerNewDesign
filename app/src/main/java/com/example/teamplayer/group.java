@@ -181,8 +181,10 @@ public class group extends AppCompatActivity {
                                                             }
                                                             Log.d(TAG, String.valueOf(age));
 
-                                                            Log.d(TAG, name);
-                                                            mParticipantsList.add(new participants_Items(R.drawable.project_logo, name, "Age: " + String.valueOf(age)));
+                                                            String participantsEmail = document.getId();
+                                                            Log.d(TAG, participantsEmail);
+                                                            //String userRecord = FirebaseAuth.getInstance().getUserByEmail(participantsEmail);
+                                                            mParticipantsList.add(new participants_Items(participantsEmail, R.drawable.project_logo, name, "Age: " + String.valueOf(age)));
                                                         }
                                                         buildRecyclerView();
                                                     }

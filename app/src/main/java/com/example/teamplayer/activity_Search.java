@@ -36,12 +36,12 @@ public class activity_Search extends AppCompatActivity {
     //members
     private static final String TAG = "ReadData";
     private static final String ACTIVITIES_COLLECTION = "Activities";
-    Button buttonAge;
+    //Button buttonAge;
     //Button buttonCity;
     Button buttonsportType;
     String className = "activity_Search";
     boolean clicked = false;
-    String ageThatChosen = "CHOOSE";
+    //String ageThatChosen = "CHOOSE";
     String sportThatChosen = "CHOOSE";
     String cityThatChosen= "CHOOSE";
 
@@ -63,10 +63,10 @@ public class activity_Search extends AppCompatActivity {
 
 
 
-        buttonAge = (Button) findViewById(R.id.age_range2);
+        //buttonAge = (Button) findViewById(R.id.age_range2);
         //buttonCity = (Button) findViewById(R.id.city_button);
         buttonsportType = (Button) findViewById(R.id.sports_button);
-        buttonAge.setText(ageThatChosen);
+        //buttonAge.setText(ageThatChosen);
        // buttonCity.setText(cityThatChosen);
         buttonsportType.setText(cityThatChosen);
 
@@ -92,7 +92,7 @@ public class activity_Search extends AppCompatActivity {
             }
         });
 
-        buttonAge.setOnClickListener(new View.OnClickListener() {
+        /*buttonAge.setOnClickListener(new View.OnClickListener() {
             //@override
             public void onClick(View v) {
                 //EditText activityName = (EditText) findViewById(R.id.activity_name);
@@ -105,7 +105,7 @@ public class activity_Search extends AppCompatActivity {
                 clicked = true;
 
             }
-        });
+        });*/
         buttonsportType.setOnClickListener(new View.OnClickListener() {
             //@override
             public void onClick(View v) {
@@ -113,7 +113,7 @@ public class activity_Search extends AppCompatActivity {
                 //String activityNameText = activityName.getText().toString();
                 Intent intent = new Intent(activity_Search.this, sport_type.class);
                 intent.putExtra("ACTIVITY", className);
-                intent.putExtra("AGE", ageThatChosen);
+                //intent.putExtra("AGE", ageThatChosen);
                 intent.putExtra("CITY", cityThatChosen);
                 startActivity(intent);
                 clicked = true;
@@ -121,8 +121,8 @@ public class activity_Search extends AppCompatActivity {
             }
         });
         if (!clicked) {
-            ageThatChosen = getIntent().getStringExtra("AGE");
-            buttonAge.setText(ageThatChosen);
+            //ageThatChosen = getIntent().getStringExtra("AGE");
+            //buttonAge.setText(ageThatChosen);
             cityThatChosen = getIntent().getStringExtra("CITY");
             actv.setText(cityThatChosen);
             sportThatChosen = getIntent().getStringExtra("SPORTS");

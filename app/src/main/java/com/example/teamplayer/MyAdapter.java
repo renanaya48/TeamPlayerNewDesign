@@ -1,17 +1,21 @@
 package com.example.teamplayer;
 
+import android.content.Context;
 import android.graphics.Color;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -20,6 +24,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -29,6 +35,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
     private String user_email;
     private DatabaseReference root ;
     private FirebaseAuth mAuth;
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
     private static final String TAG = "PostDetailActivity";
 
 
@@ -57,8 +65,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
         public TextView mTextView1;
         public TextView mTextView2;
         public ImageView mInfoImage;
-
-        View view;
+        public View view;
 
         /**
          * constructor
@@ -92,7 +99,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
          * Set the background to yellow
          */
         public void setBackGround(){
-            view.setBackgroundColor(Color.YELLOW);
+            view.setBackgroundColor(Color.rgb(68, 71, 155));
         }
     }
 
@@ -120,7 +127,26 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
     public void onBindViewHolder(final activityViewHolder holder, int position) {
         final ActivityItems currentItem = mActivitiesList.get(position);
 
-        holder.mImageView.setImageResource(currentItem.getImageResource());
+        String activityID = currentItem.getActivityID();
+        final Context context = ApplicationClass.getAppContext();
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+        final StorageReference storageReference = storage.getReference("uploads/" + activityID);
+        storage.getReference("uploads/" + activityID).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(context)
+                        .load(storageReference)
+                        .into(holder.mImageView);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                Log.d(TAG, "No such Image");
+            }
+        });
+
+        //holder.mImageView.setImageResource(currentItem.getImageResource());
         holder.mTextView1.setText(currentItem.getActivityName());
         holder.mTextView2.setText(currentItem.getDescription());
         //Get activity name
@@ -129,7 +155,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
        checkManagerRequest(activityName,currentItem,holder);
        //Check if the user has requested to join the group
        checkUserRequest(activityName,currentItem,holder);
-
     }
 
     /**

@@ -35,7 +35,8 @@
         <activity
             android:name=".user_activities"
             android:parentActivityName=".select_action" />
-        <activity android:name=".manager" />
+        <activity android:name=".manager"
+            android:parentActivityName=".select_action"/>
         <activity
             android:name=".group"
             android:parentActivityName=".select_action" />

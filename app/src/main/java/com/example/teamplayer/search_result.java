@@ -70,10 +70,12 @@ public class search_result extends AppCompatActivity {
 
         for(int i=0; i<activitiesNamesList.size(); ++i){
             activityNameToShow = activitiesNamesList.get(i);
+            String activityNameNoChanges = activityNameToShow;
             if(managerList.get(i).equals(currentUserEmail)){
                 activityNameToShow += " (MANAGER)";
             }
-            mActivitiesList.add(new ActivityItems(R.drawable.project_logo, activityNameToShow, descriptionsList.get(i),isManager));
+            //String userUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            mActivitiesList.add(new ActivityItems(activityNameNoChanges, R.drawable.project_logo, activityNameToShow, descriptionsList.get(i),isManager));
         }
     }
 
