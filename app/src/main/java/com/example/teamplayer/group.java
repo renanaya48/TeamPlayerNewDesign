@@ -109,6 +109,7 @@ public class group extends AppCompatActivity {
     public void chatButton(View view){
         Intent intent = new Intent(getApplicationContext(), chat.class);
         intent.putExtra("room_name", documentActivityName);
+        intent.putExtra("DESCRIPTION", description);
         startActivity(intent);
     }
 

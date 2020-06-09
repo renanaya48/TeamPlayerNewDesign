@@ -209,12 +209,9 @@ public class activity_details extends AppCompatActivity {
                                     //Add request to DB
                                     userRoot= root.child(temp_key);
                                     String userUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                                    System.out.println("userYIdddddddddddd222222222222222");
-                                    System.out.println(userUid);
                                     Map<String, Object> map = new HashMap<String, Object>();
                                     map.put("name", user_name);
                                     map.put("user_email", user_email);
-                                    map.put("user_Uid", userUid);
                                     userRoot.updateChildren(map);
 
                                 } else {

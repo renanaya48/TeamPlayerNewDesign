@@ -1,61 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\ornab\\AndroidStudioProjects\\TeamPlayerNewVersion\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bn\\values-bn.xml",
+            "outputFile": "C:\\Users\\avib\\AndroidStudioProjects\\TeamPlayerNewVersion\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bn\\values-bn.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ornab\\.gradle\\caches\\transforms-2\\files-2.1\\32abea6db5af64971c2c344805495409\\res\\values-bn\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "205",
-                        "endColumns": "99",
-                        "endOffsets": "304"
-                    },
-                    "to": {
-                        "startLines": "47",
-                        "startColumns": "4",
-                        "startOffsets": "5495",
-                        "endColumns": "103",
-                        "endOffsets": "5594"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\ornab\\.gradle\\caches\\transforms-2\\files-2.1\\813edff8c48fb946336e9fe0ce157d01\\res\\values-bn\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "210",
-                        "endOffsets": "457"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "3975",
-                        "endColumns": "210",
-                        "endOffsets": "4181"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\ornab\\.gradle\\caches\\transforms-2\\files-2.1\\aac78d35c39c4ae9b5f478e5fd500c7f\\res\\values-bn\\values-bn.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "49",
-                        "startColumns": "4",
-                        "startOffsets": "5685",
-                        "endColumns": "100",
-                        "endOffsets": "5781"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\ornab\\.gradle\\caches\\transforms-2\\files-2.1\\2ea3863d2ac6581ce3cf3a798664ad05\\res\\values-bn\\values.xml",
+                    "source": "C:\\Users\\avib\\.gradle\\caches\\transforms-2\\files-2.1\\2152d9d88ed767b7cd4d775d0f666f97\\res\\values-bn\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -72,7 +21,58 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\ornab\\.gradle\\caches\\transforms-2\\files-2.1\\75c348c7701027407b2a38c1ef465141\\res\\values-bn\\values-bn.xml",
+                    "source": "C:\\Users\\avib\\.gradle\\caches\\transforms-2\\files-2.1\\a1776d387cf3b44e266a474c22b0698e\\res\\values-bn\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "210",
+                        "endOffsets": "457"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "3975",
+                        "endColumns": "210",
+                        "endOffsets": "4181"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\avib\\.gradle\\caches\\transforms-2\\files-2.1\\3e13cd5d6c3ae8182f9082897815d0cb\\res\\values-bn\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "205",
+                        "endColumns": "99",
+                        "endOffsets": "304"
+                    },
+                    "to": {
+                        "startLines": "47",
+                        "startColumns": "4",
+                        "startOffsets": "5495",
+                        "endColumns": "103",
+                        "endOffsets": "5594"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\avib\\.gradle\\caches\\transforms-2\\files-2.1\\e72d6a1859db7df45d70447c12f969ce\\res\\values-bn\\values-bn.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "49",
+                        "startColumns": "4",
+                        "startOffsets": "5685",
+                        "endColumns": "100",
+                        "endOffsets": "5781"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\avib\\.gradle\\caches\\transforms-2\\files-2.1\\8a082d4283150b845ccf47da3ba5972c\\res\\values-bn\\values-bn.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

@@ -11,23 +11,20 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
+
+//Request item class
 public class requestItem  {
     private String message;
     private String email;
     private String activityName;
-    private String userUid;
 
 
 
-    public requestItem(String message, String email , String activityName,String userUid){
+    public requestItem(String message, String email , String activityName){
         this.message=message;
         this.email = email;
         this.activityName = activityName;
-        this.userUid=userUid;
 
-    }
-    public String getUserUid() {
-        return userUid;
     }
     public String getMessage() {
         return message;

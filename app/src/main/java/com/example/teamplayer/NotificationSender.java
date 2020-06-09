@@ -41,7 +41,6 @@ public class NotificationSender  {
                     try {
                         //Set Notification
                         String jsonResponse;
-
                         URL url = new URL("https://onesignal.com/api/v1/notifications");
                         HttpURLConnection con = (HttpURLConnection) url.openConnection();
                         con.setUseCaches(false);
@@ -51,6 +50,7 @@ public class NotificationSender  {
                         con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
                         con.setRequestProperty("Authorization", "Basic N2Q5ZWFkYTMtZWQ3NS00YjY3LWExYTEtMzgzZGE2ZWNjNTc5");
                         con.setRequestMethod("POST");
+
                         //Set notification body with the specific messagesend
                         String strJsonBody = "{"
                                 + "\"app_id\": \"f133e9ac-0ffa-46ff-977a-acab61b82fff\","
@@ -62,10 +62,10 @@ public class NotificationSender  {
                                 + "}";
 
 
-                        System.out.println("strJsonBody:\n" + strJsonBody);
 
                         byte[] sendBytes = strJsonBody.getBytes("UTF-8");
                         con.setFixedLengthStreamingMode(sendBytes.length);
+
                         //Send notification
                         OutputStream outputStream = con.getOutputStream();
                         outputStream.write(sendBytes);

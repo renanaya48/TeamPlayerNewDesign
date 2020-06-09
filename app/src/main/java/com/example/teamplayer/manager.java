@@ -15,9 +15,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,8 +25,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
@@ -43,7 +39,6 @@ import com.google.firebase.storage.UploadTask;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Iterator;
 
 public class manager extends AppCompatActivity {
 
@@ -95,7 +90,7 @@ public class manager extends AppCompatActivity {
 
         setContentView(R.layout.activity_manager);
         downloadImage();
-        TextView activity_name = (TextView) findViewById(R.id.activity_name);
+        TextView activity_name = (TextView) findViewById(R.id.password);
         activity_name.setText(activityName);
         TextView descriptionText = (TextView) findViewById(R.id.activity_description);
         descriptionText.setText(description);
@@ -157,6 +152,7 @@ public class manager extends AppCompatActivity {
     public void chatButton(View view){
         Intent intent = new Intent(getApplicationContext(), chat.class);
         intent.putExtra("room_name", activityName);
+        intent.putExtra("DESCRIPTION", description);
         startActivity(intent);
 
     }

@@ -14,7 +14,6 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -29,12 +28,10 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.webianks.library.scroll_choice.ScrollChoice;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static java.lang.Thread.sleep;
@@ -46,7 +43,7 @@ public class activity_create_new extends AppCompatActivity {
     private static final String TAG = "saveToDataBase";
     private static final String ACTIVITIES_COLLECTION = "Activities/";
     Map<String, Object> dataToSave = new HashMap<String, Object>();
-  //  Button buttonAge;
+    //  Button buttonAge;
     Button buttonMinAge;
     Button buttonMaxAge;
     Button buttonCity;
@@ -122,7 +119,7 @@ public class activity_create_new extends AppCompatActivity {
         buttonSportType.setOnClickListener(new View.OnClickListener() {
             //@override
             public void onClick(View v) {
-                EditText activityName = (EditText) findViewById(R.id.activity_name);
+                EditText activityName = (EditText) findViewById(R.id.password);
                 String activityNameText = activityName.getText().toString();
                 Intent intent = new Intent(activity_create_new.this, sport_type.class);
                 intent.putExtra("ACTIVITY", className);
@@ -137,7 +134,7 @@ public class activity_create_new extends AppCompatActivity {
 
         if (!clicked) {
             ageThatChosen = getIntent().getStringExtra("AGE");
-           // buttonAge.setText(ageThatChosen);
+            // buttonAge.setText(ageThatChosen);
             cityThatChosen = getIntent().getStringExtra("CITY");
             //buttonCity.setText(cityThatChosen);
             actv.setText(cityThatChosen);
@@ -150,11 +147,11 @@ public class activity_create_new extends AppCompatActivity {
             //buttonCity.setText(cityThatChosen);
             actv.setText(cityThatChosen);
             ageThatChosen = getIntent().getStringExtra("AGE");
-           // buttonAge.setText(ageThatChosen);
+            // buttonAge.setText(ageThatChosen);
             sportThatChosen = getIntent().getStringExtra("SPORTS");
             buttonSportType.setText(sportThatChosen);
         }
-        EditText activityName = (EditText) findViewById(R.id.activity_name);
+        EditText activityName = (EditText) findViewById(R.id.password);
         String name = getIntent().getStringExtra("ACTIVITY_NAME");
         activityName.setText(name);
     }
@@ -174,11 +171,11 @@ public class activity_create_new extends AppCompatActivity {
      */
     public void SaveData(View view) throws InterruptedException {
         viewToPass = view;
-        EditText activityName = (EditText) findViewById(R.id.activity_name);
+        EditText activityName = (EditText) findViewById(R.id.password);
         activityNameText = activityName.getText().toString();
         if (activityNameText.isEmpty()){
             Log.d(TAG, "check1!");
-            Snackbar.make(view, "Please search by sport type, age range and area",
+            Snackbar.make(view, "Plese enter an activity name ",
                     Snackbar.LENGTH_LONG)
                     .show();
         }else {
@@ -263,7 +260,7 @@ public class activity_create_new extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         String email = user.getEmail();
-        EditText activityName = (EditText) findViewById(R.id.activity_name);
+        EditText activityName = (EditText) findViewById(R.id.password);
         String activityNameText = activityName.getText().toString();
         EditText maxPlayers = (EditText) findViewById(R.id.max_Players);
         //EditText details = (EditText) findViewById(R.id.details);
@@ -335,7 +332,7 @@ public class activity_create_new extends AppCompatActivity {
      * get to the next screen: the manager activity screen
      */
     private void getToTheNextScreen() {
-        EditText activityName = (EditText) findViewById(R.id.activity_name);
+        EditText activityName = (EditText) findViewById(R.id.password);
         String activityNameText = activityName.getText().toString();
         EditText description = (EditText) findViewById(R.id.descriptionToFill);
         String descriptionText = description.getText().toString();

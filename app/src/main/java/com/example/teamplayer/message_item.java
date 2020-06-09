@@ -1,5 +1,7 @@
 package com.example.teamplayer;
 
+
+//Message Item class
 public class message_item {
     String message;
     String sender;

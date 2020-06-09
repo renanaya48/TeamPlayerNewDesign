@@ -1,6 +1,8 @@
 package com.example.teamplayer;
 
 
+import android.app.ActionBar;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -10,9 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -42,7 +46,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class chat extends AppCompatActivity {
 
-    private Button btn_send_msg;
+    private ImageButton btn_send_msg;
     private static final String TAG = "PostDetailActivity";
     private EditText input_msg;
     private TextView chat_conversation;
@@ -55,6 +59,7 @@ public class chat extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     List<message_item> messageList;
     ListView listView;
+    String  description ;
 
 
 
@@ -62,19 +67,29 @@ public class chat extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-        btn_send_msg = (Button) findViewById(R.id.btn_send);
+
+        btn_send_msg = (ImageButton) findViewById(R.id.btn_send);
         mAuth = FirebaseAuth.getInstance();
+
+        //Get current user
         final FirebaseUser user = mAuth.getCurrentUser();
         final String email = user.getEmail();
         user_email= email;
+
+        //Display back arrow on action bar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         listView = (ListView) findViewById(R.id.chatView);
         messageList = new ArrayList<>();
+
+        //Get user name from DB
         DocumentReference userNAme = db.collection("Users").document(email);
         userNAme.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
+
                     if (document.exists()) {
                         user_name= document.getString("Name");
                         Log.d(TAG, "DocumentSnapshot data: " + document.getString("name"));
@@ -86,28 +101,41 @@ public class chat extends AppCompatActivity {
                 }
             }
         });
+
+
         input_msg = (EditText) findViewById(R.id.msg_input);
         chat_conversation = (TextView) findViewById(R.id.textView);
+
+        //Get the activity name and description
         room_name = getIntent().getExtras().get("room_name").toString();
-        setTitle(" Room - " + room_name);
+        description = getIntent().getStringExtra("DESCRIPTION");
+        setTitle(room_name);
+
+        //Get Chat messages in DB
         root = FirebaseDatabase.getInstance().getReference().child("Chats").child(room_name);
+
+        //Set on click lisitner to message send
         btn_send_msg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String message =input_msg.getText().toString();
                 if (!message.equals("")) {
+
                     Map<String, Object> map = new HashMap<String, Object>();
                     temp_key = root.push().getKey();
                     root.updateChildren(map);
+                    //Get the current date and time
                     String timeStamp = new SimpleDateFormat("dd/MM/yy HH:mm").format(Calendar.getInstance().getTime());
                     DatabaseReference message_root = root.child(temp_key);
                     Map<String, Object> map2 = new HashMap<String, Object>();
+
+                    //Save message to DB
                     map2.put("name", user_name);
                     map2.put("msg", input_msg.getText().toString());
                     map2.put("time", timeStamp);
                     map2.put("email", email);
 
-                    System.out.println(map2);
                     message_root.updateChildren(map2);
                     input_msg.setText("");
                 }
@@ -146,24 +174,45 @@ public class chat extends AppCompatActivity {
     }
 
 
+    //The function append all the messages to screen
     private void append_chat_conversation(DataSnapshot dataSnapshot) {
+
         Iterator i = dataSnapshot.getChildren().iterator();
         while (i.hasNext()){
+            //Extract all messages details
             String email =(String)((DataSnapshot)i.next()).getValue();
             chat_msg = (String) ((DataSnapshot)i.next()).getValue();
             chat_user_name = (String) ((DataSnapshot)i.next()).getValue();
             String time_now =""+((DataSnapshot)i.next()).getValue();
+
+            //Check if the current user is the message sender
             if (email.equals(user_email)) {
                 messageList.add(new message_item(chat_msg, chat_user_name, time_now,true));
             }else {
                 messageList.add(new message_item(chat_msg, chat_user_name, time_now,false));
             }
         }
+
+        //Ctrate the messages adapter and show to user
         MessageListAdapter adapter = new MessageListAdapter(this, R.layout.recieve_message, messageList);
         //attaching adapter to the listview
         listView.setAdapter(adapter);
 
 
+    }
+
+
+    /**
+     * The function go back to the previous screen when arrow bar is pressed
+     * @param item
+     * @return
+     */
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent myIntent = new Intent(getApplicationContext(), manager.class);
+        myIntent.putExtra("ACTIVITY_NAME", room_name);
+        myIntent.putExtra("DESCRIPTION", description);
+        startActivityForResult(myIntent, 0);
+        return true;
     }
 
 

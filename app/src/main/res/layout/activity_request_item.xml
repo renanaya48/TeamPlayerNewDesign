@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     tools:context=".requestItem"
     android:layout_marginTop="30dp"
+    android:background="@drawable/list_item_boarder"
     >
 
 

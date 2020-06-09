@@ -44,7 +44,7 @@
         android:layout_marginBottom="626dp"
         android:background="@drawable/title_border"
         android:text="SEARCH RESULTS"
-        android:textColor="#131212"
+        android:textColor="@android:color/background_light"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.43"

@@ -45,9 +45,7 @@ import java.util.Scanner;
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class request_item_adapter  extends ArrayAdapter<requestItem> {
-    //the list values in the List of type hero
     List<requestItem> requestList;
-    //private String email;
 
     private ImageView imageUser;
     private FirebaseStorage storage;
@@ -59,12 +57,10 @@ public class request_item_adapter  extends ArrayAdapter<requestItem> {
     //activity context
     Context context;
 
-    //the layout resource file for the list items
     int resource;
     private  boolean acceptOrDecline =false;
     private String activity_name;
 
-    //constructor initializing the values
     public request_item_adapter(Context context, int resource, List<requestItem> requestList) {
         super(context, resource, requestList);
         this.context = context;
@@ -72,63 +68,71 @@ public class request_item_adapter  extends ArrayAdapter<requestItem> {
         this.requestList = requestList;
     }
 
-    //this will return the ListView Item as a View
+    /**
+     * The function returns the ListView Item as a View
+     * @param position
+     * @param convertView
+     * @param parent
+     * @return
+     */
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        //we need to get the view of the xml for our list item
-        //And for this we need a layoutinflater
+
         LayoutInflater layoutInflater = LayoutInflater.from(context);
 
-        //getting the view
+        //Get the view
         View view = layoutInflater.inflate(resource, null, false);
 
-        //getting the view elements of the list from the view
+        //Get the view elements
         TextView textViewName = view.findViewById(R.id.request);
         ImageButton buttonAccept = view.findViewById(R.id.accept);
         ImageButton buttonDecline = view.findViewById(R.id.decline);
-
-        //getting the hero of the specified position
         requestItem requestItem = requestList.get(position);
+
+        //Get and set the activity name/
         activity_name=requestItem.getActivityName();
-        //adding values to the list item
+        //add values to the list item
         textViewName.setText(requestItem.getMessage());
         final Context context= ApplicationClass.getAppContext();
         imageUser = (ImageView) view.findViewById(R.id.profile_image);
+
+        //Get the user Photo
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
-        String userUid = requestItem.getUserUid();
-        System.out.println("userYIdddddddddddd");
-        System.out.println(userUid);
-        System.out.println("emailllllll");
-        System.out.println(requestItem.getMessage());
-        final StorageReference storageReference = storage.getReference("uploads/" + userUid);
-        storage.getReference("uploads/" + userUid).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        final String email = requestItem.getEmail();
+        final StorageReference storageReference = storage.getReference("uploads/" + email);
+
+        //Upload the user photo from DB
+        storage.getReference("uploads/" + email).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+
             @Override
             public void onSuccess(Uri uri) {
                 Glide.with(context /* context */)
                         .load(storageReference)
                         .into(imageUser);
             }
+
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
                 imageUser.setImageDrawable(imageUser.getDrawable());
             }
         });
-        //manager email
-       final String email = requestItem.getEmail();
-       //Log.w(TAG, email);
 
-        //adding a click listener to the button to remove item from the list
+
+        //Add in click listener when the manager aprroves to join the group
         buttonAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //Add the user to the activity
                 addUserToActivity(email);
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
                 Query userQuery = ref.child("Groups").child(activity_name).orderByChild("user_email").equalTo(email);
 
+                //Remove from requests list
                 userQuery.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -136,9 +140,10 @@ public class request_item_adapter  extends ArrayAdapter<requestItem> {
                             appleSnapshot.getRef().removeValue();
                             requestList.remove(position);
 
-                            //reloading the list
                             notifyDataSetChanged();
                             String message =  " Your request to join "+activity_name +" group has been approved" ;
+
+                            //Send user notification
                             NotificationSender sender=new NotificationSender(email,message);
                             sender.sendNotification();
                         }
@@ -151,12 +156,17 @@ public class request_item_adapter  extends ArrayAdapter<requestItem> {
                 });
             }
         });
+
+        //Add in click listener when the manager decline to join the group
+
         buttonDecline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //Delete the user from requests list in DB
+
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
                 Query userQuery = ref.child("Groups").child(activity_name).orderByChild("user_email").equalTo(email);
-
                 userQuery.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -183,6 +193,10 @@ public class request_item_adapter  extends ArrayAdapter<requestItem> {
     }
 
 
+    /**
+     * The Function add user to the activity
+     * @param email
+     */
     public void addUserToActivity(final String email){
         Log.w(TAG, email);
         FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
@@ -201,72 +215,5 @@ public class request_item_adapter  extends ArrayAdapter<requestItem> {
             }
         });
 
-    }
-
-    private void sendAccepted(final String email )
-    {
-
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                int SDK_INT = android.os.Build.VERSION.SDK_INT;
-                if (SDK_INT > 8) {
-                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
-                            .permitAll().build();
-                    StrictMode.setThreadPolicy(policy);
-                    String send_email = email;
-
-                    try {
-                        String jsonResponse;
-
-                        URL url = new URL("https://onesignal.com/api/v1/notifications");
-                        HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                        con.setUseCaches(false);
-                        con.setDoOutput(true);
-                        con.setDoInput(true);
-
-                        con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-                        con.setRequestProperty("Authorization", "Basic N2Q5ZWFkYTMtZWQ3NS00YjY3LWExYTEtMzgzZGE2ZWNjNTc5");
-                        con.setRequestMethod("POST");
-                        String message =  " Your request to join "+activity_name +" group has been approved" ;
-                        String strJsonBody = "{"
-                                + "\"app_id\": \"f133e9ac-0ffa-46ff-977a-acab61b82fff\","
-
-                                + "\"filters\": [{\"field\": \"tag\", \"key\": \"User_ID\", \"relation\": \"=\", \"value\": \"" + send_email + "\"}],"
-
-                                + "\"data\": {\"foo\": \"bar\"},"
-                                + "\"contents\": {\"en\":\"" + message + "\"}"
-                                + "}";
-
-
-                        System.out.println("strJsonBody:\n" + strJsonBody);
-
-                        byte[] sendBytes = strJsonBody.getBytes("UTF-8");
-                        con.setFixedLengthStreamingMode(sendBytes.length);
-
-                        OutputStream outputStream = con.getOutputStream();
-                        outputStream.write(sendBytes);
-
-                        int httpResponse = con.getResponseCode();
-                        System.out.println("httpResponse: " + httpResponse);
-
-                        if (httpResponse >= HttpURLConnection.HTTP_OK
-                                && httpResponse < HttpURLConnection.HTTP_BAD_REQUEST) {
-                            Scanner scanner = new Scanner(con.getInputStream(), "UTF-8");
-                            jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
-                            scanner.close();
-                        } else {
-                            Scanner scanner = new Scanner(con.getErrorStream(), "UTF-8");
-                            jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
-                            scanner.close();
-                        }
-                        System.out.println("jsonResponse:\n" + jsonResponse);
-
-                    } catch (Throwable t) {
-                        t.printStackTrace();
-                    }
-                }
-            }
-        });
     }
 }

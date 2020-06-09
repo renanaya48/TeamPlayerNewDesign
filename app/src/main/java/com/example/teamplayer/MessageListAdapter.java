@@ -48,8 +48,6 @@ public class MessageListAdapter  extends ArrayAdapter<message_item> {
 
     //activity context
     Context context;
-
-    //the layout resource file for the list items
     int resource;
 
     //constructor initializing the values
@@ -60,44 +58,46 @@ public class MessageListAdapter  extends ArrayAdapter<message_item> {
         this.messagetList = messagetList;
     }
 
-    //this will return the ListView Item as a View
+    /**
+     * The function returns the ListView Item as a View
+     * @param position
+     * @param convertView
+     * @param parent
+     * @return
+     */
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        //we need to get the view of the xml for our list item
-        //And for this we need a layoutinflater
+
         message_item messageItem = messagetList.get(position);
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         View view;
+
+        //Check if current user is the message sender
         if (messageItem.is_sender){
-            System.out.println("senderrrrrrrrrrrrrrrrr");
+
+            //Set message to sender layout
             view = layoutInflater.inflate(R.layout.send_message, null, false);
             TextView message = view.findViewById(R.id.text_message_body);
             TextView time = view.findViewById(R.id.text_message_time);
             message.setText(messageItem.message);
             time.setText(messageItem.time);
-        }else {
-            System.out.println("recieveeeeeeee");
-            //getting the view
-             view = layoutInflater.inflate(resource, null, false);
 
-            //getting the view elements of the list from the view
+        }else {
+            //Set message to receive layout
+
+            view = layoutInflater.inflate(resource, null, false);
+
             TextView Name = view.findViewById(R.id.text_message_name);
             TextView message = view.findViewById(R.id.text_message_body);
             TextView time = view.findViewById(R.id.text_message_time);
 
-            //getting the hero of the specified position
-            //adding values to the list item
             Name.setText(messageItem.sender);
             message.setText(messageItem.message);
             time.setText(messageItem.time);
         }
 
-        //manager email
-        //Log.w(TAG, email);
-
-        //finally returning the view
         return view;
     }
 }

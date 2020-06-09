@@ -68,10 +68,9 @@ public class select_action extends AppCompatActivity {
         imageUser = (ImageButton) findViewById(R.id.PhotoButtun);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
-        String userUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-        final StorageReference storageReference = storage.getReference("uploads/" + userUid);
-        storage.getReference("uploads/" + userUid).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        String userEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        final StorageReference storageReference = storage.getReference("uploads/" + userEmail);
+        storage.getReference("uploads/" + userEmail).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 Glide.with(context /* context */)
@@ -146,8 +145,8 @@ public class select_action extends AppCompatActivity {
                 progressDialog.show();
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
                 imageUser.setImageBitmap(bitmap);
-                String userUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                StorageReference mountainsRef = storageReference.child("uploads/" + userUid);
+                String userEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+                StorageReference mountainsRef = storageReference.child("uploads/" + userEmail);
                 mountainsRef.putFile(filePath)
                         .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
