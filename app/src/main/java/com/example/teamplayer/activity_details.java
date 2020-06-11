@@ -73,6 +73,7 @@ public class activity_details extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         activity_name = detailsList.get(0);
+        setTitle(activity_name + " activity details");
         //get the manager email
         DocumentReference userNAme = db.collection("Activities").document(activity_name);
         userNAme.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {

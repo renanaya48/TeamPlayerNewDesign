@@ -50,6 +50,7 @@ public class search_result extends AppCompatActivity {
         currentUserEmail = user.getEmail();
         Log.d(TAG, "after onCreate");
         Log.d(TAG, "user " + currentUserEmail);
+        setTitle("search results");
        // ArrayList<String> activitiesNamesLIST= getIntent().getStringArrayListExtra("ACTIVITY_NAME");
        // ArrayList<String> descriptionsLIST= getIntent().getStringArrayListExtra("DESCRIPTION");
         createActivityList();

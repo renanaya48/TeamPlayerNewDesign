@@ -71,6 +71,7 @@ public class activity_create_new extends AppCompatActivity {
         buttonSportType = (Button) findViewById(R.id.sport_type_button);
 
         buttonSportType.setText(sportThatChosen);
+        setTitle("create a new activity");
         loadCities();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
                 (this, android.R.layout.select_dialog_item, cities);
@@ -80,7 +81,7 @@ public class activity_create_new extends AppCompatActivity {
         actv.setThreshold(1);
         //setting the adapter data into the AutoCompleteTextView
         actv.setAdapter(adapter);
-        actv.setTextColor(Color.RED);
+        actv.setTextColor(Color.BLACK);
 
         //add the city when the user click on button
         actv.setOnItemClickListener(new AdapterView.OnItemClickListener() {

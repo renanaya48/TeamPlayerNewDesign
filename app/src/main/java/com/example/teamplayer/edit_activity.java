@@ -63,6 +63,7 @@ public class edit_activity extends AppCompatActivity {
 
             }
         });
+        setTitle("edit ectivity " + activityName);
 
     }
 
@@ -104,7 +105,7 @@ public class edit_activity extends AppCompatActivity {
      */
     private void showDetails() {
         TextView editActivityName = (TextView) findViewById(R.id.edit_activity);
-        String nameEditToShow = "Edit Activity " + activityName;
+        String nameEditToShow = "Edit Activity: " + activityName;
         editActivityName.setText(nameEditToShow);
         description = getIntent().getStringExtra("DESCRIPTION");
         EditText editDescription = (EditText) findViewById(R.id.edit_description);
@@ -123,7 +124,7 @@ public class edit_activity extends AppCompatActivity {
         //Getting the instance of AutoCompleteTextView
         editCity.setThreshold(1);//will start working from first character
         editCity.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
-        editCity.setTextColor(Color.RED);
+        editCity.setTextColor(Color.BLACK);
 
         //Change the city by AutoCompleteTextView
         editCity.setOnItemClickListener(new AdapterView.OnItemClickListener() {

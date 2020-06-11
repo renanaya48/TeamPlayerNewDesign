@@ -97,6 +97,7 @@ public class manager extends AppCompatActivity {
         activityName = getIntent().getStringExtra("ACTIVITY_NAME");
         description = getIntent().getStringExtra("DESCRIPTION");
         System.out.println("activity name: " + activityName);
+        setTitle(activityName);
 
         setContentView(R.layout.activity_manager);
         downloadImage();

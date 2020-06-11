@@ -69,6 +69,7 @@ public class activity_Search extends AppCompatActivity {
         //buttonAge.setText(ageThatChosen);
        // buttonCity.setText(cityThatChosen);
         buttonsportType.setText(cityThatChosen);
+        setTitle("search activity");
 
         loadCities();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
@@ -77,7 +78,7 @@ public class activity_Search extends AppCompatActivity {
         actv = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextViewSearch);
         actv.setThreshold(1);//will start working from first character
         actv.setAdapter(adapter);//setting the adapter data into the AutoCompleteTextView
-        actv.setTextColor(Color.RED);
+        actv.setTextColor(Color.BLACK);
 
         actv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

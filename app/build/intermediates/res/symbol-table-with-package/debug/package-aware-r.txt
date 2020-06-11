@@ -1112,6 +1112,7 @@ drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
 drawable create
+drawable create1no_back
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1167,11 +1168,13 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable project
 drawable project_logo
+drawable save_changes
 drawable screen1
 drawable screen1withname
 drawable screen2
 drawable screen2withpeople
 drawable search
+drawable search_no_back
 drawable select_action_backround
 drawable small_button
 drawable text_view_backround
@@ -1480,6 +1483,7 @@ id snap
 id snapMargins
 id spacer
 id split_action_bar
+id sport
 id sport_type_button
 id sport_type_scroll
 id sports_button

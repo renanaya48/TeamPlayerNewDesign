@@ -33,6 +33,7 @@ public class sport_type extends AppCompatActivity {
         activityName = getIntent().getStringExtra("ACTIVITY_NAME");
         age = getIntent().getStringExtra("AGE");
         city = getIntent().getStringExtra("CITY");
+        setTitle("choose sport type");
 
         loadData();
         continueLoad();

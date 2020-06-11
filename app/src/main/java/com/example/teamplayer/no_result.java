@@ -12,6 +12,7 @@ public class no_result extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_result);
+        setTitle("search results");
     }
 
     public void tryAgain(View view) {

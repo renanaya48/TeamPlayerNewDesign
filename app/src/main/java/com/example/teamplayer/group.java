@@ -80,6 +80,7 @@ public class group extends AppCompatActivity {
         documentActivityName = getIntent().getStringExtra("ACTIVITY_NAME");
         downloadImage();
         nameActivity.setText(documentActivityName);
+        setTitle(documentActivityName);
         TextView descr = (TextView) findViewById((R.id.details_to_fill)) ;
         description = getIntent().getStringExtra("DESCRIPTION");
         descr.setText(description);
