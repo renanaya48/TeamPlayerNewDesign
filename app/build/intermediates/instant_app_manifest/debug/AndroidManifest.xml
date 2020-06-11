@@ -61,10 +61,6 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity android:name="com.example.teamplayer.no_requests" />
-        <activity
-            android:name="com.example.teamplayer.no_new_requests"
-            android:label="@string/title_activity_no_new_requests"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.example.teamplayer.edit_activity" />
         <activity android:name="com.example.teamplayer.participants_Items" />
         <activity
@@ -74,7 +70,7 @@
         <activity
             android:name="com.example.teamplayer.activity_details"
             android:label="@string/title_activity_details"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
         <activity android:name="com.example.teamplayer.sport_type" />
         <activity android:name="com.example.teamplayer.city" />
         <activity android:name="com.example.teamplayer.age_range" />
@@ -262,11 +258,6 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
-        <provider
-            android:name="com.android.tools.ir.server.InstantRunContentProvider"
-            android:authorities="com.example.teamplayer.com.android.tools.ir.server.InstantRunContentProvider"
-            android:multiprocess="true" />
     </application>
 
 </manifest>

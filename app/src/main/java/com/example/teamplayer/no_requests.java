@@ -14,7 +14,7 @@ public class no_requests extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_no_new_requests);
+        setContentView(R.layout.activity_no_requests);
         activity_name = getIntent().getStringExtra("activity_name");
         description = getIntent().getStringExtra("DESCRIPTION");
         //Display back arrow on action bar

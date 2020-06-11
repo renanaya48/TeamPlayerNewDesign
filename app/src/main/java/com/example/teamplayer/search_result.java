@@ -172,6 +172,7 @@ public class search_result extends AppCompatActivity {
                 intent = new Intent(this, activity_details.class);
                 intent.putStringArrayListExtra("Details", detailsToPass);
                 intent.putStringArrayListExtra("ACTIVITY_NAME", activitiesNamesList);
+                intent.putStringArrayListExtra("MANAGER", managerList);
                 intent.putStringArrayListExtra("DESCRIPTION", descriptionsList);
             }
         }

@@ -11,10 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".no_requests"></activity>
-        <activity
-            android:name=".no_new_requests"
-            android:label="@string/title_activity_no_new_requests"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".edit_activity" />
         <activity android:name=".participants_Items" />
         <activity
@@ -24,7 +20,7 @@
         <activity
             android:name=".activity_details"
             android:label="@string/title_activity_details"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
         <activity android:name=".sport_type" />
         <activity android:name=".city" />
         <activity android:name=".age_range" />

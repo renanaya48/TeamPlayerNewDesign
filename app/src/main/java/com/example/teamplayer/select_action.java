@@ -77,9 +77,7 @@ public class select_action extends AppCompatActivity {
             }
         });
         System.out.println();
-        if (storageReference != null) {
 
-        }
         imageChangePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

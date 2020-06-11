@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background2"
-    tools:context=".search_results">
+    tools:context=".search_result">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -14,7 +14,9 @@
         android:layout_marginBottom="100dp"
         android:background="@drawable/background2"
         android:padding="4dp"
-        android:scrollbars="vertical" />
+        android:scrollbars="vertical"
+        android:dividerHeight="18.0sp"
+        android:paddingTop="10dp"/>
 
 
 </RelativeLayout>

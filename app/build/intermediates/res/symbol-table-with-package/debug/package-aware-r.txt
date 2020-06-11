@@ -1113,6 +1113,7 @@ drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
 drawable create
 drawable create1no_back
+drawable description_view_to_fill
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1247,7 +1248,6 @@ id action_text
 id actions
 id activity_chooser_view_content
 id activity_description
-id activity_details_name
 id activity_name_layout
 id add
 id adjust_height
@@ -1264,7 +1264,6 @@ id async
 id auto
 id autoCompleteTextView
 id autoCompleteTextViewSearch
-id backToResultsButton
 id barrier
 id beginning
 id blocking
@@ -1513,6 +1512,7 @@ id textSpacerNoTitle
 id textStart
 id textView
 id textView10
+id textView11
 id textView12
 id textView13
 id textView2
@@ -1623,7 +1623,6 @@ layout activity_edit_activity
 layout activity_group
 layout activity_main
 layout activity_manager
-layout activity_no_new_requests
 layout activity_no_requests
 layout activity_no_result
 layout activity_participant_group

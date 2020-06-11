@@ -28,6 +28,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.os.StrictMode;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -60,6 +61,7 @@ public class activity_details extends AppCompatActivity {
     ArrayList<String> activitiesNameList;
     ArrayList<String> descriptionsList;
     String ageRange;
+    private ArrayList<String> managerList;
 
 
     @Override
@@ -69,8 +71,10 @@ public class activity_details extends AppCompatActivity {
         detailsList = getIntent().getStringArrayListExtra("Details");
         activitiesNameList = getIntent().getStringArrayListExtra("ACTIVITY_NAME");
         descriptionsList = getIntent().getStringArrayListExtra("DESCRIPTION");
+        managerList = getIntent().getStringArrayListExtra("MANAGER");
         getAgeRange();
-
+        //Show action bar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mAuth = FirebaseAuth.getInstance();
         activity_name = detailsList.get(0);
         setTitle(activity_name + " activity details");
@@ -103,7 +107,7 @@ public class activity_details extends AppCompatActivity {
                 if (dataSnapshot.exists()){
                    Button requestButton = (Button) findViewById(R.id.request);
                     requestButton.setClickable(false);
-                    requestButton.setText("Send");
+                    requestButton.setText("Request sent");
                 }
             }
 
@@ -121,8 +125,6 @@ public class activity_details extends AppCompatActivity {
      * show the detail of the activity: name, description, participants number, age range.
      */
     public void showDetails(){
-        TextView activityNameToShow = (TextView) findViewById(R.id.activity_details_name);
-        activityNameToShow.setText(detailsList.get(0));
         TextView descriptionToShow = (TextView) findViewById(R.id.description_details_1);
         descriptionToShow.setText(detailsList.get(1));
         TextView participantsNumToShow = (TextView) findViewById(R.id.number_of_participations);
@@ -162,16 +164,6 @@ public class activity_details extends AppCompatActivity {
 
     }
 
-    /**
-     * back to search results
-     * @param view the View
-     */
-    public void backToResults(View view) {
-        Intent intent=new Intent(this, search_result.class);
-        intent.putStringArrayListExtra("ACTIVITY_NAME", activitiesNameList);
-        intent.putStringArrayListExtra("DESCRIPTION", descriptionsList);
-        startActivity(intent);
-    }
 
 
     /**
@@ -234,6 +226,20 @@ public class activity_details extends AppCompatActivity {
         });
 
 
+    }
+    /**
+     * The function go back to the previous screen when arrow bar is pressed
+     * @param item
+     * @return
+     */
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent intent=new Intent(this, search_result.class);
+        intent.putStringArrayListExtra("ACTIVITY_NAME", activitiesNameList);
+        intent.putStringArrayListExtra("DESCRIPTION", descriptionsList);
+        intent.putStringArrayListExtra("MANAGER", managerList);
+        intent.putStringArrayListExtra("Details", detailsList);
+        startActivity(intent);
+        return true;
     }
 
 

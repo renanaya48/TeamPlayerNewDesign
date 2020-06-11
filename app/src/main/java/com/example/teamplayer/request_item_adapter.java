@@ -89,45 +89,15 @@ public class request_item_adapter  extends ArrayAdapter<requestItem> {
         ImageButton buttonAccept = view.findViewById(R.id.accept);
         ImageButton buttonDecline = view.findViewById(R.id.decline);
         requestItem requestItem = requestList.get(position);
-
+        //Get the user Photo
+        imageUser = (ImageView) view.findViewById(R.id.profile_image);
+        final String email = requestItem.getEmail();
         //Get and set the activity name/
         activity_name=requestItem.getActivityName();
+        addProfileimage(imageUser,email);
         //add values to the list item
         textViewName.setText(requestItem.getMessage());
         final Context context= ApplicationClass.getAppContext();
-        imageUser = (ImageView) view.findViewById(R.id.profile_image);
-
-        //Get the user Photo
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();
-        final String email = requestItem.getEmail();
-        final StorageReference storageReference = storage.getReference("uploads/" + email);
-        synchronized(this) {
-            System.out.println("emaillllllllllll");
-            System.out.println(email);
-            //Upload the user photo from DB
-            storage.getReference("uploads/" + email).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-
-                @Override
-                public void onSuccess(Uri uri) {
-                    Glide.with(context /* context */)
-                            .load(storageReference)
-                            .into(imageUser);
-                }
-
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception exception) {
-                    System.out.println("failllllll");
-                    exception.printStackTrace();
-                    imageUser.setImageDrawable(imageUser.getDrawable());
-                }
-            });
-
-            System.out.println("emaillllllllllll2");
-            System.out.println(email);
-
-
             //Add in click listener when the manager aprroves to join the group
             buttonAccept.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -196,7 +166,7 @@ public class request_item_adapter  extends ArrayAdapter<requestItem> {
 
             //finally returning the view
             return view;
-        }
+
     }
 
 
@@ -223,4 +193,31 @@ public class request_item_adapter  extends ArrayAdapter<requestItem> {
         });
 
     }
+
+    public void addProfileimage(final ImageView imageUser,final String email){
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+        final StorageReference storageReference = storage.getReference("uploads/" + email);
+        synchronized(this) {
+            //Upload the user photo from DB
+            storage.getReference("uploads/" + email).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+
+                @Override
+                public void onSuccess(Uri uri) {
+                    Glide.with(context /* context */)
+                            .load(storageReference)
+                            .into(imageUser);
+                }
+
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    System.out.println("failllllll");
+                    exception.printStackTrace();
+                    imageUser.setImageDrawable(imageUser.getDrawable());
+                }
+            });
+        }
+    }
+
 }
