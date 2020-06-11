@@ -39,7 +39,7 @@
             android:layout_marginTop="40dp"
             android:layout_marginEnd="23dp"
             android:layout_marginBottom="574dp"
-            android:background="@drawable/title_border"
+            android:background="@drawable/select_action_backround"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
@@ -60,11 +60,11 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="135dp"
             android:layout_marginEnd="133dp"
-            android:background="@drawable/light_color"
+            android:background="@drawable/title_border"
             android:ems="10"
             android:inputType="textPersonName"
             android:textAlignment="center"
-            android:textColor="#273272"
+            android:textColor="#FFFFFF"
             android:textIsSelectable="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.592"
@@ -78,7 +78,8 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="12dp"
-            android:background="@drawable/light_color"
+            android:background="@drawable/title_border"
+            android:textColor="#FFFFFF"
             android:text="Leave Activity" />
 
         <Button
@@ -89,7 +90,8 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="134dp"
             android:layout_marginEnd="14dp"
-            android:background="@drawable/light_color"
+            android:background="@drawable/title_border"
+            android:textColor="#FFFFFF"
             android:onClick="chatButton"
             android:text="Chat" />
 

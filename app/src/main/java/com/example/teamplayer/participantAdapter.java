@@ -106,12 +106,12 @@ public class participantAdapter extends RecyclerView.Adapter<participantAdapter.
     public void onBindViewHolder(final participantViewHolder holder, int position) {
         participants_Items currentItem = mParticipantsList.get(position);
 
-        String userID = currentItem.getuserID();
+        String parEmail = currentItem.getparEmail();
         final Context context = ApplicationClass.getAppContext();
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
-        final StorageReference storageReference = storage.getReference("uploads/" + userID);
-        storage.getReference("uploads/" + userID).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        final StorageReference storageReference = storage.getReference("uploads/" + parEmail);
+        storage.getReference("uploads/" + parEmail).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 Glide.with(context)

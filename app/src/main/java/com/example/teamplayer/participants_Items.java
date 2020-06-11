@@ -9,14 +9,14 @@ import android.view.View;
 
 public class participants_Items {
     private static final String TAG = "participants";
-    private String mUserID;
+    private String mParEmail;
     private int mImageResource;
     private String mParticipantName;
     private String mAge;
     //private String mDescription;
 
-    public participants_Items(String userID, int imageResource, String participantName, String age) {
-        mUserID = userID;
+    public participants_Items(String parEmail, int imageResource, String participantName, String age) {
+        mParEmail = parEmail;
         mImageResource = imageResource;
         mParticipantName = participantName;
         mAge = age;
@@ -27,8 +27,8 @@ public class participants_Items {
      *
      * @return the user ID
      */
-    public String getuserID() {
-        return mUserID;
+    public String getparEmail() {
+        return mParEmail;
     }
 
     public int getImageResource() {

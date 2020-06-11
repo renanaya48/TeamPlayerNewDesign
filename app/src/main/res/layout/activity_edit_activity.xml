@@ -14,16 +14,16 @@
 
         <AutoCompleteTextView
             android:id="@+id/city_editText"
-            android:layout_width="160dp"
+            android:layout_width="175dp"
             android:layout_height="35dp"
-            android:layout_marginStart="44dp"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/text_view_to_fill"
             android:textAlignment="center"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.772"
+            app:layout_constraintHorizontal_bias="0.951"
             app:layout_constraintStart_toEndOf="@+id/city_textView"
             app:layout_constraintTop_toBottomOf="@+id/age_range_fill" />
 
@@ -40,35 +40,35 @@
 
         <EditText
             android:id="@+id/age_range_fill"
-            android:layout_width="160dp"
+            android:layout_width="175dp"
             android:layout_height="35dp"
-            android:layout_marginStart="44dp"
-            android:layout_marginTop="176dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/text_view_to_fill"
             android:ems="10"
             android:inputType="textPersonName"
             android:textAlignment="center"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.517"
+            app:layout_constraintHorizontal_bias="0.917"
             app:layout_constraintStart_toEndOf="@+id/age_range_text_view"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_activity" />
 
         <EditText
             android:id="@+id/editMaxPlayers"
-            android:layout_width="160dp"
+            android:layout_width="175dp"
             android:layout_height="35dp"
-            android:layout_marginStart="44dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/text_view_to_fill"
             android:ems="10"
             android:inputType="textPersonName"
             android:textAlignment="center"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.454"
+            app:layout_constraintHorizontal_bias="0.908"
             app:layout_constraintStart_toEndOf="@+id/maxPlayers_textView"
             app:layout_constraintTop_toBottomOf="@+id/city_editText" />
 
@@ -92,8 +92,9 @@
             android:id="@+id/edit_activity"
             android:layout_width="280dp"
             android:layout_height="50dp"
-            android:background="@drawable/select_action_backround"
+            android:background="@drawable/title_border"
             android:textColor="#FFFFFF"
+            android:textAlignment="center"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
