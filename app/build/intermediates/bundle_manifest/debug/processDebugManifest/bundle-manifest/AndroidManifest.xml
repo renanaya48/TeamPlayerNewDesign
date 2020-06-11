@@ -59,6 +59,11 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.teamplayer.no_requests" />
+        <activity
+            android:name="com.example.teamplayer.no_new_requests"
+            android:label="@string/title_activity_no_new_requests"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.example.teamplayer.edit_activity" />
         <activity android:name="com.example.teamplayer.participants_Items" />
         <activity

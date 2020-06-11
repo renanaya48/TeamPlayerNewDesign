@@ -1,5 +1,6 @@
 package com.example.teamplayer;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +18,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -28,7 +30,7 @@ import java.util.List;
 public class requests extends AppCompatActivity {
     //a List of type hero for holding list items
     List<requestItem> requestList;
-    private DatabaseReference root ;
+    public DatabaseReference root ;
     //the listview
     ListView listView;
     String activity_name;
@@ -45,19 +47,16 @@ public class requests extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
         activity_name = getIntent().getStringExtra("activity_name");
         description = getIntent().getStringExtra("DESCRIPTION");
-        //Get activity requests from DB
         root = FirebaseDatabase.getInstance().getReference().child("Groups").child(activity_name);
-        //Add Evant lisutner to the request refrence in DB/
+        //Get activity requests from DB
         root.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
                 append_request(dataSnapshot);
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
                 append_request(dataSnapshot);
 
             }
@@ -100,9 +99,12 @@ public class requests extends AppCompatActivity {
         Iterator i = dataSnapshot.getChildren().iterator();
         //Go over all the requests
        while (i.hasNext()){
+
            //Add a new request iten to the list
             String message = (String) ((DataSnapshot)i.next()).getValue();
             String email = (String) ((DataSnapshot)i.next()).getValue();
+            System.out.println("requestsssssss");
+            System.out.println(email);
             String newMessage= message +" asked to join the group";
             requestList.add(new requestItem(newMessage,email,activity_name));
         }

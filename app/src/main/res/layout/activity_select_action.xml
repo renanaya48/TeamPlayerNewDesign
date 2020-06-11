@@ -77,22 +77,35 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <ImageButton
             android:id="@+id/PhotoButtun"
-            android:layout_width="91dp"
-            android:layout_height="87dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/image_circle"
+            android:src="@drawable/ic_add_a_photo_black_24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/ic_menu_camera" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="35dp"
+            android:src="@drawable/ic_person_no_image"
+            app:civ_border_color="#2e3191"
+            app:civ_border_width="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <TextView
             android:id="@+id/welcomeText"
             android:layout_width="364dp"
             android:layout_height="87dp"
             android:layout_marginStart="28dp"
-            android:layout_marginTop="112dp"
+            android:layout_marginTop="124dp"
             android:background="@null"
             android:textColor="#FFFFFF"
             android:textSize="30sp"

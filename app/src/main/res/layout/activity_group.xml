@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".select_action">
+    tools:context=".group">
 
     <android.widget.RelativeLayout
         android:layout_height="wrap_content"
@@ -93,15 +93,19 @@
             android:onClick="chatButton"
             android:text="Chat" />
 
-        <ImageView
-            android:id="@+id/imageView3"
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
             android:layout_width="73dp"
-            android:layout_height="70dp"
+            android:layout_height="73dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="26dp"
             android:layout_marginTop="40dp"
-            app:srcCompat="@android:drawable/ic_menu_camera" />
+            android:src="@drawable/ic_group_no_image"
+            app:civ_border_width="1dp"
+            app:civ_border_color="#2e3191"/>
 
         <TextView
             android:id="@+id/paeticipants"

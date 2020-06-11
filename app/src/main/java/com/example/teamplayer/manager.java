@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,11 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
@@ -51,7 +57,8 @@ public class manager extends AppCompatActivity {
     private ArrayList<participants_Items> mParticipantsList;
     //private ArrayList<String> emailsList = new ArrayList<>();
     String emailToDelete;
-    private ImageButton groupImage;
+    private ImageView groupImage;
+    private ImageButton changeImage;
     private FirebaseStorage storage;
     private StorageReference storageReference;
 
@@ -61,6 +68,9 @@ public class manager extends AppCompatActivity {
     private Uri filePath;
     int positionParticipant;
     View view1;
+
+    //Root for requests in DB
+    public DatabaseReference rootRequests ;
 
     private final int PICK_IMAGE_REQUEST = 71;
 
@@ -111,9 +121,7 @@ public class manager extends AppCompatActivity {
         requestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(), requests.class);
-                intent.putExtra("activity_name", activityName);
-                startActivity(intent);
+                joinRequest(view);
             }
         });
 
@@ -157,10 +165,31 @@ public class manager extends AppCompatActivity {
 
     }
     public void joinRequest(View view){
-        Intent intent = new Intent(getBaseContext(), requests.class);
-        intent.putExtra("activity_name", activityName);
-        intent.putExtra("DESCRIPTION", description);
-        startActivity(intent);
+        rootRequests = FirebaseDatabase.getInstance().getReference().child("Groups").child(activityName);
+        setTitle("My Requests");
+        //Add Evant lisutner to the request reference in DB
+        rootRequests.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue() == null){
+                    Intent intent = new Intent(getBaseContext(), no_requests.class);
+                    intent.putExtra("activity_name", activityName);
+                    intent.putExtra("DESCRIPTION", description);
+                    startActivity(intent);
+                }else {
+                    Intent intent = new Intent(getBaseContext(), requests.class);
+                    intent.putExtra("activity_name", activityName);
+                    intent.putExtra("DESCRIPTION", description);
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
     public void createParticipantsList() {
@@ -381,7 +410,8 @@ public class manager extends AppCompatActivity {
     }
     public void downloadImage(){
         final Context context= this;
-        groupImage = (ImageButton) findViewById(R.id.GroupImage);
+        groupImage = (ImageView) findViewById(R.id.GroupImage);
+        changeImage = (ImageButton) findViewById(R.id.change_image);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         final StorageReference storageReference = storage.getReference("uploads/" + activityName);
@@ -398,7 +428,7 @@ public class manager extends AppCompatActivity {
                 // File not found
             }
         });
-        groupImage.setOnClickListener(new View.OnClickListener() {
+        changeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 chooseImage();

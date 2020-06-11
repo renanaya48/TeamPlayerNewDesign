@@ -28,6 +28,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder>{
     private ArrayList<ActivityItems> mActivitiesList;
@@ -132,19 +133,23 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         final StorageReference storageReference = storage.getReference("uploads/" + activityID);
-        storage.getReference("uploads/" + activityID).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Glide.with(context)
-                        .load(storageReference)
-                        .into(holder.mImageView);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                Log.d(TAG, "No such Image");
-            }
-        });
+        try {
+            storage.getReference("uploads/" + activityID).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    Glide.with(context)
+                            .load(storageReference)
+                            .into(holder.mImageView);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    Log.d(TAG, "No such Image");
+                }
+            });
+        }catch (Exception e){
+
+        }
 
         //holder.mImageView.setImageResource(currentItem.getImageResource());
         holder.mTextView1.setText(currentItem.getActivityName());

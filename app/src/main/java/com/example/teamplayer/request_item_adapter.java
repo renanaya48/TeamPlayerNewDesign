@@ -79,7 +79,6 @@ public class request_item_adapter  extends ArrayAdapter<requestItem> {
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-
         LayoutInflater layoutInflater = LayoutInflater.from(context);
 
         //Get the view
@@ -103,93 +102,101 @@ public class request_item_adapter  extends ArrayAdapter<requestItem> {
         storageReference = storage.getReference();
         final String email = requestItem.getEmail();
         final StorageReference storageReference = storage.getReference("uploads/" + email);
+        synchronized(this) {
+            System.out.println("emaillllllllllll");
+            System.out.println(email);
+            //Upload the user photo from DB
+            storage.getReference("uploads/" + email).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
 
-        //Upload the user photo from DB
-        storage.getReference("uploads/" + email).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    Glide.with(context /* context */)
+                            .load(storageReference)
+                            .into(imageUser);
+                }
 
-            @Override
-            public void onSuccess(Uri uri) {
-                Glide.with(context /* context */)
-                        .load(storageReference)
-                        .into(imageUser);
-            }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    System.out.println("failllllll");
+                    exception.printStackTrace();
+                    imageUser.setImageDrawable(imageUser.getDrawable());
+                }
+            });
 
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                imageUser.setImageDrawable(imageUser.getDrawable());
-            }
-        });
+            System.out.println("emaillllllllllll2");
+            System.out.println(email);
 
 
-        //Add in click listener when the manager aprroves to join the group
-        buttonAccept.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            //Add in click listener when the manager aprroves to join the group
+            buttonAccept.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-                //Add the user to the activity
-                addUserToActivity(email);
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-                Query userQuery = ref.child("Groups").child(activity_name).orderByChild("user_email").equalTo(email);
+                    //Add the user to the activity
+                    addUserToActivity(email);
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                    Query userQuery = ref.child("Groups").child(activity_name).orderByChild("user_email").equalTo(email);
 
-                //Remove from requests list
-                userQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
-                            appleSnapshot.getRef().removeValue();
-                            requestList.remove(position);
+                    //Remove from requests list
+                    userQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot appleSnapshot : dataSnapshot.getChildren()) {
+                                appleSnapshot.getRef().removeValue();
+                                requestList.remove(position);
 
-                            notifyDataSetChanged();
-                            String message =  " Your request to join "+activity_name +" group has been approved" ;
+                                notifyDataSetChanged();
+                                String message = " Your request to join " + activity_name + " group has been approved";
 
-                            //Send user notification
-                            NotificationSender sender=new NotificationSender(email,message);
-                            sender.sendNotification();
+                                //Send user notification
+                                NotificationSender sender = new NotificationSender(email, message);
+                                sender.sendNotification();
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Log.e(TAG, "onCancelled", databaseError.toException());
-                    }
-                });
-            }
-        });
-
-        //Add in click listener when the manager decline to join the group
-
-        buttonDecline.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //Delete the user from requests list in DB
-
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-                Query userQuery = ref.child("Groups").child(activity_name).orderByChild("user_email").equalTo(email);
-                userQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
-                            appleSnapshot.getRef().removeValue();
-                            requestList.remove(position);
-
-                            //reloading the list
-                            notifyDataSetChanged();
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                            Log.e(TAG, "onCancelled", databaseError.toException());
                         }
-                    }
+                    });
+                }
+            });
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Log.e(TAG, "onCancelled", databaseError.toException());
-                    }
-                });
+            //Add in click listener when the manager decline to join the group
 
-            }
-        });
+            buttonDecline.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-        //finally returning the view
-        return view;
+                    //Delete the user from requests list in DB
+
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                    Query userQuery = ref.child("Groups").child(activity_name).orderByChild("user_email").equalTo(email);
+                    userQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot appleSnapshot : dataSnapshot.getChildren()) {
+                                appleSnapshot.getRef().removeValue();
+                                requestList.remove(position);
+
+                                //reloading the list
+                                notifyDataSetChanged();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                            Log.e(TAG, "onCancelled", databaseError.toException());
+                        }
+                    });
+
+                }
+            });
+
+            //finally returning the view
+            return view;
+        }
     }
 
 

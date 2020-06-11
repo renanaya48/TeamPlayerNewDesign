@@ -277,7 +277,7 @@ public class group extends AppCompatActivity {
      */
     public void downloadImage(){
         final Context context= this;
-        groupImage = (ImageView) findViewById(R.id.imageView3);
+        groupImage = (ImageView) findViewById(R.id.profile_image);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         System.out.println("nameeeeeeeeeee");

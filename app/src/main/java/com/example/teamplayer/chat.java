@@ -3,6 +3,7 @@ package com.example.teamplayer;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -12,12 +13,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -39,6 +42,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import android.widget.RelativeLayout.LayoutParams;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -60,6 +64,9 @@ public class chat extends AppCompatActivity {
     List<message_item> messageList;
     ListView listView;
     String  description ;
+    ActionBar actionbar;
+    private LayoutParams layoutparams;
+
 
 
 
@@ -109,7 +116,8 @@ public class chat extends AppCompatActivity {
         //Get the activity name and description
         room_name = getIntent().getExtras().get("room_name").toString();
         description = getIntent().getStringExtra("DESCRIPTION");
-        setTitle(room_name);
+        //Set Action Bat title
+        setTitle(room_name+" - Chat");
 
         //Get Chat messages in DB
         root = FirebaseDatabase.getInstance().getReference().child("Chats").child(room_name);

@@ -11,7 +11,7 @@
         android:textStyle="bold"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="4dp"
-        android:textColor="@android:color/background_dark"/>
+        android:textColor="#2e3191"/>
 
     <TextView
         android:id="@+id/text_message_body"
@@ -34,8 +34,8 @@
         android:layout_height="wrap_content"
         android:textSize="12sp"
         android:layout_marginLeft="4dp"
-        android:textColor="@android:color/background_dark"
-        android:layout_marginBottom="15dp"/>
+        android:layout_marginBottom="15dp"
+        android:textColor="#2e3191"/>
 
 
 </LinearLayout>

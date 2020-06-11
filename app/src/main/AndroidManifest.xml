@@ -10,7 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".edit_activity"></activity>
+        <activity android:name=".no_requests"></activity>
+        <activity
+            android:name=".no_new_requests"
+            android:label="@string/title_activity_no_new_requests"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".edit_activity" />
         <activity android:name=".participants_Items" />
         <activity
             android:name=".requestItem"
@@ -35,8 +40,9 @@
         <activity
             android:name=".user_activities"
             android:parentActivityName=".select_action" />
-        <activity android:name=".manager"
-            android:parentActivityName=".select_action"/>
+        <activity
+            android:name=".manager"
+            android:parentActivityName=".select_action" />
         <activity
             android:name=".group"
             android:parentActivityName=".select_action" />

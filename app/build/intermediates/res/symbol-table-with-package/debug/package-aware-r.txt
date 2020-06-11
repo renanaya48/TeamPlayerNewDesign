@@ -1120,6 +1120,8 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_add_a_photo
+drawable ic_add_a_photo_black_24dp
 drawable ic_check_black_24dp
 drawable ic_close_black_24dp
 drawable ic_delete
@@ -1137,6 +1139,7 @@ drawable ic_stat_namev
 drawable ic_stat_namex
 drawable ic_stat_notification
 drawable ic_stat_onesignal_default
+drawable image_circle
 drawable light_color
 drawable list_item_boarder
 drawable listviewbackround
@@ -1283,6 +1286,7 @@ id center
 id center_horizontal
 id center_vertical
 id chains
+id change_image
 id chatButton
 id chatView
 id checkbox
@@ -1357,7 +1361,6 @@ id ifRoom
 id image
 id imageButton4
 id imageView
-id imageView3
 id imageView5
 id imageView_par
 id image_info
@@ -1617,6 +1620,8 @@ layout activity_edit_activity
 layout activity_group
 layout activity_main
 layout activity_manager
+layout activity_no_new_requests
+layout activity_no_requests
 layout activity_no_result
 layout activity_participant_group
 layout activity_participants__items
@@ -1749,6 +1754,7 @@ string project_id
 string search_menu_title
 string status_bar_notification_info_overflow
 string title_activity_details
+string title_activity_no_new_requests
 string title_activity_request_item
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

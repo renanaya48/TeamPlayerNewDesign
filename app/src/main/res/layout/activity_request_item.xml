@@ -52,7 +52,7 @@
         android:src="@drawable/ic_person_no_image"
         app:civ_border_width="1dp"
         android:layout_centerVertical="true"
-        app:civ_border_color="#1D54BF"/>
+        app:civ_border_color="#2e3191"/>
 
 
 </RelativeLayout>

@@ -7,15 +7,12 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -39,19 +36,14 @@ import com.onesignal.OneSignal;
 
 
 import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
 
 public class select_action extends AppCompatActivity {
     private FirebaseAuth mAuth;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private static final String TAG = "PostDetailActivity";
     TextView welcomeText;
-    private ImageButton imageUser;
+    private ImageButton imageChangePhoto;
+    private ImageView imageUser;
     private FirebaseStorage storage;
     private StorageReference storageReference;
 
@@ -65,7 +57,8 @@ public class select_action extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_action);
         final Context context= this;
-        imageUser = (ImageButton) findViewById(R.id.PhotoButtun);
+        imageChangePhoto = (ImageButton) findViewById(R.id.PhotoButtun);
+        imageUser = (ImageView) findViewById(R.id.profile_image);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         String userEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
@@ -87,7 +80,7 @@ public class select_action extends AppCompatActivity {
         if (storageReference != null) {
 
         }
-        imageUser.setOnClickListener(new View.OnClickListener() {
+        imageChangePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 chooseImage();
@@ -144,7 +137,8 @@ public class select_action extends AppCompatActivity {
                 progressDialog.setTitle("Uploading...");
                 progressDialog.show();
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-                imageUser.setImageBitmap(bitmap);
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), bitmap);
+                imageUser.setImageDrawable(bitmapDrawable);
                 String userEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
                 StorageReference mountainsRef = storageReference.child("uploads/" + userEmail);
                 mountainsRef.putFile(filePath)

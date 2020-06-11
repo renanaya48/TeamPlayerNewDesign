@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-65:12
-INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-65:12
-INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-65:12
-INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-65:12
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-71:12
+INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-71:12
+INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-71:12
+INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-71:12
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\avib\.gradle\caches\transforms-2\files-2.1\d0fbc71294ab5e088a5b37a8875aba08\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\avib\.gradle\caches\transforms-2\files-2.1\b53c71eec0322f7ba99a511d928f063a\AndroidManifest.xml:17:1-24:12
 MERGED from [com.webianks.library:scroll-choice:1.0.1] C:\Users\avib\.gradle\caches\transforms-2\files-2.1\dd4d7af5b37eea1cb0f927762b64fcf9\AndroidManifest.xml:2:1-17:12
@@ -77,25 +77,25 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\avib\.gr
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\avib\.gradle\caches\transforms-2\files-2.1\6d244b827e2ac02541164ceb5846e1ee\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:protolite-well-known-types:17.0.0] C:\Users\avib\.gradle\caches\transforms-2\files-2.1\4808cd2d06e00b20495c8312ac5a0c56\AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.21.0] C:\Users\avib\.gradle\caches\transforms-2\files-2.1\5f8a466697d69fb3c59789add1cd7286\AndroidManifest.xml:2:1-13:12
-INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-65:12
-INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-65:12
-INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-65:12
+INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-71:12
+INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-71:12
+INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-71:12
 	package
 		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:3:5-37
 		INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-65:12
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-71:12
 		INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-65:12
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:1-71:12
 		INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:5:5-63:19
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:5:5-69:19
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\avib\.gradle\caches\transforms-2\files-2.1\b53c71eec0322f7ba99a511d928f063a\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\avib\.gradle\caches\transforms-2\files-2.1\b53c71eec0322f7ba99a511d928f063a\AndroidManifest.xml:22:5-20
 MERGED from [com.webianks.library:scroll-choice:1.0.1] C:\Users\avib\.gradle\caches\transforms-2\files-2.1\dd4d7af5b37eea1cb0f927762b64fcf9\AndroidManifest.xml:11:5-15:19
@@ -176,120 +176,132 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\av
 		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:12:9-40
 	android:name
 		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:6:9-41
+activity#com.example.teamplayer.no_requests
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:13:9-58
+	android:name
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:13:19-46
+activity#com.example.teamplayer.no_new_requests
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:14:9-17:59
+	android:label
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:16:13-67
+	android:theme
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:17:13-56
+	android:name
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:15:13-44
 activity#com.example.teamplayer.edit_activity
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:13:9-60
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:18:9-51
 	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:13:19-48
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:18:19-48
 activity#com.example.teamplayer.participants_Items
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:14:9-56
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:19:9-56
 	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:14:19-53
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:19:19-53
 activity#com.example.teamplayer.requestItem
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:15:9-18:59
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:20:9-23:59
 	android:label
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:17:13-64
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:22:13-64
 	android:theme
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:18:13-56
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:23:13-56
 	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:16:13-40
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:21:13-40
 activity#com.example.teamplayer.activity_details
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:19:9-22:59
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:24:9-27:59
 	android:label
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:21:13-59
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:26:13-59
 	android:theme
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:22:13-56
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:27:13-56
 	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:20:13-45
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:25:13-45
 activity#com.example.teamplayer.sport_type
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:23:9-48
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:28:9-48
 	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:23:19-45
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:28:19-45
 activity#com.example.teamplayer.city
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:24:9-42
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:29:9-42
 	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:24:19-39
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:29:19-39
 activity#com.example.teamplayer.age_range
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:25:9-47
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:30:9-47
 	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:25:19-44
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:30:19-44
 activity#com.example.teamplayer.registration
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:26:9-28:60
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:31:9-33:60
 	android:parentActivityName
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:28:13-57
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:33:13-57
 	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:27:13-41
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:32:13-41
 activity#com.example.teamplayer.activity_Search
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:29:9-31:59
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:34:9-36:59
 	android:parentActivityName
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:31:13-56
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:36:13-56
 	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:30:13-44
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:35:13-44
 activity#com.example.teamplayer.activity_create_new
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:32:9-34:59
-	android:parentActivityName
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:34:13-56
-	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:33:13-48
-activity#com.example.teamplayer.user_activities
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:35:9-37:59
-	android:parentActivityName
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:37:13-56
-	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:36:13-44
-activity#com.example.teamplayer.manager
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:38:9-39:58
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:37:9-39:59
 	android:parentActivityName
 		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:39:13-56
 	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:38:19-42
-activity#com.example.teamplayer.group
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:38:13-48
+activity#com.example.teamplayer.user_activities
 ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:40:9-42:59
 	android:parentActivityName
 		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:42:13-56
 	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:41:13-34
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:41:13-44
+activity#com.example.teamplayer.manager
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:43:9-45:59
+	android:parentActivityName
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:45:13-56
+	android:name
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:44:13-36
+activity#com.example.teamplayer.group
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:46:9-48:59
+	android:parentActivityName
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:48:13-56
+	android:name
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:47:13-34
 activity#com.example.teamplayer.select_action
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:43:9-45:60
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:49:9-51:60
 	android:parentActivityName
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:45:13-57
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:51:13-57
 	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:44:13-42
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:50:13-42
 activity#com.example.teamplayer.search_result
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:46:9-48:61
-	android:parentActivityName
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:48:13-58
-	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:47:13-42
-activity#com.example.teamplayer.requests
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:49:9-51:53
-	android:parentActivityName
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:51:13-50
-	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:50:13-37
-activity#com.example.teamplayer.no_result
 ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:52:9-54:61
 	android:parentActivityName
 		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:54:13-58
 	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:53:13-38
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:53:13-42
+activity#com.example.teamplayer.requests
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:55:9-57:53
+	android:parentActivityName
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:57:13-50
+	android:name
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:56:13-37
+activity#com.example.teamplayer.no_result
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:58:9-60:61
+	android:parentActivityName
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:60:13-58
+	android:name
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:59:13-38
 activity#com.example.teamplayer.chat
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:55:9-42
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:61:9-42
 	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:55:19-39
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:61:19-39
 activity#com.example.teamplayer.activity_Login
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:56:9-62:20
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:62:9-68:20
 	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:56:19-49
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:62:19-49
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:57:13-61:29
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:63:13-67:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:58:17-69
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:64:17-69
 	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:58:25-66
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:64:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:60:17-77
+ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:66:17-77
 	android:name
-		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:60:27-74
+		ADDED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml:66:27-74
 uses-sdk
 INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\avib\AndroidStudioProjects\TeamPlayerNewVersion\app\src\main\AndroidManifest.xml
