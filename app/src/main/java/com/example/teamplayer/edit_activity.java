@@ -105,7 +105,7 @@ public class edit_activity extends AppCompatActivity {
      */
     private void showDetails() {
         TextView editActivityName = (TextView) findViewById(R.id.edit_activity);
-        String nameEditToShow = "Edit Activity: " + activityName;
+        String nameEditToShow = activityName;
         editActivityName.setText(nameEditToShow);
         description = getIntent().getStringExtra("DESCRIPTION");
         EditText editDescription = (EditText) findViewById(R.id.edit_description);
