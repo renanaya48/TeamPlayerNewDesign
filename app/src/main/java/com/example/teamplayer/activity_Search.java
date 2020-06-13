@@ -167,7 +167,11 @@ public class activity_Search extends AppCompatActivity {
                                     }
                                 }
 
-                                searchResult(view);
+                                if(activitiesNamesFound.isEmpty()){
+                                    noResult();
+                                }else {
+                                    searchResult(view);
+                                }
 
                             } else {
                                 Log.d(TAG, "Error getting documents: ", task.getException());
@@ -202,7 +206,14 @@ public class activity_Search extends AppCompatActivity {
 
                                     }
                                 }
-                                searchResult(view);
+
+                                if(activitiesNamesFound.isEmpty()){
+                                    Log.d(TAG, " empty");
+                                    noResult();
+                                }else {
+                                    Log.d(TAG, " not empty");
+                                    searchResult(view);
+                                }
 
                             } else {
                                 Log.d(TAG, "Error getting documents: ", task.getException());
@@ -273,11 +284,19 @@ public class activity_Search extends AppCompatActivity {
     }
 
     /**
+     * if there are no results - go to "no results" screen
+     */
+    public void noResult(){
+        Intent intent = new Intent(this, no_result.class);
+        startActivity(intent);
+    }
+
+    /**
      * show the results on a new screen
      * @param view View
      */
     public void searchResult(View view) {
-        Intent intent=new Intent(this,search_result.class);
+        Intent intent = new Intent(this, search_result.class);
         intent.putExtra("ACTIVITY", className);
         intent.putStringArrayListExtra("ACTIVITY_NAME", activitiesNamesFound);
         Log.d(TAG, "size in search " + String.valueOf(activitiesNamesFound.size()));

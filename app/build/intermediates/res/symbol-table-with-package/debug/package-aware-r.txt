@@ -1184,6 +1184,7 @@ drawable textview_border
 drawable title_border
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable try_again
 id ALT
 id CTRL
 id Email
