@@ -19,7 +19,7 @@
             android:id="@+id/request"
             android:layout_width="150dp"
             android:layout_height="40dp"
-            android:layout_marginTop="424dp"
+            android:layout_marginTop="444dp"
             android:background="@drawable/title_border"
             android:onClick="request"
             android:text="ASK TO JOIN"
@@ -39,9 +39,9 @@
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:background="@drawable/description_view_to_fill"
-            android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:textSize="24sp"
+            android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.592"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,32 +49,34 @@
 
         <TextView
             android:id="@+id/number_of_participations"
-            android:layout_width="0dp"
-            android:layout_height="55dp"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="28dp"
+            android:layout_width="320dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/description_view_to_fill"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"
+            android:padding="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/description_details_1" />
 
         <TextView
             android:id="@+id/age_Range_textView"
-            android:layout_width="137dp"
-            android:layout_height="57dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="40dp"
+            android:layout_width="320dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="44dp"
             android:background="@drawable/description_view_to_fill"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"
+            android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.511"
-            app:layout_constraintStart_toEndOf="@+id/number_of_participations"
-            app:layout_constraintTop_toBottomOf="@+id/description_details_1" />
+            app:layout_constraintHorizontal_bias="0.948"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/number_of_participations" />
 
         <TextView
             android:id="@+id/textView11"
@@ -86,7 +88,7 @@
             android:textSize="30dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.151"
+            app:layout_constraintHorizontal_bias="0.113"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -16,7 +16,7 @@ public class no_result extends AppCompatActivity {
     }
 
     public void tryAgain(View view) {
-        Intent intent=new Intent(this,search_result.class);
+        Intent intent=new Intent(this,activity_Search.class);
         startActivity(intent);
     }
 }
