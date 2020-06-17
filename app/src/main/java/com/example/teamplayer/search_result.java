@@ -159,6 +159,7 @@ public class search_result extends AppCompatActivity {
         Intent intent;
         String activityName = activitiesNamesList.get(position);
         String description = descriptionsList.get(position);
+
         if (manager){
             intent = new Intent(this, manager.class);
             intent.putExtra("ACTIVITY_NAME", activityName);
@@ -177,7 +178,10 @@ public class search_result extends AppCompatActivity {
             }
         }
         Log.d(TAG, "show Details");
-        //Intent intent = new Intent(this, activity_details.class);
+
+        intent.putStringArrayListExtra("ACTIVITIES_NAME_LIST", activitiesNamesList);
+        intent.putStringArrayListExtra("DESCRIPTIONS_LIST", descriptionsList);
+        intent.putStringArrayListExtra("MANAGER_LIST", managerList);
 
         startActivity(intent);
     }

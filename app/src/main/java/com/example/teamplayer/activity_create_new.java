@@ -176,7 +176,7 @@ public class activity_create_new extends AppCompatActivity {
         activityNameText = activityName.getText().toString();
         if (activityNameText.isEmpty()){
             Log.d(TAG, "check1!");
-            Snackbar.make(view, "Plese enter an activity name ",
+            Snackbar.make(view, "Please enter an activity name ",
                     Snackbar.LENGTH_LONG)
                     .show();
         }else {

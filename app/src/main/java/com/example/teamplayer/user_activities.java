@@ -72,12 +72,15 @@ public class user_activities extends AppCompatActivity {
                                 descriptionsFound.add(document.get("description").toString());
                                 managerFound.add(document.get("manager_email").toString());
                             }
+                            showOnscroll();
+
                             if(activitiesNamesFound.isEmpty()){
-                                Intent intent=new Intent(user_activities.this, no_result.class);
+                                Intent intent=new Intent(user_activities.this, no_activities1.class);
                                 startActivity(intent);
                             }else {
                                 showOnscroll();
                             }
+
                         } else {
                             Log.d(TAG, "Error getting documents: ", task.getException());
                         }
@@ -125,6 +128,7 @@ public class user_activities extends AppCompatActivity {
                 Log.d(TAG, "goToDetails");
                 String avtivityName = activitiesNamesFound.get(position);
                 String des = descriptionsFound.get(position);
+                //move the details to the next screen
                 if(managerFound.get(position).equals(currentEmail)){
                     goTotheNextScreen(true, avtivityName, des);
                 }
@@ -155,6 +159,7 @@ public class user_activities extends AppCompatActivity {
 
         intent.putExtra("ACTIVITY_NAME", activityName);
         intent.putExtra("DESCRIPTION", description);
+        intent.putExtra("GOT_FROM", "my_activities");
         startActivity(intent);
 
     }

@@ -1151,6 +1151,7 @@ drawable logo_launcher
 drawable logo_white
 drawable logo_white_no_name
 drawable logowhitetranperent
+drawable look_for_activities
 drawable messagesend
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
@@ -1404,6 +1405,8 @@ id name
 id name_of_activity
 id navigation_header_container
 id never
+id no_activities
+id no_activities1
 id none
 id normal
 id notification_background
@@ -1624,6 +1627,7 @@ layout activity_edit_activity
 layout activity_group
 layout activity_main
 layout activity_manager
+layout activity_no_activities1
 layout activity_no_requests
 layout activity_no_result
 layout activity_participant_group

@@ -267,7 +267,7 @@ public class activity_Search extends AppCompatActivity {
             ||(sportThatChosen==null)
             ||(cityThatChosen==null)){
             Log.d(TAG, "check1!");
-            Snackbar.make(view, "Please search by sport type, age range and area",
+            Snackbar.make(view, "Please search by sport type, age range and city",
                     Snackbar.LENGTH_LONG)
                     .show();
 

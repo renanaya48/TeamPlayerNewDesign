@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -155,6 +156,35 @@ public class manager extends AppCompatActivity {
         intent.putExtra("DESCRIPTION", description);
         startActivity(intent);
     }
+
+    /**
+     * The function go back to the previous screen when arrow bar is pressed
+     * @param item
+     * @return
+     */
+    public boolean onOptionsItemSelected(MenuItem item){
+        String backTO = getIntent().getStringExtra("GOT_FROM");
+        Intent myIntent;
+        if(backTO.equals("my_activities")){
+            myIntent = new Intent(getApplicationContext(), user_activities.class);
+        }else{
+            myIntent = new Intent(getApplicationContext(), search_result.class);
+
+            ArrayList <String> activitiesNamesList= getIntent().getStringArrayListExtra("ACTIVITIES_NAME_LIST");
+            ArrayList <String> descriptionsList= getIntent().getStringArrayListExtra("DESCRIPTIONS_LIST");
+            ArrayList <String>managerList = getIntent().getStringArrayListExtra("MANAGER_LIST");
+
+            myIntent.putStringArrayListExtra("ACTIVITY_NAME", activitiesNamesList);
+            myIntent.putStringArrayListExtra("DESCRIPTION", descriptionsList);
+            myIntent.putStringArrayListExtra("MANAGER", managerList);
+
+        }
+        //myIntent.putExtra("ACTIVITY_NAME", documentActivityName);
+        //myIntent.putExtra("DESCRIPTION", description);
+        startActivityForResult(myIntent, 0);
+        return true;
+    }
+
 
 
 
