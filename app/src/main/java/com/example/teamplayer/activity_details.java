@@ -62,6 +62,7 @@ public class activity_details extends AppCompatActivity {
     ArrayList<String> descriptionsList;
     String ageRange;
     private ArrayList<String> managerList;
+    private boolean isRequestSend;
 
 
     @Override
@@ -74,6 +75,7 @@ public class activity_details extends AppCompatActivity {
         managerList = getIntent().getStringArrayListExtra("MANAGER");
         getAgeRange();
         //Show action bar
+        isRequestSend=false;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mAuth = FirebaseAuth.getInstance();
         activity_name = detailsList.get(0);
@@ -99,13 +101,23 @@ public class activity_details extends AppCompatActivity {
         root = FirebaseDatabase.getInstance().getReference().child("Groups").child(activity_name);
         FirebaseUser user = mAuth.getCurrentUser();
         user_email = user.getEmail();
+        final Button requestButton = (Button) findViewById(R.id.request);
+        requestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!isRequestSend){
+                    request(view);
+                    isRequestSend=true;
+                }
+
+            }
+        });
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         Query userQuery = root.orderByChild("user_email").equalTo(user_email);
         userQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
-                   Button requestButton = (Button) findViewById(R.id.request);
                     requestButton.setClickable(false);
                     requestButton.setText("Request sent");
                 }
@@ -177,54 +189,38 @@ public class activity_details extends AppCompatActivity {
         user_email = user.getEmail();
         //Check if user is already in the group
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        Query userQuery = ref.child("Groups").child(activity_name).orderByChild("user_email").equalTo(user_email);
-        userQuery.addValueEventListener(new ValueEventListener() {
+        DocumentReference userNAme = db.collection("Users").document(user_email);
+        userNAme.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                //If user is not a member
-                if (!dataSnapshot.exists()){
-                    DocumentReference userNAme = db.collection("Users").document(user_email);
-                    userNAme.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                            if (task.isSuccessful()) {
-                                DocumentSnapshot document = task.getResult();
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
 
-                                if (document.exists()) {
-                                    //Get user name and send request notification to maneger
-                                    temp_key = root.push().getKey();
-                                    user_name= document.getString("Name");
-                                    String message = user_name +" send request to join group "+activity_name;
-                                    NotificationSender sender=new NotificationSender(manager_email,message);
-                                    sender.sendNotification();
-                                    Log.d(TAG, "DocumentSnapshot data: " + document.getString("Name"));
-                                    //sendNotification();
-                                    //Add request to DB
-                                    userRoot= root.child(temp_key);
-                                    String userUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                                    Map<String, Object> map = new HashMap<String, Object>();
-                                    map.put("name", user_name);
-                                    map.put("user_email", user_email);
-                                    userRoot.updateChildren(map);
+                    if (document.exists()) {
+                        //Get user name and send request notification to maneger
+                        temp_key = root.push().getKey();
+                        user_name= document.getString("Name");
+                        String message = user_name +" send request to join group "+activity_name;
+                        NotificationSender sender=new NotificationSender(manager_email,message);
+                        sender.sendNotification();
+                        Log.d(TAG, "DocumentSnapshot data: " + document.getString("Name"));
+                        //sendNotification();
+                        //Add request to DB
+                        userRoot= root.child(temp_key);
+                        String userUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                        Map<String, Object> map = new HashMap<String, Object>();
+                        map.put("name", user_name);
+                        map.put("user_email", user_email);
+                        userRoot.updateChildren(map);
 
-                                } else {
-                                    Log.d(TAG, "No such document");
-                                }
-                            } else {
-                                Log.d(TAG, "get failed with ", task.getException());
-                            }
-                        }
-                    });
-
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
                 }
             }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.e(TAG, "onCancelled", databaseError.toException());
-            }
         });
-
 
     }
     /**

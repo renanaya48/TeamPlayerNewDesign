@@ -29,21 +29,20 @@
 
         <TextView
             android:id="@+id/name_of_activity"
-            android:layout_width="275dp"
-            android:layout_height="70dp"
+            android:layout_width="wrap_content"
+            android:layout_height="69dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginStart="114dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="23dp"
+            android:layout_marginStart="104dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="32dp"
             android:layout_marginBottom="574dp"
-            android:background="@drawable/select_action_backround"
-            android:textAlignment="center"
+            android:fontFamily="@font/titan_one"
             android:textAllCaps="true"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
+            android:textColor="@android:color/background_light"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.606"
@@ -61,12 +60,13 @@
             android:layout_marginTop="135dp"
             android:layout_marginEnd="133dp"
             android:background="@drawable/description_view_to_fill"
-            android:textColor="@color/colorPrimary"
             android:ems="10"
-            android:textSize="24dp"
-            android:padding="10dp"
+            android:fontFamily="@font/alegreya"
             android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textColor="@color/colorPrimary"
             android:textIsSelectable="false"
+            android:textSize="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.592"
             app:layout_constraintStart_toStartOf="parent" />
@@ -80,8 +80,9 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="12dp"
             android:background="@drawable/title_border"
-            android:textColor="#FFFFFF"
-            android:text="Leave Activity" />
+            android:fontFamily="@font/alegreya"
+            android:text="Leave Activity"
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/chatButton"
@@ -92,9 +93,10 @@
             android:layout_marginTop="134dp"
             android:layout_marginEnd="14dp"
             android:background="@drawable/title_border"
-            android:textColor="#FFFFFF"
+            android:fontFamily="@font/alegreya"
             android:onClick="chatButton"
-            android:text="Chat" />
+            android:text="Chat"
+            android:textColor="#FFFFFF" />
 
 
         <de.hdodenhof.circleimageview.CircleImageView

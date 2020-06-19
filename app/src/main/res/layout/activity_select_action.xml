@@ -74,6 +74,7 @@
             android:onClick="signOutButton"
             android:text="Sign Out"
             android:textColor="#273272"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

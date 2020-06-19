@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 
@@ -37,6 +39,8 @@ public class activity_Login extends AppCompatActivity {
     Intent intent;
     TextView failureMessage;
     private static final String TAG = "EmailPassword";
+    private boolean ShowText;
+    private ImageButton showTextButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,23 +55,31 @@ public class activity_Login extends AppCompatActivity {
 
         password= (EditText) findViewById(R.id.password);
         failureMessage = (TextView) findViewById(R.id.logInFailed);
-
+        //Hide Text
         password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+        ShowText=false;
         Button logInButton = findViewById(R.id.logInButton);
         checkbox = (CheckBox) findViewById(R.id.checkbox);
-        //Check box to show the user the password
-        checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        showTextButton = (ImageButton) findViewById(R.id.ShowText);
+
+        //Set OnClickListener to show/hide password
+        showTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if (isChecked) {
+            public void onClick(View view) {
+                ShowText= !ShowText;
+                if (ShowText){
                     // show password
                     password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                } else {
+                    showTextButton.setBackgroundResource(R.drawable.ic_visibility_off_black_24dp);
+                }else {
                     // hide password
                     password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    showTextButton.setBackgroundResource(R.drawable.ic_visibility_black_24dp);
                 }
+
             }
         });
+
 
     }
 
@@ -109,9 +121,6 @@ public class activity_Login extends AppCompatActivity {
                                 failureMessage.setText(message);
                                 // If sign in fails, display a messagesend to the user.
                                 Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                Toast.makeText(activity_Login.this, "Authentication failed.",
-                                        Toast.LENGTH_SHORT).show();
-
                                 updateUI(null);
                             }
 
@@ -147,7 +156,7 @@ public class activity_Login extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Log.d(TAG, "Email sent.");
-                                Snackbar.make(viewToPass, "Password reset email sent",
+                                Snackbar.make(viewToPass, "Email was send to your email account, please confirm",
                                         Snackbar.LENGTH_LONG)
                                         .show();
                             }

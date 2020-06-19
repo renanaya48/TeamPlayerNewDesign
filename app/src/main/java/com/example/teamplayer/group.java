@@ -7,8 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextPaint;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -81,6 +85,15 @@ public class group extends AppCompatActivity {
         documentActivityName = getIntent().getStringExtra("ACTIVITY_NAME");
         downloadImage();
         nameActivity.setText(documentActivityName);
+        TextPaint paint = nameActivity.getPaint();
+        float width = paint.measureText(documentActivityName);
+        Shader textShader = new LinearGradient(0, 0, width, nameActivity.getTextSize(),
+                new int[]{
+                        Color.parseColor("#2e3191"),
+                        Color.parseColor("#0000E5"),
+                        Color.parseColor("#2e3191"),
+                }, null, Shader.TileMode.REPEAT);
+        nameActivity.getPaint().setShader(textShader);
         setTitle(documentActivityName);
         TextView descr = (TextView) findViewById((R.id.details_to_fill)) ;
         description = getIntent().getStringExtra("DESCRIPTION");

@@ -21,7 +21,6 @@
             android:layout_height="40dp"
             android:layout_marginTop="444dp"
             android:background="@drawable/title_border"
-            android:onClick="request"
             android:text="ASK TO JOIN"
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,11 +52,13 @@
             android:layout_height="44dp"
             android:layout_marginStart="44dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="44dp"
             android:background="@drawable/description_view_to_fill"
+            android:padding="10dp"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:textSize="18sp"
-            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/description_details_1" />
 
@@ -74,7 +75,6 @@
             android:textSize="18sp"
             android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.948"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/number_of_participations" />
 

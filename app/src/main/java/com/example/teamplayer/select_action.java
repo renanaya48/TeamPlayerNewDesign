@@ -30,6 +30,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageException;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.onesignal.OneSignal;
@@ -61,22 +62,29 @@ public class select_action extends AppCompatActivity {
         imageUser = (ImageView) findViewById(R.id.profile_image);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
-        String userEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        final String userEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         final StorageReference storageReference = storage.getReference("uploads/" + userEmail);
-        storage.getReference("uploads/" + userEmail).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Glide.with(context /* context */)
-                        .load(storageReference)
-                        .into(imageUser);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                // File not found
-            }
-        });
-        System.out.println();
+        System.out.println("eroeeeerrrrrr1111111111");
+        try {
+            storage.getReference("uploads/" + userEmail).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    System.out.println("eroeeeerrrrrr22222222222222");
+                    Glide.with(context /* context */)
+                            .load(storageReference)
+                            .into(imageUser);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure( Exception exception) {
+                    System.out.println("eroeeeerrrrrr");
+                   System.out.println(exception);
+                }
+            });
+        }catch ( Exception exception){
+            System.out.println("eroeeeerrrrrr555555555555555");
+
+        }
 
         imageChangePhoto.setOnClickListener(new View.OnClickListener() {
             @Override

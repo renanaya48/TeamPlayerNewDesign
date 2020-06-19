@@ -97,7 +97,6 @@ public class request_item_adapter  extends ArrayAdapter<requestItem> {
         addProfileimage(imageUser,email);
         //add values to the list item
         textViewName.setText(requestItem.getMessage());
-        final Context context= ApplicationClass.getAppContext();
             //Add in click listener when the manager aprroves to join the group
             buttonAccept.setOnClickListener(new View.OnClickListener() {
                 @Override

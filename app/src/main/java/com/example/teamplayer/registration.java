@@ -69,6 +69,7 @@ public class registration extends AppCompatActivity {
         password.setTransformationMethod(PasswordTransformationMethod.getInstance());
         EditText passwordAgain= (EditText) findViewById(R.id.passwordConfrim);
         passwordAgain.setTransformationMethod(PasswordTransformationMethod.getInstance());
+        setTitle("Registration");
         chooseDate();
     }
 

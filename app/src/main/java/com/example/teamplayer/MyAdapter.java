@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -100,7 +101,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
          * Set the background to yellow
          */
         public void setBackGround(){
-            view.setBackgroundColor(Color.rgb(68, 71, 155));
+            view.setBackground(ContextCompat.getDrawable(ApplicationClass.getAppContext(),R.drawable.text_view_to_fill2) );
         }
     }
 
@@ -127,7 +128,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
     @Override
     public void onBindViewHolder(final activityViewHolder holder, int position) {
         final ActivityItems currentItem = mActivitiesList.get(position);
-
         String activityID = currentItem.getActivityID();
         final Context context = ApplicationClass.getAppContext();
         storage = FirebaseStorage.getInstance();
@@ -185,7 +185,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.activityViewHolder
             public void onDataChange(DataSnapshot snapshot) {
                 if (snapshot.hasChild(activityName)) {
                     //Check if current user is the manager
-                    if (currentItem.isManager()){
+                    String splitName[] = currentItem.getActivityName().split(" ");
+                    String isManagerOrNot = splitName[splitName.length - 1];
+                    if (currentItem.isManager() && isManagerOrNot.equals("(MANAGER)")){
                         //Show manager new requests are pending and change activity color
                         String textToShow=currentItem.getActivityName()+" -New pending requests";
                         holder.mTextView1.setText(textToShow);

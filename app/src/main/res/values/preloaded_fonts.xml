@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/alegreya</item>
+        <item>@font/alfa_slab_one</item>
+        <item>@font/bungee_inline</item>
+        <item>@font/bungee_outline</item>
+        <item>@font/bungee_shade</item>
+        <item>@font/diplomata</item>
+        <item>@font/holtwood_one_sc</item>
+        <item>@font/titan_one</item>
+    </array>
+</resources>

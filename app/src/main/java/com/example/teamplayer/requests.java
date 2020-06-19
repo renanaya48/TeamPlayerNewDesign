@@ -35,6 +35,7 @@ public class requests extends AppCompatActivity {
     ListView listView;
     String activity_name;
     String  description ;
+   private  ChildEventListener childEventListener;
 
 
     @Override
@@ -49,7 +50,7 @@ public class requests extends AppCompatActivity {
         description = getIntent().getStringExtra("DESCRIPTION");
         root = FirebaseDatabase.getInstance().getReference().child("Groups").child(activity_name);
         //Get activity requests from DB
-        root.addChildEventListener(new ChildEventListener() {
+        childEventListener = root.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 append_request(dataSnapshot);
@@ -84,6 +85,9 @@ public class requests extends AppCompatActivity {
      * @return
      */
     public boolean onOptionsItemSelected(MenuItem item){
+        root.removeEventListener(childEventListener);
+        childEventListener =null;
+        root=null;
         Intent myIntent = new Intent(getApplicationContext(), manager.class);
         myIntent.putExtra("ACTIVITY_NAME", activity_name);
         myIntent.putExtra("DESCRIPTION", description);

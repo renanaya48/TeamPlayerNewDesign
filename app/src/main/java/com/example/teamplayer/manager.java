@@ -9,9 +9,13 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.LinearGradient;
+import android.graphics.Shader;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextPaint;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -104,6 +108,15 @@ public class manager extends AppCompatActivity {
         downloadImage();
         TextView activity_name = (TextView) findViewById(R.id.password);
         activity_name.setText(activityName);
+        TextPaint paint = activity_name.getPaint();
+        float width = paint.measureText(activityName);
+        Shader textShader = new LinearGradient(0, 0, width, activity_name.getTextSize(),
+                new int[]{
+                        Color.parseColor("#2e3191"),
+                        Color.parseColor("#0000E5"),
+                        Color.parseColor("#2e3191"),
+                }, null, Shader.TileMode.REPEAT);
+        activity_name.getPaint().setShader(textShader);
         TextView descriptionText = (TextView) findViewById(R.id.activity_description);
         descriptionText.setText(description);
         createParticipantsList();
@@ -206,11 +219,13 @@ public class manager extends AppCompatActivity {
                     Intent intent = new Intent(getBaseContext(), no_requests.class);
                     intent.putExtra("activity_name", activityName);
                     intent.putExtra("DESCRIPTION", description);
+                    rootRequests.removeEventListener(this);
                     startActivity(intent);
                 }else {
                     Intent intent = new Intent(getBaseContext(), requests.class);
                     intent.putExtra("activity_name", activityName);
                     intent.putExtra("DESCRIPTION", description);
+                    rootRequests.removeEventListener(this);
                     startActivity(intent);
                 }
             }

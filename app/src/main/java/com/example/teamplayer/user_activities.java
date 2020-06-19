@@ -86,24 +86,22 @@ public class user_activities extends AppCompatActivity {
                         }
                     }
                 });
-        // [END get_multiple]
-
     }
 
     public void showOnscroll(){
-        boolean isManager=false;
+        boolean isManager = false;
         String activityNameToShow;
         mActivitiesList = new ArrayList<>();
         Log.w(TAG, "list here");
-        if(activitiesNamesFound==null){
+        if(activitiesNamesFound == null){
             Log.w(TAG, "null");
         }
-        for(int i=0; i<activitiesNamesFound.size(); ++i){
+        for(int i = 0; i < activitiesNamesFound.size(); ++i){
             activityNameToShow = activitiesNamesFound.get(i);
             String activityNameNoChanges = activityNameToShow;
             if(managerFound.get(i).equals(currentEmail)) {
                 activityNameToShow += " (MANAGER)";
-                isManager=true;
+                isManager = true;
             }
 
             //String userUid = FirebaseAuth.getInstance().getCurrentUser().getUid();

@@ -59,16 +59,13 @@ public class search_result extends AppCompatActivity {
     }
 
     public void createActivityList() {
-        boolean isManager=false;
+        boolean isManager = false;
         activitiesNamesList= getIntent().getStringArrayListExtra("ACTIVITY_NAME");
         Log.d(TAG, "numOfList" + String.valueOf(activitiesNamesList.size()));
         descriptionsList= getIntent().getStringArrayListExtra("DESCRIPTION");
         managerList = getIntent().getStringArrayListExtra("MANAGER");
-
-
         String activityNameToShow;
         mActivitiesList = new ArrayList<>();
-
         for(int i=0; i<activitiesNamesList.size(); ++i){
             activityNameToShow = activitiesNamesList.get(i);
             String activityNameNoChanges = activityNameToShow;

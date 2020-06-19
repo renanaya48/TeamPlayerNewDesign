@@ -24,7 +24,7 @@ public class ActivityItems {
         mImageResource = imageResource;
         mActivityName = activityName;
         mDescription = desc;
-        this.isManager=isManager;
+        this.isManager = isManager;
     }
 
     /**

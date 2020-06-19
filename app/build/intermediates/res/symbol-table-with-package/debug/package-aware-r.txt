@@ -39,6 +39,10 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array com_google_android_gms_fonts_certs
+array com_google_android_gms_fonts_certs_dev
+array com_google_android_gms_fonts_certs_prod
+array preloaded_fonts
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -1141,6 +1145,8 @@ drawable ic_stat_namev
 drawable ic_stat_namex
 drawable ic_stat_notification
 drawable ic_stat_onesignal_default
+drawable ic_visibility_black_24dp
+drawable ic_visibility_off_black_24dp
 drawable image_circle
 drawable light_color
 drawable list_item_boarder
@@ -1181,11 +1187,20 @@ drawable select_action_backround
 drawable small_button
 drawable text_view_backround
 drawable text_view_to_fill
+drawable text_view_to_fill2
 drawable textview_border
 drawable title_border
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable try_again
+font alegreya
+font alfa_slab_one
+font bungee_inline
+font bungee_outline
+font bungee_shade
+font diplomata
+font holtwood_one_sc
+font titan_one
 id ALT
 id CTRL
 id Email
@@ -1195,6 +1210,7 @@ id META
 id PhotoButtun
 id SHIFT
 id SYM
+id ShowText
 id accept
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -1519,7 +1535,6 @@ id textView10
 id textView11
 id textView12
 id textView13
-id textView2
 id textView3
 id textView4
 id textView5
