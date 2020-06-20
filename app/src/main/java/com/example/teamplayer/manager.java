@@ -123,14 +123,12 @@ public class manager extends AppCompatActivity {
         Button editButton = (Button) findViewById(R.id.edit_button);
         Button deleteButton = (Button) findViewById(R.id.deleteButton);
 
-        Button chatButton = (Button) findViewById(R.id.button_Chat);
+        final Button chatButton = (Button) findViewById(R.id.button_Chat);
         Button requestButton = (Button) findViewById(R.id.button_join_request);
         chatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), chat.class);
-                intent.putExtra("room_name", activityName);
-                startActivity(intent);
+               chatButton(view);
             }
         });
         requestButton.setOnClickListener(new View.OnClickListener() {
@@ -203,6 +201,8 @@ public class manager extends AppCompatActivity {
 
     public void chatButton(View view){
         Intent intent = new Intent(getApplicationContext(), chat.class);
+        String backTO = getIntent().getStringExtra("GOT_FROM");
+        intent.putExtra("GOT_FROM", backTO);
         intent.putExtra("room_name", activityName);
         intent.putExtra("DESCRIPTION", description);
         startActivity(intent);
@@ -217,12 +217,16 @@ public class manager extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getValue() == null){
                     Intent intent = new Intent(getBaseContext(), no_requests.class);
+                    String backTO = getIntent().getStringExtra("GOT_FROM");
+                    intent.putExtra("GOT_FROM", backTO);
                     intent.putExtra("activity_name", activityName);
                     intent.putExtra("DESCRIPTION", description);
                     rootRequests.removeEventListener(this);
                     startActivity(intent);
                 }else {
                     Intent intent = new Intent(getBaseContext(), requests.class);
+                    String backTO = getIntent().getStringExtra("GOT_FROM");
+                    intent.putExtra("GOT_FROM", backTO);
                     intent.putExtra("activity_name", activityName);
                     intent.putExtra("DESCRIPTION", description);
                     rootRequests.removeEventListener(this);

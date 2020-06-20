@@ -66,6 +66,7 @@ public class chat extends AppCompatActivity {
     String  description ;
     ActionBar actionbar;
     private LayoutParams layoutparams;
+    String backTO;
 
 
 
@@ -116,6 +117,7 @@ public class chat extends AppCompatActivity {
         //Get the activity name and description
         room_name = getIntent().getExtras().get("room_name").toString();
         description = getIntent().getStringExtra("DESCRIPTION");
+        backTO = getIntent().getStringExtra("GOT_FROM");
         //Set Action Bat title
         setTitle(room_name+" - Chat");
 
@@ -217,6 +219,7 @@ public class chat extends AppCompatActivity {
      */
     public boolean onOptionsItemSelected(MenuItem item){
         Intent myIntent = new Intent(getApplicationContext(), manager.class);
+        myIntent.putExtra("GOT_FROM", backTO);
         myIntent.putExtra("ACTIVITY_NAME", room_name);
         myIntent.putExtra("DESCRIPTION", description);
         startActivityForResult(myIntent, 0);

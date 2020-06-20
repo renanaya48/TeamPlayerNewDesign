@@ -146,6 +146,8 @@ public class group extends AppCompatActivity {
 
     public void chatButton(View view){
         Intent intent = new Intent(getApplicationContext(), chat.class);
+        String backTO = getIntent().getStringExtra("GOT_FROM");
+        intent.putExtra("GOT_FROM", backTO);
         intent.putExtra("room_name", documentActivityName);
         intent.putExtra("DESCRIPTION", description);
         startActivity(intent);

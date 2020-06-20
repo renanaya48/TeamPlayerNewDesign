@@ -36,6 +36,7 @@ public class requests extends AppCompatActivity {
     String activity_name;
     String  description ;
    private  ChildEventListener childEventListener;
+   String backTO;
 
 
     @Override
@@ -45,6 +46,7 @@ public class requests extends AppCompatActivity {
         TextView myRequest = (TextView)  findViewById(R.id.title);
         Color c=  new Color();
         requestList = new ArrayList<>();
+        backTO = getIntent().getStringExtra("GOT_FROM");
         listView = (ListView) findViewById(R.id.listView);
         activity_name = getIntent().getStringExtra("activity_name");
         description = getIntent().getStringExtra("DESCRIPTION");
@@ -89,6 +91,7 @@ public class requests extends AppCompatActivity {
         childEventListener =null;
         root=null;
         Intent myIntent = new Intent(getApplicationContext(), manager.class);
+        myIntent.putExtra("GOT_FROM", backTO);
         myIntent.putExtra("ACTIVITY_NAME", activity_name);
         myIntent.putExtra("DESCRIPTION", description);
         startActivityForResult(myIntent, 0);
