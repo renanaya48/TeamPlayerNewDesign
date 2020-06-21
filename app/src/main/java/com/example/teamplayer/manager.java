@@ -195,17 +195,21 @@ public class manager extends AppCompatActivity {
         Intent myIntent;
         if(backTo.equals("my_activities")){
             myIntent = new Intent(getApplicationContext(), user_activities.class);
-        }else{
-            myIntent = new Intent(getApplicationContext(), search_result.class);
+        }else {
+            if (backTo.equals("search_result")) {
+                myIntent = new Intent(getApplicationContext(), search_result.class);
 
-            ArrayList <String> activitiesNamesList= getIntent().getStringArrayListExtra("ACTIVITIES_NAME_LIST");
-            ArrayList <String> descriptionsList= getIntent().getStringArrayListExtra("DESCRIPTIONS_LIST");
-            ArrayList <String>managerList = getIntent().getStringArrayListExtra("MANAGER_LIST");
+                ArrayList<String> activitiesNamesList = getIntent().getStringArrayListExtra("ACTIVITIES_NAME_LIST");
+                ArrayList<String> descriptionsList = getIntent().getStringArrayListExtra("DESCRIPTIONS_LIST");
+                ArrayList<String> managerList = getIntent().getStringArrayListExtra("MANAGER_LIST");
 
-            myIntent.putStringArrayListExtra("ACTIVITIES_NAME_LIST", activitiesNamesList);
-            myIntent.putStringArrayListExtra("DESCRIPTIONS_LIST", descriptionsList);
-            myIntent.putStringArrayListExtra("MANAGER_LIST", managerList);
+                myIntent.putStringArrayListExtra("ACTIVITIES_NAME_LIST", activitiesNamesList);
+                myIntent.putStringArrayListExtra("DESCRIPTIONS_LIST", descriptionsList);
+                myIntent.putStringArrayListExtra("MANAGER_LIST", managerList);
 
+            }else{
+                myIntent = new Intent(getApplicationContext(), activity_create_new.class);
+            }
         }
         //myIntent.putExtra("ACTIVITY_NAME", documentActivityName);
         //myIntent.putExtra("DESCRIPTION", description);

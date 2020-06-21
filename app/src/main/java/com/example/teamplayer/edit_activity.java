@@ -132,10 +132,12 @@ public class edit_activity extends AppCompatActivity {
         EditText editDescription = (EditText) findViewById(R.id.edit_description);
         editDescription.setText(description);
         AutoCompleteTextView editCity = (AutoCompleteTextView) findViewById(R.id.city_editText);
-        EditText editAgeRange = (EditText) findViewById(R.id.max_age_fill);
         EditText editMaxPlayers = (EditText) findViewById(R.id.editMaxPlayers);
+        EditText editMinAge = (EditText) findViewById(R.id.min_age_fill);
+        EditText editMaxAge = (EditText) findViewById(R.id.max_age_fill);
         editCity.setText(city);
-        editAgeRange.setText(ageRange);
+        editMinAge.setText(minAge);
+        editMaxAge.setText(maxAge);
         editMaxPlayers.setText(maxPlayers);
 
 
@@ -178,6 +180,8 @@ public class edit_activity extends AppCompatActivity {
                         ageRange = document.getString("ageRange");
                         city = document.getString("city");
                         maxPlayers = document.getString("maxPlayers");
+                        minAge = document.getString("minAge");
+                        maxAge = document.getString("maxAge");
                         showDetails();
                     } else {
                         Log.d(TAG, "No such document");

@@ -359,6 +359,7 @@ public class activity_create_new extends AppCompatActivity {
         intent.putExtra("ACTIVITY", className);
         intent.putExtra("ACTIVITY_NAME", activityNameText);
         intent.putExtra("DESCRIPTION", descriptionText);
+        intent.putExtra("GOT_FROM", "create_new");
 
         startActivity(intent);
     }
