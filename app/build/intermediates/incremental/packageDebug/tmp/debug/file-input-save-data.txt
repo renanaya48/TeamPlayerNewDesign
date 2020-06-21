@@ -1,15 +1,15 @@
 #Internal package file, do not edit.
-#Sun Jun 21 13:28:28 IDT 2020
-1.base=C\:\\Users\\renan\\AndroidStudioProjects\\TeamPlayerNewVersion014\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out
+#Sun Jun 21 19:24:45 IDT 2020
+1.base=C\:\\Users\\renan\\AndroidStudioProjects\\TeamPlayerNewVersion1234\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out
 2.path=classes2.dex
 0.baseType=DIRECTORY
-2.base=C\:\\Users\\renan\\AndroidStudioProjects\\TeamPlayerNewVersion014\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out
+2.base=C\:\\Users\\renan\\AndroidStudioProjects\\TeamPlayerNewVersion1234\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out
 2.set=DEX
 1.baseType=DIRECTORY
 count=3
 1.set=DEX
 0.path=classes.dex
 0.set=DEX
-0.base=C\:\\Users\\renan\\AndroidStudioProjects\\TeamPlayerNewVersion014\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out
+0.base=C\:\\Users\\renan\\AndroidStudioProjects\\TeamPlayerNewVersion1234\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out
 2.baseType=DIRECTORY
 1.path=classes.dex

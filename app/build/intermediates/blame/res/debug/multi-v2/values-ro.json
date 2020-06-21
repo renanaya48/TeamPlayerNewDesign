@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\renan\\AndroidStudioProjects\\TeamPlayerNewVersion014\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ro\\values-ro.xml",
+            "outputFile": "C:\\Users\\renan\\AndroidStudioProjects\\TeamPlayerNewVersion1234\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ro\\values-ro.xml",
             "map": [
                 {
                     "source": "C:\\Users\\renan\\.gradle\\caches\\transforms-2\\files-2.1\\024bfbfe75edc9c51e1eb6afa4602bd8\\res\\values-ro\\values.xml",

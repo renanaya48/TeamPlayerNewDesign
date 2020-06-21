@@ -492,13 +492,28 @@ public class manager extends AppCompatActivity {
 
     }
 
+    /**
+     * after delete a participant - refresh the screen and the participants list
+     */
     public void refreshScreen(){
+
+
         Intent intent = new Intent(this, manager.class);
         intent.putExtra("ACTIVITY_NAME", activityName);
         intent.putExtra("DESCRIPTION", description);
-        startActivity(intent);
+        intent.putExtra("GOT_FROM", backTo);
 
-    }
+        if(backTo.equals("search_result")){
+            ArrayList <String> activitiesNamesList= getIntent().getStringArrayListExtra("ACTIVITIES_NAME_LIST");
+            ArrayList <String> descriptionsList= getIntent().getStringArrayListExtra("DESCRIPTIONS_LIST");
+            ArrayList <String>managerList = getIntent().getStringArrayListExtra("MANAGER_LIST");
+
+            intent.putStringArrayListExtra("ACTIVITIES_NAME_LIST", activitiesNamesList);
+            intent.putStringArrayListExtra("DESCRIPTIONS_LIST", descriptionsList);
+            intent.putStringArrayListExtra("MANAGER_LIST", managerList);
+        }
+        startActivity(intent);
+     }
 
     public void goToSelectActionScreen(){
         Intent intent = new Intent(this, select_action.class);

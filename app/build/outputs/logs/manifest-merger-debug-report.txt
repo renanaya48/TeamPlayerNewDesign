@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:2:1-73:12
-INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:2:1-73:12
-INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:2:1-73:12
-INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:2:1-73:12
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:2:1-73:12
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\a2cfa2f9c6117bddf036b1fd8745f4e9\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\c6a8a4c982cb22d2e2b2cda4dbbb33f3\AndroidManifest.xml:17:1-24:12
 MERGED from [com.webianks.library:scroll-choice:1.0.1] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\1eaadfcc14d8802ec002a51f09a6776e\AndroidManifest.xml:2:1-17:12
@@ -77,25 +77,25 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\renan\.g
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\49a7cbdbe82907f2da2b5356d2fcd437\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:protolite-well-known-types:17.0.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\16f3cb14db28b3c9d801f2bec6af1407\AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.21.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\ffd9bd1cd54c41e3e68674ea6a433c52\AndroidManifest.xml:2:1-13:12
-INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:2:1-73:12
-INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:2:1-73:12
-INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:2:1-73:12
 	package
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:3:5-37
-		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:3:5-37
+		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:2:1-73:12
-		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:2:1-73:12
+		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:2:1-73:12
-		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:2:1-73:12
+		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:5:5-71:19
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:5:5-71:19
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\c6a8a4c982cb22d2e2b2cda4dbbb33f3\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\c6a8a4c982cb22d2e2b2cda4dbbb33f3\AndroidManifest.xml:22:5-20
 MERGED from [com.webianks.library:scroll-choice:1.0.1] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\1eaadfcc14d8802ec002a51f09a6776e\AndroidManifest.xml:11:5-15:19
@@ -163,153 +163,153 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\re
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\35d0580bb7ebe6ccbffdecabbab2c928\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:11:9-35
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:11:9-35
 	android:label
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:9:9-41
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:9:9-41
 	android:roundIcon
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:10:9-54
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:10:9-54
 	android:icon
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:8:9-43
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:8:9-43
 	android:allowBackup
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:7:9-35
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:7:9-35
 	android:theme
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:12:9-40
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:12:9-40
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:6:9-41
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:6:9-41
 activity#com.example.teamplayer.no_activities1
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:13:9-14:58
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:13:9-14:58
 	android:parentActivityName
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:14:13-56
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:14:13-56
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:13:19-49
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:13:19-49
 activity#com.example.teamplayer.no_requests
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:15:9-49
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:15:9-49
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:15:19-46
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:15:19-46
 activity#com.example.teamplayer.edit_activity
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:16:9-51
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:16:9-51
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:16:19-48
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:16:19-48
 activity#com.example.teamplayer.participants_Items
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:17:9-56
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:17:9-56
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:17:19-53
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:17:19-53
 activity#com.example.teamplayer.requestItem
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:18:9-21:59
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:18:9-21:59
 	android:label
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:20:13-64
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:20:13-64
 	android:theme
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:21:13-56
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:21:13-56
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:19:13-40
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:19:13-40
 activity#com.example.teamplayer.activity_details
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:22:9-25:47
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:22:9-25:47
 	android:label
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:24:13-59
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:24:13-59
 	android:theme
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:25:13-44
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:25:13-44
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:23:13-45
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:23:13-45
 activity#com.example.teamplayer.sport_type
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:26:9-48
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:26:9-48
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:26:19-45
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:26:19-45
 activity#com.example.teamplayer.city
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:27:9-42
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:27:9-42
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:27:19-39
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:27:19-39
 activity#com.example.teamplayer.age_range
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:28:9-47
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:28:9-47
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:28:19-44
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:28:19-44
 activity#com.example.teamplayer.registration
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:29:9-31:60
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:29:9-31:60
 	android:parentActivityName
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:31:13-57
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:31:13-57
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:30:13-41
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:30:13-41
 activity#com.example.teamplayer.activity_Search
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:32:9-34:59
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:32:9-34:59
 	android:parentActivityName
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:34:13-56
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:34:13-56
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:33:13-44
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:33:13-44
 activity#com.example.teamplayer.activity_create_new
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:35:9-37:59
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:35:9-37:59
 	android:parentActivityName
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:37:13-56
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:37:13-56
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:36:13-48
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:36:13-48
 activity#com.example.teamplayer.user_activities
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:38:9-40:59
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:38:9-40:59
 	android:parentActivityName
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:40:13-56
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:40:13-56
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:39:13-44
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:39:13-44
 activity#com.example.teamplayer.manager
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:41:9-43:59
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:41:9-43:59
 	android:parentActivityName
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:43:13-56
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:43:13-56
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:42:13-36
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:42:13-36
 activity#com.example.teamplayer.group
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:44:9-46:59
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:44:9-46:59
 	android:parentActivityName
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:46:13-56
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:46:13-56
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:45:13-34
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:45:13-34
 activity#com.example.teamplayer.select_action
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:47:9-49:60
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:47:9-49:60
 	android:parentActivityName
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:49:13-57
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:49:13-57
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:48:13-42
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:48:13-42
 activity#com.example.teamplayer.search_result
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:50:9-52:61
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:50:9-52:61
 	android:parentActivityName
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:52:13-58
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:52:13-58
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:51:13-42
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:51:13-42
 activity#com.example.teamplayer.requests
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:53:9-55:53
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:53:9-55:53
 	android:parentActivityName
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:55:13-50
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:55:13-50
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:54:13-37
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:54:13-37
 activity#com.example.teamplayer.no_result
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:56:9-58:61
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:56:9-58:61
 	android:parentActivityName
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:58:13-58
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:58:13-58
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:57:13-38
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:57:13-38
 activity#com.example.teamplayer.chat
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:59:9-42
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:59:9-42
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:59:19-39
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:59:19-39
 activity#com.example.teamplayer.activity_Login
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:60:9-66:20
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:60:9-66:20
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:60:19-49
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:60:19-49
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:61:13-65:29
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:61:13-65:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:62:17-69
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:62:17-69
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:62:25-66
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:62:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:64:17-77
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:64:17-77
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:64:27-74
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:64:27-74
 meta-data#preloaded_fonts
-ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:68:9-70:57
+ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:68:9-70:57
 	android:resource
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:70:13-54
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:70:13-54
 	android:name
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml:69:13-43
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml:69:13-43
 uses-sdk
-INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\a2cfa2f9c6117bddf036b1fd8745f4e9\AndroidManifest.xml:20:5-43
 MERGED from [androidx.multidex:multidex:2.0.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\a2cfa2f9c6117bddf036b1fd8745f4e9\AndroidManifest.xml:20:5-43
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\c6a8a4c982cb22d2e2b2cda4dbbb33f3\AndroidManifest.xml:20:5-44
@@ -456,16 +456,16 @@ MERGED from [com.google.firebase:protolite-well-known-types:17.0.0] C:\Users\ren
 MERGED from [com.google.firebase:protolite-well-known-types:17.0.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\16f3cb14db28b3c9d801f2bec6af1407\AndroidManifest.xml:7:5-9:41
 MERGED from [io.grpc:grpc-android:1.21.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\ffd9bd1cd54c41e3e68674ea6a433c52\AndroidManifest.xml:7:5-9:41
 MERGED from [io.grpc:grpc-android:1.21.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\ffd9bd1cd54c41e3e68674ea6a433c52\AndroidManifest.xml:7:5-9:41
-INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion014\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\renan\AndroidStudioProjects\TeamPlayerNewVersion1234\app\src\main\AndroidManifest.xml
 activity#com.google.firebase.auth.internal.FederatedSignInActivity
 ADDED from [com.google.firebase:firebase-auth:19.3.0] C:\Users\renan\.gradle\caches\transforms-2\files-2.1\b9da3b53d8a0b9fa20f1080e53a51663\AndroidManifest.xml:24:9-31:50
 	android:excludeFromRecents
