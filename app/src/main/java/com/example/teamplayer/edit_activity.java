@@ -36,6 +36,7 @@ public class edit_activity extends AppCompatActivity {
     String ageRange;
     String city;
     String maxPlayers;
+    String backTo;
     private ArrayList<String> cities;
 
     @Override
@@ -43,6 +44,7 @@ public class edit_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_activity);
         activityName = getIntent().getStringExtra("ACTIVITY_NAME");
+        backTo = getIntent().getStringExtra("GOT_FROM");
         findDetails();
         Button saveChanges = (Button) findViewById(R.id.save_changes);
 
@@ -63,7 +65,7 @@ public class edit_activity extends AppCompatActivity {
 
             }
         });
-        setTitle("edit ectivity " + activityName);
+        setTitle("edit activity " + activityName);
 
     }
 
@@ -97,6 +99,16 @@ public class edit_activity extends AppCompatActivity {
         Intent intent = new Intent(this, manager.class);
         intent.putExtra("ACTIVITY_NAME", activityName);
         intent.putExtra("DESCRIPTION", description);
+        intent.putExtra("GOT_FROM", backTo);
+        if(backTo.equals("search_result")){
+            ArrayList <String> activitiesNamesList= getIntent().getStringArrayListExtra("ACTIVITIES_NAME_LIST");
+            ArrayList <String> descriptionsList= getIntent().getStringArrayListExtra("DESCRIPTIONS_LIST");
+            ArrayList <String>managerList = getIntent().getStringArrayListExtra("MANAGER_LIST");
+
+            intent.putStringArrayListExtra("ACTIVITIES_NAME_LIST", activitiesNamesList);
+            intent.putStringArrayListExtra("DESCRIPTIONS_LIST", descriptionsList);
+            intent.putStringArrayListExtra("MANAGER_LIST", managerList);
+        }
         startActivity(intent);
     }
 

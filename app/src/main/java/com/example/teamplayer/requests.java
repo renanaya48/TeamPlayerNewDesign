@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -47,6 +48,7 @@ public class requests extends AppCompatActivity {
         Color c=  new Color();
         requestList = new ArrayList<>();
         backTO = getIntent().getStringExtra("GOT_FROM");
+        Log.d("manager_request", backTO);
         listView = (ListView) findViewById(R.id.listView);
         activity_name = getIntent().getStringExtra("activity_name");
         description = getIntent().getStringExtra("DESCRIPTION");
@@ -92,8 +94,18 @@ public class requests extends AppCompatActivity {
         root=null;
         Intent myIntent = new Intent(getApplicationContext(), manager.class);
         myIntent.putExtra("GOT_FROM", backTO);
+        Log.d("manager_request", backTO);
         myIntent.putExtra("ACTIVITY_NAME", activity_name);
         myIntent.putExtra("DESCRIPTION", description);
+        if(backTO.equals("search_result")){
+            ArrayList <String> activitiesNamesList= getIntent().getStringArrayListExtra("ACTIVITIES_NAME_LIST");
+            ArrayList <String> descriptionsList= getIntent().getStringArrayListExtra("DESCRIPTIONS_LIST");
+            ArrayList <String>managerList = getIntent().getStringArrayListExtra("MANAGER_LIST");
+
+            myIntent.putStringArrayListExtra("ACTIVITIES_NAME_LIST", activitiesNamesList);
+            myIntent.putStringArrayListExtra("DESCRIPTIONS_LIST", descriptionsList);
+            myIntent.putStringArrayListExtra("MANAGER_LIST", managerList);
+        }
         startActivityForResult(myIntent, 0);
         return true;
     }

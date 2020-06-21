@@ -57,6 +57,7 @@ public class manager extends AppCompatActivity {
     private static final String ACTIVITIES_COLLECTION = "Activities";
     private static final String USERS_COLLECTION = "Users";
     private String activityName;
+    private String backTo;
     String description;
     String documentActivityName;
     private ArrayList<participants_Items> mParticipantsList;
@@ -101,6 +102,8 @@ public class manager extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         activityName = getIntent().getStringExtra("ACTIVITY_NAME");
         description = getIntent().getStringExtra("DESCRIPTION");
+        backTo = getIntent().getStringExtra("GOT_FROM");
+        Log.d(TAG, "build " + backTo);
         System.out.println("activity name: " + activityName);
         setTitle(activityName);
 
@@ -165,6 +168,19 @@ public class manager extends AppCompatActivity {
         Intent intent = new Intent(this, edit_activity.class);
         intent.putExtra("ACTIVITY_NAME", activityName);
         intent.putExtra("DESCRIPTION", description);
+        intent.putExtra("GOT_FROM", backTo);
+        Log.d(TAG, "back_to: " + backTo);
+
+        if(backTo.equals("search_result")){
+            ArrayList <String> activitiesNamesList= getIntent().getStringArrayListExtra("ACTIVITIES_NAME_LIST");
+            ArrayList <String> descriptionsList= getIntent().getStringArrayListExtra("DESCRIPTIONS_LIST");
+            ArrayList <String>managerList = getIntent().getStringArrayListExtra("MANAGER_LIST");
+
+            intent.putStringArrayListExtra("ACTIVITIES_NAME_LIST", activitiesNamesList);
+            intent.putStringArrayListExtra("DESCRIPTIONS_LIST", descriptionsList);
+            intent.putStringArrayListExtra("MANAGER_LIST", managerList);
+        }
+
         startActivity(intent);
     }
 
@@ -174,9 +190,10 @@ public class manager extends AppCompatActivity {
      * @return
      */
     public boolean onOptionsItemSelected(MenuItem item){
-        String backTO = getIntent().getStringExtra("GOT_FROM");
+
+        Log.d(TAG, backTo);
         Intent myIntent;
-        if(backTO.equals("my_activities")){
+        if(backTo.equals("my_activities")){
             myIntent = new Intent(getApplicationContext(), user_activities.class);
         }else{
             myIntent = new Intent(getApplicationContext(), search_result.class);
@@ -185,9 +202,9 @@ public class manager extends AppCompatActivity {
             ArrayList <String> descriptionsList= getIntent().getStringArrayListExtra("DESCRIPTIONS_LIST");
             ArrayList <String>managerList = getIntent().getStringArrayListExtra("MANAGER_LIST");
 
-            myIntent.putStringArrayListExtra("ACTIVITY_NAME", activitiesNamesList);
-            myIntent.putStringArrayListExtra("DESCRIPTION", descriptionsList);
-            myIntent.putStringArrayListExtra("MANAGER", managerList);
+            myIntent.putStringArrayListExtra("ACTIVITIES_NAME_LIST", activitiesNamesList);
+            myIntent.putStringArrayListExtra("DESCRIPTIONS_LIST", descriptionsList);
+            myIntent.putStringArrayListExtra("MANAGER_LIST", managerList);
 
         }
         //myIntent.putExtra("ACTIVITY_NAME", documentActivityName);
@@ -201,10 +218,19 @@ public class manager extends AppCompatActivity {
 
     public void chatButton(View view){
         Intent intent = new Intent(getApplicationContext(), chat.class);
-        String backTO = getIntent().getStringExtra("GOT_FROM");
-        intent.putExtra("GOT_FROM", backTO);
+        //String backTO = getIntent().getStringExtra("GOT_FROM");
+        intent.putExtra("GOT_FROM", backTo);
         intent.putExtra("room_name", activityName);
         intent.putExtra("DESCRIPTION", description);
+        if(backTo.equals("search_result")){
+            ArrayList <String> activitiesNamesList= getIntent().getStringArrayListExtra("ACTIVITIES_NAME_LIST");
+            ArrayList <String> descriptionsList= getIntent().getStringArrayListExtra("DESCRIPTIONS_LIST");
+            ArrayList <String>managerList = getIntent().getStringArrayListExtra("MANAGER_LIST");
+
+            intent.putStringArrayListExtra("ACTIVITIES_NAME_LIST", activitiesNamesList);
+            intent.putStringArrayListExtra("DESCRIPTIONS_LIST", descriptionsList);
+            intent.putStringArrayListExtra("MANAGER_LIST", managerList);
+        }
         startActivity(intent);
 
     }
@@ -217,18 +243,34 @@ public class manager extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getValue() == null){
                     Intent intent = new Intent(getBaseContext(), no_requests.class);
-                    String backTO = getIntent().getStringExtra("GOT_FROM");
-                    intent.putExtra("GOT_FROM", backTO);
+                    intent.putExtra("GOT_FROM", backTo);
                     intent.putExtra("activity_name", activityName);
                     intent.putExtra("DESCRIPTION", description);
+                    if(backTo.equals("search_result")){
+                        ArrayList <String> activitiesNamesList= getIntent().getStringArrayListExtra("ACTIVITIES_NAME_LIST");
+                        ArrayList <String> descriptionsList= getIntent().getStringArrayListExtra("DESCRIPTIONS_LIST");
+                        ArrayList <String>managerList = getIntent().getStringArrayListExtra("MANAGER_LIST");
+
+                        intent.putStringArrayListExtra("ACTIVITIES_NAME_LIST", activitiesNamesList);
+                        intent.putStringArrayListExtra("DESCRIPTIONS_LIST", descriptionsList);
+                        intent.putStringArrayListExtra("MANAGER_LIST", managerList);
+                    }
                     rootRequests.removeEventListener(this);
                     startActivity(intent);
                 }else {
                     Intent intent = new Intent(getBaseContext(), requests.class);
-                    String backTO = getIntent().getStringExtra("GOT_FROM");
-                    intent.putExtra("GOT_FROM", backTO);
+                    intent.putExtra("GOT_FROM", backTo);
                     intent.putExtra("activity_name", activityName);
                     intent.putExtra("DESCRIPTION", description);
+                    if(backTo.equals("search_result")){
+                        ArrayList <String> activitiesNamesList= getIntent().getStringArrayListExtra("ACTIVITIES_NAME_LIST");
+                        ArrayList <String> descriptionsList= getIntent().getStringArrayListExtra("DESCRIPTIONS_LIST");
+                        ArrayList <String>managerList = getIntent().getStringArrayListExtra("MANAGER_LIST");
+
+                        intent.putStringArrayListExtra("ACTIVITIES_NAME_LIST", activitiesNamesList);
+                        intent.putStringArrayListExtra("DESCRIPTIONS_LIST", descriptionsList);
+                        intent.putStringArrayListExtra("MANAGER_LIST", managerList);
+                    }
                     rootRequests.removeEventListener(this);
                     startActivity(intent);
                 }

@@ -60,10 +60,12 @@ public class search_result extends AppCompatActivity {
 
     public void createActivityList() {
         boolean isManager = false;
-        activitiesNamesList= getIntent().getStringArrayListExtra("ACTIVITY_NAME");
-        Log.d(TAG, "numOfList" + String.valueOf(activitiesNamesList.size()));
-        descriptionsList= getIntent().getStringArrayListExtra("DESCRIPTION");
-        managerList = getIntent().getStringArrayListExtra("MANAGER");
+        Log.d(TAG, "manager 1");
+        activitiesNamesList= getIntent().getStringArrayListExtra("ACTIVITIES_NAME_LIST");
+        //Log.d(TAG, "numOfList" + String.valueOf(activitiesNamesList.size()));
+        descriptionsList= getIntent().getStringArrayListExtra("DESCRIPTIONS_LIST");
+        Log.d(TAG, "numOfList" + String.valueOf(descriptionsList.size()));
+        managerList = getIntent().getStringArrayListExtra("MANAGER_LIST");
         String activityNameToShow;
         mActivitiesList = new ArrayList<>();
         for(int i=0; i<activitiesNamesList.size(); ++i){
@@ -72,6 +74,7 @@ public class search_result extends AppCompatActivity {
             if(managerList.get(i).equals(currentUserEmail)){
                 activityNameToShow += " (MANAGER)";
             }
+            Log.d(TAG, "manager 2");
             //String userUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
             mActivitiesList.add(new ActivityItems(activityNameNoChanges, R.drawable.project_logo, activityNameToShow, descriptionsList.get(i),isManager));
         }
@@ -161,31 +164,29 @@ public class search_result extends AppCompatActivity {
             intent = new Intent(this, manager.class);
             intent.putExtra("ACTIVITY_NAME", activityName);
             intent.putExtra("DESCRIPTION", description);
+            //intent.putExtra("GOT_FROM", "search_result");
         } else {
             if(participants.contains(currentUserEmail)){
                 intent = new Intent(this, group.class);
                 intent.putExtra("ACTIVITY_NAME", activityName);
                 intent.putExtra("DESCRIPTION", description);
+                //intent.putExtra("GOT_FROM", "search_result");
             }else {
                 intent = new Intent(this, activity_details.class);
                 intent.putStringArrayListExtra("Details", detailsToPass);
-                intent.putStringArrayListExtra("ACTIVITY_NAME", activitiesNamesList);
-                intent.putStringArrayListExtra("MANAGER", managerList);
-                intent.putStringArrayListExtra("DESCRIPTION", descriptionsList);
+                intent.putStringArrayListExtra("ACTIVITY_NAME_LIST", activitiesNamesList);
+                intent.putStringArrayListExtra("MANAGER_LIST", managerList);
+                intent.putStringArrayListExtra("DESCRIPTION_LIST", descriptionsList);
+                //intent.putExtra("GOT_FROM", "search_result");
             }
         }
         Log.d(TAG, "show Details");
 
+        intent.putExtra("GOT_FROM", "search_result");
         intent.putStringArrayListExtra("ACTIVITIES_NAME_LIST", activitiesNamesList);
         intent.putStringArrayListExtra("DESCRIPTIONS_LIST", descriptionsList);
         intent.putStringArrayListExtra("MANAGER_LIST", managerList);
 
         startActivity(intent);
     }
-
-    public void backButton(View view) {
-        Intent intent=new Intent(this,activity_Search.class);
-        startActivity(intent);
-    }
-
 }

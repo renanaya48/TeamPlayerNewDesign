@@ -222,6 +222,15 @@ public class chat extends AppCompatActivity {
         myIntent.putExtra("GOT_FROM", backTO);
         myIntent.putExtra("ACTIVITY_NAME", room_name);
         myIntent.putExtra("DESCRIPTION", description);
+        if(backTO.equals("search_result")){
+            ArrayList <String> activitiesNamesList= getIntent().getStringArrayListExtra("ACTIVITIES_NAME_LIST");
+            ArrayList <String> descriptionsList= getIntent().getStringArrayListExtra("DESCRIPTIONS_LIST");
+            ArrayList <String>managerList = getIntent().getStringArrayListExtra("MANAGER_LIST");
+
+            myIntent.putStringArrayListExtra("ACTIVITIES_NAME_LIST", activitiesNamesList);
+            myIntent.putStringArrayListExtra("DESCRIPTIONS_LIST", descriptionsList);
+            myIntent.putStringArrayListExtra("MANAGER_LIST", managerList);
+        }
         startActivityForResult(myIntent, 0);
         return true;
     }

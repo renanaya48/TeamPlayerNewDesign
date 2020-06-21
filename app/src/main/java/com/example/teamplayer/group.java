@@ -53,6 +53,7 @@ public class group extends AppCompatActivity {
     private ImageView groupImage;
     private FirebaseStorage storage;
     private StorageReference storageReference;
+    private String backTo;
 
     private Uri filePath;
 
@@ -83,6 +84,7 @@ public class group extends AppCompatActivity {
         setContentView(R.layout.activity_group);
         TextView nameActivity = (TextView) findViewById(R.id.name_of_activity);
         documentActivityName = getIntent().getStringExtra("ACTIVITY_NAME");
+        backTo = getIntent().getStringExtra("GOT_FROM");
         downloadImage();
         nameActivity.setText(documentActivityName);
         TextPaint paint = nameActivity.getPaint();
@@ -122,9 +124,9 @@ public class group extends AppCompatActivity {
      * @return
      */
     public boolean onOptionsItemSelected(MenuItem item){
-        String backTO = getIntent().getStringExtra("GOT_FROM");
+        //String backTO = getIntent().getStringExtra("GOT_FROM");
         Intent myIntent;
-        if(backTO.equals("my_activities")){
+        if(backTo.equals("my_activities")){
             myIntent = new Intent(getApplicationContext(), user_activities.class);
         }else{
             myIntent = new Intent(getApplicationContext(), search_result.class);
@@ -133,9 +135,9 @@ public class group extends AppCompatActivity {
         ArrayList <String> descriptionsList= getIntent().getStringArrayListExtra("DESCRIPTIONS_LIST");
         ArrayList <String>managerList = getIntent().getStringArrayListExtra("MANAGER_LIST");
 
-        myIntent.putStringArrayListExtra("ACTIVITY_NAME", activitiesNamesList);
-        myIntent.putStringArrayListExtra("DESCRIPTION", descriptionsList);
-        myIntent.putStringArrayListExtra("MANAGER", managerList);
+        myIntent.putStringArrayListExtra("ACTIVITIES_NAME_LIST", activitiesNamesList);
+        myIntent.putStringArrayListExtra("DESCRIPTIONS_LIST", descriptionsList);
+        myIntent.putStringArrayListExtra("MANAGER_LIST", managerList);
         //myIntent.putExtra("ACTIVITY_NAME", documentActivityName);
         //myIntent.putExtra("DESCRIPTION", description);
         startActivityForResult(myIntent, 0);
@@ -146,10 +148,19 @@ public class group extends AppCompatActivity {
 
     public void chatButton(View view){
         Intent intent = new Intent(getApplicationContext(), chat.class);
-        String backTO = getIntent().getStringExtra("GOT_FROM");
-        intent.putExtra("GOT_FROM", backTO);
+        //String backTO = getIntent().getStringExtra("GOT_FROM");
+        intent.putExtra("GOT_FROM", backTo);
         intent.putExtra("room_name", documentActivityName);
         intent.putExtra("DESCRIPTION", description);
+        if(backTo.equals("search_result")){
+            ArrayList <String> activitiesNamesList= getIntent().getStringArrayListExtra("ACTIVITIES_NAME_LIST");
+            ArrayList <String> descriptionsList= getIntent().getStringArrayListExtra("DESCRIPTIONS_LIST");
+            ArrayList <String>managerList = getIntent().getStringArrayListExtra("MANAGER_LIST");
+
+            intent.putStringArrayListExtra("ACTIVITIES_NAME_LIST", activitiesNamesList);
+            intent.putStringArrayListExtra("DESCRIPTIONS_LIST", descriptionsList);
+            intent.putStringArrayListExtra("MANAGER_LIST", managerList);
+        }
         startActivity(intent);
     }
 

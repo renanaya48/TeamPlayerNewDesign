@@ -70,9 +70,9 @@ public class activity_details extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
         detailsList = getIntent().getStringArrayListExtra("Details");
-        activitiesNameList = getIntent().getStringArrayListExtra("ACTIVITY_NAME");
-        descriptionsList = getIntent().getStringArrayListExtra("DESCRIPTION");
-        managerList = getIntent().getStringArrayListExtra("MANAGER");
+        activitiesNameList = getIntent().getStringArrayListExtra("ACTIVITIES_NAME_LIST");
+        descriptionsList = getIntent().getStringArrayListExtra("DESCRIPTIONS_LIST");
+        managerList = getIntent().getStringArrayListExtra("MANAGER_LIST");
         getAgeRange();
         //Show action bar
         isRequestSend=false;
@@ -230,9 +230,9 @@ public class activity_details extends AppCompatActivity {
      */
     public boolean onOptionsItemSelected(MenuItem item){
         Intent intent=new Intent(this, search_result.class);
-        intent.putStringArrayListExtra("ACTIVITY_NAME", activitiesNameList);
-        intent.putStringArrayListExtra("DESCRIPTION", descriptionsList);
-        intent.putStringArrayListExtra("MANAGER", managerList);
+        intent.putStringArrayListExtra("ACTIVITIES_NAME_LIST", activitiesNameList);
+        intent.putStringArrayListExtra("DESCRIPTIONS_LIST", descriptionsList);
+        intent.putStringArrayListExtra("MANAGER_LIST", managerList);
         intent.putStringArrayListExtra("Details", detailsList);
         startActivity(intent);
         return true;

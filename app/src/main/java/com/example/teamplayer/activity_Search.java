@@ -298,10 +298,10 @@ public class activity_Search extends AppCompatActivity {
     public void searchResult(View view) {
         Intent intent = new Intent(this, search_result.class);
         intent.putExtra("ACTIVITY", className);
-        intent.putStringArrayListExtra("ACTIVITY_NAME", activitiesNamesFound);
+        intent.putStringArrayListExtra("ACTIVITIES_NAME_LIST", activitiesNamesFound);
         Log.d(TAG, "size in search " + String.valueOf(activitiesNamesFound.size()));
-        intent.putStringArrayListExtra("DESCRIPTION", descriptionsFound);
-        intent.putStringArrayListExtra("MANAGER", managerFound);
+        intent.putStringArrayListExtra("DESCRIPTIONS_LIST", descriptionsFound);
+        intent.putStringArrayListExtra("MANAGER_LIST", managerFound);
         startActivity(intent);
 
     }
