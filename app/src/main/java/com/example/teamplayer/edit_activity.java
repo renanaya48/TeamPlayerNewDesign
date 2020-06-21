@@ -19,9 +19,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -34,6 +34,8 @@ public class edit_activity extends AppCompatActivity {
     String activityName;
     String description;
     String ageRange;
+    String maxAge;
+    String minAge;
     String city;
     String maxPlayers;
     String backTo;
@@ -55,14 +57,21 @@ public class edit_activity extends AppCompatActivity {
                 EditText editDescription = (EditText) findViewById(R.id.edit_description);
                 description = editDescription.getText().toString();
                 AutoCompleteTextView editCity = (AutoCompleteTextView) findViewById(R.id.city_editText);
-                EditText editAgeRange = (EditText) findViewById(R.id.age_range_fill);
+                EditText editMaxAge = (EditText) findViewById(R.id.max_age_fill);
+                EditText editMinAge = (EditText) findViewById(R.id.min_age_fill);
                 EditText editMaxPlayers = (EditText) findViewById(R.id.editMaxPlayers);
                 city = editCity.getText().toString();
-                ageRange = editAgeRange.getText().toString();
+                maxAge = editMaxAge.getText().toString();
+                minAge = editMinAge.getText().toString();
                 maxPlayers = editMaxPlayers.getText().toString();
-                Log.d(TAG, ageRange + " " + city + " " + maxPlayers + " " + description);
-                updateActivity();
-
+                if (Integer.parseInt(minAge) > Integer.parseInt(maxAge)) {
+                    Snackbar.make(view, "Min age can not be bigger than Max age",
+                            Snackbar.LENGTH_LONG)
+                            .show();
+                } else{
+                    ageRange = minAge + "-" + maxAge;
+                    updateActivity();
+                }
             }
         });
         setTitle("edit activity " + activityName);
@@ -76,7 +85,7 @@ public class edit_activity extends AppCompatActivity {
         DocumentReference docRef = FirebaseFirestore.getInstance()
                 .collection(ACTIVITIES_COLLECTION).document(activityName);
         docRef.update("ageRange", ageRange, "city", city,
-                "maxPlayers", maxPlayers, "description", description)
+                "maxPlayers", maxPlayers, "description", description, "minAge", minAge, "maxAge", maxAge)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -123,7 +132,7 @@ public class edit_activity extends AppCompatActivity {
         EditText editDescription = (EditText) findViewById(R.id.edit_description);
         editDescription.setText(description);
         AutoCompleteTextView editCity = (AutoCompleteTextView) findViewById(R.id.city_editText);
-        EditText editAgeRange = (EditText) findViewById(R.id.age_range_fill);
+        EditText editAgeRange = (EditText) findViewById(R.id.max_age_fill);
         EditText editMaxPlayers = (EditText) findViewById(R.id.editMaxPlayers);
         editCity.setText(city);
         editAgeRange.setText(ageRange);

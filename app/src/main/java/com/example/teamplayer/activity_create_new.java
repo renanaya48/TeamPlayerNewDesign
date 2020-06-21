@@ -43,10 +43,9 @@ public class activity_create_new extends AppCompatActivity {
     private static final String TAG = "saveToDataBase";
     private static final String ACTIVITIES_COLLECTION = "Activities/";
     Map<String, Object> dataToSave = new HashMap<String, Object>();
-    //  Button buttonAge;
-    Button buttonMinAge;
-    Button buttonMaxAge;
-    Button buttonCity;
+    //Button buttonMinAge;
+    //Button buttonMaxAge;
+    //Button buttonCity;
     Button buttonSportType;
     String className = "activity_create_new";
     boolean clicked = false;
@@ -97,24 +96,6 @@ public class activity_create_new extends AppCompatActivity {
             }
         });
 
-/*
-        buttonAge.setOnClickListener(new View.OnClickListener() {
-            //@override
-            public void onClick(View v) {
-                EditText activityName = (EditText) findViewById(R.id.activity_name);
-                String activityNameText = activityName.getText().toString();
-                Intent intent = new Intent(activity_create_new.this, age_range.class);
-                intent.putExtra("ACTIVITY", className);
-                intent.putExtra("ACTIVITY_NAME", activityNameText);
-                intent.putExtra("CITY", cityThatChosen);
-                intent.putExtra("SPORTS", sportThatChosen);
-                startActivity(intent);
-                clicked = true;
-
-            }
-        });
-
- */
 
         //set the city name
         buttonSportType.setOnClickListener(new View.OnClickListener() {
@@ -135,9 +116,7 @@ public class activity_create_new extends AppCompatActivity {
 
         if (!clicked) {
             ageThatChosen = getIntent().getStringExtra("AGE");
-            // buttonAge.setText(ageThatChosen);
             cityThatChosen = getIntent().getStringExtra("CITY");
-            //buttonCity.setText(cityThatChosen);
             actv.setText(cityThatChosen);
 
             sportThatChosen = getIntent().getStringExtra("SPORTS");
@@ -145,10 +124,8 @@ public class activity_create_new extends AppCompatActivity {
         }
         if (!clicked_city) {
             cityThatChosen = getIntent().getStringExtra("CITY");
-            //buttonCity.setText(cityThatChosen);
             actv.setText(cityThatChosen);
             ageThatChosen = getIntent().getStringExtra("AGE");
-            // buttonAge.setText(ageThatChosen);
             sportThatChosen = getIntent().getStringExtra("SPORTS");
             buttonSportType.setText(sportThatChosen);
         }
@@ -170,7 +147,7 @@ public class activity_create_new extends AppCompatActivity {
      * @param view the screen to show on
      * @throws InterruptedException exception
      */
-    public void SaveData(View view) throws InterruptedException {
+    public void SaveData(View view) {
         viewToPass = view;
         EditText activityName = (EditText) findViewById(R.id.password);
         activityNameText = activityName.getText().toString();
@@ -186,7 +163,7 @@ public class activity_create_new extends AppCompatActivity {
                 @Override
                 public void onSuccess(Void aVoid) {
                     Log.d(TAG, "document updated");
-                    Snackbar.make(viewToPass, "Please choose a different name, this name already exist",
+                    Snackbar.make(viewToPass, "Please choose a different activity name, this name already exists",
                             Snackbar.LENGTH_LONG)
                             .show();
 
@@ -196,7 +173,9 @@ public class activity_create_new extends AppCompatActivity {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     Log.w(TAG, "no such doc");
-                    EditText description = (EditText) findViewById(R.id.descriptionToFill);
+                    createNewDoc();
+                    isExist = false;
+                    /*EditText description = (EditText) findViewById(R.id.descriptionToFill);
                     String descriptionText = description.getText().toString();
                     if (descriptionText.equals("")) {
                         Snackbar.make(viewToPass, "Description is required",
@@ -205,8 +184,7 @@ public class activity_create_new extends AppCompatActivity {
                     } else {
                         createNewDoc();
                         isExist = false;
-                    }
-
+                    }*/
                 }
             });
         }
@@ -254,6 +232,47 @@ public class activity_create_new extends AppCompatActivity {
         // UsersList.updateChildren(mapUser);
     }
 
+
+    /**
+     * check if the user fill all the fields
+     * @param view
+     */
+    public void checkThatHaveAll(View view){
+        Log.d(TAG, "check!");
+
+        EditText activityName = (EditText) findViewById(R.id.password);
+        String activityNameText = activityName.getText().toString();
+        EditText maxPlayers = (EditText) findViewById(R.id.max_Players);
+        CheckBox payment = (CheckBox) findViewById(R.id.payment);
+        EditText description = (EditText) findViewById(R.id.descriptionToFill);
+        String descriptionText = description.getText().toString();
+        EditText minAge = (EditText) findViewById(R.id.min_age);
+        String minAgeText = minAge.getText().toString();
+        EditText maxAge = (EditText) findViewById(R.id.max_age);
+        String maxAgeText = maxAge.getText().toString();
+
+        if((minAgeText.isEmpty())
+                ||(maxAgeText.isEmpty())
+                ||(sportThatChosen==null)
+                ||(cityThatChosen==null)
+                || (descriptionText.isEmpty())){
+            Snackbar.make(view, "Please fill details for sport type, age range, city and description",
+                    Snackbar.LENGTH_LONG)
+                    .show();
+
+        }else{
+            if (Integer.parseInt(minAgeText) > Integer.parseInt(maxAgeText)){
+                Snackbar.make(view, "Min age can not be bigger than Max age",
+                        Snackbar.LENGTH_LONG)
+                        .show();
+
+            } else {
+                SaveData(view);
+            }
+        }
+
+    }
+
     /**
      * get the new activity details ans save it in a list to the DB
      */
@@ -264,7 +283,6 @@ public class activity_create_new extends AppCompatActivity {
         EditText activityName = (EditText) findViewById(R.id.password);
         String activityNameText = activityName.getText().toString();
         EditText maxPlayers = (EditText) findViewById(R.id.max_Players);
-        //EditText details = (EditText) findViewById(R.id.details);
         CheckBox payment = (CheckBox) findViewById(R.id.payment);
         EditText description = (EditText) findViewById(R.id.descriptionToFill);
         String descriptionText = description.getText().toString();

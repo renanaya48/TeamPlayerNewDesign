@@ -17,12 +17,12 @@
             android:layout_width="175dp"
             android:layout_height="35dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/text_view_to_fill"
             android:textAlignment="center"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/age_range_fill" />
+            app:layout_constraintTop_toBottomOf="@+id/max_age_fill" />
 
         <Button
             android:id="@+id/save_changes"
@@ -36,18 +36,18 @@
             app:layout_constraintTop_toBottomOf="@+id/edit_description" />
 
         <EditText
-            android:id="@+id/age_range_fill"
+            android:id="@+id/max_age_fill"
             android:layout_width="175dp"
             android:layout_height="35dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/text_view_to_fill"
             android:ems="10"
             android:inputType="textPersonName"
             android:textAlignment="center"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_activity" />
+            app:layout_constraintTop_toBottomOf="@+id/min_age_fill" />
 
         <EditText
             android:id="@+id/editMaxPlayers"
@@ -95,16 +95,16 @@
             app:layout_constraintVertical_bias="0.106" />
 
         <TextView
-            android:id="@+id/age_range_text_view"
+            android:id="@+id/max_age_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="172dp"
-            android:text="Age Range:"
+            android:layout_marginTop="20dp"
+            android:text="Max age:"
             android:textColor="#273272"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/min_age_text_view" />
 
         <TextView
             android:id="@+id/city_textView"
@@ -116,7 +116,7 @@
             android:textColor="#273272"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/age_range_text_view" />
+            app:layout_constraintTop_toBottomOf="@+id/max_age_text_view" />
 
         <TextView
             android:id="@+id/maxPlayers_textView"
@@ -141,6 +141,32 @@
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/maxPlayers_textView" />
+
+        <TextView
+            android:id="@+id/min_age_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="136dp"
+            android:text="Min age:"
+            android:textColor="#273272"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/min_age_fill"
+            android:layout_width="175dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="132dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/text_view_to_fill"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

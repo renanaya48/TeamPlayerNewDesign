@@ -1272,8 +1272,6 @@ id adjust_height
 id adjust_width
 id age
 id age_Range_textView
-id age_range_fill
-id age_range_text_view
 id age_text_view
 id alertTitle
 id all
@@ -1405,13 +1403,17 @@ id masked
 id maxPlayers_textView
 id max_Players
 id max_age
+id max_age_fill
 id max_age_text
+id max_age_text_view
 id media_actions
 id message
 id middle
 id min_Age_text
 id min_age
+id min_age_fill
 id min_age_search
+id min_age_text_view
 id mini
 id msg_input
 id mtrl_child_content_container

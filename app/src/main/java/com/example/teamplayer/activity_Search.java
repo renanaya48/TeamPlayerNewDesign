@@ -93,20 +93,7 @@ public class activity_Search extends AppCompatActivity {
             }
         });
 
-        /*buttonAge.setOnClickListener(new View.OnClickListener() {
-            //@override
-            public void onClick(View v) {
-                //EditText activityName = (EditText) findViewById(R.id.activity_name);
-                //String activityNameText = activityName.getText().toString();
-                Intent intent = new Intent(activity_Search.this, age_range.class);
-                intent.putExtra("ACTIVITY", className);
-                intent.putExtra("SPORTS", sportThatChosen);
-                intent.putExtra("CITY", cityThatChosen);
-                startActivity(intent);
-                clicked = true;
 
-            }
-        });*/
         buttonsportType.setOnClickListener(new View.OnClickListener() {
             //@override
             public void onClick(View v) {
@@ -181,10 +168,6 @@ public class activity_Search extends AppCompatActivity {
                     // [END get_multiple]
 
         }else{
-            //Query query = FirebaseFirestore.getInstance().collection(ACTIVITIES_COLLECTION);
-            //query = query.whereEqualTo("sportType", sportThatChosen).
-              //      whereEqualTo("city", cityThatChosen).whereEqualTo("payment", "true");
-            //query.get()
             FirebaseFirestore.getInstance().collection(ACTIVITIES_COLLECTION)
                     .whereEqualTo("sportType", sportThatChosen)
                     //whereEqualTo("ageRange", ageThatChosen)
@@ -225,27 +208,6 @@ public class activity_Search extends AppCompatActivity {
 
     }
 
-    /*
-    public void getValuesFromUsers(View view){
-        EditText sportType = (EditText) findViewById(R.id.activity_name);
-        //area
-        //agerang
-
-        String activityNameText = sportType.getText().toString();
-        if(!activityNameText.equals("")) {
-            //objectToSearch.put("activityName", activityNameText);
-            objectToSearch.add(activityNameText);
-            fieldToSearch.add("activityName");
-        }
-
-        fieldToSearch.add("payment");
-        //objectToSearch.put("payment", paymentText);
-        //area
-        //agerange
-        Log.d(TAG, objectToSearch.get(0));
-    }
-
-     */
 
     /**
      * check if the user fill all the fields
@@ -261,7 +223,6 @@ public class activity_Search extends AppCompatActivity {
         String maxAgeText = maxAge.getText().toString();
         Log.d(TAG, "max "+ maxAgeText);
 
-        //if((ageThatChosen == null)
         if((minAgeText.isEmpty())
             ||(maxAgeText.isEmpty())
             ||(sportThatChosen==null)
@@ -272,7 +233,14 @@ public class activity_Search extends AppCompatActivity {
                     .show();
 
         }else{
-            getMultipleDocs(view);
+            if (Integer.parseInt(minAgeText) > Integer.parseInt(maxAgeText)){
+                Snackbar.make(view, "Min age can not be bigger than Max age",
+                        Snackbar.LENGTH_LONG)
+                        .show();
+
+            } else {
+                getMultipleDocs(view);
+            }
         }
 
     }
