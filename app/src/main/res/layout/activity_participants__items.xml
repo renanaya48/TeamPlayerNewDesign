@@ -20,14 +20,7 @@
             app:civ_border_width="1dp"
             android:layout_centerVertical="true"
             app:civ_border_color="#1D54BF"/>
-<!--
 
-        <ImageView
-            android:id="@+id/imageView_par"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:padding="2dp" />
--->
         <TextView
             android:id="@+id/textView_par"
             android:layout_width="wrap_content"
@@ -58,7 +51,8 @@
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_delete" />
+
+            />
 
     </RelativeLayout>
 

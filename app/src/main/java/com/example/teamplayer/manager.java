@@ -31,6 +31,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -405,13 +407,22 @@ public class manager extends AppCompatActivity {
             public void onInfoClick(int position) {
                 positionParticipant = position;
 
-                Log.d(TAG, "goToDetails");
-                View v = findViewById(R.id.manager_recyclerView);
-                Snackbar mySnackbar = Snackbar.make(v, "Are You Sure You Want To Move this Participant From activity?",
-                        Snackbar.LENGTH_LONG);
-                mySnackbar.setAction("YES", new YesMovePersonListener());
-                mySnackbar.show();
-                //goToDetails(position);
+                String parEmail = mParticipantsList.get(position).getparEmail();
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String currentEmail = user.getEmail();
+
+                Log.d(TAG, "parEmail: " + parEmail);
+                Log.d(TAG, "currEmail: " + currentEmail);
+
+
+                if (!parEmail.equals(currentEmail)){
+                    Log.d(TAG, "goToDetails");
+                    View v = findViewById(R.id.manager_recyclerView);
+                    Snackbar mySnackbar = Snackbar.make(v, "Are You Sure You Want To Move this Participant From activity?",
+                            Snackbar.LENGTH_LONG);
+                    mySnackbar.setAction("YES", new YesMovePersonListener());
+                    mySnackbar.show();
+                }
 
             }
         });

@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -28,6 +30,7 @@ public class participantAdapter extends RecyclerView.Adapter<participantAdapter.
     private OnItemClickListener mListener;
 
     private FirebaseStorage storage;
+    private FirebaseAuth mAuth;
     private StorageReference storageReference;
 
     /**
@@ -66,7 +69,7 @@ public class participantAdapter extends RecyclerView.Adapter<participantAdapter.
             mTextView1 = itemView.findViewById(R.id.textView_par);
             mTextView2 = itemView.findViewById(R.id.age);
             mInfoImage = itemView.findViewById(R.id.image_info1);
-
+            Log.d(TAG, "minfoimage" + mInfoImage);
             mInfoImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -78,7 +81,6 @@ public class participantAdapter extends RecyclerView.Adapter<participantAdapter.
                     }
                 }
             });
-
         }
     }
 
@@ -124,6 +126,13 @@ public class participantAdapter extends RecyclerView.Adapter<participantAdapter.
                 Log.d(TAG, "No such Image");
             }
         });
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String currentEmail = user.getEmail();
+
+        if (!currentEmail.equals(parEmail)){
+            holder.mInfoImage.setImageResource(R.drawable.ic_delete);
+        }
 
         //holder.mImageView.setImageResource(currentItem.getImageResource());
         holder.mTextView1.setText(currentItem.getParticipantName());
