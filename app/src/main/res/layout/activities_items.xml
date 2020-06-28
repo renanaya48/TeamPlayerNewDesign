@@ -26,7 +26,8 @@
         android:layout_marginTop="-2dp"
         android:layout_toEndOf="@+id/imageView"
         android:text="Line 1"
-        android:textColor="@android:color/black"
+        android:fontFamily="@font/lato_regular"
+        android:textColor="#012d8c"
         android:textSize="20sp"
         android:textStyle="bold"
         android:maxWidth="270dp"/>

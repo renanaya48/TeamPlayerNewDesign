@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
+    android:background="@drawable/little_screen_upsidedown"
     android:gravity="center"
     tools:context=".no_requests">
 
@@ -12,10 +12,11 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/title_border"
+        android:fontFamily="@font/lato_regular"
         android:padding="5dp"
         android:text="No New Requests"
-        android:textColor="@android:color/background_light"
+        android:textAllCaps="true"
+        android:textColor="#012d8c"
         android:textSize="30sp" />
 
 </RelativeLayout>

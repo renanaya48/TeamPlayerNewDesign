@@ -19,7 +19,8 @@
         android:layout_toRightOf="@id/profile_image"
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
-        android:textColor="@android:color/background_dark"
+        android:fontFamily="@font/lato_regular"
+        android:textColor="#012d8c"
         android:textSize="20sp" />
 
 

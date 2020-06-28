@@ -4,50 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/little_screen_upsidedown"
     tools:context=".group">
 
     <android.widget.RelativeLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/GroupImage"
-            android:layout_width="match_parent"
-            android:layout_height="431dp"
-            android:layout_below="@+id/details_to_fill"
-            android:layout_alignParentStart="true"
+        <Button
+            android:id="@+id/leaveButton"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/chatButton"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="0dp"
-            android:layout_marginTop="59dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="6dp"
-            android:background="@drawable/background"
-            android:padding="4dp"
-            android:scrollbars="vertical" />
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="12dp"
+            android:background="#107ecb"
+            android:fontFamily="@font/lato_regular"
+            android:text="Leave Activity"
+            android:textColor="#FFFFFF" />
 
-        <TextView
-            android:id="@+id/name_of_activity"
-            android:layout_width="wrap_content"
-            android:layout_height="69dp"
-            android:layout_alignParentStart="true"
+        <Button
+            android:id="@+id/chatButton"
+            android:layout_width="101dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="104dp"
-            android:layout_marginTop="54dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="574dp"
-            android:fontFamily="@font/titan_one"
-            android:textAllCaps="true"
-            android:textColor="@android:color/background_light"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.606"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginTop="134dp"
+            android:layout_marginEnd="14dp"
+            android:background="#107ecb"
+            android:fontFamily="@font/lato_regular"
+            android:onClick="chatButton"
+            android:text="Chat"
+            android:textColor="#FFFFFF" />
 
         <EditText
             android:id="@+id/details_to_fill"
@@ -61,56 +50,37 @@
             android:layout_marginEnd="133dp"
             android:background="@drawable/description_view_to_fill"
             android:ems="10"
-            android:fontFamily="@font/alegreya"
+            android:fontFamily="@font/lato_regular"
             android:inputType="textPersonName"
             android:padding="10dp"
-            android:textColor="@color/colorPrimary"
+            android:textColor="#012d8c"
             android:textIsSelectable="false"
             android:textSize="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.592"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/leaveButton"
-            android:layout_width="105dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/chatButton"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="12dp"
-            android:background="@drawable/title_border"
-            android:fontFamily="@font/alegreya"
-            android:text="Leave Activity"
-            android:textColor="#FFFFFF" />
-
-        <Button
-            android:id="@+id/chatButton"
-            android:layout_width="101dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="134dp"
-            android:layout_marginEnd="14dp"
-            android:background="@drawable/title_border"
-            android:fontFamily="@font/alegreya"
-            android:onClick="chatButton"
-            android:text="Chat"
-            android:textColor="#FFFFFF" />
-
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/profile_image"
-            android:layout_width="73dp"
-            android:layout_height="73dp"
+        <TextView
+            android:id="@+id/name_of_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="69dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="26dp"
-            android:layout_marginTop="40dp"
-            android:src="@drawable/ic_group_no_image"
-            app:civ_border_width="1dp"
-            app:civ_border_color="#2e3191"/>
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="118dp"
+            android:layout_marginTop="43dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="574dp"
+            android:fontFamily="@font/lato_regular"
+            android:textAllCaps="true"
+            android:textColor="#012d8c"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.606"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/paeticipants"
@@ -122,12 +92,42 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="261dp"
             android:layout_marginEnd="216dp"
+            android:fontFamily="@font/lato_regular"
             android:text="PARTICIPANTS:"
-            android:textColorHighlight="@color/design_default_color_primary"
-            android:textStyle="bold"
             android:textAllCaps="true"
-            android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textColor="#012d8c"
+            android:textColorHighlight="@color/design_default_color_primary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/GroupImage"
+            android:layout_width="match_parent"
+            android:layout_height="431dp"
+            android:layout_below="@+id/details_to_fill"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="59dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/little_screen_upsidedown"
+            android:padding="4dp"
+            android:scrollbars="vertical" />
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="73dp"
+            android:layout_height="73dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/ic_group_no_image"
+            app:civ_border_color="#2e3191"
+            app:civ_border_width="1dp" />
 
     </android.widget.RelativeLayout>
 

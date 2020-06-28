@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/little_screen_upsidedown_reg"
     tools:context=".edit_activity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/activity_name_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/background">
+        android:layout_height="wrap_content">
 
         <AutoCompleteTextView
             android:id="@+id/city_editText"
@@ -26,10 +26,10 @@
 
         <Button
             android:id="@+id/save_changes"
-            android:layout_width="140dp"
-            android:layout_height="110dp"
+            android:layout_width="123dp"
+            android:layout_height="129dp"
             android:layout_marginTop="44dp"
-            android:background="@drawable/save_changes"
+            android:background="@drawable/save_change"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -79,81 +79,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/description_textView" />
 
-        <TextView
-            android:id="@+id/edit_activity"
-            android:layout_width="280dp"
-            android:layout_height="50dp"
-            android:background="@drawable/title_border"
-            android:textColor="#FFFFFF"
-            android:textAlignment="center"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.529"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.106" />
-
-        <TextView
-            android:id="@+id/max_age_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
-            android:text="Max age:"
-            android:textColor="#273272"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/min_age_text_view" />
-
-        <TextView
-            android:id="@+id/city_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="28dp"
-            android:text="CITY"
-            android:textColor="#273272"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/max_age_text_view" />
-
-        <TextView
-            android:id="@+id/maxPlayers_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="28dp"
-            android:text="Max Players"
-            android:textColor="#273272"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/city_textView" />
-
-        <TextView
-            android:id="@+id/description_textView"
-            android:layout_width="393dp"
-            android:layout_height="31dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="40dp"
-            android:text="Description and Additional Details:"
-            android:textColor="#273272"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/maxPlayers_textView" />
-
-        <TextView
-            android:id="@+id/min_age_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="136dp"
-            android:text="Min age:"
-            android:textColor="#273272"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <EditText
             android:id="@+id/min_age_fill"
             android:layout_width="175dp"
@@ -166,6 +91,87 @@
             android:textAlignment="center"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/edit_activity"
+            android:layout_width="324dp"
+            android:layout_height="79dp"
+            android:fontFamily="@font/lato_regular"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#012d8c"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.539"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.047" />
+
+        <TextView
+            android:id="@+id/max_age_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/lato_regular"
+            android:text="Max age:"
+            android:textColor="#273272"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/min_age_text_view" />
+
+        <TextView
+            android:id="@+id/city_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/lato_regular"
+            android:text="CITY"
+            android:textColor="#273272"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/max_age_text_view" />
+
+        <TextView
+            android:id="@+id/maxPlayers_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/lato_regular"
+            android:text="Max Players"
+            android:textColor="#273272"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/city_textView" />
+
+        <TextView
+            android:id="@+id/description_textView"
+            android:layout_width="393dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/lato_regular"
+            android:text="Description and Additional Details:"
+            android:textColor="#273272"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/maxPlayers_textView" />
+
+        <TextView
+            android:id="@+id/min_age_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="136dp"
+            android:fontFamily="@font/lato_regular"
+            android:text="Min age:"
+            android:textColor="#273272"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
