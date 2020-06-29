@@ -5,7 +5,7 @@
     android:id="@+id/view_relative"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/little_screen_upsidedown"
+    android:background="@drawable/little_screen_upsidedown_reg"
     tools:context=".manager">
 
     <android.widget.RelativeLayout
@@ -22,12 +22,13 @@
             android:layout_marginTop="13dp"
             android:layout_marginEnd="12dp"
             android:layout_toStartOf="@+id/edit_button"
-            android:background="#107ecb"
+            android:background="@drawable/buttons_backrounds"
             android:fontFamily="@font/lato_regular"
             android:onClick="joinRequest"
             android:text="Join Requests"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.915"
@@ -44,10 +45,11 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="134dp"
             android:layout_marginEnd="20dp"
-            android:background="#107ecb"
+            android:background="@drawable/buttons_backrounds"
             android:fontFamily="@font/lato_regular"
             android:text="Chat"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/deleteButton"
@@ -57,10 +59,11 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="6dp"
             android:layout_marginEnd="20dp"
-            android:background="#107ecb"
+            android:background="@drawable/buttons_backrounds"
             android:fontFamily="@font/lato_regular"
             android:text="DELETE"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/edit_button"
@@ -70,10 +73,11 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="62dp"
             android:layout_marginEnd="21dp"
-            android:background="#107ecb"
+            android:background="@drawable/buttons_backrounds"
             android:fontFamily="@font/lato_regular"
             android:text="Edit Activity"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
 
 
         <ImageButton
@@ -102,8 +106,9 @@
             android:fontFamily="@font/lato_regular"
             android:textAllCaps="true"
             android:textColor="#012d8c"
-            android:textSize="30sp"
+            android:textSize="24sp"
             android:textStyle="bold"
+            android:paddingTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.606"
             app:layout_constraintStart_toStartOf="parent"
@@ -141,7 +146,6 @@
             android:layout_marginTop="76dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="-47dp"
-            android:background="@drawable/little_screen_upsidedown"
             android:padding="4dp"
             android:scrollbars="vertical" />
 

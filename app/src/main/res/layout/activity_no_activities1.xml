@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/little_screen_upsidedown_reg"
+    android:background="@drawable/little_screen"
     tools:context=".no_activities1">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,8 +14,8 @@
 
         <Button
             android:id="@+id/no_activities1"
-            android:layout_width="197dp"
-            android:layout_height="179dp"
+            android:layout_width="135dp"
+            android:layout_height="119dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="80dp"
             android:layout_marginEnd="8dp"
@@ -26,25 +26,25 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.585"
+            app:layout_constraintHorizontal_bias="0.465"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/no_activities"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/no_activities"
             android:layout_width="223dp"
             android:layout_height="106dp"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="200dp"
             android:fontFamily="@font/lato_regular"
             android:padding="5dp"
-            android:text="No Activities For You"
+            android:text="No Activities"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="#012d8c"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.569"
+            app:layout_constraintHorizontal_bias="0.452"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -1097,6 +1097,7 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable buttons_backrounds
 drawable chat
 drawable chat1
 drawable chat_send_background
@@ -1365,7 +1366,6 @@ id done
 id done_city
 id done_sport_type
 id editMaxPlayers
-id edit_activity
 id edit_button
 id edit_description
 id edit_query

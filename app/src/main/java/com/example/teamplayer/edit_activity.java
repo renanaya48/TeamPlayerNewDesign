@@ -125,9 +125,9 @@ public class edit_activity extends AppCompatActivity {
      * show the current details of the activity that the manager wants to change
      */
     private void showDetails() {
-        TextView editActivityName = (TextView) findViewById(R.id.edit_activity);
-        String nameEditToShow = activityName;
-        editActivityName.setText(nameEditToShow);
+        //TextView editActivityName = (TextView) findViewById(R.id.edit_activity);
+        //String nameEditToShow = activityName;
+        //editActivityName.setText(nameEditToShow);
         description = getIntent().getStringExtra("DESCRIPTION");
         EditText editDescription = (EditText) findViewById(R.id.edit_description);
         editDescription.setText(description);

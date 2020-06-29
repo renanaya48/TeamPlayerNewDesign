@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/little_screen_upsidedown"
+    android:background="@drawable/little_screen_upsidedown_reg"
     tools:context=".group">
 
     <android.widget.RelativeLayout
@@ -19,24 +19,26 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="12dp"
-            android:background="#107ecb"
+            android:background="@drawable/buttons_backrounds"
             android:fontFamily="@font/lato_regular"
             android:text="Leave Activity"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/chatButton"
-            android:layout_width="101dp"
+            android:layout_width="102dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="134dp"
             android:layout_marginEnd="14dp"
-            android:background="#107ecb"
+            android:background="@drawable/buttons_backrounds"
             android:fontFamily="@font/lato_regular"
             android:onClick="chatButton"
             android:text="Chat"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/details_to_fill"
@@ -77,6 +79,7 @@
             android:textColor="#012d8c"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:paddingTop="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.606"
             app:layout_constraintStart_toStartOf="parent"
@@ -113,7 +116,6 @@
             android:layout_marginTop="59dp"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="6dp"
-            android:background="@drawable/little_screen_upsidedown"
             android:padding="4dp"
             android:scrollbars="vertical" />
 

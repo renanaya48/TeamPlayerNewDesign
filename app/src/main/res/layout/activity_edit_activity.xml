@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/little_screen_upsidedown_reg"
+    android:background="@drawable/little_screen"
     tools:context=".edit_activity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,10 +28,9 @@
             android:id="@+id/save_changes"
             android:layout_width="123dp"
             android:layout_height="129dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/save_change"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_description" />
 
@@ -92,22 +91,6 @@
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/edit_activity"
-            android:layout_width="324dp"
-            android:layout_height="79dp"
-            android:fontFamily="@font/lato_regular"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="#012d8c"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.539"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.047" />
 
         <TextView
             android:id="@+id/max_age_text_view"

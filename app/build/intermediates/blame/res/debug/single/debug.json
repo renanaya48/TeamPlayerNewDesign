@@ -2504,6 +2504,10 @@
         "source": "C:\\Users\\renan\\.gradle\\caches\\transforms-2\\files-2.1\\c6a8a4c982cb22d2e2b2cda4dbbb33f3\\res\\color\\mtrl_btn_text_color_selector.xml"
     },
     {
+        "merged": "C:\\Users\\renan\\AndroidStudioProjects\\TeamPlayerNewVersion111222\\app\\build\\intermediates\\res\\merged\\debug\\drawable_buttons_backrounds.xml.flat",
+        "source": "C:\\Users\\renan\\AndroidStudioProjects\\TeamPlayerNewVersion111222\\app\\src\\main\\res\\drawable\\buttons_backrounds.xml"
+    },
+    {
         "merged": "C:\\Users\\renan\\AndroidStudioProjects\\TeamPlayerNewVersion111222\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_notification_action_background.xml.flat",
         "source": "C:\\Users\\renan\\.gradle\\caches\\transforms-2\\files-2.1\\35d0580bb7ebe6ccbffdecabbab2c928\\res\\drawable-v21\\notification_action_background.xml"
     },
